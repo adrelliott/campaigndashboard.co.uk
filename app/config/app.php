@@ -26,7 +26,8 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost',
+    //'url' => 'http://localhost',
+	'url' => 'http://localhost/_Projects/leadfarm/public',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -106,7 +107,7 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-
+        'Way\Generators\GeneratorsServiceProvider'
 	),
 
 	/*

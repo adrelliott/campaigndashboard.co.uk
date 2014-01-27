@@ -1,0 +1,66 @@
+<?php
+
+class ContactsController extends BaseController
+{
+
+    public function action_index()
+    {
+        $this->user = (object) array(
+            'owner_id' => '10222', 
+            'first_name' => 'Al', 
+            'id' => '2311',
+            'navbar' => array (
+                'home' => array(
+                    'route' => 'home',
+                    'icon' => 'tachometer',
+                    'label' => 'Dashboard',
+                    'dropdown' => array(),
+                    ),
+                'contacts' => array(
+                    'route' => 'contacts',
+                    'icon' => 'user',
+                    'label' => 'Contacts',
+                    'dropdown' => array(),
+                    ),
+                'sales' => array(
+                    'route' => '',
+                    'icon' => 'user',
+                    'label' => 'Dashboard',
+                    'dropdown' => array(
+                        'dropdown1' => array(
+                            'route' => 'home',
+                            'icon' => 'tachometer',
+                            'label' => 'dropdown1'
+                            ),
+                        'dropdown2' => array(
+                            'route' => 'home',
+                            'icon' => 'tachometer',
+                            'label' => 'dropdown2'
+                            ),
+                        ),
+                    ),
+                'markegting' => array(
+                    'route' => 'home',
+                    'icon' => 'user',
+                    'label' => 'marketging',
+                    'dropdown' => array(),
+                    ),
+                )
+            );
+        $this->data = array('specialData' => 'yeah!',
+            'user' => $this->user);
+
+        return $this->render('contacts/index');
+    }
+
+    public function render($folder, $view)
+    {
+        if (file_exists('views/' . $this->user->owner_id . '/' . $template . '.php'))
+        {
+            $template = $this->user->owner_id . '/' . $template;
+        }
+        else $template = 'defaults/' . $template;
+
+        View::make($template, $this->data);
+    }
+}

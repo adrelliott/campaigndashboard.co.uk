@@ -1,0 +1,101 @@
+body {
+  /*min-height: 2000px;*/
+  padding-top: 50px;
+  padding-bottom: 80px;
+}
+
+.top-line {
+    padding-top: 30px
+}
+
+.page-header {
+    margin-top: 20px;
+}
+
+.dataTables_paginate, .dataTables_filter {
+    float: right;
+}
+
+.dataTables_wrapper {
+    padding: 20px 0;
+}
+
+.border-none {
+    border:none;
+}
+
+.align_with_well {
+    padding: 20px 20px 0 20px;
+}
+
+
+.img-center {
+    margin: 0 auto;
+    display: block;
+}
+
+.form-inline .form-group {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.navbar-nav {
+    padding-top: 10px;
+}
+
+.navbar-toggle {
+    padding: 20px;
+    margin-top: 10px;
+}
+
+
+legend {
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.margin_top_30 {
+    margin-top: 30px;
+}
+
+.nav>li>a {
+    padding: 10px 10px;
+    text-align: center;
+}
+
+/*.btn.btn-fullwidth {
+  width: 100%; 
+  display: block;
+}*/
+
+div.list .pre-scrollable {
+  max-height: 550px;
+}
+
+div.list {
+    height:650px;
+}
+
+div.card a {
+    text-decoration:none;
+}
+
+tr.completed {
+    background-color:red;
+}
+
+.loader {
+    background-image: url('../images/ajax-loader.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 50px; 
+}
+
+/* for table on order page */
+input.order_item {
+    border:none;
+    background-color: red; 
+}
+
+
+

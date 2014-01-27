@@ -5,8 +5,6 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*",
-		"components/jquery": "*",
-		"twitter/bootstrap": "*",
 		"way/generators": "dev-master"
 	},
 	"autoload": {

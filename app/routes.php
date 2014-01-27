@@ -11,7 +11,26 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::resource('contacts', 'ContactsController');
+Route::get('/', array('as' => 'dashboard', 'uses' => 'DashboardController'));
+
+
+//Route::controller('contacts', 'ContactsController');
+
+
+
+// Route::get('contacts/{id?}/edit', array( 
+//     'as' => 'contacts/show/' . $id, //see page 3299 in kindle
+//     function()
+//     {
+//         if ($id == null) return Redirect::route('contacts')->with('message', 'Oops. No contact found with that id (' . $id . ')');
+
+//         $data = array('owner_id' => 10222, 'id' => $id);
+//         // return View::make('index', $data)->nest('child', 'child.index', $data);
+//         return View::make('contacts.show', $data);
+//     }
+// ));
+
+
+
+Route::resource('contactactions', 'ContactactionsController');
