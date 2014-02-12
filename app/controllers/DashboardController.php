@@ -9,6 +9,7 @@ class DashboardController extends BaseController {
 	 */
 	public function index()
 	{
+        return 'This is dashboard';
         //return $this->render();
 	}
 

@@ -9,7 +9,7 @@ class ContactsController extends \BaseController {
 	 */
 	public function index()
 	{
-        return $this->render();
+        return $this->render()->with('contacts', Contact::all());
 	}
 
 	/**
@@ -19,7 +19,7 @@ class ContactsController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+        return $this->render();
 	}
 
 	/**
@@ -29,18 +29,55 @@ class ContactsController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+        // $contact = Contact::create(Input::all());
+
+        // var_dump($contact);
+        // 
+        
+        $contact = new Contact;
+
+        if ($contact->save())
+        {
+            return Redirect::route('contacts.edit', array($contact->id))->with('message', 'That has been saved');
+        }
+
+        else
+        {
+            return Redirect::route('contacts.create')->withErrors($contact->errors());
+        }
+
+
+        // 
+        // 
+        // 
+
+        //Try and store the contact record
+        // try
+        // {
+        //     $id = Crm::make(Input::all());
+        // }
+    
+        // //Catch any exception
+        // catch (ValidationException $e)
+        // {
+        //     return Redirect::create()->withErrors($e->getErrors())->withInput();
+        // }
+
+        // //if it is stored successfully, then redirect to edit/{$id} with message
+        // return Redirect::edit()->with([
+        //     'message' => '[success]'
+        // ]);
 	}
 
 	/**
-	 * Display the specified resource.
+	 * Display the specified resource. (Can we be used to show a non-editable record, e.g. if permissions are not adequate to edit)
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function show($id)
 	{
-        return $this->render();
+        return $this->render()->with('contact', Contact::find($id));
 	}
 
 	/**
@@ -51,7 +88,7 @@ class ContactsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		return $this->render()->with('contact', Contact::find($id));
 	}
 
 	/**
@@ -62,7 +99,39 @@ class ContactsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$c = new Contact;
+
+        var_dump(Input::all());
+        // $c->save();
+        // dd($c);
+
+        if ($c->save())
+        {
+            return Redirect::route('contacts.edit', array($id))->with('message', '[success]');
+        } 
+       
+        else
+        {
+            return Redirect::route('contacts.edit', array($id))->withErrors($c->errors());
+            // var_dump($c);
+        }
+
+        //Try and store the contact record
+        // try
+        // {
+        //     $id = Crm::update(Input::all());
+        // }
+    
+        // //Catch any exception
+        // catch (ValidationException $e)
+        // {
+        //     return Redirect::edit()->withErrors($e->getErrors())->withInput();
+        // }
+
+        // //if it is stored successfully, then redirect to edit/{$id} with message
+        // return Redirect::edit()->with([
+        //     'message' => '[success]'
+        // ]);
 	}
 
 	/**
@@ -73,7 +142,7 @@ class ContactsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		//Form submists as DELETE to contacts/$id
 	}
 
 }

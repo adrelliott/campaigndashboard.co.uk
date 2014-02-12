@@ -109,6 +109,10 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
         'Cartalyst\Sentry\SentryServiceProvider',
+        'Former\FormerServiceProvider',
+        'Way\Form\FormServiceProvider',
+        'Profiler\ProfilerServiceProvider'
+        // 'Dallasmatthews\Crm\CrmServiceProvider'
         ),
 
 	/*
@@ -175,7 +179,9 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-
+        // 'Crm'             => 'Dallasmatthews\Crm\Crm'
+        'Former' => 'Former\Facades\Former',
+        'Profiler' => 'Profiler\Facades\Profiler'
 	),
 
 );

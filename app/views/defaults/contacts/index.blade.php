@@ -20,34 +20,32 @@
                 <th>#</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Username</th>
+                <th>Email</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
+            @foreach ($contacts as $contact)
+                <tr>
+                    <td>{{ $contact->id }}</td>
+                    <td>{{ $contact->first_name }}</td>
+                    <td>{{ $contact->last_name }}</td>
+                    <td>{{ $contact->email }}</td>
+                    <td>
+                        <a href="{{ route('contacts.edit', ['contacts' => $contact->id]) }}">Edit</a>
+                        | <a href="{{ route('contacts.create', ['contact' => $contact->id]) }}">New record</a>
+                    </td>
+                </tr>    
+            @endforeach
+            
+            
         </tbody>
     </table>
+
 @stop
 
 @section('below-table')
     <div>
-        <a href="#" class="btn btn-primary btn-lg pull-right"><i class="fa fa-plus"></i> Create New contact</a>
+        <a href="contacts/create" class="btn btn-primary btn-lg pull-right"><i class="fa fa-plus"></i> Create New contact</a>
     </div>
 @stop
