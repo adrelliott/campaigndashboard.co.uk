@@ -10,7 +10,7 @@
 @stop
 
 @section('actions-list')
-    <li><a href="#"><p><em>Create new contact</em></p></a></li>
+    <li><a href="{{ route('contacts.create') }}"><p><em>Create new contact</em></p></a></li>
 @stop
 
 @section('table')
