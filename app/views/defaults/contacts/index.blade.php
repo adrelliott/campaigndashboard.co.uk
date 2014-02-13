@@ -14,31 +14,15 @@
 @stop
 
 @section('table')
-    <table class="table">
+    <table class="table dataTable data-table" id="contacts_table" data-sAjaxSource="/ajax/contacts?cols=id,first_name,last_name">
         <thead>
             <tr>
                 <th>#</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Email</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($contacts as $contact)
-                <tr>
-                    <td>{{ $contact->id }}</td>
-                    <td>{{ $contact->first_name }}</td>
-                    <td>{{ $contact->last_name }}</td>
-                    <td>{{ $contact->email }}</td>
-                    <td>
-                        <a href="{{ route('contacts.edit', ['contacts' => $contact->id]) }}">Edit</a>
-                        | <a href="{{ route('contacts.create', ['contact' => $contact->id]) }}">New record</a>
-                    </td>
-                </tr>    
-            @endforeach
-            
-            
         </tbody>
     </table>
 

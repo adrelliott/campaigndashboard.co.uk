@@ -2,6 +2,9 @@
 (function($) {
 
     console.log('here we go');
+    
+
+
 
 
     /* Run Modal 'Do you really want to do this?' check */

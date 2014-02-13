@@ -27,7 +27,7 @@ return array(
 	*/
 
     //'url' => 'http://localhost',
-	'url' => 'http://localhost/_Projects/leadfarm/public',
+	'url' => 'http://localhost',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -111,8 +111,9 @@ return array(
         'Cartalyst\Sentry\SentryServiceProvider',
         'Former\FormerServiceProvider',
         'Way\Form\FormServiceProvider',
-        'Profiler\ProfilerServiceProvider'
-        // 'Dallasmatthews\Crm\CrmServiceProvider'
+        'Profiler\ProfilerServiceProvider',
+        'Creolab\LaravelModules\ServiceProvider',
+        'Bllim\Datatables\DatatablesServiceProvider',
         ),
 
 	/*
@@ -181,7 +182,8 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
         // 'Crm'             => 'Dallasmatthews\Crm\Crm'
         'Former' => 'Former\Facades\Former',
-        'Profiler' => 'Profiler\Facades\Profiler'
+        'Profiler' => 'Profiler\Facades\Profiler',
+        'Datatables'      => 'Bllim\Datatables\Datatables',
 	),
 
 );

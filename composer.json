@@ -11,7 +11,9 @@
          "way/form": "dev-master",
          "anahkiasen/former": "dev-master",
          "laravelbook/ardent": "dev-master",
-         "loic-sharma/profiler": "dev-master"
+         "loic-sharma/profiler": "dev-master",
+         "creolab/laravel-modules": "dev-master",
+         "bllim/datatables": "*"
 	},
 	"autoload": {
 		"classmap": [
@@ -20,7 +22,8 @@
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
-			"app/tests/TestCase.php"
+			"app/tests/TestCase.php",
+            "app/modules"
 		]
 	},
 	"scripts": {

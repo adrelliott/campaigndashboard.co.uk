@@ -12,6 +12,10 @@ body {
     margin-top: 20px;
 }
 
+.panel-body {
+padding: 19px;
+}
+
 .dataTables_paginate, .dataTables_filter {
     float: right;
 }

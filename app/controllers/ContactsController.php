@@ -9,7 +9,8 @@ class ContactsController extends \BaseController {
 	 */
 	public function index()
 	{
-        return $this->render()->with('contacts', Contact::all());
+        return $this->render();
+            // ->with('contacts', Contact::all());
 	}
 
 	/**
@@ -28,45 +29,21 @@ class ContactsController extends \BaseController {
 	 * @return Response
 	 */
 	public function store()
-	{
-        // $contact = Contact::create(Input::all());
-
-        // var_dump($contact);
-        // 
-        
+	{   
         $contact = new Contact;
 
         if ($contact->save())
         {
-            return Redirect::route('contacts.edit', array($contact->id))->with('message', 'That has been saved');
+            return Redirect::route('contacts.edit', array($contact->id))
+                ->with('message', '[SAVE_SUCCESS]');
         }
 
         else
         {
-            return Redirect::route('contacts.create')->withErrors($contact->errors());
+            return Redirect::route('contacts.create')
+                ->with('message', '[SAVE_VAL_FAIL]')
+                ->withErrors($contact->errors());
         }
-
-
-        // 
-        // 
-        // 
-
-        //Try and store the contact record
-        // try
-        // {
-        //     $id = Crm::make(Input::all());
-        // }
-    
-        // //Catch any exception
-        // catch (ValidationException $e)
-        // {
-        //     return Redirect::create()->withErrors($e->getErrors())->withInput();
-        // }
-
-        // //if it is stored successfully, then redirect to edit/{$id} with message
-        // return Redirect::edit()->with([
-        //     'message' => '[success]'
-        // ]);
 	}
 
 	/**
@@ -77,7 +54,7 @@ class ContactsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-        return $this->render()->with('contact', Contact::find($id));
+        return $this->render();
 	}
 
 	/**
@@ -88,7 +65,7 @@ class ContactsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return $this->render()->with('contact', Contact::find($id));
+		return $this->render()->with('id', $id);
 	}
 
 	/**
@@ -99,21 +76,20 @@ class ContactsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$c = new Contact;
+		$contact = Contact::find($id);
 
-        var_dump(Input::all());
-        // $c->save();
-        // dd($c);
-
-        if ($c->save())
+        if ($contact->save())
         {
-            return Redirect::route('contacts.edit', array($id))->with('message', '[success]');
+            return Redirect::route('contacts.edit', array($id))
+                ->with('message', '[SAVE_SUCCESS]');
         } 
        
         else
         {
-            return Redirect::route('contacts.edit', array($id))->withErrors($c->errors());
-            // var_dump($c);
+            return Redirect::route('contacts.edit', array($id))
+                ->with('message', '[SAVE_VAL_FAIL]')
+                ->withErrors($contact->errors());
+                // ->with_errors($contact->errors());
         }
 
         //Try and store the contact record

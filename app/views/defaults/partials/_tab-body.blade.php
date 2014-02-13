@@ -3,7 +3,6 @@
     @foreach($tabs as $tab)
         <!-- Start {{ camel_case($tab) }} Tab section -->
         <div class="tab-pane " id="{{ camel_case($tab) }}" >
-                @include('defaults.partials._message')
                 @section(camel_case($tab))
                 @show
         </div>
