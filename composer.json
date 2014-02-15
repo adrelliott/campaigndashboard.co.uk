@@ -13,7 +13,8 @@
          "laravelbook/ardent": "dev-master",
          "loic-sharma/profiler": "dev-master",
          "creolab/laravel-modules": "dev-master",
-         "bllim/datatables": "*"
+         "bllim/datatables": "*",
+         "mccool/laravel-auto-presenter": "*"
 	},
 	"autoload": {
 		"classmap": [

@@ -18,7 +18,7 @@ class BaseController extends Controller {
                     'dropdowns' => array(),
                     ),
                 'contacts' => array(
-                    'route' => 'contacts',
+                    'route' => 'crm/contacts',
                     'icon' => 'user',
                     'label' => 'Contacts',
                     'dropdowns' => array(),
@@ -29,12 +29,12 @@ class BaseController extends Controller {
                     'label' => 'Sales',
                     'dropdowns' => array(
                         'dropdown1' => array(
-                            'route' => '',
+                            'route' => 'opp/leads',
                             'icon' => 'briefcase',
                             'label' => 'Leads'
                             ),
                         'dropdown2' => array(
-                            'route' => 'orders',
+                            'route' => 'orders/orders',
                             'icon' => 'gbp',
                             'label' => 'Orders2'
                             ),
@@ -46,7 +46,7 @@ class BaseController extends Controller {
                     'label' => 'Marketing',
                     'dropdowns' => array(
                         'dropdown1' => array(
-                            'route' => '',
+                            'route' => 'email/broadcasts',
                             'icon' => 'bullhorn',
                             'label' => 'Broadcasts'
                             ),

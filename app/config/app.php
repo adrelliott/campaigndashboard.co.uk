@@ -114,6 +114,7 @@ return array(
         'Profiler\ProfilerServiceProvider',
         'Creolab\LaravelModules\ServiceProvider',
         'Bllim\Datatables\DatatablesServiceProvider',
+        'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider',
         ),
 
 	/*

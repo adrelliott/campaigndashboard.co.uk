@@ -12,7 +12,8 @@
 @section('col1')
     <div class="well"><!-- Well -->
         <h4 class="text-primary1"><i class="fa fa-pencil"></i> What's your new friend's name...?</h4>
-        {{ Form::open(array('route' => 'contacts.store'), array('role' => 'form', 'class' => 'myClass')) }}
+        <h1>this view is wrong - madd in Fprmer lie in /edit.blade.php</h1>
+        {{ Form::open(array('route' => 'crm.contacts.store'), array('role' => 'form', 'class' => 'myClass')) }}
 
             <div class="form-group col-lg-6 col-md-12 col-sm-12  col-xs-12">
                 {{ Former::text('first_name')->class('form-control input-lg')->placeholder('E.g. Lionel') }}

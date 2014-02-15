@@ -10,13 +10,32 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+// Routes for the public-facing website
+// Route::group(array(
+//     'prefix' => 'site', 
+//     ), 
+    
+// );
+
 
 // Dashboard (index)
-Route::get('/', array('as' => 'dashboard', 'uses' => 'DashboardController@index'));
+Route::get('/dashboard', array('as' => 'dashboard', 'uses' => 'DashboardController@index')); 
 
 
 // CRM Routes
-Route::resource('contacts', 'ContactsController');
+Route::group(array(
+    'prefix' => 'crm', 
+    // 'before' => 'auth'
+    ), 
+    function()
+    {
+        Route::resource('contacts', 'ContactsController');   
+    }
+);
+
+
+
+
 Route::get('/ajax/contacts', function(){
     return Contact::getAllContacts();
 });

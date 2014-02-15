@@ -10,7 +10,6 @@ class ContactsController extends \BaseController {
 	public function index()
 	{
         return $this->render();
-            // ->with('contacts', Contact::all());
 	}
 
 	/**
@@ -34,13 +33,13 @@ class ContactsController extends \BaseController {
 
         if ($contact->save())
         {
-            return Redirect::route('contacts.edit', array($contact->id))
+            return Redirect::route('crm.contacts.edit', array($contact->id))
                 ->with('message', '[SAVE_SUCCESS]');
         }
 
         else
         {
-            return Redirect::route('contacts.create')
+            return Redirect::back()
                 ->with('message', '[SAVE_VAL_FAIL]')
                 ->withErrors($contact->errors());
         }
@@ -54,7 +53,9 @@ class ContactsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-        return $this->render();
+        $contact = Contact::findOrFail($id);
+        return $this->render()->withContact($contact);
+        // return $this->render()->with(compact('contact'));
 	}
 
 	/**
@@ -65,7 +66,8 @@ class ContactsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return $this->render()->with('id', $id);
+		$contact = Contact::findOrFail($id);
+        return $this->render()->withContact($contact);
 	}
 
 	/**
@@ -76,38 +78,20 @@ class ContactsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$contact = Contact::find($id);
+		$contact = Contact::findOrFail($id);
 
         if ($contact->save())
         {
-            return Redirect::route('contacts.edit', array($id))
+            return Redirect::route('crm.contacts.edit', array($id))
                 ->with('message', '[SAVE_SUCCESS]');
         } 
        
         else
         {
-            return Redirect::route('contacts.edit', array($id))
+            return Redirect::back()
                 ->with('message', '[SAVE_VAL_FAIL]')
                 ->withErrors($contact->errors());
-                // ->with_errors($contact->errors());
         }
-
-        //Try and store the contact record
-        // try
-        // {
-        //     $id = Crm::update(Input::all());
-        // }
-    
-        // //Catch any exception
-        // catch (ValidationException $e)
-        // {
-        //     return Redirect::edit()->withErrors($e->getErrors())->withInput();
-        // }
-
-        // //if it is stored successfully, then redirect to edit/{$id} with message
-        // return Redirect::edit()->with([
-        //     'message' => '[success]'
-        // ]);
 	}
 
 	/**

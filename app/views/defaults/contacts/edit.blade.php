@@ -10,7 +10,7 @@
 @stop 
 
 @section('actions-list')
-    <li><a href="{{ route('contacts.create') }}"><p><em>Create new contact</em></p></a></li>
+    <li><a href="{{ route('crm.contacts.create') }}"><p><em>Create new contact</em></p></a></li>
 @stop
 
 @section('overview')
@@ -19,8 +19,8 @@
         ->role('Form')
         ->class('form-inline')
         ->method('PUT')
-        ->route('contacts.update', $id)
-        ->populate(Contact::find($id));
+        ->route('crm.contacts.update', $contact->id)
+        ->populate($contact);
         
     }}
 

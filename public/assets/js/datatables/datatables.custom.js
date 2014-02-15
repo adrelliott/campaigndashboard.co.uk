@@ -20,7 +20,7 @@
             bLengthChange: false,
             aLengthMenu: [[5, 10, 25, 50], [5, 10, 25, 50]],
             // aaSorting: [],
-            // aoColumnDefs: []
+            aoColumnDefs: [],
             /* Changes by tellenis 15/01/14 */
             // fnRowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
             //     var numStart =  this.fnPagingInfo().iStart;
@@ -34,7 +34,7 @@
             sAjaxSource: "",
         };
 
-      //Now Iterate over the dataTablesOptions object and test to see if we've passed a new attribute
+        //Now Iterate over the dataTablesOptions object and test to see if we've passed a new attribute
         $.each(o, function(k, v) {
             var newk = k.toLowerCase(); //we cannot pass camelCase
             if ( t.data(newk) ){
@@ -43,39 +43,61 @@
         });
 
 
-        // var a = {
-        //     // tableid : "",
-        //     linkurl: false,
-        //     linkclass: "",
-        //     deleteurl: false,
-        //     toggleurl: false,
-        //     modalsource: "",
-        //     ajaxsource: false,
-        //     toggleclass: false,
-        //     showid: false,
-        //     alertclass: "",
-        //     view: "",
-        //     postprocess: false
-        // };
+        var a = {
+            // tableid : "",
+            linkurl: false,
+            linkclass: "",
+            deleteurl: false,
+            toggleurl: false,
+            modalsource: "",
+            ajaxsource: false,
+            toggleclass: false,
+            showid: false,
+            alertclass: "",
+            view: "",
+            postprocess: false
+        };
 
-        // // Iterate over the attributes object and test to see if we've passed a new attributes
-        // $.each(a, function(k, v) {
-        //     if (t.data(k)){
-        //         a[k] = t.data(k); //Overwrite with the new value
-        //     }
-        // });
+        // Iterate over the attributes object and test to see if we've passed a new attributes
+        $.each(a, function(k, v) {
+            if (t.data(k)){
+                a[k] = t.data(k); //Overwrite with the new value
+            }
+        });
 
-// console.log('a=', a);
+        // Is it an ajax table?
+        if ( a.ajaxsource ) {
+            o.sAjaxSource = a.ajaxsource;
+        }
 
-        //Is it an ajax table?
-//         if ( a.ajaxsource ) {
-//             o.sAjaxSource = a.ajaxsource;
-//         }
+        //Do we show the id col (always the first col)
+        if( ! a.showid ) {
+            o.aoColumnDefs.push( {
+                aTargets: [0],
+                bVisible: false
+            } );
+        }
+
+        //Add a link to each row
+        if ( a.linkurl ) {
+            o.aoColumnDefs.push( {
+                aTargets: ['_all'],
+                // aTargets: [1],
+                mRender: function ( data, type, row ) {
+                    var url = '#';
+                    if ( a.linkurl !== '#') {
+                        url = a.linkurl+'/'+row[0]+'/edit';
+                    }
+                    return '<a href="'+url+'" data-id="'+row[0]+'" modal-source="'+a.modalsource+'" data-alert_class="'+a.alertclass+'" data-view="'+a.view+'" class="'+a.linkclass+'"  >'+data+'</a>';
+                }
+            } );
+        }
+
+
 // console.log('o=', o);
 
         var oTable = t.dataTable( $.extend( true, o, {
             "bProcessing": true,
-            //"sServerMethod": "POST"
         } ) );
         //console.log(oTable);
         return oTable;
