@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/dashboard" class="navbar-brand">
+            <a href="/app/dashboard" class="navbar-brand">
                 {{ HTML::image($user->logo_path, 'Campaign Dashboard Logo', array('class' => 'hidden-sm1')) }}
                 {{-- HTML::image('/assets/img/bootstrap/cdash_logo75px.png', 'Campaign Dashboard Logo', array('class' => 'visible-sm1')) --}}    
             </a>

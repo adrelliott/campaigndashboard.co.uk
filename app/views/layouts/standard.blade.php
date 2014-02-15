@@ -31,7 +31,7 @@
     <body>
         
         <!-- Navbar -->
-        @include('defaults.partials._navbar')
+        @include('partials._navbar')
         <!-- / Navbar -->
 
         <!-- Container -->
@@ -40,7 +40,7 @@
             <!-- Top line -->
             <div class="row top-line">
                 @section('top-line')
-                    @include('defaults.partials._top-line')
+                    @include('partials._top-line')
                 @show
             </div>
             <!-- / Top line -->
@@ -48,7 +48,7 @@
             <!-- Content -->
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    @include('defaults.partials._message')
+                    @include('partials._message')
                     @section('content')
                         <h2>Add your content in the views/{route}/{method}.blade.php file</h2>
                     @show    
@@ -69,7 +69,7 @@
 
         <!-- Modal -->
         @section('modal')
-            @include('defaults.partials._modal', array('modalTitle' => ''))
+            @include('partials._modal', array('modalTitle' => ''))
         @show
         <!-- / Modal -->
 

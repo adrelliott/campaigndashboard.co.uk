@@ -25,7 +25,8 @@
 			"app/database/seeds",
 			"app/tests/TestCase.php",
             "app/modules"
-		]
+		],
+        "Dashboard\\": "app/Dashboard"
 	},
 	"scripts": {
 		"post-install-cmd": [

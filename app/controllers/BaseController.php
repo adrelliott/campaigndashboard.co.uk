@@ -12,13 +12,13 @@ class BaseController extends Controller {
             'logo_path' => '/assets/img/bootstrap/cdash_logo150px.png',
             'navbar' => array (
                 'home' => array(
-                    'route' => 'dashboard',
+                    'route' => 'app/dashboard',
                     'icon' => 'tachometer',
                     'label' => 'Dashboard',
                     'dropdowns' => array(),
                     ),
                 'contacts' => array(
-                    'route' => 'crm/contacts',
+                    'route' => 'app/contacts',
                     'icon' => 'user',
                     'label' => 'Contacts',
                     'dropdowns' => array(),
@@ -90,19 +90,39 @@ class BaseController extends Controller {
      * @return view
      * @author Al Elliott
      **/
-    public function render($view = FALSE, $folder = FALSE)
-    {
-        $t = explode('Controller@' ,Route::currentRouteAction());
-        if ( !$folder ) $folder = strtolower($t[0]);
-        if ( !$view ) $view = strtolower($t[1]);
-       
-        if (file_exists(app_path('views/' . $this->user->owner_id . '/' . $folder . '/' . $view . '.blade.php')))
-        {
-            $view = $this->user->owner_id . '/' . $folder . '/' . $view;
-        }
-        else $view = 'defaults/' . $folder . '/' . $view;
+    // public function render2($view = FALSE, $folder = FALSE)
+    // {
 
+    //     $t = explode('Controller@' ,Route::currentRouteAction());
+    //     if ( !$folder ) $folder = strtolower($t[0]);
+    //     if ( !$view ) $view = strtolower($t[1]);
+       
+    //     if (file_exists(app_path('views/' . $this->user->owner_id . '/' . $folder . '/' . $view . '.blade.php')))
+    //     {
+    //         $view = $this->user->owner_id . '/' . $folder . '/' . $view;
+    //     }
+    //     else $view = 'defaults/' . $folder . '/' . $view;
+
+    //     return View::make($view, $this->data);
+    // }
+
+    
+
+
+    public function render()
+    {
+        //Get current controller name and method
+        $t = explode('Controller@' ,Route::currentRouteAction());
+        $path = $this->foldername . '.' . $t[1];
+
+        //Test to see if it exists
+        if ( ! View::exists($view = $this->modulename . '::' . $this->user->owner_id . '.' . $path))
+        {
+            $view = $this->modulename . '::defaults.' . $path;
+        }
+        
         return View::make($view, $this->data);
+        
     }
 
 }
