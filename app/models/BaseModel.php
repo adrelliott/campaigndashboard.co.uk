@@ -13,6 +13,19 @@ class BaseModel extends Ardent {
     //Ardent ensures that the $_POST values are injected into the model ready to send
     public $forceEntityHydrationFromInput = true;
 
+
+    public function beforeSave()
+    {
+        if ( ! Session::has('owner_id'))
+            return Redirect::route('logout');
+        //Needs error management
+
+        // Overwrite the 'owner_id' record with the current logged in users
+        $this->attributes['owner_id'] = Session::get('owner_id');
+    }
+
+
+
     /* Used for the API call */
     public static function prepareQuery()
     {

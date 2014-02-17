@@ -55,7 +55,7 @@ class BaseController extends Controller {
                 )
             );
 
-        $this->user->slug = $this->user->owner_id;
+        Session::put('owner_id', $this->user->slug = $this->user->owner_id);
         $this->user->config = Config::get('client_config/' . $this->user->slug);
 
         $this->data = array('specialData' => 'yeah!',

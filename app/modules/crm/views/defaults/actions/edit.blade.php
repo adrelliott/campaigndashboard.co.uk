@@ -5,6 +5,7 @@
         <i class="fa fa-user"></i> This is yerman
     </h1>
     <p class="lead">
+        He likes beets
     </p>
 @stop 
 
@@ -19,9 +20,10 @@
         ->class('form-inline')
         ->method('PUT')
         ->route('app.contacts.update', $record->id)
-        ->populate($record->resource);
+        ->populate($record);
         
     }}
+
         <div class="form-group col-lg-6 col-md-12 col-sm-12  col-xs-12">
             {{ Former::text('first_name')->class('form-control input-lg')->placeholder('E.g. Lionel') }}
         </div>
@@ -63,13 +65,7 @@
 
 
 @section('tasks')
-    <h3 class="text-primary"><i class="fa fa-info-circle"></i> Tasks</h3>
-    //List of actions where type=task
-    <p>{{ $record->test }}</p>
-    @foreach( $record->actions as $action )
-        <li>{{ $action->action_name }}</li>
-    @endforeach
-    
+    <h3 class="text-primary"><i class="fa fa-info-circle"></i> Overview</h3>
 
 
 @stop

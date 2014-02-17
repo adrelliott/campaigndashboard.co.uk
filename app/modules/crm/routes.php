@@ -13,5 +13,6 @@ Route::group(array(
     function()
     {
         Route::resource('contacts', 'ContactsController');
+        Route::resource('actions', 'ActionsController');
     }
 );

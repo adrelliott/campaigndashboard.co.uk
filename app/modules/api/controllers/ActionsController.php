@@ -3,10 +3,10 @@
 namespace Dashboard\Api;
 
 use \BaseController, \View, \Input;
-use \Dashboard\App\Crm\Contact as Model;
+use \Dashboard\App\Crm\Action as Model;
 use \Bllim\Datatables\Datatables;
 
-class ContactsController extends BaseController {
+class ActionsController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
