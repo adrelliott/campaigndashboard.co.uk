@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'leadfarm_local',
+			'database'  => 'dashboard_local',
             'username'  => 'charliedog',
             'password'  => 'DMmanch666',
 			'charset'   => 'utf8',

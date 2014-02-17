@@ -8,10 +8,10 @@ use \Route;
 Route::group(array(
     'prefix' => 'app', 
     'namespace' => 'Dashboard\App\Crm', 
-    // 'before' => 'auth'
+    'before' => 'auth'
     ), 
     function()
     {
-        Route::resource('contacts', 'ContactsController');   
+        Route::resource('contacts', 'ContactsController');
     }
 );

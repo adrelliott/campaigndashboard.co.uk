@@ -15,7 +15,7 @@
 
 @section('table')
     <div class="table-responsive clearfix">
-        <table class="table dataTable data-table" id="contacts_table" data-ajaxsource="/ajax/contacts?cols=id,first_name,last_name,email" data-showid="false" data-linkurl="contacts" data-iDisplayLength="10">
+        <table class="table dataTable data-table" id="contacts_table" data-ajaxsource="/api/contacts?cols=id,first_name,last_name,email" data-showid="false" data-linkurl="contacts" data-iDisplayLength="10">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -33,6 +33,6 @@
 
 @section('below-table')
     <div class="row">
-        <a href="app/contacts/create" class="btn btn-primary btn-lg pull-right"><i class="fa fa-plus"></i> Create New contact</a>
+        <a href="contacts/create" class="btn btn-primary btn-lg pull-right"><i class="fa fa-plus"></i> Create New contact</a>
     </div>
 @stop

@@ -63,51 +63,22 @@ class BaseController extends Controller {
     }
 
 
-    /**
-	 * Setup the layout used by the controller.
-	 *
-	 * @return void
-	 */
-	protected function setupLayout()
-	{
-		if ( ! is_null($this->layout))
-		{
-			$this->layout = View::make($this->layout);
-		}
-	}
+    /* Standard Methods */
+    public function saveRecord($record)
+    {
+        if ($record->save())
+        {
+            return Redirect::route('app.' . $this->foldername . '.edit', array($record->id))
+                ->with('success', 'That\'s saved!');
+        }
 
-
-
-    /**
-     * Render Function
-     *
-     * This function controlls the templating. It defaults to loading the view file named after the method located in the folder named after the controller, but can be overidden.
-     *
-     * E.g. if this is called in the index() method, within ContactsContoller, it auto-loads the view `views/defaults/contacts/index.blade.php'. You can overide this by passing $view and $folder vars
-     *
-     * NOTE: The method also searches for a client-specific view first, in views/{client_id}/{controller_name}/{method_name}.blade.php first. if this is not found, then it loads views/defaults/{controller_name}/{method_name}.blade.php 
-     *
-     * @return view
-     * @author Al Elliott
-     **/
-    // public function render2($view = FALSE, $folder = FALSE)
-    // {
-
-    //     $t = explode('Controller@' ,Route::currentRouteAction());
-    //     if ( !$folder ) $folder = strtolower($t[0]);
-    //     if ( !$view ) $view = strtolower($t[1]);
-       
-    //     if (file_exists(app_path('views/' . $this->user->owner_id . '/' . $folder . '/' . $view . '.blade.php')))
-    //     {
-    //         $view = $this->user->owner_id . '/' . $folder . '/' . $view;
-    //     }
-    //     else $view = 'defaults/' . $folder . '/' . $view;
-
-    //     return View::make($view, $this->data);
-    // }
-
-    
-
+        else
+        {
+            return Redirect::back()
+                ->with('error', 'Some fields don\'t look right. Can you take a look?')
+                ->withErrors($record->errors());
+        }
+    }
 
     public function render()
     {

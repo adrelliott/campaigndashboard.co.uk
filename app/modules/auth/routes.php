@@ -1,11 +1,19 @@
 <?php 
 
-namespace Auth;
-
-\Route::get('app/login', function(){
-    return 'Hello from closure';
-});
+namespace Dashboard\App\Auth;
+use Route, View;
 
 
-// \Route::get('app/logout', array('as' => 'logout', 'uses' => 'DashboardApp\Auth\AuthController@getLogin')); 
-\Route::get('app/logout', array('as' => 'logout', 'uses' => 'Dashboard\App\Auth\AuthController@getLogin')); 
+// Session Routes
+Route::group(array(
+    'prefix' => 'app', 
+    'namespace' => 'Dashboard\App\Auth',
+    ), 
+    function()
+    {
+        Route::get('login',  array('as' => 'login', 'uses' => 'SessionController@create'));
+        Route::get('logout', array('as' => 'logout', 'uses' => 'SessionController@destroy'));
+        Route::resource('sessions', 'SessionController', array('only' => array('create', 'store', 'destroy')));
+    }
+);
+

@@ -19,8 +19,8 @@
         ->role('Form')
         ->class('form-inline')
         ->method('PUT')
-        ->route('app.contacts.update', $contact->id)
-        ->populate($contact);
+        ->route('app.contacts.update', $record->id)
+        ->populate($record);
         
     }}
 
@@ -71,6 +71,6 @@
 @stop
 
 @section('modal')
-    @include('partials._modal', array('modalTitle' => 'NAE FROM show view'))
+    @include('partials.common._modal', array('modalTitle' => 'NAE FROM show view'))
 @stop
 

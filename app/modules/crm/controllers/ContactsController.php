@@ -4,15 +4,15 @@
 namespace Dashboard\App\Crm;
 
 //What classes are we going to use?
-use Contact, Redirect, Route;
+use \BaseController;
+use Dashboard\App\Crm\Contact as Model;
 
 
-class ContactsController extends \BaseController {
+class ContactsController extends BaseController {
     
     protected $modulename = 'crm';
     protected $foldername = 'contacts';
-
-
+    
     /**
      * Display a listing of the resource.
      *
@@ -33,6 +33,7 @@ class ContactsController extends \BaseController {
         return $this->render();
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -40,20 +41,7 @@ class ContactsController extends \BaseController {
      */
     public function store()
     {   
-        $contact = new Contact;
-
-        if ($contact->save())
-        {
-            return Redirect::route('app.contacts.edit', array($contact->id))
-                ->with('message', '[SAVE_SUCCESS]');
-        }
-
-        else
-        {
-            return Redirect::back()
-                ->with('message', '[SAVE_VAL_FAIL]')
-                ->withErrors($contact->errors());
-        }
+        return $this->saveRecord( new Model );
     }
 
     /**
@@ -64,9 +52,7 @@ class ContactsController extends \BaseController {
      */
     public function show($id)
     {
-        $contact = Contact::findOrFail($id);
-        return $this->render()->withContact($contact);
-        // return $this->render()->with(compact('contact'));
+        return $this->render()->withRecord( Model::findOrFail($id) );
     }
 
     /**
@@ -77,8 +63,7 @@ class ContactsController extends \BaseController {
      */
     public function edit($id)
     {
-        $contact = Contact::findOrFail($id);
-        return $this->render()->withContact($contact);
+        return $this->render()->withRecord( Model::findOrFail($id) );
     }
 
     /**
@@ -89,20 +74,7 @@ class ContactsController extends \BaseController {
      */
     public function update($id)
     {
-        $contact = Contact::findOrFail($id);
-
-        if ($contact->save())
-        {
-            return Redirect::route('app.contacts.edit', array($id))
-                ->with('message', '[SAVE_SUCCESS]');
-        } 
-       
-        else
-        {
-            return Redirect::back()
-                ->with('message', '[SAVE_VAL_FAIL]')
-                ->withErrors($contact->errors());
-        }
+        return $this->saveRecord( Model::findOrFail($id) );
     }
 
     /**

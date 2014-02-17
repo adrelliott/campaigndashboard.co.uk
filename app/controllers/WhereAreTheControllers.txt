@@ -1,0 +1,1 @@
+We're using modules in this app, so look in app/modules/{modulename}/controllers
