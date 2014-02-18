@@ -4,14 +4,14 @@
 namespace Dashboard\App\Crm;
 
 //What classes are we going to use?
-use \BaseController, \Redirect, \Request;
-use Dashboard\App\Crm\Contact as Model;
+use \BaseController, \Redirect, \Request, \Input;
+use Dashboard\App\Crm\Note as Model;
 
 
-class ContactsController extends BaseController {
+class NotesController extends BaseController {
     
     protected $modulename = 'crm';
-    protected $foldername = 'contacts';
+    protected $foldername = 'notes';
     
     /**
      * Display a listing of the resource.
@@ -43,11 +43,8 @@ class ContactsController extends BaseController {
     {   
         $record = new Model;
 
-        $save = $record->save();
-// \Debug::dump($save);
-// \Debug::dump($record);die();
         // Has it saved?
-        if ($save)
+        if ( $record->save() )
         {
             if (Request::ajax()) return Response::make('', 200, array('Content-Type' => 'text/plain'));
             else return Redirect::route('app.' . $this->foldername . '.edit', array($record->id))
@@ -153,7 +150,7 @@ class ContactsController extends BaseController {
      */
     public function destroy($id)
     {
-        //Form submists as DELETE to contacts/$id
+        //Form submists as DELETE to notes/$id
     }
 
 }

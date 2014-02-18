@@ -3,6 +3,8 @@
 
     console.log('here we go');
     
+    /* Save forms using ajax */
+    //see form.js
 
 
 
@@ -21,6 +23,9 @@
     });
     $("div.tab-content").each(function() {
         $(this).find('div.tab-pane').first().addClass('active');
+    });
+    $("div.panel-accordian").each(function() {
+        $(this).find('div.collapse').first().addClass('in');
     });
 
     /* Turn cards into clickable divs */
@@ -80,8 +85,23 @@
     /* Copy first name to nickname in contacts/show */
     $("#first_name").keyup(function () {
       var value = $(this).val();
-      $("div#create_contact_div #nickname").val(value);
+      $("form#create_contact_div #nickname").val(value);
     }).keyup();
+
+    /* Intialise... */
+    //$("[class='bootstrap-switch']").bootstrapSwitch();
+    
+    /* flippant.js */
+    // var front = document.getElementById('flipthis')
+    //     , back_content = "<h2>I'm the back!</h2><button id='closeCard'>&laquo; Back</button>"
+    //     , back
+    // document.getElementById("flipCard").addEventListener('click',function(e){
+    //     back = flippant.flip(front, back_content)
+    //     document.getElementById("closeCard").addEventListener('click',function(e){
+    //         back = back.close();
+    //     })
+    // })
+
 
 
 console.log('all done');

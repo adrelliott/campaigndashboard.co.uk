@@ -9,6 +9,8 @@ use Dashboard\App\Crm\Action as Action;
 use Dashboard\App\Crm\Note as Note;
 use Dashboard\App\Crm\Tag as Tag;
 
+use \Carbon;
+
 class ContactPresenter extends BasePresenter {
 
      public function __construct(Model $object)
@@ -18,18 +20,27 @@ class ContactPresenter extends BasePresenter {
 
     public function fullName()
     {
-        return 'This shoudl be full name';
+        //Do we have first name?
+        if ( isset($this->resource->first_name) )
+            return 'This is ' . $this->resource->first_name . ' ' . $this->resource->last_name;
+        
+        //if not, do we have title?
+        if ( isset($this->resource->title) )
+            return 'This is ' . $this->resource->title . ' ' . $this->resource->last_name;
+        
+        //If not, put 
+        return 'You only know this contact by their surname (' . $this->resource->last_name . ')';
     }
 
-    public function test()
+    public function created_at()
     {
-        return 'id is ' . $this->resource->id;
+        return $this->resource->created_at->diffForHumans();
     }
 
     public function getActions()
     {
         //Get associated records
-        //$records = Action::get() 
+        //$this->resources = Action::get() 
 
 
         return $this->resource->actions;    }

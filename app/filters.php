@@ -35,7 +35,11 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('app/login')->with('error', 'You don\'t seem to be logged in. <br>(<em>Happening often? Call 0161 883 2244.</em>)');
+	if (Auth::guest())
+    {
+        if (Request::ajax()) return '<h3>Session Expired!</h3><p>Please refresh the page to log in again</p>';
+        else return Redirect::guest('app/login')->with('error', 'You don\'t seem to be logged in. <br>(<em>Happening often? Call 0161 883 2244.</em>)');
+    }
 });
 
 

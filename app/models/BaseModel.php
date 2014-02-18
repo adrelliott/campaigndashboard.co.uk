@@ -13,6 +13,8 @@ class BaseModel extends Ardent {
     //Ardent ensures that the $_POST values are injected into the model ready to send
     public $forceEntityHydrationFromInput = true;
 
+    public $autoPurgeRedundantAttributes = true;
+
 
     public function beforeSave()
     {
@@ -24,15 +26,13 @@ class BaseModel extends Ardent {
         $this->attributes['owner_id'] = Session::get('owner_id');
     }
 
-
-
     /* Used for the API call */
     public static function prepareQuery()
     {
         // Set up defaults
         $defaults = array(
             'cols' => 'id',
-            'where' => ''
+            'where' => FALSE,
             );
 
         // Get all the URL paramaters 
@@ -40,7 +40,18 @@ class BaseModel extends Ardent {
         {
             if (array_key_exists($p, $defaults))
             {
-                $defaults[$p] = str_replace(' ', '', $val);
+                $defaults[$p] = explode(',', str_replace(' ', '', $val)); 
+                // switch ($p)
+                // {
+                //     case 'cols':
+                //         $defaults[$p] = explode(',', str_replace(' ', '', $val)); 
+                //         break;
+
+                //     case 'where':
+                //         $defaults[$p] = explode(',', str_replace(' ', '', $val));
+                //         break;
+
+                // }   
             }
         }
 

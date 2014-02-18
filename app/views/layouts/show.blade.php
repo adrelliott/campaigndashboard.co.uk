@@ -3,6 +3,9 @@
 @section('content')
     
     <div class="row"><!-- Container for Columns -->
+        @section('error-message')
+            @include('partials.common._message-ajax')
+        @show
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><!-- Column 1 -->
             @section('col1')
                 <div class="well"><!-- Well -->
@@ -37,5 +40,8 @@
             @show
         </div><!-- / Column 2-->
     </div><!-- / Container for Columns -->
+    @section('error-message')
+        @include('partials.common._message-ajax')
+    @show
 
 @stop

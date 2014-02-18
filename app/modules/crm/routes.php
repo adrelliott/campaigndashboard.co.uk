@@ -14,5 +14,6 @@ Route::group(array(
     {
         Route::resource('contacts', 'ContactsController');
         Route::resource('actions', 'ActionsController');
+        Route::resource('notes', 'NotesController');
     }
 );

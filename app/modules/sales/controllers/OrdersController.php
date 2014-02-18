@@ -1,17 +1,16 @@
-<?php 
+<?php
 
-//Set up the namespace
-namespace Dashboard\App\Crm;
+namespace Dashboard\App\Sales;
 
-//What classes are we going to use?
-use \BaseController, \Redirect, \Request;
-use Dashboard\App\Crm\Contact as Model;
+ use \BaseController, \Redirect, \Request, \Input;
+use Dashboard\App\Sales\Order as Model;
 
 
-class ContactsController extends BaseController {
-    
-    protected $modulename = 'crm';
-    protected $foldername = 'contacts';
+class OrdersController extends \BaseController {
+
+    protected $modulename = 'sales';
+    protected $foldername = 'orders';
+
     
     /**
      * Display a listing of the resource.
@@ -43,11 +42,8 @@ class ContactsController extends BaseController {
     {   
         $record = new Model;
 
-        $save = $record->save();
-// \Debug::dump($save);
-// \Debug::dump($record);die();
         // Has it saved?
-        if ($save)
+        if ( $record->save() )
         {
             if (Request::ajax()) return Response::make('', 200, array('Content-Type' => 'text/plain'));
             else return Redirect::route('app.' . $this->foldername . '.edit', array($record->id))
@@ -62,21 +58,6 @@ class ContactsController extends BaseController {
                 ->withInput();
 
         }
-        // elseif ()
-
-        // if ($record->save())
-        // {
-        //     return Redirect::route('app.' . $this->foldername . '.edit', array($record->id))
-        //         ->with('success', 'That\'s saved!');
-        // }
-
-        // else
-        // {
-        //     return Redirect::back()
-        //         ->with('error', 'Some fields don\'t look right. Can you take a look?')
-        //         ->withErrors($record->errors())
-        //         ->withInput();
-        // }
     }
 
     /**
@@ -112,10 +93,8 @@ class ContactsController extends BaseController {
         //die(\Debug::dump(\Input::all()));
         $record = Model::findOrFail($id);
 
-        $save = $record->save();
-
         // Has it saved?
-        if ($save)
+        if ( $record->save() )
         {
             if (Request::ajax()) return Response::make('', 202, array('Content-Type' => 'text/plain'));
             else return Redirect::route('app.' . $this->foldername . '.edit', array($record->id))
@@ -127,22 +106,8 @@ class ContactsController extends BaseController {
             else return Redirect::back()
                 ->with('error', 'Some fields don\'t look right. Can you take a look?')
                 ->withErrors($record->errors());
-
         }
 
-        // if ($record->save())
-        // {
-        //     return Redirect::route('app.' . $this->foldername . '.edit', array($record->id))
-        //         ->with('success', 'That\'s saved!');
-        // }
-
-        // else
-        // {
-        //     return Redirect::back()
-        //         ->with('error', 'Some fields don\'t look right. Can you take a look?')
-        //         ->withErrors($record->errors());
-        //         // ->withInput();
-        // }
     }
 
     /**
@@ -153,7 +118,7 @@ class ContactsController extends BaseController {
      */
     public function destroy($id)
     {
-        //Form submists as DELETE to contacts/$id
+        //Form submists as DELETE to notes/$id
     }
 
 }

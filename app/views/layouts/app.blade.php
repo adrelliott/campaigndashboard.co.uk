@@ -11,7 +11,11 @@
 
         <!-- Get Bootstrap core CSS -->
         {{-- HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css') --}}
-        {{ HTML::style('/assets/css/bootstrap/bootstrap.css') }}
+        {{ HTML::style('/assets/css/bootstrap/bootstrap.min.css') }}
+
+        <!-- Get other plugin CSS files -->
+        {{-- HTML::style('/assets/css/bootstrap/bootstrap-switch.min.css') --}}
+        {{ HTML::style('/assets/css/flippant/flippant.css') }}
 
         <!-- Include Font-awesome Upgraded from 3.2.1-->
         {{-- HTML::style('//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css') --}}
@@ -19,6 +23,9 @@
 
         <!-- Custom styles for this template -->
         {{ HTML::style('/assets/css/main.css') }}
+
+
+        {{-- HTML::script('//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js') --}}
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -35,7 +42,7 @@
         <!-- / Navbar -->
 
         <!-- Container -->
-        <div class="container">
+        <div class="container" >
             
             <!-- Top line -->
             <div class="row top-line">
@@ -73,9 +80,17 @@
         @show
         <!-- / Modal -->
 
-        <!-- Call all scripts -->
+        <!-- Call all Frameworks -->
         {{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js') }}
+        
+        <!-- Call Core Boostrap JS -->
+        {{-- HTML::script('assets/js/bootstrap/ui-bootstrap-tpls-0.10.0.min.js') --}}
         {{ HTML::script('//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js') }}
+
+        <!-- Call Other Plugins -->
+        {{-- HTML::script('assets/js/bootstrap/bootstrap-switch.min.js') --}}
+        {{ HTML::script('assets/js/flippant/flippant.min.js') }}
+        
 
         <!-- Call all datatables JS -->
         {{ HTML::script('assets/js/datatables/jquery.dataTables.min.js') }}
@@ -83,7 +98,10 @@
         {{ HTML::script('assets/js/datatables/datatables.custom.js') }}
 
         <!-- Call Other JS -->
-        {{ HTML::script('assets/js/others/app.js') }}
+        {{ HTML::script('assets/js/app/app.js') }}
+        {{ HTML::script('assets/js/app/form.js') }}
+        {{ HTML::script('assets/js/app/modal.js') }}
+        {{-- HTML::script('assets/js/app/appAngular.js') --}}
         
     </body>
 </html>

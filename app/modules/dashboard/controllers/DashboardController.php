@@ -5,6 +5,8 @@ use Auth, Input, Redirect, View;
 
 class DashboardController extends \BaseController {
 
+    protected $modulename = 'dashboard';
+    protected $foldername = 'dashboard';
 	/**
 	 * Just shows dashboard modules
 	 *
@@ -12,7 +14,7 @@ class DashboardController extends \BaseController {
 	 */
 	public function index()
 	{
-        return View::make('dashboard::index1');
+        return $this->render();
 	}
 
 }

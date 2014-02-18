@@ -20,7 +20,7 @@ class BaseController extends Controller {
                 'contacts' => array(
                     'route' => 'app/contacts',
                     'icon' => 'user',
-                    'label' => 'Contacts',
+                    'label' => 'Fans',
                     'dropdowns' => array(),
                     ),
                 'sales' => array(
@@ -64,21 +64,21 @@ class BaseController extends Controller {
 
 
     /* Standard Methods */
-    public function saveRecord($record)
-    {
-        if ($record->save())
-        {
-            return Redirect::route('app.' . $this->foldername . '.edit', array($record->id))
-                ->with('success', 'That\'s saved!');
-        }
+    // public function saveRecord($record)
+    // {
+    //     if ($record->save())
+    //     {
+    //         return Redirect::route('app.' . $this->foldername . '.edit', array($record->id))
+    //             ->with('success', 'That\'s saved!');
+    //     }
 
-        else
-        {
-            return Redirect::back()
-                ->with('error', 'Some fields don\'t look right. Can you take a look?')
-                ->withErrors($record->errors());
-        }
-    }
+    //     else
+    //     {
+    //         return Redirect::back()
+    //             ->with('error', 'Some fields don\'t look right. Can you take a look?')
+    //             ->withErrors($record->errors());
+    //     }
+    // }
 
     public function render()
     {

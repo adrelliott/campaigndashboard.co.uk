@@ -15,8 +15,14 @@ class ActionsController extends BaseController {
 	 */
 	public function index()
 	{
-        $defaults = Model::prepareQuery();
-        $records = Model::select(explode(',', $defaults['cols']));
+         $defaults = Model::prepareQuery();
+
+        //Have we passed a where clause?
+        if ( $defaults['where'] )
+            $records = Model::select($defaults['cols'])->where($defaults['where'][0], $defaults['where'][1]);
+        else 
+            $records = Model::select($defaults['cols']);
+
         return Datatables::of($records)->make();
 	}
 

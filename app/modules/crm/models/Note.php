@@ -4,17 +4,20 @@ namespace Dashboard\App\Crm;
 
 use \Input, \BaseModel;
 
-class Action extends BaseModel {
+class Note extends BaseModel {
     
     //Do not allow updating of these fields
     protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at', 'owner_id'];
+
+     // Wrap in a presenter (ShawnMcCool)
+    public $presenter = 'Dashboard\App\Crm\NotePresenter';
+
+    // public $autoHydrateEntityFromInput = true;    // hydrates on new entries' validation
     
-    //Validation rules
+    // Validation rules
     public static $rules = array(
-        // 'first_name'                  => 'between:2,32',
-        // 'last_name'                  => 'required|between:2,32',
-        // 'email'                 => 'email',
-    );
+        'note_name' => 'required',
+    ); 
 
     // Relationship Rules
     // public static $relationsData = array(
@@ -27,8 +30,8 @@ class Action extends BaseModel {
     }
 
 
-    public function getAction_StatusAttribute($value)
-        {
-            return (boolean) $value;
-        }    
+    // public function getSeenAttribute($value)
+    //     {
+    //         return (boolean) $value;
+    //     }    
 }
