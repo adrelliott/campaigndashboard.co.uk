@@ -84,10 +84,9 @@
         <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
             <div class="form-group">
                 <div class="input-group col-lg-7 col-md-7 col-sm-9 col-xs-12 ">
-                    <input type="text" class="form-control" placeholder="Type Postcode">
+                   {{ Former::text('postcode')->class('form-control input-sm')->placeholder('E.g. SW33 TIE')->label('Postcode/Zip') }}
                     <span class="input-group-btn">
-                        <button class="btn btn-success" type="button">Find Address</button>
-                        <link rel="stylesheet" type="text/css" href="http://services.postcodeanywhere.co.uk/css/captureplus-2.10.min.css?key=rx97-zx42-ey55-wh96" /><script type="text/javascript" src="http://services.postcodeanywhere.co.uk/js/captureplus-2.10.min.js?key=rx97-zx42-ey55-wh96"></script>
+                        <button class="btn btn-success" type="button">Type Postcode</button>
                     </span>
                 </div>
             </div>
