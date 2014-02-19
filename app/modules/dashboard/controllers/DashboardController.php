@@ -1,13 +1,14 @@
 <?php
 
-namespace Dashboard\App\Dashboard;
-use Auth, Input, Redirect, View;
+namespace Dashboard\App\Home;
+use \Basecontroller;
 
-class DashboardController extends \BaseController {
+class DashboardController extends BaseController {
 
     protected $modulename = 'dashboard';
     protected $foldername = 'dashboard';
-	/**
+	
+    /**
 	 * Just shows dashboard modules
 	 *
 	 * @return Response

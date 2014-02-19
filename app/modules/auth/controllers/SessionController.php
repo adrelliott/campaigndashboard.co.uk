@@ -2,7 +2,7 @@
 namespace Dashboard\App\Auth;
 
 use \Dashboard\App\Admin;
-use \BaseController, \View, \Redirect, \Session, \Input, \Auth;
+use \BaseController, \View, \Redirect, \Session, \Input, \Auth, \User;
 
 class SessionController extends BaseController {
 
