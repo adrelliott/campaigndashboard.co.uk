@@ -141,6 +141,11 @@ return array(
         'Lindsey Howard|lindsey@fc-utd.co.uk' => 'Lindsey Howard',
         'Michael Holdsworth|michael@fc-utd.co.uk' => 'Michael Holdsworth',
         ),
+    'testEmailto' => array(
+        'paul@fc-utd.co.uk',
+        'lindsey@fc-utd.co.uk',
+        'Michael@fc-utd.co.uk'
+        ),
     'emailTemplate' => array(
         '1' => 'FC Red',
         '2' => 'FC Black',

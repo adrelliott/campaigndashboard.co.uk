@@ -97,12 +97,13 @@
             
             <div class="panel panel-default"><!-- Panel 4 -->
                 <div class="panel-heading">
-                    <h3 class="panel-title">Sending</h3>
+                    <h3 class="panel-title">Tests & Sending</h3>
                 </div>
                 <div class="panel-body">
+                    {{ Former::open() }}
                     
                     <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                        {{ Former::select('broadcast_from')->class('form-control input-sm')->options($user->config['emailFrom'])->label('Send a test to:') }}
+                        {{ Former::select('_test_send_to')->class('form-control input-sm')->label(false)->options($user->config['testEmailto'])->label('Send a test to:') }}
                     </div>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                         <small><a href="#" class="unhide_div" div-class="test_other">Send to someone not on this list?</a></small>
@@ -117,6 +118,7 @@
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <button type="submit" class="btn btn-sm btn-success pull-right"><i class="fa fa-thumbs-o-up"></i> Send Test Email</button>
                     </div>
+                    {{Former::close() }}
 
                 </div>
                 @if( $record->ready_to_send )

@@ -51,7 +51,7 @@
             {{ Former::text('email')->class('form-control ')->placeholder('E.g. Blair') }}
         </div>
 
-        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <button type="submit" class="btn btn-success pull-right"><i class="fa fa-check"></i> Save Changes</button>
         </div>
 

@@ -34,6 +34,8 @@
             {{ HTML::script('/assets/js/others/html5shiv.js') }}  
           <script src="<?php// echo site_url('assets/bootstrap-3/js/respond.min.js'); ?>"></script>
         <![endif]-->
+
+        <link rel="stylesheet" type="text/css" href="http://services.postcodeanywhere.co.uk/css/captureplus-2.10.min.css?key=xu56-tj37-eb64-kw34" /><script type="text/javascript" src="http://services.postcodeanywhere.co.uk/js/captureplus-2.10.min.js?key=xu56-tj37-eb64-kw34"></script>
         
     </head>
 
