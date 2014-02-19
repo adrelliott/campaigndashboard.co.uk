@@ -14,11 +14,3 @@ Route::get('app/dashboard', array(
     'uses' => 'Dashboard\App\Home\DashboardController@index'
     )
 );
-
-// Route::get('/app', array(
-//     'before' => 'auth',
-//     'as' => 'dashboard',
-//     'namespace' => 'Dashboard\App',
-//     'uses' => 'Dashboard\App\DashboardController@index',
-//     ));
-
