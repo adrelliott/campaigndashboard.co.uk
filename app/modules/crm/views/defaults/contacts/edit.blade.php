@@ -84,7 +84,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
             <div class="form-group">
                 <div class="input-group col-lg-7 col-md-7 col-sm-9 col-xs-12 ">
-                   {{ Former::text('postcode')->class('form-control input-sm')->placeholder('E.g. SW33 TIE')->label('Postcode/Zip') }}
+                    <input type="text" name="postcode"  class="form-control" value="{{ $record->postcode }}" placeholder="Type Postcode">
                     <span class="input-group-btn">
                         <button class="btn btn-success" type="button">Type Postcode</button>
                     </span>
@@ -112,8 +112,11 @@
             {{ Former::text('city')->class('form-control input-sm')->placeholder('E.g. Chewton')->label('Town/City') }}
         </div>
         
+
         <div class="col-lg-4 col-md-5 col-sm-5  col-xs-12">
-            {{ Former::text('postcode')->class('form-control input-sm')->placeholder('E.g. SW33 TIE')->label('Postcode/Zip') }}
+            <div class="form-group">
+                <label for="fake_postcode" class="control-label">Postcode</label>
+                <input class="form-control input-sm" placeholder="E.g. SW33 TIE" id="fake_postcode" type="text" disabled  value="{{ $record->postcode }}"></div>
         </div>
         
         <div class="col-lg-7 col-md-7 col-sm-7  col-xs-12">
