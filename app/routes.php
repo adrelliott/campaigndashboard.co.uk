@@ -5,7 +5,18 @@
  */
 
 Route::get('/c', function() {
+    if(DB::connection()->getDatabaseName())
+{
+   var_dump( "conncted sucessfully to database ".DB::connection()->getDatabaseName() );
+}
     return Config::get('database');
+});
+
+App::error(function(PDOException $exception)
+{
+    Log::error("Error connecting to database: ".$exception->getMessage());
+
+    return "Error connecting to database";
 });
 
 Route::get('/', function(){
