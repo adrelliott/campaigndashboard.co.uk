@@ -5,6 +5,7 @@
  */
 
 Route::get('/c', function() {
+    var_dump('This is the master brach');
     if(DB::connection()->getDatabaseName())
 {
    var_dump( "conncted sucessfully to database ".DB::connection()->getDatabaseName() );
