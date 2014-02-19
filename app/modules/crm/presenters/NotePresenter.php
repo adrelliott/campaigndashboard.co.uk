@@ -8,6 +8,7 @@ use Dashboard\App\Crm\Note as Model;
 use Dashboard\App\Crm\Action as Action;
 use Dashboard\App\Crm\Contact as Contact;
 use Dashboard\App\Crm\Tag as Tag;
+use Dashboard\App\Admin\User as User;
 
 use \Carbon;
 
@@ -23,6 +24,8 @@ class NotePresenter extends BasePresenter {
     {
         return $this->resource->created_at->toDayDateTimeString();
     }
+
+    
 
     
 }

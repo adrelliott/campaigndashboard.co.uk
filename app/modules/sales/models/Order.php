@@ -10,7 +10,7 @@ class Order extends BaseModel {
     protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at', 'owner_id'];
 
      // Wrap in a presenter (ShawnMcCool)
-    public $presenter = 'Dashboard\App\Sales\OrderPresenter';
+    //public $presenter = 'Dashboard\App\Sales\OrderPresenter';
 
     // public $autoHydrateEntityFromInput = true;    // hydrates on new entries' validation
     
@@ -25,15 +25,5 @@ class Order extends BaseModel {
         return $this->belongsTo('Dashboard\App\Crm\Contact');
     }
 
-    public function orderItems()
-    {
-        return $this->hasMany('Dashboard\App\Sales\OrderProduct');
-    }
-
-//May also have many notes, tasks, tags
-
-    // public function getSeenAttribute($value)
-    //     {
-    //         return (boolean) $value;
-    //     }    
+     
 }

@@ -20,28 +20,23 @@ class Contact extends BaseModel {
         'email'                 => 'email',
     );
 
-    // Relationship Rules
-    // public static $relationsData = array(
-    //     'action'  => array(self::HAS_MANY, 'Action')
-    // );
-    // 
-    public function actions()
-    {
-        return $this->hasMany('Dashboard\App\Crm\Action');
-    }
+    
+    /**
+     * Notes relationship
+     */
     public function notes()
     {
         return $this->hasMany('Dashboard\App\Crm\Note');
     }
 
+    /**
+     * Orders relationship
+     */
     public function orders()
     {
         return $this->hasMany('Dashboard\App\Sales\Order');
     }
+
     
-    // public function actions()
-    // {
-    //     return $this->hasMany('Dashboard\App\Crm\Action');
-    // }
 
 }

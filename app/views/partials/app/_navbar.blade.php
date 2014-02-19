@@ -18,7 +18,7 @@
             <ul class="nav navbar-nav">
                 @foreach ($user->navbar as $nav)
                     
-                    @if ( count($nav['dropdowns']) > 1 )
+                    @if ( count($nav['dropdowns']) >= 1 )
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-{{ $nav['icon'] }}"></i> 

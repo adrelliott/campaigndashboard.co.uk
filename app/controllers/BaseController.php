@@ -23,35 +23,35 @@ class BaseController extends Controller {
                     'label' => 'Fans',
                     'dropdowns' => array(),
                     ),
-                'sales' => array(
-                    'route' => '',
-                    'icon' => 'signal',
-                    'label' => 'Sales',
-                    'dropdowns' => array(
-                        'dropdown1' => array(
-                            'route' => 'opp/leads',
-                            'icon' => 'briefcase',
-                            'label' => 'Leads'
-                            ),
-                        'dropdown2' => array(
-                            'route' => 'orders/orders',
-                            'icon' => 'gbp',
-                            'label' => 'Orders2'
-                            ),
-                        ),
-                    ),
                 'marketing' => array(
                     'route' => '',
                     'icon' => 'bolt',
                     'label' => 'Marketing',
                     'dropdowns' => array(
                         'dropdown1' => array(
-                            'route' => 'email/broadcasts',
+                            'route' => 'app/broadcasts',
                             'icon' => 'bullhorn',
                             'label' => 'Broadcasts'
                             ),
+                        // 'dropdown2' => array(
+                        //     'route' => 'orders/orders',
+                        //     'icon' => 'gbp',
+                        //     'label' => 'Orders2'
+                        //     ),
                         ),
                     ),
+                // 'marketing' => array(
+                //     'route' => '',
+                //     'icon' => 'bolt',
+                //     'label' => 'Marketing',
+                //     'dropdowns' => array(
+                //         'dropdown1' => array(
+                //             'route' => 'email/broadcasts',
+                //             'icon' => 'bullhorn',
+                //             'label' => 'Broadcasts'
+                //             ),
+                //         ),
+                //     ),
                 )
             );
 

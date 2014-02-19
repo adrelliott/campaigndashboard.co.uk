@@ -34,9 +34,10 @@
         return false;
     });
 
-    $('.wysihtml5').each(function() {
-        $(this).wysihtml5();
-    });
+    // $('.wysihtml5').each(function() {
+    //     $(this).wysihtml5();
+    // });
+    $('.wysihtml5').summernote({focus: true, height: 300});
 
 
 

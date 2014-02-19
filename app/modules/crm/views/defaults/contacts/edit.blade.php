@@ -6,7 +6,7 @@
         <i class="fa fa-user"></i> {{ $record->fullName }}
     </h1>
     <p class="lead">
-        You met each other about {{ $record->created_at }}.
+        You met each other <em>roughly</em> {{ $record->created_at }}.
     </p>
     
 @stop 
@@ -87,6 +87,7 @@
                     <input type="text" class="form-control" placeholder="Type Postcode">
                     <span class="input-group-btn">
                         <button class="btn btn-success" type="button">Find Address</button>
+                        <link rel="stylesheet" type="text/css" href="http://services.postcodeanywhere.co.uk/css/captureplus-2.10.min.css?key=rx97-zx42-ey55-wh96" /><script type="text/javascript" src="http://services.postcodeanywhere.co.uk/js/captureplus-2.10.min.js?key=rx97-zx42-ey55-wh96"></script>
                     </span>
                 </div>
             </div>
@@ -155,27 +156,30 @@
     <h3 class="text-primary"><i class="fa fa-lock"></i> Opt Ins</h3>
         
         <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12 form-inline">
+            <h4 class="radio-label hidden-md hidden-lg">Receive Emails? </h4>
             {{ Former::radios('optin_email')
                   ->radios(array(
                   ' <i class="fa fa-thumbs-o-up "></i> Yes  ' => array('name' => 'optin_email', 'value' => '1'),
                   ' <i class="fa fa-thumbs-o-down "></i> No  ' => array('name' => 'optin_email', 'value' => '0')
-                  ))->label('<h4 class="radio-label">Receive Emails? </h4>') }}
+                  ))->label('<h4 class="radio-label visible-md visible-lg">Receive Emails?</h4>') }}
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12 form-inline">
+            <h4 class="radio-label  hidden-md hidden-lg">Receive Texts?</h4>
             {{ Former::radios('optin_sms')
                   ->radios(array(
                   ' <i class="fa fa-thumbs-o-up "></i> Yes  ' => array('name' => 'optin_sms', 'value' => '1'),
                   ' <i class="fa fa-thumbs-o-down "></i> No  ' => array('name' => 'optin_sms', 'value' => '0')
-                  ))->label('<h4 class="radio-label">Receive Texts?</h4>') }}
+                  ))->label('<h4 class="radio-label visible-md visible-lg">Receive Texts?</h4>') }}
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12 form-inline">
+            <h4 class="radio-label hidden-md hidden-lg">Receive Post?</h4>
             {{ Former::radios('optin_post')
                   ->radios(array(
                   ' <i class="fa fa-thumbs-o-up "></i> Yes  ' => array('name' => 'optin_post', 'value' => '1'),
                   ' <i class="fa fa-thumbs-o-down "></i> No  ' => array('name' => 'optin_post', 'value' => '0')
-                  ))->label('<h4 class="radio-label">Receive Post?</h4>') }}
+                  ))->label('<h4 class="radio-label visible-md visible-lg">Receive Post?</h4>') }}
         </div>
 
 
@@ -188,29 +192,34 @@
 
 @section('notes')
     <h3 class="text-primary"><i class="fa fa-book"></i> Notes</h3>
-    <div class="row">
+    
         <div class="panel-group" id="accordion">
             <div class="panel panel-default panel-accordian">
                 @foreach( $record->notes as $n )
-                    <div class="panel-heading">
+                    <div class="panel-heading clearfix">
                         <p class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#{{ $n->id }}">
-                                <b class="caret"> </b> {{ $n->note_name }} <em><small class="muted">({{ $n->created_at->toDayDateTimeString() }})</small></em>
+                                <b class="caret"> </b> 
+                                 {{ $n->note_name }} 
+                            </a>
                             </a>
                         </p>
                     </div>
                     <div id="{{ $n->id }}" class="panel-collapse collapse ">
                         <div class="panel-body">
-                            {{ $n->note_body }}
+                            <p>{{ $n->note_body }}</p>
+                            <p class=""><em>
+                                <h6 class="muted ">({{ $n->created_at->toDayDateTimeString() }})</h6>
+                            </em></p>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
-    </div>
     
-    <div class="form-group">
-        <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{URL::route('app.notes.create', array('contact_id' => $record->id)) }}" data-view="show_modal" >
+    
+    <div class="pull-right margin_top_15" style="margin-top:10px">
+        <a class="btn btn-primary open-modal " href="#" modal-source="{{URL::route('app.notes.create', array('contact_id' => $record->id)) }}" data-view="show_modal" >
             <i class="fa fa-plus"></i> Create New Note
         </a>
     </div>
@@ -219,18 +228,27 @@
 
 
 @section('purchases')
-    <h3 class="text-primary"><i class="fa fa-info-circle"></i> Purchases</h3>
+    <h3 class="text-primary"><i class="fa fa-gbp"></i> Purchases</h3>
     <ul class="list-group">
-        @foreach( $record->order_items as $o )
-            <li class="list-group-item"><a class="fa fa-gbp"></i> $o->product_name ($o->variant)</li>
+        @foreach( $record->orders as $o )
+            <li class="list-group-item">
+                <i class="fa fa-chevron-right"></i> {{ $o->temp_item}} ({{$o->temp_season}}) <a href="#" class="btn btn-default btn-xs pull-right open-modal" modal-source="{{ Url::route('app.orders.edit', $o->id)}}">View</a>
+            </li>
         @endforeach
     </ul>
-    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{URL::route('app.actions.create') }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Purchase</a>
+    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Purchase</a>
+@stop
 
-        
-    
-    
-
+@section('roles')
+    <h3 class="text-primary"><i class="fa fa-gbp"></i> Roles</h3>
+    <ul class="list-group">
+        @foreach( $record->orders as $o )
+            <li class="list-group-item">
+                <i class="fa fa-chevron-right"></i> {{ $o->order_title}} ({{$o->payment_method}}) <a href="#" class="btn btn-default btn-xs pull-right open-modal" modal-source="{{ Url::route('app.orders.edit', $o->id)}}">View</a>
+            </li>
+        @endforeach
+    </ul>
+    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Role</a>
 @stop
 
 @section('modal')

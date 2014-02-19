@@ -1,7 +1,7 @@
 <?php 
 
 namespace Dashboard\App\Auth;
-use Route, View;
+use \Route, \View;
 
 
 // Session Routes

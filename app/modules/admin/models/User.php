@@ -41,12 +41,29 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
     );
 
     /**
+    * NOtes relationship
+    */
+    // public function note()
+    // {
+    //     return $this->hasMany('Dashboard\App\Crm\Note');
+    // }
+    
+
+    /**
     * Actions relationship
     */
-    public function action()
-    {
-        // return $this->hasMany('Action');
-    }
+    // public function action()
+    // {
+    //     // return $this->hasMany('Action');
+    // }
+
+    /**
+    * NOtes relationship
+    */
+    // public function note()
+    // {
+    //     return $this->hasMany('Dashboard\App\Crm\Note');
+    // }
 
 
 	/**

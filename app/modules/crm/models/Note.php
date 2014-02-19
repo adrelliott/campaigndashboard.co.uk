@@ -19,15 +19,27 @@ class Note extends BaseModel {
         'note_name' => 'required',
     ); 
 
-    // Relationship Rules
     // public static $relationsData = array(
-    //     'contact'  => array(self::BELONGS_TO, 'Contact')
+    //     // 'user' => array(self::HAS_ONE, 'Dashboard\App\Admin\User'),
+    //     'user' => array(self::BELONGS_TO_MANY, 'Dashboard\App\Admin\User'),
+    //     // 'contact'  => array(self::HAS_MANY, 'Dashboard\App\Crm\Contact'),
+    //     //'groups'  => array(self::BELONGS_TO_MANY, 'Group', 'table' => 'groups_have_users')
     // );
 
     public function contact()
     {
         return $this->belongsTo('Dashboard\App\Crm\Contact');
     }
+
+    public function name()
+    {
+        return $this->hasOne('Dashboard\App\Admin\User');
+    }
+
+    // public function user()
+    // {
+    //     return $this->belongsTo('Dashboard\App\Admin\User');
+    // }
 
 
     // public function getSeenAttribute($value)

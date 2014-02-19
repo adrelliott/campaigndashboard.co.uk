@@ -4,7 +4,8 @@ namespace Dashboard\App\Sales;
 use McCool\LaravelAutoPresenter\BasePresenter;
 
 //Pull in the models required for this record
-use Dashboard\App\Crm\Order as Model;
+use Dashboard\App\Sales\Order as Model;
+use Dashboard\App\Sales\OrderProduct as OrderProduct;
 use Dashboard\App\Crm\Note as Note;
 use Dashboard\App\Crm\Action as Action;
 use Dashboard\App\Crm\Contact as Contact;

@@ -15,6 +15,7 @@ Route::group(array(
         Route::resource('contacts', 'ContactsController');
         Route::resource('users', 'UsersController');
         Route::resource('actions', 'ActionsController');
+        Route::resource('broadcasts', 'BroadcastsController');
         // Route::get('/api', function(){ return 'hello'; });
         // Route::resource('contacts', 'ContactsController');
         Route::resource('v1', 'ApiController');

@@ -16,6 +16,8 @@
         <!-- Get other plugin CSS files -->
         {{-- HTML::style('/assets/css/bootstrap/bootstrap-switch.min.css') --}}
         {{ HTML::style('/assets/css/flippant/flippant.css') }}
+        {{ HTML::style('/assets/css/bootstrap/bootstrap3-summernote.css') }}
+        {{ HTML::style('/assets/css/bootstrap/summernote.css') }}
 
         <!-- Include Font-awesome Upgraded from 3.2.1-->
         {{-- HTML::style('//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css') --}}
@@ -81,6 +83,7 @@
         <!-- / Modal -->
 
         <!-- Call all Frameworks -->
+        {{-- HTML::script('assets/js/bootstrap/wysihtml5-0.3.0_rc2.min.js') --}}
         {{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js') }}
         
         <!-- Call Core Boostrap JS -->
@@ -90,6 +93,7 @@
         <!-- Call Other Plugins -->
         {{-- HTML::script('assets/js/bootstrap/bootstrap-switch.min.js') --}}
         {{ HTML::script('assets/js/flippant/flippant.min.js') }}
+        {{ HTML::script('assets/js/bootstrap/summernote.min.js') }}
         
 
         <!-- Call all datatables JS -->
