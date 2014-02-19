@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * This is the file for the DEVELOPMENT database
+ */
+
 return array(
     'connections' => array(
         'mysql' => array(

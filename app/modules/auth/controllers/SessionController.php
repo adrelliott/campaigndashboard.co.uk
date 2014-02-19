@@ -28,8 +28,8 @@ class SessionController extends BaseController {
 
         // Attempt login
         if ( Auth::attempt($credentials) )
-            return Redirect::intended('/app/dashboard')
-            ->with('success', 'You\'re logged in!');
+            return Redirect::intended('/app/dashboard');
+            // ->with('success', 'You\'re logged in!');
 
         // Spit you back out if they're wrong
         return Redirect::route('login')

@@ -25,5 +25,5 @@ Route::get('/', function(){
 });
 
 Route::get('/app', function(){
-    return Redirect::route('dashboard');
+    return Redirect::to('app/dashboard');
 });

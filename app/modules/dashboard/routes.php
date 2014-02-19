@@ -10,6 +10,7 @@ use \Route;
 // );
 
 Route::get('app/dashboard', array(
+    'before' => 'auth',
     'as' => 'dashboard', 
     'uses' => 'Dashboard\App\Home\DashboardController@index'
     )
