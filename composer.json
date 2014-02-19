@@ -13,7 +13,8 @@
          "loic-sharma/profiler": "dev-master",
          "creolab/laravel-modules": "dev-master",
          "bllim/datatables": "*",
-         "mccool/laravel-auto-presenter": "*"
+         "mccool/laravel-auto-presenter": "*",
+         "barryvdh/laravel-migration-generator": "dev-master"
     },
     "autoload": {
         "classmap": [

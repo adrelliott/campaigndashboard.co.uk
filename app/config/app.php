@@ -117,6 +117,7 @@ return array(
         'Creolab\LaravelModules\ServiceProvider',
         'Bllim\Datatables\DatatablesServiceProvider',
         'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider',
+        'Barryvdh\MigrationGenerator\MigrationGeneratorServiceProvider',
         ),
 
 	/*
