@@ -9,7 +9,7 @@
 
         <title>Dashboard</title>
 
-        @include('partials.app._header-' . App::environment())
+        @include('partials.app._header-development')
         
     </head>
 
@@ -58,8 +58,7 @@
         @show
         <!-- / Modal -->
         
-        @include('partials.app._footer-' . App::environment())
-
-
+        @include('partials.app._footer-development')
+        {{ var_dump(App::environment())}}
     </body>
 </html>
