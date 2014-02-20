@@ -64,6 +64,12 @@ return array(
         'col2tabs' => ['Purchases', 'Roles'],
         ),
 
+    //The tabs for views/contacts/show.blade.php
+    'usersshow' => array(
+        'col1tabs' => ['Details', 'Permissions'],
+        //'col2tabs' => ['Purchases', 'Roles'],
+        ),
+
 
 
 

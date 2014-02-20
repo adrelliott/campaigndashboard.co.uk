@@ -16,7 +16,7 @@
 {{ HTML::style('/assets/css/main.css') }}
 
 
-{{ HTML::script('assets/js/angularjs/angular1.2.13.min.js') }}
+{{-- HTML::script('assets/js/angularjs/angular1.2.13.min.js') --}}
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>

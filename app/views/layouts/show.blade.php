@@ -10,9 +10,9 @@
             @section('col1')
                 <div class="well"><!-- Well -->
                     <!-- Pills -->
-                    @if (isset($config['contactsshow']['col1tabs']))
-                        @include('partials.app._tab-header', array('tabs' => $config['contactsshow']['col1tabs']))
-                        @include('partials.app._tab-body', array('tabs' => $config['contactsshow']['col1tabs']))
+                    @if (isset($config[$controller . 'show']['col1tabs']))
+                        @include('partials.app._tab-header', array('tabs' => $config[$controller . 'show']['col1tabs']))
+                        @include('partials.app._tab-body', array('tabs' => $config[$controller . 'show']['col1tabs']))
                     @endif
                     <!-- /Pills -->
 
@@ -30,9 +30,9 @@
                 <div class="panel panel-default"><!-- Panel -->
                     <div class="panel-body">
                         <!-- Pills -->
-                        @if (isset($config['contactsshow']['col2tabs']))
-                            @include('partials.app._tab-header', array('tabs' => $config['contactsshow']['col2tabs']))
-                            @include('partials.app._tab-body', array('tabs' => $config['contactsshow']['col2tabs']))
+                        @if (isset($config[$controller . 'show']['col2tabs']))
+                            @include('partials.app._tab-header', array('tabs' => $config[$controller . 'show']['col2tabs']))
+                            @include('partials.app._tab-body', array('tabs' => $config[$controller . 'show']['col2tabs']))
                         @endif
                         <!-- /Pills -->
                     </div><!-- /Panel-body -->

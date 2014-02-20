@@ -1,4 +1,4 @@
-@extends('layouts.show')
+@extends('layouts.create')
 
 @section('page-title')
     <h1>
@@ -13,7 +13,7 @@
     <li><a href="{{ route('app.users.create') }}"><p><em>Create new user</em></p></a></li>
 @stop
 
-@section('overview')
+@section('details')
     <h3 class="text-primary"><i class="fa fa-info-circle"></i> Overview</h3>
     {{ Former::open()
         ->role('Form')
@@ -31,19 +31,29 @@
         <div class="form-group col-lg-6 col-md-12 col-sm-12  col-xs-12">
             {{ Former::text('last_name')->class('form-control input-lg')->placeholder('E.g. Blair') }}
         </div>
+        
+        <div class="form-group col-lg-6 col-md-12 col-sm-12  col-xs-12">
+            {{ Former::text('company_name')->class('form-control input-lg')->placeholder('E.g. TheGreatestCompany Ltd') }}
+        </div>
+        
+        <div class="form-group col-lg-6 col-md-12 col-sm-12  col-xs-12">
+            {{ Former::password('password')->class('form-control input-lg')->placeholder('Leave this blank to keep the same password') }}
+        </div>
+
+        <div class="form-group col-lg-6 col-md-12 col-sm-12  col-xs-12">
+            {{ Former::password('_password_confirmation')->class('form-control input-lg')->placeholder('If you are changing your password, retype it here') }}
+        </div>
 
         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <button type="submit" class="btn btn-success pull-right"><i class="fa fa-check"></i> Save Changes</button>
         </div>
 @stop
 
-@section('inDepth')
+@section('permissions')
     <h3 class="text-primary"><i class="fa fa-folder-open"></i> In-Depth</h3>
         <div class="form-group col-lg-6 col-md-12 col-sm-12  col-xs-12">
             {{ Former::text('email')->class('form-control input-lg')->placeholder('E.g. Lionel@GiveUsAClue.com') }}
         </div>
-
-        
 
         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <button type="submit" class="btn btn-success pull-right"><i class="fa fa-check"></i> Save Changes</button>
@@ -52,20 +62,10 @@
     {{ Former::close() }}
 @stop
 
-@section('optIn')
-    <h3 class="text-primary"><i class="fa fa-lock"></i> Opt Ins</h3>
-@stop
-
-@section('notes')
-    <h3 class="text-primary"><i class="fa fa-book"></i> Notes</h3>
-
-@stop
-
-
-@section('tasks')
-    <h3 class="text-primary"><i class="fa fa-info-circle"></i> Overview</h3>
-
-
+@section('col2')
+    <h3>Looking for something, {{ $user->first_name}} ?</h3>
+    <p>You see slightly different screens, depending on your admin level.</p>
+    <p>If you need to change what you see here, just get in touch with us (0161 883 22 44)</p>
 @stop
 
 @section('modal')

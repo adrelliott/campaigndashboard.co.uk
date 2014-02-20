@@ -16,7 +16,7 @@ class BaseController extends Controller {
         $this->data['owner_id'] = $this->user->owner_id;
         $this->data['logo']['large'] = '/assets/img/bootstrap/cdash_logo150px.png';
         $this->data['logo']['small'] = '/assets/img/bootstrap/cdash_logo75px.png';
-        $this->data['misc']['current_route'] = strtolower(Request::segment(1));
+        $this->data['controller'] = strtolower(Request::segment(2));
         $this->data['misc']['env'] = App::environment();
 
         Session::put('owner_id', $this->user->owner_id);

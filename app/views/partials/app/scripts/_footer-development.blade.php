@@ -23,4 +23,4 @@
     {{ HTML::script('assets/js/app/modal.js') }}
     {{-- HTML::script('assets/js/app/appAngular.js') --}}
 
-{{ Debug::dump($config) }}
+{{ Debug::dump($misc) }}

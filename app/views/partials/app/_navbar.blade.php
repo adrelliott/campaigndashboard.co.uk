@@ -36,7 +36,7 @@
                                     @endforeach
                                 </ul>
                         @else
-                            @if ( $misc['current_route']  == $nav['route'] )
+                            @if ( $controller  == $nav['route'] )
                                 <li class="active">
                             @else
                                 <li>
