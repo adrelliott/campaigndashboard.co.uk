@@ -59,6 +59,6 @@
         <!-- / Modal -->
         
         @include('partials.app.scripts._footer-development')
-        {{ var_dump(App::environment())}}
+        
     </body>
 </html>
