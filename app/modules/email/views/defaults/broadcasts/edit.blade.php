@@ -23,7 +23,7 @@
         }}
         
             <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                {{ Former::select('search_id')->class('form-control input-lg')->options($user->config['savedSearches'])->label('Who is this email to?') }}
+                {{ Former::select('search_id')->class('form-control input-lg')->options($config['savedSearches'])->label('Who is this email to?') }}
             </div>
             <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                 {{ Former::text('subject_line')->class('form-control input-lg')->placeholder('E.g. Are you coming to the match?')->label('Subject Line') }}
@@ -74,10 +74,10 @@
                 </div>
                 <div class="panel-body">
                     <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                        {{ Former::select('broadcast_from')->class('form-control input-sm')->options($user->config['emailFrom'])->label('Who is this email from?') }}
+                        {{ Former::select('broadcast_from')->class('form-control input-sm')->options($config['emailFrom'])->label('Who is this email from?') }}
                     </div>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                        {{ Former::select('broadcast_template')->class('form-control input-sm')->options($user->config['emailTemplate'])->label('Email Template') }}
+                        {{ Former::select('broadcast_template')->class('form-control input-sm')->options($config['emailTemplate'])->label('Email Template') }}
                     </div>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                         <h5>Ready to Send?</h5>
@@ -103,7 +103,7 @@
                     {{ Former::open() }}
                     
                     <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                        {{ Former::select('_test_send_to')->class('form-control input-sm')->label(false)->options($user->config['testEmailto'])->label('Send a test to:') }}
+                        {{ Former::select('_test_send_to')->class('form-control input-sm')->label(false)->options($config['testEmailto'])->label('Send a test to:') }}
                     </div>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                         <small><a href="#" class="unhide_div" div-class="test_other">Send to someone not on this list?</a></small>

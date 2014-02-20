@@ -28,7 +28,7 @@
     
     }}
         <div class="col-lg-4 col-md-5 col-sm-4  col-xs-12">
-            {{ Former::select('title')->class('form-control ')->options($user->config['titles'])->formGroup('col-lg-12') }}
+            {{ Former::select('title')->class('form-control ')->options($config['titles'])->formGroup('col-lg-12') }}
         </div>
         
         <div class="col-lg-8 col-md-7 col-sm-8  col-xs-12">

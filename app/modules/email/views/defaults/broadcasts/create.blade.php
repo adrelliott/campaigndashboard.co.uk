@@ -26,7 +26,7 @@
                 {{ Former::text('broadcast_name')->class('form-control input-lg')->placeholder('E.g. Weekly Newsletter ') }}
             </div>
             <div class="form-group col-lg-4 col-md-4 col-sm-12  col-xs-12">
-                {{ Former::select('broadcast_type')->class('form-control input-lg')->options($user->config['broadcastTypes']) }}
+                {{ Former::select('broadcast_type')->class('form-control input-lg')->options($config['broadcastTypes']) }}
             </div>
             <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                 {{ Former::textarea('broadcast_description')->class('form-control input-lg')->placeholder('E.g. news from the latest match, updates on the ground and special offers')->rows(3) }}

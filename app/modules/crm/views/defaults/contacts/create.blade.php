@@ -23,7 +23,7 @@
             
             }}
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                    {{ Former::select('title')->class('form-control input-lg')->options($user->config['titles']) }}
+                    {{ Former::select('title')->class('form-control input-lg')->options($config['titles']) }}
                 </div>
 
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">

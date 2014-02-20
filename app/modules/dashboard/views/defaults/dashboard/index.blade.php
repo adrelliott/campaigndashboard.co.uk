@@ -2,14 +2,14 @@
 
 @section('top-line')
     <h1>
-        <i class="fa fa-dashboard"></i> Welcome to the {{ Auth::user()->company }} Dashboard
+        <i class="fa fa-dashboard"></i> Welcome to the {{ $user->company }} Dashboard
     </h1>
     <p class="lead">
         Need help? Call 0161 883 2244
     </p>
     <div class="col-lg-8 col-md-6 col-sm-7 col-xs-12"><!-- col-1 -->
         <div class="jumbotron">
-            <h1>Hello, {{ Auth::user()->first_name }}!</h1>
+            <h1>Hello, {{ $user->first_name }}!</h1>
             <p>Use the menus on the top to find your way around.</p>
             <div class="row">
                 <p><a href="contacts/create" class="btn btn-primary btn-lg pull-right" role="button"><i class="fa fa-plus"></i>  Create new Fan</a></p>

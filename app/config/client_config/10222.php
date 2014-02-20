@@ -1,6 +1,54 @@
 <?php
 
 return array(
+     /*
+    |--------------------------------------------------------------------------
+    | Navbar
+    |--------------------------------------------------------------------------
+    |
+    | The settings for the navbar files
+    |
+    | NOTE: The admin level for each menu item has to be smaller than the current logged in user for them to see it. 
+    |  e.g. min_admin_level = 2, means users with admin 0, 1 & 2 can see it, but 3, 4 & 5 cannot
+    |
+    */
+
+    'navbar' => array(
+        'home' => array(
+            'route' => 'app/dashboard',
+            'icon' => 'tachometer',
+            'label' => 'Dashboard',
+            'min_admin_level' => 3,
+            'dropdowns' => array(),
+            ),
+        'contacts' => array(
+            'route' => 'app/contacts',
+            'icon' => 'user',
+            'label' => 'Fans',
+            'min_admin_level' => 3,
+            'dropdowns' => array(),
+            ),
+        'marketing' => array(
+            'route' => '',
+            'icon' => 'bolt',
+            'label' => 'Marketing',
+            'min_admin_level' => 3,
+            'dropdowns' => array(
+                'dropdown1' => array(
+                    'route' => 'app/broadcasts',
+                    'icon' => 'bullhorn',
+                    'label' => 'Broadcasts',
+                    'min_admin_level' => 3,
+                    ),
+                'dropdown2' => array(
+                    'route' => 'app/broadcasts',
+                    'icon' => 'bullhorn',
+                    'label' => 'restricted',
+                    'min_admin_level' => 0,
+                    ),
+                ),
+            ),
+        ),
 
     /*
     |--------------------------------------------------------------------------
@@ -16,11 +64,6 @@ return array(
         'col2tabs' => ['Purchases', 'Roles'],
         ),
 
-    // 'contactrules' => array(
-    //     'first_name'                  => 'between:2,32',
-    //     'last_name'                  => 'required|between:2,32',
-    //     'email'                 => 'email',
-    // ),
 
 
 

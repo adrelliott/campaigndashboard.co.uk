@@ -4,81 +4,29 @@ class BaseController extends Controller {
 
 	public function __construct()
     {
-        //This should come from the database when we draw the user record...
-        $this->user = (object) array(
-            'owner_id' => '10222',
-            'first_name' => 'Al', 
-            'id' => '2311',
-            'logo_path' => '/assets/img/bootstrap/cdash_logo150px.png',
-            'navbar' => array (
-                'home' => array(
-                    'route' => 'app/dashboard',
-                    'icon' => 'tachometer',
-                    'label' => 'Dashboard',
-                    'dropdowns' => array(),
-                    ),
-                'contacts' => array(
-                    'route' => 'app/contacts',
-                    'icon' => 'user',
-                    'label' => 'Fans',
-                    'dropdowns' => array(),
-                    ),
-                'marketing' => array(
-                    'route' => '',
-                    'icon' => 'bolt',
-                    'label' => 'Marketing',
-                    'dropdowns' => array(
-                        'dropdown1' => array(
-                            'route' => 'app/broadcasts',
-                            'icon' => 'bullhorn',
-                            'label' => 'Broadcasts'
-                            ),
-                        // 'dropdown2' => array(
-                        //     'route' => 'orders/orders',
-                        //     'icon' => 'gbp',
-                        //     'label' => 'Orders2'
-                        //     ),
-                        ),
-                    ),
-                // 'marketing' => array(
-                //     'route' => '',
-                //     'icon' => 'bolt',
-                //     'label' => 'Marketing',
-                //     'dropdowns' => array(
-                //         'dropdown1' => array(
-                //             'route' => 'email/broadcasts',
-                //             'icon' => 'bullhorn',
-                //             'label' => 'Broadcasts'
-                //             ),
-                //         ),
-                //     ),
-                )
-            );
+        if ( ! Auth::guest() )
+        {
+            //Set up user var
+        $this->user = Auth::user();
+        $this->data['user'] = $this->user;
+        
+        //Set up environment vars
+        $this->data['config'] = Config::get('client_config/' . $this->user->owner_id);
+        $this->data['navbar'] = $this->data['config']['navbar'];
+        $this->data['owner_id'] = $this->user->owner_id;
+        $this->data['logo']['large'] = '/assets/img/bootstrap/cdash_logo150px.png';
+        $this->data['logo']['small'] = '/assets/img/bootstrap/cdash_logo75px.png';
+        $this->data['misc']['current_route'] = strtolower(Request::segment(1));
+        $this->data['misc']['env'] = App::environment();
 
-        Session::put('owner_id', $this->user->slug = $this->user->owner_id);
-        $this->user->config = Config::get('client_config/' . $this->user->slug);
+        Session::put('owner_id', $this->user->owner_id);
+        //$this->user->config = Config::get('client_config/' . $this->user->slug);
 
-        $this->data = array('specialData' => 'yeah!',
-            'user' => $this->user);
+        // $this->data['user'] = $this->user;    
+        }
+        
     }
 
-
-    /* Standard Methods */
-    // public function saveRecord($record)
-    // {
-    //     if ($record->save())
-    //     {
-    //         return Redirect::route('app.' . $this->foldername . '.edit', array($record->id))
-    //             ->with('success', 'That\'s saved!');
-    //     }
-
-    //     else
-    //     {
-    //         return Redirect::back()
-    //             ->with('error', 'Some fields don\'t look right. Can you take a look?')
-    //             ->withErrors($record->errors());
-    //     }
-    // }
 
     public function render()
     {

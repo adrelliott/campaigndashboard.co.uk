@@ -17,16 +17,16 @@
                     {{ Former::date('order_date')->class('form-control input-sm')->label('Order Date') }}
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    {{ Former::select('order_source')->class('form-control input-sm')->options($user->config['orderSource']) }}
+                    {{ Former::select('order_source')->class('form-control input-sm')->options($config['orderSource']) }}
                 </div>
             </div>
            
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                    {{ Former::select('temp_item')->class('form-control input')->options($user->config['productList'])->label('Item Bought') }}
+                    {{ Former::select('temp_item')->class('form-control input')->options($config['productList'])->label('Item Bought') }}
                 </div>
                 <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    {{ Former::select('temp_season')->class('form-control input')->options($user->config['seasons'])->label('Season') }}
+                    {{ Former::select('temp_season')->class('form-control input')->options($config['seasons'])->label('Season') }}
                 </div>
                 
             </div>
@@ -41,7 +41,7 @@
                     {{ Former::text('order_total')->class('form-control input-sm')->label('Total') }}
                 </div>
                 <div class="1col-lg-offset-8 col-lg-12 1col-md-offset-8 col-md-12 1col-sm-offset-6 col-sm-12 1col-xs-offset-2 col-xs-12">
-                    {{ Former::select('payment_method')->class('form-control input-sm')->options($user->config['paymentMethod']) }}
+                    {{ Former::select('payment_method')->class('form-control input-sm')->options($config['paymentMethod']) }}
                 </div>
             </div>
 
