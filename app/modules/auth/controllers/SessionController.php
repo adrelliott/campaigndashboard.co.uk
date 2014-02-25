@@ -1,8 +1,8 @@
 <?php
-namespace Dashboard\App\Auth;
+namespace Dashboard\Auth;
 
-use \Dashboard\App\Admin;
-use \BaseController, \View, \Redirect, \Session, \Input, \Auth, \User;
+use Dashboard\Admin\User;
+use BaseController, View, Redirect, Session, Input, Auth;
 
 class SessionController extends BaseController {
 

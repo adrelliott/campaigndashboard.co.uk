@@ -1,8 +1,8 @@
 <?php
 
-namespace Dashboard\App\Admin;
+namespace Dashboard\Admin;
 
-use \Input, \BaseModel;
+use Input, BaseModel;
 
 class Product extends BaseModel {
     

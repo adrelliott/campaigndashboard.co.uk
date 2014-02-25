@@ -2,9 +2,9 @@
 
 namespace Dashboard\Api;
 
-use \BaseController, \View, \Input;
-use \Dashboard\App\Admin\User as Model;
-use \Bllim\Datatables\Datatables;
+use BaseController, View, Input;
+use Dashboard\Admin\User as Model;
+use Bllim\Datatables\Datatables;
 
 class UsersController extends BaseController {
 

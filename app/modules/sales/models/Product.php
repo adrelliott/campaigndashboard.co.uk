@@ -1,8 +1,8 @@
 <?php
 
-namespace Dashboard\App\Sales;
+namespace Dashboard\Sales;
 
-use \Input, \BaseModel;
+use Input, BaseModel;
 
 class Product extends BaseModel {
     
@@ -10,7 +10,7 @@ class Product extends BaseModel {
     protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at', 'owner_id'];
 
      // Wrap in a presenter (ShawnMcCool)
-    public $presenter = 'Dashboard\App\Sales\ProductPresenter';
+    public $presenter = 'Dashboard\Sales\ProductPresenter';
 
     // public $autoHydrateEntityFromInput = true;    // hydrates on new entries' validation
     

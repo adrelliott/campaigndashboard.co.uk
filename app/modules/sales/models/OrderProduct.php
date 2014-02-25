@@ -1,8 +1,8 @@
 <?php
 
-namespace Dashboard\App\Sales;
+namespace Dashboard\Sales;
 
-use \Input, \BaseModel;
+use Input, BaseModel;
 
 class OrderProduct extends BaseModel {
 
@@ -13,7 +13,7 @@ class OrderProduct extends BaseModel {
     protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at', 'owner_id'];
 
      // Wrap in a presenter (ShawnMcCool)
-    public $presenter = 'Dashboard\App\Sales\OrderProductPresenter';
+    public $presenter = 'Dashboard\Sales\OrderProductPresenter';
 
     // public $autoHydrateEntityFromInput = true;    // hydrates on new entries' validation
     
@@ -26,12 +26,12 @@ class OrderProduct extends BaseModel {
 
     public function contact()
     {
-        return $this->belongsTo('Dashboard\App\Sales\Order');
+        return $this->belongsTo('Dashboard\Sales\Order');
     }
 
     // public function orderItems()
     // {
-    //     return $this->hasMany('Dashboard\App\Sales\OrdersProducts');
+    //     return $this->hasMany('Dashboard\Sales\OrdersProducts');
     // }
 
 //May also have many notes, tasks, tags

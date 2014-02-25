@@ -1,13 +1,13 @@
 <?php 
 
 // Set up namespace
-namespace Dashboard\App\Email;
-use \Route;
+namespace Dashboard\Email;
+use Route;
 
 // Contacts
 Route::group(array(
     'prefix' => 'app', 
-    'namespace' => 'Dashboard\App\Email', 
+    'namespace' => 'Dashboard\Email', 
     'before' => 'auth'
     ), 
     function()

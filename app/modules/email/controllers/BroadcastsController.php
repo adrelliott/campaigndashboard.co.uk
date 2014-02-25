@@ -1,11 +1,11 @@
 <?php 
 
 //Set up the namespace
-namespace Dashboard\App\Email;
+namespace Dashboard\Email;
 
 //What classes are we going to use?
-use \BaseController, \Redirect, \Request;
-use Dashboard\App\Email\Broadcast as Model;
+use BaseController, Redirect, Request;
+use Dashboard\Email\Broadcast as Model;
 
 
 class BroadcastsController extends BaseController {

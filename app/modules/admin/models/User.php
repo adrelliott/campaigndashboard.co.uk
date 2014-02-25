@@ -1,10 +1,10 @@
 <?php
 
-namespace Dashboard\App\Admin;
+namespace Dashboard\Admin;
 
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
-use \BaseModel;
+use BaseModel;
 
 class User extends BaseModel implements UserInterface, RemindableInterface {
 
@@ -45,7 +45,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
     */
     // public function note()
     // {
-    //     return $this->hasMany('Dashboard\App\Crm\Note');
+    //     return $this->hasMany('Dashboard\Crm\Note');
     // }
     
 
@@ -62,7 +62,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
     */
     // public function note()
     // {
-    //     return $this->hasMany('Dashboard\App\Crm\Note');
+    //     return $this->hasMany('Dashboard\Crm\Note');
     // }
 
 

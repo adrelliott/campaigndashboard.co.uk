@@ -2,9 +2,9 @@
 
 namespace Dashboard\Api;
 
-use \BaseController, \View, \Input;
-use \Dashboard\App\Crm\Action as Model;
-use \Bllim\Datatables\Datatables;
+use BaseController, View, Input;
+use Dashboard\Crm\Action as Model;
+use Bllim\Datatables\Datatables;
 
 class ActionsController extends BaseController {
 

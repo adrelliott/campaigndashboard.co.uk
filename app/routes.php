@@ -22,6 +22,9 @@ App::error(function(PDOException $exception)
     return "Error connecting to database";
 });
 
+
+
+
 Route::get('/', function(){
     return 'You shouldn\'t be here, should you?';
 });

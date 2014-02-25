@@ -1,11 +1,11 @@
 <?php 
 
 //Set up the namespace
-namespace Dashboard\App\Admin;
+namespace Dashboard\Admin;
 
 //What classes are we going to use?
-use \BaseController;
-use Dashboard\App\Admin\User as Model;
+use BaseController;
+use Dashboard\Admin\User as Model;
 
 
 class UsersController extends BaseController {

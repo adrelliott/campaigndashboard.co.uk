@@ -1,9 +1,9 @@
 <?php
 
-namespace Dashboard\App\Sales;
+namespace Dashboard\Sales;
 
- use \BaseController, \Redirect, \Request, \Input;
-use Dashboard\App\Sales\Order as Model;
+use BaseController, Redirect, Request, Input;
+use Dashboard\Sales\Order as Model;
 
 
 class OrdersController extends \BaseController {

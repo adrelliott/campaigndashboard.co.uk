@@ -1,8 +1,8 @@
 <?php
 
-namespace Dashboard\App\Sales;
+namespace Dashboard\Sales;
 
-use \Input, \BaseModel;
+use Input, BaseModel;
 
 class Order extends BaseModel {
     
@@ -10,7 +10,7 @@ class Order extends BaseModel {
     protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at', 'owner_id'];
 
      // Wrap in a presenter (ShawnMcCool)
-    //public $presenter = 'Dashboard\App\Sales\OrderPresenter';
+    //public $presenter = 'Dashboard\Sales\OrderPresenter';
 
     // public $autoHydrateEntityFromInput = true;    // hydrates on new entries' validation
     
@@ -22,7 +22,7 @@ class Order extends BaseModel {
     
     public function contact()
     {
-        return $this->belongsTo('Dashboard\App\Crm\Contact');
+        return $this->belongsTo('Dashboard\Crm\Contact');
     }
 
      

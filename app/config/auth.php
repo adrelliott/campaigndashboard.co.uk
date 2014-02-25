@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'model' => 'Dashboard\App\Admin\User',
+	'model' => 'Dashboard\Admin\User',
 
 	/*
 	|--------------------------------------------------------------------------

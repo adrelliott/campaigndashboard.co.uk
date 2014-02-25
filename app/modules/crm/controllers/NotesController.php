@@ -1,11 +1,11 @@
 <?php 
 
 //Set up the namespace
-namespace Dashboard\App\Crm;
+namespace Dashboard\Crm;
 
 //What classes are we going to use?
-use \BaseController, \Redirect, \Request, \Input;
-use Dashboard\App\Crm\Note as Model;
+use BaseController, Redirect, Request, Input;
+use Dashboard\Crm\Note as Model;
 
 
 class NotesController extends BaseController {

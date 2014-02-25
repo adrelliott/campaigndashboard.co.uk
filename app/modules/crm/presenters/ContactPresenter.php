@@ -1,16 +1,14 @@
 <?php
 
-namespace Dashboard\App\Crm;
+namespace Dashboard\Crm;
+
 use McCool\LaravelAutoPresenter\BasePresenter;
-
-//Pull in the models required for this record
-use Dashboard\App\Crm\Contact as Model;
-use Dashboard\App\Crm\Action as Action;
-use Dashboard\App\Crm\Note as Note;
-use Dashboard\App\Crm\Tag as Tag;
-use Dashboard\App\Admin\User as User;
-
-use \Carbon;
+use Dashboard\Crm\Contact as Model;
+use Dashboard\Crm\Action as Action;
+use Dashboard\Crm\Note as Note;
+use Dashboard\Crm\Tag as Tag;
+use Dashboard\Admin\User as User;
+use Carbon;
 
 class ContactPresenter extends BasePresenter {
 

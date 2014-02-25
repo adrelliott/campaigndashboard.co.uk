@@ -1,8 +1,8 @@
 <?php
 
-namespace Dashboard\App\Crm;
+namespace Dashboard\Crm;
 
-use \Input, \BaseModel;
+use Input, BaseModel;
 
 class Action extends BaseModel {
     
@@ -23,7 +23,7 @@ class Action extends BaseModel {
 
     public function contact()
     {
-        return $this->belongsTo('Dashboard\App\Crm\Contact');
+        return $this->belongsTo('Dashboard\Crm\Contact');
     }
 
 

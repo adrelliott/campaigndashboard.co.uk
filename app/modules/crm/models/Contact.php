@@ -1,9 +1,9 @@
 <?php
 
-namespace Dashboard\App\Crm;
+namespace Dashboard\Crm;
 
-use \Input, \BaseModel;
-use Dashboard\App\Crm\ContactPresenter as Presenter;
+use Input, BaseModel;
+use Dashboard\Crm\ContactPresenter as Presenter;
 
 class Contact extends BaseModel {
     
@@ -11,7 +11,7 @@ class Contact extends BaseModel {
     protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at', 'owner_id', 'date_of_birth'];
 
     // Wrap in a presenter (ShawnMcCool)
-    public $presenter = 'Dashboard\App\Crm\ContactPresenter';
+    public $presenter = 'Dashboard\Crm\ContactPresenter';
     
     // Validation rules
     public static $rules = array(
@@ -26,7 +26,7 @@ class Contact extends BaseModel {
      */
     public function notes()
     {
-        return $this->hasMany('Dashboard\App\Crm\Note');
+        return $this->hasMany('Dashboard\Crm\Note');
     }
 
     /**
@@ -34,7 +34,7 @@ class Contact extends BaseModel {
      */
     public function orders()
     {
-        return $this->hasMany('Dashboard\App\Sales\Order');
+        return $this->hasMany('Dashboard\Sales\Order');
     }
 
     

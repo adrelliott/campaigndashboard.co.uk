@@ -1,13 +1,13 @@
 <?php 
 
-namespace Dashboard\App\Auth;
-use \Route, \View;
+namespace Dashboard\Auth;
+use Route, View;
 
 
 // Session Routes
 Route::group(array(
     'prefix' => 'app', 
-    'namespace' => 'Dashboard\App\Auth',
+    'namespace' => 'Dashboard\Auth',
     ), 
     function()
     {

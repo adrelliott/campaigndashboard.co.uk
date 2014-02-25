@@ -1,11 +1,11 @@
 <?php 
 
 //Set up the namespace
-namespace Dashboard\App\Crm;
+namespace Dashboard\Crm;
 
 //What classes are we going to use?
-use \BaseController;
-use Dashboard\App\Crm\Action as Model;
+use BaseController;
+use Dashboard\Crm\Action as Model;
 
 
 class ActionsController extends BaseController {

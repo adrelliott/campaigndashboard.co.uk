@@ -1,9 +1,9 @@
 <?php
 
-namespace Dashboard\App\Email;
+namespace Dashboard\Email;
 
-use \Input, \BaseModel;
-use Dashboard\App\Email\BroadcastPresenter as Presenter;
+use Input, BaseModel;
+use Dashboard\Email\BroadcastPresenter as Presenter;
 
 class Broadcast extends BaseModel {
     
@@ -11,7 +11,7 @@ class Broadcast extends BaseModel {
     protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at', 'owner_id'];
 
     // Wrap in a presenter (ShawnMcCool)
-    public $presenter = 'Dashboard\App\Email\BroadcastPresenter';
+    public $presenter = 'Dashboard\Email\BroadcastPresenter';
     
     // Validation rules
     public static $rules = array(
@@ -24,7 +24,7 @@ class Broadcast extends BaseModel {
      */
     // public function notes()
     // {
-    //     return $this->hasMany('Dashboard\App\Crm\Note');
+    //     return $this->hasMany('Dashboard\Crm\Note');
     // }
 
     /**
@@ -32,7 +32,7 @@ class Broadcast extends BaseModel {
      */
     // public function orders()
     // {
-    //     return $this->hasMany('Dashboard\App\Sales\Order');
+    //     return $this->hasMany('Dashboard\Sales\Order');
     // }
 
     

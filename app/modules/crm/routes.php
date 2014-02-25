@@ -1,13 +1,13 @@
 <?php 
 
 // Set up namespace
-namespace Dashboard\App\Crm;
-use \Route;
+namespace Dashboard\Crm;
+use Route;
 
 // Contacts
 Route::group(array(
     'prefix' => 'app', 
-    'namespace' => 'Dashboard\App\Crm', 
+    'namespace' => 'Dashboard\Crm', 
     'before' => 'auth'
     ), 
     function()

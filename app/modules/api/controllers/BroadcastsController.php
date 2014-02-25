@@ -2,9 +2,9 @@
 
 namespace Dashboard\Api;
 
-use \BaseController, \View, \Input;
-use \Dashboard\App\Email\Broadcast as Model;
-use \Bllim\Datatables\Datatables;
+use BaseController, View, Input;
+use Dashboard\Email\Broadcast as Model;
+use Bllim\Datatables\Datatables;
 
 class BroadcastsController extends BaseController {
 

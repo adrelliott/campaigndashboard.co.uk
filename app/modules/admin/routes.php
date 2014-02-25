@@ -1,13 +1,13 @@
 <?php 
 
 // Set up namespace
-namespace Dashboard\App\Admin;
-use \Route;
+namespace Dashboard\Admin;
+use Route;
 
 // Contacts
 Route::group(array(
     'prefix' => 'app', 
-    'namespace' => 'Dashboard\App\Admin', 
+    'namespace' => 'Dashboard\Admin', 
     'before' => 'auth' //Also, are they an admin?
     ), 
     function()
