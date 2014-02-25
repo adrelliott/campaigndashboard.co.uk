@@ -70,7 +70,7 @@
 
         
         <div class="col-lg-8 col-md-7 col-sm-12  col-xs-12">
-            {{ Former::email('email2')->class('form-control input-sm')->placeholder('E.g. Lionel@hotmail.com')->label('Email 2') }}
+            {{ Former::email('email2')->class('form-control input-sm')->placeholder('E.g. Lionel@hotmail.com')->label('Email 2')->help('The format paul@fcutd.co.uk') }}
         </div>
         
         <div class="col-lg-4 col-md-5 col-sm-12  col-xs-12">

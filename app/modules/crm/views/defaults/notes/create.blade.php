@@ -20,7 +20,7 @@
     <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
         {{ Former::textarea('note_body')->class('form-control input')->placeholder('E.g. They wanted to know when the next match was')->rows(5) }}
     </div>
-    <input type="hidden" class="" name="user_id" value="{{ Auth::user()->id }}">
+    <input type="hidden" class="" name="user_id" value="{{ $user->id }}">
     <input type="hidden" class="" name="contact_id" value="{{ Input::get('contact_id') }}">
 
     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -32,5 +32,4 @@
 <div class="form-group ">
     <p class="help-block"><strong>Just so you know...</strong> your name & the time/date will be auto-stamped on this note.</p>
 </div>
-{{ Debug::dump($user)}}
 @stop

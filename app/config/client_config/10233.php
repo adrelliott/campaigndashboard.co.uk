@@ -8,7 +8,7 @@ return array(
     |
     | The settings for the navbar files
     |
-    | NOTE: The admin level for each menu item has to be less than than the current logged in user for them to see it. 
+    | NOTE: The admin level for each menu item has to be smaller than the current logged in user for them to see it. 
     |  e.g. min_admin_level = 2, means users with admin 0, 1 & 2 can see it, but 3, 4 & 5 cannot
     |
     */
@@ -24,7 +24,7 @@ return array(
         'contacts' => array(
             'route' => 'app/contacts',
             'icon' => 'user',
-            'label' => 'Fans',
+            'label' => 'Contacts',
             'min_admin_level' => 3,
             'dropdowns' => array(),
             ),
@@ -61,13 +61,7 @@ return array(
    //The tabs for views/contacts/show.blade.php
     'contactsshow' => array(
         'col1tabs' => ['Overview', 'In Depth', 'Opt In', 'Notes'],
-        'col2tabs' => ['Purchases', 'Roles'],
-        ),
-
-    //The tabs for views/contacts/show.blade.php
-    'usersshow' => array(
-        'col1tabs' => ['Details', 'Permissions'],
-        //'col2tabs' => ['Purchases', 'Roles'],
+        'col2tabs' => ['Tags', 'Roles'],
         ),
 
 

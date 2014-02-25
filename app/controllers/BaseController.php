@@ -20,9 +20,7 @@ class BaseController extends Controller {
         $this->data['misc']['env'] = App::environment();
 
         Session::put('owner_id', $this->user->owner_id);
-        //$this->user->config = Config::get('client_config/' . $this->user->slug);
-
-        // $this->data['user'] = $this->user;    
+       
         }
         
     }
