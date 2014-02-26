@@ -1,8 +1,6 @@
-<?php 
+<?php namespace Dashboard\Crm;
 
-// Set up namespace
-namespace Dashboard\Crm;
-use Route;
+use Route, App;
 
 // Contacts
 Route::group(array(
@@ -12,8 +10,14 @@ Route::group(array(
     ), 
     function()
     {
+        
+        Route::get('contacts/list', array('uses' => 'ContactsController@indexNoData'));
         Route::resource('contacts', 'ContactsController');
         Route::resource('actions', 'ActionsController');
         Route::resource('notes', 'NotesController');
+
     }
 );
+
+
+// Route::get('/app/contacts/dump', array('uses' => 'Dashboard\Crm\ContactsController@Dump'));

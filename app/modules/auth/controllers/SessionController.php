@@ -2,11 +2,11 @@
 namespace Dashboard\Auth;
 
 use Dashboard\Admin\User;
-use BaseController, View, Redirect, Session, Input, Auth;
+use Controller, View, Redirect, Session, Input, Auth;
 
-class SessionController extends BaseController {
+class SessionController extends Controller {
 
-	/**
+    /**
 	 * Show the form for creating a new resource.
 	 *
 	 * @return Response

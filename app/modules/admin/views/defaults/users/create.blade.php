@@ -5,7 +5,7 @@
         <i class="fa fa-user"></i> Create a User
     </h1>
     <p class="lead">
-        You can have unlimited users!
+        You can have {{ $config['users']['total_number'] }} users
     </p>
 @stop
 
@@ -24,23 +24,23 @@
             }}
 
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                    {{ Former::text('first_name')->class('form-control input-lg')->placeholder('E.g. Lionel') }}
+                    {{ Former::text('first_name')->class('form-control input-lg')->placeholder('E.g. Tom') }}
                 </div>
 
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                    {{ Former::text('last_name')->class('form-control input-lg')->placeholder('E.g. Blair') }}
+                    {{ Former::text('last_name')->class('form-control input-lg')->placeholder('E.g. Hanks') }}
                 </div>
 
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                    {{ Former::text('email')->class('form-control input-lg')->placeholder('E.g. li_the_guy@gmail.com') }}
+                    {{ Former::text('email')->class('form-control input-lg')->placeholder('E.g. hanks_for_the_memories@hotmail.com') }}
                 </div>
 
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                    {{ Former::text('password')->class('form-control input-lg')->placeholder('Choose one that\'s tough to guess')->label('User\'s password') }}
+                    {{ Former::password('password')->class('form-control input-lg')->placeholder('Choose one that\'s tough to guess')->label('User\'s password') }}
                 </div>
 
                <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                    {{ Former::text('_password_confirmation')->class('form-control input-lg')->placeholder('Type your new password again')->label('Password Confirmation') }}
+                    {{ Former::password('_password_confirmation')->class('form-control input-lg')->placeholder('Type your new password again')->label('Password Confirmation') }}
                 </div>
 
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
@@ -49,20 +49,15 @@
 
 <ul>
     To do:
-    <li>add mobile_phone to db</li>
     <li>validation of required firstname, password, val password=password cnfirmaiton, also add </li>
 </ul>
 
 
                 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <button type="submit" class="btn btn-lg btn-success pull-right"><i class="fa fa-check"></i> Create this Fan</button>
+                    <button type="submit" class="btn btn-lg btn-success pull-right"><i class="fa fa-check"></i> Create this User</button>
                 </div>   
 
             {{ Former::close() }}
-            
-            <div class="form-group ">
-                <p class="help-block"><strong>Got more to say?</strong> Don't worry, there's space on the next page for all that</p>
-            </div>
      
     </div><!-- /Well -->
 @stop

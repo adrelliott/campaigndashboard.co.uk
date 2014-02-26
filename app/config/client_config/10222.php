@@ -1,6 +1,18 @@
 <?php
 
 return array(
+
+
+     /*
+    |--------------------------------------------------------------------------
+    | App Settings
+    |--------------------------------------------------------------------------
+    |
+    */
+    'users' => array(
+        'total_number' => 'up to 10'
+        ),
+
      /*
     |--------------------------------------------------------------------------
     | Navbar
@@ -22,7 +34,7 @@ return array(
             'dropdowns' => array(),
             ),
         'contacts' => array(
-            'route' => 'app/contacts',
+            'route' => 'app/contacts/list',
             'icon' => 'user',
             'label' => 'Fans',
             'min_admin_level' => 3,
