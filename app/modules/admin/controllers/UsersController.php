@@ -1,12 +1,12 @@
 <?php namespace Dashboard\Admin;
 
 use BaseController;
-use Dashboard\Repositories\ContactRepositoryInterface as ModelInterface;
+use Dashboard\Repositories\UserRepositoryInterface as ModelInterface;
 
 class UsersController extends BaseController {
     
-    protected $modulename = 'crm';
-    protected $foldername = 'contacts';
+    protected $modulename = 'admin';
+    protected $foldername = 'users';
 
 
     public function __construct(ModelInterface $model)

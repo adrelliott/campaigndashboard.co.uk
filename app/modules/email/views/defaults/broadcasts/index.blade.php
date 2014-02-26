@@ -5,7 +5,7 @@
         <i class="fa fa-user"></i> All Your Broadcasts
     </h1>
     <p class="lead">
-        //
+        Make some noise!
     </p>
 @stop
 

@@ -40,15 +40,15 @@
         </div>
 
         <div class="col-lg-5 col-md-5 col-sm-12  col-xs-12">
-            {{ Former::text('nickname')->class('form-control ')->placeholder('E.g. Blair')->label('Known As') }}
+            {{ Former::text('nickname')->class('form-control ')->placeholder('E.g. Li The Guy')->label('Known As') }}
         </div>
         
         <div class="col-lg-4 col-md-4 col-sm-12  col-xs-12">
-            {{ Former::text('legacy_id')->class('form-control ')->placeholder('Not a member')->label('Memb No')->disabled() }}
+             {{ Former::select('record_type')->class('form-control ')->options($config['businessTypes'])->formGroup('col-lg-12') }}
         </div>
 
         <div class="col-lg-8 col-md-8 col-sm-12  col-xs-12">
-            {{ Former::text('email')->class('form-control ')->placeholder('E.g. Blair') }}
+            {{ Former::text('email')->class('form-control ')->placeholder('E.g. dancing_li@hotmail.com') }}
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -59,18 +59,10 @@
 
 @section('inDepth')
     <h3 class="text-primary"><i class="fa fa-folder-open"></i> In-Depth</h3>
-    
-        <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12 form-inline">
-            {{ Former::radios('gender')
-                  ->radios(array(
-                  ' <i class="fa fa-male "></i> Male  ' => array('name' => 'gender', 'value' => 'male'),
-                  ' <i class="fa fa-female "></i> Female  ' => array('name' => 'gender', 'value' => 'female')
-                  ))->label(false) }}
-        </div>
 
         
         <div class="col-lg-8 col-md-7 col-sm-12  col-xs-12">
-            {{ Former::email('email2')->class('form-control input-sm')->placeholder('E.g. Lionel@hotmail.com')->label('Email 2')->help('The format paul@fcutd.co.uk') }}
+            {{ Former::email('email2')->class('form-control input-sm')->placeholder('E.g. Lionel@hotmail.com')->label('Email 2') }}
         </div>
         
         <div class="col-lg-4 col-md-5 col-sm-12  col-xs-12">
@@ -135,7 +127,7 @@
             <div class="form-group">
                 <div class="input-group input-group-sm ">
                     <span class="input-group-addon">@</span>
-                    <input type="text" name="twitter_id" class="form-control" placeholder="Don't include the @">
+                    <input type="text" name="twitter_id" class="form-control" placeholder="Twitter Id">
                 </div>
             </div>
         </div>
@@ -144,7 +136,7 @@
             <div class="form-group">
                 <div class="input-group input-group-sm ">
                     <span class="input-group-addon">(00)</span>
-                    <input type="text" name="overseas_phone" class="form-control" placeholder="44 770334563">
+                    <input type="text" name="overseas_phone" class="form-control" placeholder="Overseas phone Number">
                 </div>
             </div>
         </div>
@@ -234,7 +226,7 @@
     <ul class="list-group">
         @foreach( $record->orders as $o )
             <li class="list-group-item">
-                <i class="fa fa-chevron-right"></i> {{ $o->temp_item}} ({{$o->temp_season}}) <a href="#" class="btn btn-default btn-xs pull-right open-modal" modal-source="{{ Url::route('app.orders.edit', $o->id)}}">View</a>
+                <i class="fa fa-chevron-right"></i> {{ $o->temp_item}} <a href="#" class="btn btn-default btn-xs pull-right open-modal" modal-source="{{ Url::route('app.orders.edit', $o->id)}}">View</a>
             </li>
         @endforeach
     </ul>

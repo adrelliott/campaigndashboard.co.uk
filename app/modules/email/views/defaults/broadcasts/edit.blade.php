@@ -9,6 +9,10 @@
     </p>
 @stop
 
+@section('actions-list')
+    <li><a href="{{ route('app.broadcasts.create') }}"><p><em>Create new Broadcast</em></p></a></li>
+@stop
+
 @section('content')
     <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12"><!-- Column 1-->
         <div class="well clearfix"><!-- Well -->
@@ -26,10 +30,10 @@
                 {{ Former::select('search_id')->class('form-control input-lg')->options($config['savedSearches'])->label('Who is this email to?') }}
             </div>
             <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                {{ Former::text('subject_line')->class('form-control input-lg')->placeholder('E.g. Are you coming to the match?')->label('Subject Line') }}
+                {{ Former::text('subject_line')->class('form-control input-lg')->placeholder('E.g. Have you seen the latest blog post?')->label('Subject Line') }}
             </div>
             <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                {{ Former::textarea('broadcast_body')->class('form-control input-lg wysihtml5')->placeholder('Write your email here. E.g. Hi <<first_name>>, Do you fancy half price tickets this weekend?')->rows(20)->help('<span class="text-primary"><i class="fa fa-lightbulb-o"></i> Don\'t forget, you can personalise your emails using &#123;&#123;first_name&#125;&#125;, &#123;&#123;last_name&#125;&#125; or &#123;&#123;nickname&#125;&#125;</span>') }}
+                {{ Former::textarea('broadcast_body')->class('form-control input-lg wysihtml5')->placeholder('Write your email here. E.g. Hi <<first_name>>, You need to see our awesome new thing')->rows(20)->help('<span class="text-primary"><i class="fa fa-lightbulb-o"></i> Don\'t forget, you can personalise your emails using &#123;&#123;first_name&#125;&#125;, &#123;&#123;last_name&#125;&#125; or &#123;&#123;nickname&#125;&#125;</span>') }}
             </div>
             
             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -48,7 +52,7 @@
                 </div>
 
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                    {{ Former::textarea('broadcast_description')->class('form-control input-sm')->placeholder('E.g. news from the latest match, updates on the ground and special offers')->rows(6)->label('Description') }}
+                    {{ Former::textarea('broadcast_description')->class('form-control input-sm')->placeholder('E.g. Update on latest research')->rows(6)->label('Description') }}
                 </div>
 
                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
@@ -111,7 +115,7 @@
 
                     <div class="test_other hide">
                         <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                             {{ Former::text('_test_send_to')->class('form-control input-sm')->placeholder('E.g. matt@fc-utd.co.uk')->label('Email Address') }}
+                             {{ Former::text('_test_send_to')->class('form-control input-sm')->placeholder('E.g. lionel@gmail.co.uk')->label('Email Address') }}
                         </div>
                     </div>
 

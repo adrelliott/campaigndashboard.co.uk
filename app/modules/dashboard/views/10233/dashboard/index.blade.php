@@ -21,32 +21,31 @@
         <div class="well well-lg">
             <ul class="list-group">
                 <li class="list-group-item">
-                    <span class="badge">6494</span>
+                    <span class="badge">494</span>
                     Total Number of Contacts
                 </li>
                 <li class="list-group-item">
-                    <span class="badge">4989</span>
-                    Total Number of Adult Contacts
+                    <span class="badge">494</span>
+                    Total Number Opted-into Newsletter
                 </li>
                 <li class="list-group-item">
-                    <span class="badge">1492</span>
-                    Total Number of Junior Contacts
+                    <span class="badge">49</span>
+                    Total Number of Emails Sent
                 </li>
                 <li class="list-group-item">
-                    <span class="badge">2684</span>
-                    Number of Adult members
+                    <span class="badge">142</span>
+                    <span class="label label-info">Suspect</span>
+                    Total Number of Suspects
                 </li>
                 <li class="list-group-item">
-                    <span class="badge">440</span>
-                    Number of Junior members
+                    <span class="badge">65</span>
+                    <span class="label label-primary">Prospects</span>
+                    Total Number of Prospects
                 </li>
                 <li class="list-group-item">
-                    <span class="badge">936</span>
-                    Number of Adult Season Tickets
-                </li>
-                <li class="list-group-item">
-                    <span class="badge">169</span>
-                    Number of Junior Season Tickets
+                    <span class="badge">34</span>
+                    <span class="label label-success">Clients</span>
+                    Total Number of Clients
                 </li>
             </ul>
             
@@ -62,17 +61,15 @@
         <i class="fa fa-user"></i> Your {{ $config['contacts']['label'] }}s
     </h1>
     <div class="table-responsive clearfix">
-        <table class="table dataTable data-table" id="contacts_table" data-ajaxsource="/api/contacts?cols=id,first_name,last_name,nickname,postcode,email,mobile_phone,legacy_id" data-showid="false" data-linkurl="contacts" data-iDisplayLength="5">
+        <table class="table dataTable data-table" id="contacts_table" data-ajaxsource="/api/contacts?cols=id,first_name,last_name,postcode,email,mobile_phone" data-showid="false" data-linkurl="contacts" data-iDisplayLength="5">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>First Name</th>
                     <th>Last Name</th>
-                    <th>Known As</th>
                     <th>Postcode</th>
                     <th>Email</th>
                     <th>Mobile</th>
-                    <th>Memb No</th>
                 </tr>
             </thead>
             <tbody>

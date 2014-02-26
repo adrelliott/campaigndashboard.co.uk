@@ -29,7 +29,7 @@
                 {{ Former::select('broadcast_type')->class('form-control input-lg')->options($config['broadcastTypes']) }}
             </div>
             <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                {{ Former::textarea('broadcast_description')->class('form-control input-lg')->placeholder('E.g. news from the latest match, updates on the ground and special offers')->rows(3) }}
+                {{ Former::textarea('broadcast_description')->class('form-control input-lg')->placeholder('E.g. Our latest news on the Charity sector')->rows(3) }}
             </div>
             <div class="form-group col-lg-8 col-md-6 col-sm-12 col-xs-12">
                 <p class="help-block"><strong>"Oh no! Where do I write my email?"</strong><br/> Calm down dear, there's space on the next page for all that</p>

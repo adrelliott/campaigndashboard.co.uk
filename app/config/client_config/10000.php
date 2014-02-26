@@ -97,7 +97,7 @@ return array(
    //The tabs for views/contacts/show.blade.php
     'contactsshow' => array(
         'col1tabs' => ['Overview', 'In Depth', 'Opt In', 'Notes'],
-        'col2tabs' => ['Purchases', 'Tags'],
+        'col2tabs' => ['tags'],
         ),
 
     //The tabs for views/contacts/show.blade.php
@@ -119,12 +119,17 @@ return array(
     */
    
     // Seasons
-    'businessTypes' => array(
-        '' => 'Choose a Sector',
-        'Social' => 'Social',
-        'Charity' => 'Charity',
-        'Private' => 'Private',
-        'Public Sector' => 'Public Sector',
+    'seasons' => array(
+        '' => 'Choose a Season',
+        '2013/14' => '2013/14',
+        '2012/13' => '2012/13',
+        '2011/12' => '2011/12',
+        '2010/11' => '2010/11',
+        '2009/10' => '2009/10',
+        '2008/09' => '2008/09',
+        '2007/08' => '2007/08',
+        '2006/07' => '2006/07',
+        '2005/06' => '2005/06',
         ),
 
     // Contacts
@@ -140,11 +145,13 @@ return array(
 
 
      // Notes
-    'businessSizes' => array(
+    'noteTypes' => array(
         '' => '',
-        'Small' => 'Small',
-        'Medium' => 'Medium',
-        'Large' => 'Large',
+        'Mr' => 'Mr',
+        'Mrs' => 'Mrs',
+        'Miss' => 'Miss',
+        'Ms' => 'Ms',
+        'Dr' => 'Dr',
         ),
 
 
@@ -155,7 +162,9 @@ return array(
         'Online' => 'Online',
         'Post' => 'Post',
         'Telephone' => 'Telephone',
+        'Telephone' => 'Telephone',
         'Office' => 'Office',
+        'Stall' => 'Stall',
         ),
     'paymentMethod' => array(
         '' => '',
@@ -166,17 +175,34 @@ return array(
         'PayPal' => 'PayPal'
         ),
     'productList' => array(
-        'Ooomph consultancy' => 'Ooomph consultancy',
-        'Accidental Biz Training' => 'Accidental Biz Training',
-        'Ooomph Training' => 'Ooomph Training',
-        'Survival Pack' => 'Survival Pack',
-        'Board Booster' => 'Board Booster',
-        'Innovation training' => 'Innovation training',
-        'Innovation consultancy' => 'Innovation consultancy',
-        'Procurement consultancy' => 'Procurement consultancy',
-        'Public speaking' => 'Public speaking',
-        'Facilitation services' => 'Facilitation services',
-        'Other' => 'Other'
+        '' => '--- Membership/Season Tickets ---',
+        'adult Membership' => 'Adult Membership',
+        'junior Membership' => 'Junior Membership',
+        'season Ticket (Adult)' => 'Season Ticket (Adult)',
+        'season Ticket (Junior) ' => 'Season Ticket (Junior)',
+        'community Shares' => 'Community Shares',
+        '' => '--- Draws &amp; Raffles ---',
+        'treasureline' => 'TreasureLine',
+        'holiday Draw' => 'Holiday Draw',
+        '' => '--- Sponsorship ---',
+        '127 Club' => '127 Club',
+        'match Sponsor' => 'Match Sponsor',
+        'matchball Sponsor' => 'Matchball Sponsor',
+        'matchday Programme Sponsor' => 'Matchday Programme Sponsor',
+        'programme Adverts' => 'Programme Adverts',
+        'pitchside Hording' => 'Pitchside Hording',
+        'pink Sponsorship' => 'Pink Sponsorship',
+        'newsletter Sponsor' => 'Newsletter Sponsor',
+        'community Sponsor' => 'Community Sponsor',
+        'youth Team Sponsor' => 'Youth Team Sponsor',
+        'women Team Sponsor' => 'Women Team Sponsor',
+        'player Sponsor' => 'Player Sponsor',
+        '' => '--- Others ---',
+        'club Donations' => 'Club Donations',
+        'df Donations' => 'DF Donations',
+        'club Events' => 'Club Events',
+        'merchanidise' => 'Merchanidise',
+        'away Match Travel' => 'Away Match Travel',
         ),
 
 
@@ -191,24 +217,24 @@ return array(
         ),
      'savedSearches' => array(
         '1' => 'All opted-in contacts',
-        '2' => 'All RS Consultants',
-        '3' => 'All Blog Subscribers',
-        '4' => 'All Paying Clients',
+        '2' => 'All Season Ticket holders',
+        '3' => 'All Adult Members',
+        '4' => 'All Members',
         ),
     'emailFrom' => array(
-        'Isla Wilson|isla@RubyStarAssociates.co.uk' => 'Isla Wilson',
-        'Rachel Warhurst|rachel@RubyStarAssociates.co.uk' => 'Rachel Warhurst',
-        'RubyStar Newsletter|newsletter@RubyStarAssociates.co.uk' => 'RubyStar Newsletter',
+        'Paul Howarth|paul@fc-utd.co.uk' => 'Paul Howarth',
+        'Lindsey Howard|lindsey@fc-utd.co.uk' => 'Lindsey Howard',
+        'Michael Holdsworth|michael@fc-utd.co.uk' => 'Michael Holdsworth',
         ),
     'testEmailto' => array(
-        'isla@RubyStarAssociates.co.uk',
-        'rachel@RubyStarAssociates.co.uk',
-        'sales@RubyStarAssociates.co.uk'
+        'paul@fc-utd.co.uk',
+        'lindsey@fc-utd.co.uk',
+        'Michael@fc-utd.co.uk'
         ),
     'emailTemplate' => array(
-        '1' => 'Public newsletter',
-        '2' => 'New Blog Post',
-        '3' => 'RS Team',
+        '1' => 'FC Red',
+        '2' => 'FC Black',
+        '3' => 'FC Pink',
         '4' => 'Plain text',
         ),
 
