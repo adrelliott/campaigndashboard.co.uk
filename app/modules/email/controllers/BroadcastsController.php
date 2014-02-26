@@ -44,7 +44,7 @@ class BroadcastsController extends BaseController {
         $record = new Model;
         
         $save = $record->save();
-\Debug::dump($save);
+// \Debug::dump($save);
 // \Debug::dump($record);die();
         // Has it saved?
         if ($save)
@@ -96,7 +96,7 @@ class BroadcastsController extends BaseController {
     {
         //die(\Debug::dump(\Input::all()));
         $record = Model::findOrFail($id);
-dd($record);
+// dd($record);
         $save = $record->save();
 
         // Has it saved?
