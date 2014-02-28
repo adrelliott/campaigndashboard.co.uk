@@ -38,7 +38,7 @@ return array(
             'dropdowns' => array(),
             ),
         'contacts' => array(
-            'route' => 'app/contacts/list',
+            'route' => 'app/contacts',
             'icon' => 'user',
             'label' => 'Contacts',
             'min_admin_level' => 3,
@@ -71,7 +71,7 @@ return array(
             'min_admin_level' => 1,
             'dropdowns' => array(
                 'dropdown1' => array(
-                    'route' => 'app/users/list',
+                    'route' => 'app/users',
                     'icon' => 'bullhorn',
                     'label' => 'Users',
                     'min_admin_level' => 3,
@@ -210,6 +210,17 @@ return array(
         '2' => 'New Blog Post',
         '3' => 'RS Team',
         '4' => 'Plain text',
+        ),
+
+
+    // Admin
+    'adminLevels' => array(
+        '0' => 'Super Super SUPER Admin',
+        '1' => 'Dashboard Super Admin',
+        '2' => 'Dashboard Admin',
+        '3' => 'Supervisor',
+        '4' => 'User',
+        '5' => 'Observer',
         ),
 
 

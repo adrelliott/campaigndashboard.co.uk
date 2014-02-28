@@ -107,7 +107,7 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-        'Dashboard\ServiceProviders\BackendServiceProvider',
+        'Dashboard\ServiceProviders\RepositoryServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
         // 'Cartalyst\Sentry\SentryServiceProvider',
         // 'Authority\Repo\RepoServiceProvider',

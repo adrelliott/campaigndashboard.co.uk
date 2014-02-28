@@ -38,7 +38,7 @@ return array(
             'dropdowns' => array(),
             ),
         'contacts' => array(
-            'route' => 'app/contacts/list',
+            'route' => 'app/contacts',
             'icon' => 'user',
             'label' => 'Fans',
             'min_admin_level' => 3,
@@ -83,7 +83,7 @@ return array(
     //The tabs for views/contacts/show.blade.php
     'usersshow' => array(
         'col1tabs' => ['Details', 'Permissions'],
-        //'col2tabs' => ['Purchases', 'Roles'],
+        'col2tabs' => ['Password'],
         ),
 
 
@@ -218,6 +218,17 @@ return array(
         '4' => 'Plain text',
         ),
 
+    
+
+    // Admin
+    'adminLevels' => array(
+        '0' => 'Super Super SUPER Admin',
+        '1' => 'Dashboard Super Admin',
+        '2' => 'Dashboard Admin',
+        '3' => 'Supervisor',
+        '4' => 'User',
+        '5' => 'Observer',
+        ),
 
 
 

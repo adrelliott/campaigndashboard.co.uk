@@ -23,4 +23,8 @@
     {{ HTML::script('assets/js/app/modal.js') }}
     {{-- HTML::script('assets/js/app/appAngular.js') --}}
 
-{{ Debug::dump($misc) }}
+{{ Debug::dump($user->owner_id) }}
+@if(isset($record))
+    {{ Debug::dump($record) }}
+@endif
+{{ Debug::dump($config) }}

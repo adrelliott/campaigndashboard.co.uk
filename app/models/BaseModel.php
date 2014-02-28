@@ -4,27 +4,30 @@
  * This is the class from which all of the app's modle classses are extended. Pus global logic here.
  */
 use LaravelBook\Ardent\Ardent;
+use Magniloquent\Magniloquent\Magniloquent;
 
-class BaseModel extends Ardent {
+class BaseModel extends Magniloquent {
 
      //When we call User::destroy(1); it actually only soft deletes the record
     protected $softDelete = true;
+    
 
     //Ardent ensures that the $_POST values are injected into the model ready to send
-    public $forceEntityHydrationFromInput = true;
+    // public $forceEntityHydrationFromInput = true;
 
-    public $autoPurgeRedundantAttributes = true;
+    // public $autoPurgeRedundantAttributes = true;
 
 
-    public function beforeSave()
-    {
-        if ( ! Session::has('owner_id'))
-            return Redirect::route('logout');
-        //Needs error management
 
-        // Overwrite the 'owner_id' record with the current logged in users
-        $this->attributes['owner_id'] = Session::get('owner_id');
-    }
+    // public function beforeSave()
+    // {
+    //     if ( ! Session::has('owner_id'))
+    //         return Redirect::route('logout');
+    //     //Needs error management
+
+    //     // Overwrite the 'owner_id' record with the current logged in users
+    //     $this->attributes['owner_id'] = Session::get('owner_id');
+    // }
 
     /* Used for the API call */
     public static function prepareQuery()

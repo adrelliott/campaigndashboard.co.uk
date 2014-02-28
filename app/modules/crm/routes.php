@@ -10,8 +10,6 @@ Route::group(array(
     ), 
     function()
     {
-        
-        Route::get('contacts/list', array('uses' => 'ContactsController@indexNoData'));
         Route::resource('contacts', 'ContactsController');
         Route::resource('actions', 'ActionsController');
         Route::resource('notes', 'NotesController');

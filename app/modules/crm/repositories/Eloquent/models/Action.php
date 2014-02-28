@@ -16,10 +16,14 @@ class Action extends BaseModel {
         // 'email'                 => 'email',
     );
 
-    // Relationship Rules
-    // public static $relationsData = array(
-    //     'contact'  => array(self::BELONGS_TO, 'Contact')
-    // );
+   
+    /**
+    * User relationship
+    */
+    public function user()
+    {
+        return $this->belongsTo('Dashboard\Admin\User');
+    }
 
     public function contact()
     {
@@ -27,8 +31,8 @@ class Action extends BaseModel {
     }
 
 
-    public function getAction_StatusAttribute($value)
-        {
-            return (boolean) $value;
-        }    
+    // public function getAction_StatusAttribute($value)
+    //     {
+    //         return (boolean) $value;
+    //     }    
 }

@@ -15,9 +15,13 @@ class Contact extends BaseModel {
     
     // Validation rules
     public static $rules = array(
-        'first_name'                  => 'between:2,32',
-        'last_name'                  => 'required|between:2,32',
-        'email'                 => 'email',
+        'save' => array(
+            'first_name'                  => 'between:2,32',
+            'last_name'                  => 'required|between:2,32',
+            'email'                 => 'email',
+        ),
+        'create' => array(),
+        'update' => array()
     );
 
     

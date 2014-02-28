@@ -1,8 +1,6 @@
 <?php namespace Dashboard\Repositories;
 
-interface ContactRepositoryInterface {
-
-    public function getAll();
+interface RepositoryInterface {
     
     public function findRecord($id);
         

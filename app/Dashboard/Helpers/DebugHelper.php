@@ -7,7 +7,7 @@ namespace Helpers;
 class DebugHelper
 {
     
-    public static function dump($var, $label = 'Dump', $echo = TRUE)
+    public static function dump($var, $die = FALSE, $label = 'Dump')
     {
         // Store dump in variable 
         ob_start();
@@ -19,11 +19,11 @@ class DebugHelper
         $output = '<pre style="background: #FFFEEF; color: #000; border: 1px dotted #000; padding: 10px; margin: 10px 0; text-align: left;">' . $label . ' => ' . $output . '</pre>';
         
         // Output
-        if ($echo == TRUE) {
-            echo $output;
+        if ($die) {
+            die($output);
         }
         else {
-            return $output;
-        }
+             echo $output;
+         }
     }
 }

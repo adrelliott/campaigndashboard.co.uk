@@ -13,7 +13,14 @@ class SessionController extends Controller {
 	 */
 	public function create()
 	{
-        return View::make('auth::login');
+        // If the user is already logged in, send them to the dashboard
+        if ( Auth::check() ) return Redirect::to('/app/dashboard');
+
+        // If the cookie is set, then send them to intended route or dashboard
+        if ( Auth::viaRemember() ) return Redirect::intended('/app/dashboard');
+
+        // Otherwise make them log in again
+        else return View::make('auth::login');
 	}
 
 	/**
@@ -23,17 +30,18 @@ class SessionController extends Controller {
 	 */
 	public function store()
 	{
-		// Create the credentials
+		// Set up the credentials to pass to Auth::attempt()
         $credentials = Input::only('email', 'password');
+        $credentials['active'] = 1;
+        $remember = (bool)Input::get('remember');
 
         // Attempt login
-        if ( Auth::attempt($credentials) )
+        if ( Auth::attempt($credentials, $remember) )    //remember them if checked
             return Redirect::intended('/app/dashboard');
-            // ->with('success', 'You\'re logged in!');
 
         // Spit you back out if they're wrong
         return Redirect::route('login')
-            ->with('error', '<strong>Couldn\'t log you in.</strong><br>Are you <em>sure</em> those details are right?');
+            ->with('error', '<strong>Couldn\'t log you in.</strong><br>Are you <em>sure</em> those details are right? (Call 0161 883 2244 for help)');
 	}
 
 
@@ -47,7 +55,7 @@ class SessionController extends Controller {
 	{
 		Auth::logout();
         return Redirect::route('login')
-            ->with('info', 'you\'re logged out now.<br>(<em>Go and treat yourself to some cake.</em>)');
+            ->with('info', 'you\'re logged out now!<br>');
 	}
 
 }

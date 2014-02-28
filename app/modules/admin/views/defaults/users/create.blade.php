@@ -40,12 +40,18 @@
                 </div>
 
                <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                    {{ Former::password('_password_confirmation')->class('form-control input-lg')->placeholder('Type your new password again')->label('Password Confirmation') }}
+                    {{ Former::password('password_confirmation')->class('form-control input-lg')->placeholder('Type your new password again')->label('Password Confirmation') }}
                 </div>
 
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                     {{ Former::tel('mobile_phone')->class('form-control input-lg')->placeholder('E.g. 07703545343') }}
                 </div>
+
+                <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
+                    {{ Former::select('admin_level')->class('form-control input-lg')->options(array_slice($config['adminLevels'], $user->admin_level, 10, TRUE)) }}
+                </div>
+
+                {{ Form::hidden('active', 1) }}
 
 <ul>
     To do:

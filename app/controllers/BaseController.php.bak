@@ -2,20 +2,14 @@
 
 class BaseController extends Controller {
 
-    protected $repo;
-
-    protected $result;
-
+    protected $interface;
+    
     protected $user;
     
-    // public function __construct($repo = NULL)
-	public function __construct($repo = NULL)
+	public function __construct($model = NULL)
     {
-        // Set up view objects
         if ( Auth::check() ) $this->setUpData();
-
-        // Set up repo 
-        $this->repo = $repo;
+        $this->interface = $model;
     }
 
     
@@ -36,7 +30,7 @@ class BaseController extends Controller {
      */
     public function create()
     {
-        return $this->render()->withRecord($this->repo);
+        return $this->render()->withRecord($this->interface);
     }
 
 
@@ -46,15 +40,10 @@ class BaseController extends Controller {
      * @return Response
      */
     public function store()
-    {
-        // Try to create the record. If it fails, $this->record holds val errors
-        $this->record = $this->repo->createRecord();
-
-        // Now pipe to the right methods
-        if ($this->record->result) return $this->success();
-        else return $this->fail();
+    {   
+        $result = $this->interface->createRecord();
+        return $this->determineResponse($result);
     }
-
 
     /*
      * Display the specified resource. (Can we be used to show a non-editable record, e.g. if permissions are not adequate to edit)
@@ -65,7 +54,7 @@ class BaseController extends Controller {
      
     public function show($id)
     {
-         return $this->render('edit')->withRecord($this->repo->findRecord($id));
+         return $this->render('edit')->withRecord($this->interface->findRecord($id));
     }
 
     /**
@@ -76,7 +65,7 @@ class BaseController extends Controller {
      */
     public function edit($id)
     {
-        return $this->render()->withRecord($this->repo->findRecord($id));
+        return $this->render()->withRecord($this->interface->findRecord($id));
     }
 
     /**
@@ -87,11 +76,8 @@ class BaseController extends Controller {
      */
     public function update($id)
     {
-        $this->record = $this->repo->updateRecord($id);
-        
-        // Now pipe to the right methods
-        if ($this->record->result) return $this->success();
-        else return $this->fail();
+        $result = $this->interface->updateRecord($id);
+        return $this->determineResponse($result);
     }
 
     /**
@@ -110,42 +96,39 @@ class BaseController extends Controller {
 
 
 
-
-
-
-
-
-    public function success($viewFile = 'edit')
+    public function determineResponse($result, $viewName = 'edit')
     {
-        if (Request::ajax()) //Horrible hack!
+        if ( is_int($result) )
         {
-            return Response::make('', 200, array('Content-Type' => 'text/plain'));
+            if (Request::ajax()) 
+            {
+                return Response::make('', 200, array('Content-Type' => 'text/plain'));
+            }
+                
+            else
+            {
+                return Redirect::route(
+                        'app.' . $this->foldername . '.' . $viewName, 
+                        array($result)
+                    )
+                    ->with('success', 'That\'s saved!');  
+            } 
         }
-            
         else
         {
-            return Redirect::route('app.' . $this->foldername . '.' . $viewFile, array($this->record->id))
-                    ->with('success', 'That\'s saved!');  
-        }
-    }
-    
-    public function fail()
-    {
-        if (Request::ajax())  //Horrible hack!
-
-        {
-            return Response::make('', 500, array('Content-Type' => 'text/plain'));
-        }
-        else 
-        {
-            return Redirect::back()
+            if (Request::ajax()) 
+            {
+                return Response::make('', 500, array('Content-Type' => 'text/plain'));
+            }
+            else 
+            {
+                return Redirect::back()
                 ->with('error', 'Some fields don\'t look right. Can you take a look?')
-                ->withErrors($this->record->errors())
+                ->withErrors($result->errors())
                 ->withInput();
+            }
         }
     }
-
-
 
 
 
@@ -167,7 +150,7 @@ class BaseController extends Controller {
         }
 
         $path = $this->foldername . '.' . $viewFile;
-
+        
         //Test to see if it exists
         if ( ! View::exists($view = $this->modulename . '::' . $this->user->owner_id . '.' . $path))
         {

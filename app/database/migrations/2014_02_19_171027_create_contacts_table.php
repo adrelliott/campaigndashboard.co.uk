@@ -37,7 +37,7 @@ class CreateContactsTable extends Migration {
 			$table->string('legacy_id', 25)->nullable();
 			$table->string('record_type', 15)->nullable();
 			$table->string('gender', 15)->nullable();
-			$table->date('date_of_birth');
+			$table->date('date_of_birth')->nullable();
 			$table->string('twitter_id', 15)->nullable();
 			$table->boolean('optin_email')->nullable();
 			$table->boolean('optin_sms')->nullable();
