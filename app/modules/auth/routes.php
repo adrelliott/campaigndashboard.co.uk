@@ -1,6 +1,5 @@
-<?php 
+<?php namespace Dashboard\Auth;
 
-namespace Dashboard\Auth;
 use Route, View;
 
 

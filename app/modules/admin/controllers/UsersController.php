@@ -15,7 +15,7 @@ class UsersController extends BaseController {
     public function __construct(ModelInterface $model)
     {
         parent::__construct($model);
-    } 
+    }
 
    
 

@@ -1,12 +1,10 @@
-<?php
-
-namespace Dashboard\Api;
+<?php namespace Dashboard\Api\v0;
 
 use BaseController, View, Input;
-use Dashboard\Email\Broadcast as Model;
+use Dashboard\Admin\User as Model;
 use Bllim\Datatables\Datatables;
 
-class BroadcastsController extends BaseController {
+class UsersController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,7 +13,7 @@ class BroadcastsController extends BaseController {
 	 */
 	public function index()
 	{
-        $defaults = Model::prepareQuery();
+         $defaults = Model::prepareQuery();
 
         //Have we passed a where clause?
         if ( $defaults['where'] )

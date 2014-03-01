@@ -11,10 +11,8 @@ class BaseController extends Controller {
     // public function __construct($repo = NULL)
 	public function __construct($repo = NULL)
     {
-        // Set up view objects
+        // Set up view objects & repo
         if ( Auth::check() ) $this->setUpData();
-
-        // Set up repo 
         $this->repo = $repo;
     }
 
@@ -68,6 +66,7 @@ class BaseController extends Controller {
          return $this->render('edit')->withRecord($this->repo->findRecord($id));
     }
 
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -78,6 +77,7 @@ class BaseController extends Controller {
     {
         return $this->render()->withRecord($this->repo->findRecord($id));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -94,6 +94,7 @@ class BaseController extends Controller {
         else return $this->fail();
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -108,41 +109,10 @@ class BaseController extends Controller {
 
 
 
-
-
-
-
-
-
-
-    public function success($viewFile = 'edit')
+    /************** Other Base Methods **************/
+     public function setColumn($array = array())
     {
-        if (Request::ajax()) //Horrible hack!
-        {
-            return Response::make('', 200, array('Content-Type' => 'text/plain'));
-        }
-            
-        else
-        {
-            return Redirect::route('app.' . $this->foldername . '.' . $viewFile, array($this->record->id))
-                    ->with('success', 'That\'s saved!');  
-        }
-    }
-    
-    public function fail()
-    {
-        if (Request::ajax())  //Horrible hack!
-
-        {
-            return Response::make('', 500, array('Content-Type' => 'text/plain'));
-        }
-        else 
-        {
-            return Redirect::back()
-                ->with('error', 'Some fields don\'t look right. Can you take a look?')
-                ->withErrors($this->record->errors())
-                ->withInput();
-        }
+        dd('this ise set col:');
     }
 
 
@@ -156,6 +126,7 @@ class BaseController extends Controller {
 
 
 
+/***************** View & Routing methods ****************/
 
      public function render($viewFile = FALSE)
     {
@@ -177,6 +148,47 @@ class BaseController extends Controller {
         return View::make($view, $this->data);
         
     }
+
+
+    /**
+     * Redirect upon successful method result
+     * @param  string $viewFile The name of the view to direct to (usally edit or index)
+     */
+    public function success($viewFile = 'edit')
+    {
+        if (Request::ajax()) //Horrible hack!
+        {
+            return Response::make('', 200, array('Content-Type' => 'text/plain'));
+        }
+            
+        else
+        {
+            return Redirect::route('app.' . $this->foldername . '.' . $viewFile, array($this->record->id))
+                    ->with('success', 'That\'s saved!');  
+        }
+    }
+    
+    /**
+     * Go back ot form if the method result is a fail
+     */
+    public function fail()
+    {
+        if (Request::ajax())  //Horrible hack!
+
+        {
+            return Response::make('', 500, array('Content-Type' => 'text/plain'));
+        }
+        else 
+        {
+            return Redirect::back()
+                ->with('error', 'Some fields don\'t look right. Can you take a look?')
+                ->withErrors($this->record->errors())
+                ->withInput();
+        }
+    }
+
+    
+
 
     public function setUpData()
     {

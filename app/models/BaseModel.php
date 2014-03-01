@@ -10,7 +10,7 @@ class BaseModel extends Magniloquent {
 
      //When we call User::destroy(1); it actually only soft deletes the record
     protected $softDelete = true;
-    
+
 
     //Ardent ensures that the $_POST values are injected into the model ready to send
     // public $forceEntityHydrationFromInput = true;

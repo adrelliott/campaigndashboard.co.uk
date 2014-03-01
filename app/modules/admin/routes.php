@@ -13,5 +13,6 @@ Route::group(array(
     function()
     {
         Route::resource('users', 'UsersController');
+        Route::put('users/{id}/setAdminLevel', array('as' => 'app.setAdminLevel', 'uses' => 'UsersController@setColumn'));
     }
 );

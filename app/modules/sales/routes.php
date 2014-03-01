@@ -1,7 +1,5 @@
-<?php 
+<?php namespace Dashboard\Sales;
 
-// Set up namespace
-namespace Dashboard\Sales;
 use \Route;
 
 // Contacts

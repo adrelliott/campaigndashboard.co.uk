@@ -25,5 +25,12 @@ class RepositoryServiceProvider extends ServiceProvider {
             'Dashboard\Repositories\EloquentUserRepository'
             // 'Dashboard\Repositories\FileContactRepository'
         );
+
+
+        // Bind the Api Interfaces
+        $this->app->bind(
+            'Dashboard\Api\Repositories\ContactApiRepositoryInterface',
+            'Dashboard\Api\Repositories\EloquentApiContactRepository'
+        );
     }
 }

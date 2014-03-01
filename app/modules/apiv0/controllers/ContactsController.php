@@ -1,12 +1,10 @@
-<?php
-
-namespace Dashboard\Api;
+<?php namespace Dashboard\Api\v0;
 
 use BaseController, View, Input;
-use Dashboard\Crm\Action as Model;
+use Dashboard\Crm\Contact as Model;
 use Bllim\Datatables\Datatables;
 
-class ActionsController extends BaseController {
+class ContactsController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,7 +13,7 @@ class ActionsController extends BaseController {
 	 */
 	public function index()
 	{
-         $defaults = Model::prepareQuery();
+        $defaults = Model::prepareQuery();
 
         //Have we passed a where clause?
         if ( $defaults['where'] )

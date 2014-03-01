@@ -1,23 +1,27 @@
-<?php 
+<?php namespace Dashboard\Api;
 
-// Set up namespace
-namespace Dashboard\Api;
 use \Route;
 
-// Contacts
+// Resource
 Route::group(array(
-    'prefix' => 'api',
+    'prefix' => 'api/v1',
     'namespace' => 'Dashboard\Api', 
-    'before' => 'auth'
+    'before' => 'auth.basic',
     ), 
     function()
     {
         Route::resource('contacts', 'ContactsController');
-        Route::resource('users', 'UsersController');
-        Route::resource('actions', 'ActionsController');
-        Route::resource('broadcasts', 'BroadcastsController');
-        // Route::get('/api', function(){ return 'hello'; });
-        // Route::resource('contacts', 'ContactsController');
-        Route::resource('v1', 'ApiController');
+        // Route::get('dataTables', array('as' => 'dataTables', 'uses' => 'ContactsController@indexDatatables'));
     }
 );
+
+// Route::group(array(
+//     'prefix' => 'api/v1',
+//     'namespace' => 'Dashboard\Api\v1', 
+//     'before' => 'auth.basic',
+//     )
+//     function()
+//     {
+//         get('contacts')
+//     }
+// );

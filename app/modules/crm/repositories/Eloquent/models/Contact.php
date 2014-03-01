@@ -24,6 +24,7 @@ class Contact extends BaseModel {
         'update' => array()
     );
 
+
     
     /**
      * Notes relationship

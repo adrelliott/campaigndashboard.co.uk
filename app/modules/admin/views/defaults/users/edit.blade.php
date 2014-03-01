@@ -46,9 +46,24 @@
 
 @section('permissions')
     <h3 class="text-primary"><i class="fa fa-folder-open"></i> In-Depth</h3>
-        <div class="form-group col-lg-6 col-md-12 col-sm-12  col-xs-12">
-            {{-- Former::text('email')->class('form-control input-lg')->placeholder('E.g. Lionel@GiveUsAClue.com') --}}
+
+    {{ Former::open()
+        ->role('Form')
+        ->class('form-inline')
+        ->method('PUT')
+        ->route('app.users.update', $record->id)
+        ->populate($record);
+    }}
+        <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
+            {{ Former::select('admin_level')->class('form-control input-lg')->options(array_slice($config['adminLevels'], $user->admin_level, 10, TRUE)) }}
         </div>
+
+        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <button type="submit" class="btn btn-success pull-right"><i class="fa fa-check"></i> Save Changes</button>
+        </div>
+        
+    {{ Former::close() }}
+
 
 @stop
 
