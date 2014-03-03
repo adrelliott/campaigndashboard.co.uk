@@ -12,7 +12,4 @@ class ContactsController extends ApiController {
     }
 
 
-    protected $apiCols = ['id', 'first_name', 'last_name', ];
-
-
 }

@@ -1,7 +1,7 @@
 <?php namespace Dashboard\Api;
 
 use Controller, Response, Request, Input;
-use Bllim\Datatables\Datatables;
+
 
 class ApiController extends Controller {
 
@@ -11,6 +11,17 @@ class ApiController extends Controller {
 
     protected $user;
 
+    /**
+     * List of response codes. Note the (int) values of the codes are valid HTTP responses
+     * but the decimal points allow us to set our own messages
+     * @var array
+     */
+    protected $responses = array(
+        200 => FALSE,
+        400.1 => 'You need to set the columns to return',
+        500.0 => 'I have NO idea what went wrong',
+        500.1 => 'The query failed to perform',
+        );
 
     
     
@@ -32,40 +43,13 @@ class ApiController extends Controller {
      */
     public function index()
     {
-        // Filter through the supplied params & set shit up
-        $params = array();
-        // foreach ( $this->params as $p)
-        // {
-        //     if ( $v = Input::get($p) ) $params[$p] = $v;
-        // }
+        $this->result = $this->repo->getAll();
+        // \Debug::dump(Input::all(), 1);
 
-        $r = $this->repo->getAll($params);
-
-        return Response::json(array(
-            'error' => false,
-            'data' => $r->toArray(),
-            200
-            )
-        );
+        if ( Input::has('datatables') ) return $this->result;
+        
+        else return $this->returnJson();
     }
-
-    public function test()
-    {
-        dd('this is test in apucontroller');
-    }
-    
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function indexDatatables()
-    {
-        // $r = $this->repo->getAll();
-        dd('datatab,es');
-        // return Datatables::of($r)->make();
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -84,7 +68,7 @@ class ApiController extends Controller {
      */
     public function store()
     {
-        //
+        dd('store');
     }
 
     /**
@@ -95,7 +79,7 @@ class ApiController extends Controller {
      */
     public function show($id)
     {
-        //
+        dd('show');
     }
 
     /**
@@ -106,7 +90,7 @@ class ApiController extends Controller {
      */
     public function edit($id)
     {
-        //
+        dd('update: ' . $id);
     }
 
     /**
@@ -117,7 +101,8 @@ class ApiController extends Controller {
      */
     public function update($id)
     {
-        //
+        $this->result = $this->repo->updateRecord($id);
+        return $this->returnJson();
     }
 
     /**
@@ -129,6 +114,29 @@ class ApiController extends Controller {
     public function destroy($id)
     {
         //
+    }
+
+    protected function returnJson()
+    {
+        // Set defaults
+        $retval = array('message' => '', 'responseCode' => 500.0, 'data' => array());
+
+        // Check for returned values
+        if ( isset($this->result->responseCode) )
+        {
+            $retval['message'] = $this->responses[$this->result->responseCode];
+            $retval['responseCode'] = (int)$this->result->responseCode;    
+        }
+        if ( $retval['responseCode'] < 300 ) $retval['data'] = $this->result->toArray();
+
+        // Return to the browser
+        return Response::json(
+            array(
+                'message' => $retval['message'],
+                'data' => $retval['data']
+            ),
+            $retval['responseCode']
+        );
     }
 
 

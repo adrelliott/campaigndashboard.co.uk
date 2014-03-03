@@ -15,7 +15,9 @@
 
 @section('table')
     <div class="table-responsive clearfix">
-        <table class="table dataTable data-table" id="contacts_table" data-ajaxsource="/api/contacts?cols=id,first_name,last_name,nickname,postcode,email,mobile_phone,legacy_id" data-showid="false" data-linkurl="/app/contacts" data-iDisplayLength="5">
+        <table class="table dataTable data-table" id="contacts_table" 
+        data-ajaxsource="/api/v1/contacts?cols=id,first_name,last_name,nickname,postcode,email,mobile_phone,legacy_id&datatables=true"
+        data-ajaxsource11="/api/contacts?cols=id,first_name,last_name,nickname,postcode,email,mobile_phone,legacy_id" data-showid="false" data-linkurl="/app/contacts" data-iDisplayLength="5">
             <thead>
                 <tr>
                     <th>Id</th>

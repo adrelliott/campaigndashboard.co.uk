@@ -1,6 +1,7 @@
 <?php namespace Dashboard\Repositories;
 
-use Auth, Session, Input;
+use Auth, Session, Input, stdClass;
+use Bllim\Datatables\Datatables;
 
 /**
  * This class interacts with Eloquent to serve the Base Controller (via the injected interface)
@@ -13,37 +14,147 @@ abstract class EloquentApiRepository {
      * List of acceptible Input parameters
      * @var [type]
      */
-    protected $params = ['where', 'limit'];
+    protected $allowableParams = array('limit', 'offset', 'cols');
+
+    protected $defaultValues = array(
+        'where' => array(),
+        'cols' => 'id',
+    );
+
+    protected $response;
+
+    protected $params = array();
 
 
-
-
-    public function getAll($params = array())
+    /**
+     * Get all rows, constrained by the params passed
+     * @param  array  $params 
+     * @return object  The data model array 
+     */
+    public function getAll()
     {
-        // set up params
-        if ( count($params) ) $this->formatParams($params);
+        // Create empty object & set up params (if passed)
+        $response = new stdClass();
+        if ( count($params = Input::all()) ) $response->responseCode = $this->formatParams($params);
+        else $response->responseCode = 400.1;
 
-        return $this->model->where('owner_id', Auth::user()->owner_id)->get();
+        // Quick check - is everything ok? (responseCodes of less than 300 are fine)
+        if ( $response->responseCode > 299.99 ) return $response;
+
+        $q = $this->buildQuery();
+
+        // Is it a datatables request?
+        if ( Input::has('datatables') ) 
+            $response = Datatables::of($q)->make();
+
+        else $response = $q->get($this->params['cols']);
+
+        if ( ! $response ) $response->responseCode = 500.1;
+        else $response->responseCode = 200;
+
+        return $response;
     }
     
-    //  url.com/resource?fields=email,id,
 
+    public function buildQuery()
+    {
+         // Build the query
+        $q = $this->model
+            ->where(function($q)
+                {
+                    foreach ( $this->params['where'] as $col => $val )
+                    {
+                        $q->where($col, $val);
+                    }
+                    $q->where('owner_id', Auth::user()->owner_id);
+                })
+
+            // // Set up offset & limit
+            // ->skip($this->params['offset'])
+            // ->take($this->params['limit'])
+            
+            // Set up default constraint
+            // ->where('owner_id', Auth::user()->owner_id)
+
+            ->select($this->params['cols']);
+
+        // \Debug::dump($q, 1);
+        return $q;
+    }
+
+    /**
+     * Turns passed Params into an array for the Query Builder
+     * @param  [type] $params [description]
+     * @return [type]         [description]
+     */
     public function formatParams($params)
     {
-        // loop through all params
-        foreach ( $params as $p => $v )
+        // Set up...
+        $apiColNames = array_keys($this->model->allowableCols); 
+        $retval = $this->defaultValues;
+
+        // if we've not passed any $_GET then just return with 200
+        if ( ! count(Input::all()) ) 
         {
-            switch ($p)
-            {
-                case 'fields':
-                    $r['fields'] = explode(',', $v);
-                    break;
-                
-                default:
-                    # code...
-                    break;
-            }
+            $this->params = $retval;
+            return 200;
         }
+
+        // Filter through the supplied params & update the $retval array
+        foreach ( Input::all() as $p => $v )
+        {
+            $p = strtolower($p);
+
+            // Is the param passed an allowable param?
+            if ( in_array($p, $this->allowableParams) ) $retval[$p] = $v;
+            else $retval['where'][$p] = $v;
+        }
+
+        // Set up the cols, if passed
+        if ( count($retval['cols']) )
+        {
+            // Turn csv into array
+            $colArray = explode(',', $retval['cols']);
+            $cols = array();
+            
+            // Loop through and make sure they are acceptable col names
+            foreach ( $colArray  as $col )
+            {
+                if ( in_array(trim($col), $apiColNames) )
+                {
+                    $colname = $this->model->allowableCols[$col];
+                    $cols[] = $colname . ' AS ' . $col;
+                }
+            }
+            $retval['cols'] = $cols;
+        }
+
+        // Set up the 'where' if passed
+        if ( count($retval['where']) )
+        {
+            $where = array(); 
+            foreach ( $retval['where'] as $col => $val )
+            {
+                if ( in_array(trim($col), $apiColNames) )
+                {
+                    $colname = $this->model->allowableCols[$col];
+
+                    // ?????? what about passing operators, lie < or != ?????????
+                    $where[$colname] = $val;
+                }
+            }
+            $retval['where'] = $where;
+        }
+
+        // Set up the limit and offset if passed
+        // if ( isset($retval['limit']) ) $retval['limit'] = (int) $retval['limit'];
+        // if ( isset($retval['offset']) ) $retval['offset'] = (int) $retval['offset'];
+
+        // Update the params array
+        $this->params = $retval;
+
+        // All is good. Tell the world this using the language of HTTP response codes
+        return 200;
     }
 
 
@@ -56,26 +167,30 @@ abstract class EloquentApiRepository {
     public function createRecord()
     {
         // 1. Create new object and fill it with $_POST ($fillable is set)
-        $record = new $this->model(Input::all());
-        $record->owner_id = Session::get('owner_id');       
+        $response = new $this->model(Input::all());
+        $response->owner_id = Auth::user()->owner_id;      
 
         // 2. Now save it and set a success flag
-        if ( $record->save() ) $record->result = TRUE;
+        if ( $response->save() ) $response->responseCode = 200;
+        else $response->responseCode = 500.1;
 
-        return $record;
+        return $response;
     }
 
 
-    public function updateRecord($id = FALSE)
+    public function updateRecord($id)
     {
         // 1. Find the model & fill with $_POST (protected with $fillable)
-        $record = $this->model->findOrFail($id);
-        $record->fill(Input::all());
-        $record->owner_id = Session::get('owner_id');   
+        $response = $this->model->findOrFail($id);
+        $response->fill(Input::all());
+        // $response->owner_id = Session::get('owner_id');   
+        $response->owner_id = Auth::user()->owner_id;
 
-        // 2. Save the new model and set a success flag
-        if ( $record->save() ) $record->result = TRUE;
-        return $record;
+        // 2. Save the amended model and set a success flag
+        if ( $response->save() ) $response->responseCode = 200;
+        else $response->responseCode = 500.1;
+        
+        return $response;
     }
 
 

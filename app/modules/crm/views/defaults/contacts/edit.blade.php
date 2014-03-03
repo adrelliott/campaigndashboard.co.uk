@@ -23,7 +23,7 @@
     ->class('ajax-form')
     ->ajaxMethod('PUT')
     ->method('PUT')
-    ->route('app.contacts.update', $record->id)
+    ->route('api.v1.contacts.update', $record->id)
     ->populate($record->resource);
     
     }}

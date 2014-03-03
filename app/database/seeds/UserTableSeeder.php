@@ -46,7 +46,7 @@ class UserTableSeeder extends Seeder {
             array(
                 'first_name' => "Paul",
                 'last_name' => "Howarth",
-                'email' => 'paul@fc-utd.co.uk',
+                'email' => 'paulhaworth@fc-utd.co.uk',
                 'company' => 'FC United',
                 'admin_level' => 3,
                 'password' => Hash::make('DMmanch222'),
