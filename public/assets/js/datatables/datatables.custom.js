@@ -88,7 +88,7 @@
                     if ( a.linkurl !== '#') {
                         url = a.linkurl+'/'+row[0]+'/edit';
                     }
-                    return '<a href="'+url+'" data-id="'+row[0]+'" modal-source="'+a.modalsource+'" data-alert_class="'+a.alertclass+'" data-view="'+a.view+'" class="'+a.linkclass+'"  >'+data+'</a>';
+                    return '<a href="'+url+'" data-id="'+row[0]+'" modal-source="'+url+'" data-alert_class="'+a.alertclass+'" data-view="'+a.view+'" class="'+a.linkclass+'"  >'+data+'</a>';
                 }
             } );
         }

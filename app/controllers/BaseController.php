@@ -4,7 +4,7 @@ class BaseController extends Controller {
 
     protected $repo;
 
-    protected $result;
+    protected $record;
 
     protected $user;
     
@@ -12,7 +12,7 @@ class BaseController extends Controller {
 	public function __construct($repo = NULL)
     {
         // Set up view objects & repo
-        if ( Auth::check() ) $this->setUpData();
+        if ( Auth::check() ) $this->setUpData(); //This is nasty
         $this->repo = $repo;
     }
 
@@ -45,12 +45,9 @@ class BaseController extends Controller {
      */
     public function store()
     {
-        // Try to create the record. If it fails, $this->record holds val errors
+        //Try to store and pass result to redirect() method
         $this->record = $this->repo->createRecord();
-
-        // Now pipe to the right methods
-        if ($this->record->result) return $this->success();
-        else return $this->fail();
+        return $this->redirect();
     }
 
 
@@ -87,11 +84,9 @@ class BaseController extends Controller {
      */
     public function update($id)
     {
+        //Try to update and pass result to redirect() method
         $this->record = $this->repo->updateRecord($id);
-        
-        // Now pipe to the right methods
-        if ($this->record->result) return $this->success();
-        else return $this->fail();
+        return $this->redirect();
     }
 
 
@@ -105,17 +100,6 @@ class BaseController extends Controller {
     {
         //Form submists as DELETE to contacts/$id
     }
-
-
-
-
-    /************** Other Base Methods **************/
-     public function setColumn($array = array())
-    {
-        dd('this ise set col:');
-    }
-
-
 
 
 
@@ -150,46 +134,24 @@ class BaseController extends Controller {
     }
 
 
-    /**
-     * Redirect upon successful method result
-     * @param  string $viewFile The name of the view to direct to (usally edit or index)
-     */
-    public function success($viewFile = 'edit')
+    public function redirect($viewFile = 'edit')
     {
-        if (Request::ajax()) //Horrible hack!
-        {
-            return Response::make('', 200, array('Content-Type' => 'text/plain'));
-        }
-            
-        else
-        {
+        // If save is successful, then redirect to the $viewFile page
+        if ( $this->record->result ) 
             return Redirect::route('app.' . $this->foldername . '.' . $viewFile, array($this->record->id))
                     ->with('success', 'That\'s saved!');  
-        }
-    }
-    
-    /**
-     * Go back ot form if the method result is a fail
-     */
-    public function fail()
-    {
-        if (Request::ajax())  //Horrible hack!
 
-        {
-            return Response::make('', 500, array('Content-Type' => 'text/plain'));
-        }
-        else 
-        {
-            return Redirect::back()
+        // ... else go back and show errors
+        else return Redirect::back()
                 ->with('error', 'Some fields don\'t look right. Can you take a look?')
                 ->withErrors($this->record->errors())
                 ->withInput();
-        }
+
     }
 
-    
-
-
+     /**
+     * Yuuuuk. Nasty method to intialise our vars. this can be MUCH better
+     */
     public function setUpData()
     {
         //Set up user var
@@ -208,4 +170,30 @@ class BaseController extends Controller {
         Session::put('owner_id', $this->user->owner_id);
     }
 
+
+
+    // /**
+    //  * Redirect upon successful method result
+    //  * @param  string $viewFile The name of the view to direct to (usally edit or index)
+    //  */
+    // public function success($viewFile = 'edit')
+    // {
+    //    return Redirect::route('app.' . $this->foldername . '.' . $viewFile, array($this->record->id))
+    //                 ->with('success', 'That\'s saved!');  
+    // }
+    
+    // /**
+    //  * Go back ot form if the method result is a fail
+    //  */
+    // public function fail()
+    // {
+    //     return Redirect::back()
+    //             ->with('error', 'Some fields don\'t look right. Can you take a look?')
+    //             ->withErrors($this->record->errors())
+    //             ->withInput();
+    // }
+
+    
+
+   
 }

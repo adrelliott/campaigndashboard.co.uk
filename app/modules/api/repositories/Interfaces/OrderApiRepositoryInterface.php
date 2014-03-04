@@ -5,7 +5,7 @@
  *
  * use this Interface to define Contact specific methods, e.g. getDateOfBirth()
  */
-interface ActionApiRepositoryInterface extends ApiRepositoryInterface {
+interface OrderApiRepositoryInterface extends ApiRepositoryInterface {
     
 
 }

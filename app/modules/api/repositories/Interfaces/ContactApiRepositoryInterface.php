@@ -1,6 +1,5 @@
 <?php namespace Dashboard\Api\Repositories;
 
-
 /** 
  * This extends the RepositoryInteface, so all those methods are available here.
  *

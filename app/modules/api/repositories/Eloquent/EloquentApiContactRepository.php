@@ -31,6 +31,7 @@ class EloquentApiContactRepository extends EloquentApiRepository implements Cont
         'city' => 'city',
         'postcode' => 'postcode',
         'legacy_id' => 'legacy_id',
+        'date_of_birth' => 'date_of_birth',
         );
 
     public function __construct(Model $model)

@@ -6,7 +6,7 @@ use BaseModel;
 class Contact extends BaseModel {
     
     // Do not allow updating of these fields
-    protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at', 'owner_id', 'date_of_birth'];
+    protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at', 'owner_id'];
 
     // Wrap in a presenter (ShawnMcCool)
     public $presenter = 'Dashboard\Crm\ContactPresenter';
@@ -21,6 +21,12 @@ class Contact extends BaseModel {
         'create' => array(),
         'update' => array()
     );
+
+
+    // public function orderProduct()
+    // {
+    //     return $this->hasManyThrough('OrderProduct', 'User');
+    // }
 
 
     

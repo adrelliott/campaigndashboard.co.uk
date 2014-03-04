@@ -47,6 +47,7 @@
 
         //get table & rows
         var tableId = $(this).data('tableid');
+        console.log('table id', tableId);
         var table = $('table#'+tableId);
         var row = table.find("tbody tr:last").clone();
 
@@ -58,6 +59,8 @@
         //append ot the table as last row
         $('tr:last', table).after(row);
     });
+
+    
 
     
     /* Add list itmes to a <ul> for search page */

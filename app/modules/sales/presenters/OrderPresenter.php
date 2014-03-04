@@ -1,6 +1,4 @@
-<?php
-
-namespace Dashboard\Sales;
+<?php namespace Dashboard\Sales;
 use McCool\LaravelAutoPresenter\BasePresenter;
 
 //Pull in the models required for this record
@@ -15,6 +13,20 @@ use \Carbon;
 
 class OrderPresenter extends BasePresenter {
 
+    /** 
+     * Columns to return from queries
+     * @var array
+     */
+    protected $cols = array(
+        'orderItems' => array(
+            'product_id',
+            'variant',
+            'quantity',
+            'price',
+        ),
+    );
+
+
      public function __construct(Model $object)
     {
         $this->resource = $object;
@@ -24,6 +36,21 @@ class OrderPresenter extends BasePresenter {
     public function created_at()
     {
         return $this->resource->created_at->toDayDateTimeString();
+    }
+
+    public function orderItems()
+    {
+        return $this->resource->products()->get($this->cols['orderItems'])->toArray();
+    }
+
+    public function orderItemsBlankRow()
+    {
+        $retval = $this->orderItems;
+
+        // set up blank 
+        $retval[] = array_fill_keys($this->cols['orderItems'], '');
+
+        return $retval;
     }
 
     

@@ -11,6 +11,7 @@ Route::group(array(
     function()
     {
         Route::resource('contacts', 'ContactsController');
+        Route::resource('orders', 'OrdersController');
         // Route::get('dataTables', array('as' => 'dataTables', 'uses' => 'ContactsController@indexDatatables'));
     }
 );

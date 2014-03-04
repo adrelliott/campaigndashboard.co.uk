@@ -18,6 +18,18 @@ class RepositoryServiceProvider extends ServiceProvider {
             // 'Dashboard\Repositories\FileContactRepository'
         );
 
+        // Bind the Sales Interfaces
+        $this->app->bind(
+            'Dashboard\Repositories\OrderRepositoryInterface',
+            'Dashboard\Repositories\EloquentOrderRepository'
+            // 'Dashboard\Repositories\FileContactRepository'
+        );
+        $this->app->bind(
+            'Dashboard\Repositories\OrderProductRepositoryInterface',
+            'Dashboard\Repositories\EloquentOrderProductRepository'
+            // 'Dashboard\Repositories\FileContactRepository'
+        );
+
 
         // Bind the Admin Interfaces
         $this->app->bind(
@@ -32,5 +44,11 @@ class RepositoryServiceProvider extends ServiceProvider {
             'Dashboard\Api\Repositories\ContactApiRepositoryInterface',
             'Dashboard\Api\Repositories\EloquentApiContactRepository'
         );
+        $this->app->bind(
+            'Dashboard\Api\Repositories\OrderApiRepositoryInterface',
+            'Dashboard\Api\Repositories\EloquentApiOrderRepository'
+        );
+
+
     }
 }

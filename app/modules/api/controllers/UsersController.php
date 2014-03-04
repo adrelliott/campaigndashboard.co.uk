@@ -1,9 +1,10 @@
 <?php namespace Dashboard\Api;
 
-use BaseController, Auth, Response;
-use Dashboard\Api\Repositories\UserRepositoryInterface as ModelInterface;
+use BaseController;
+use Dashboard\Api\ApiController;
+use Dashboard\Api\Repositories\UserApiRepositoryInterface as ModelInterface;
 
-class UsersController extends BaseController {
+class UsersController extends ApiController {
 
     /**
      * Sets up the model object

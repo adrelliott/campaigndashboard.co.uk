@@ -19,4 +19,13 @@ class Product extends BaseModel {
         'product_name' => 'required',
     ); 
 
+      /**
+     * Connect the Orders table with the Products table via pivot order_product
+     * @return 
+     */
+    public function orders()
+    {
+        return $this->belongsToMany('Dashboard\Sales\Order');
+    }
+
 }

@@ -21,6 +21,7 @@ class ApiController extends Controller {
         400.1 => 'You need to set the columns to return',
         500.0 => 'I have NO idea what went wrong',
         500.1 => 'The query failed to perform',
+        500.2 => 'This method does not exist',
         );
 
     
@@ -44,7 +45,6 @@ class ApiController extends Controller {
     public function index()
     {
         $this->result = $this->repo->getAll();
-        // \Debug::dump(Input::all(), 1);
 
         if ( Input::has('datatables') ) return $this->result;
         
@@ -58,7 +58,8 @@ class ApiController extends Controller {
      */
     public function create()
     {
-        dd('create');
+        $this->result->responseCode = 500.2;
+        return $this->returnJson();
     }
 
     /**
@@ -68,7 +69,11 @@ class ApiController extends Controller {
      */
     public function store()
     {
-        dd('store');
+        $this->result = $this->repo->createRecord();
+
+        if ($this->result->id) $this->result->responseCode = 200;
+
+        return $this->returnJson();
     }
 
     /**
@@ -79,7 +84,10 @@ class ApiController extends Controller {
      */
     public function show($id)
     {
-        dd('show');
+        $this->result = $this->repo->findRecord($id);
+        if ($this->result->id) $this->result->responseCode = 200;
+
+        return $this->returnJson();
     }
 
     /**
@@ -90,7 +98,8 @@ class ApiController extends Controller {
      */
     public function edit($id)
     {
-        dd('update: ' . $id);
+        $this->result->responseCode = 500.2;
+        return $this->returnJson();
     }
 
     /**
@@ -102,6 +111,7 @@ class ApiController extends Controller {
     public function update($id)
     {
         $this->result = $this->repo->updateRecord($id);
+        //dd($this->result);
         return $this->returnJson();
     }
 

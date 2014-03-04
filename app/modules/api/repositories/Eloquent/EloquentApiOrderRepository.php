@@ -22,6 +22,7 @@ class EloquentApiOrderRepository extends EloquentApiRepository implements OrderA
         'order_source' => 'order_source',
         'order_notes' => 'order_notes',
         'order_total' => 'order_total',
+        'order_date' => 'order_date',
         'temp_item' => 'temp_item',
         'temp_season' => 'temp_season',
         );

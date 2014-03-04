@@ -2,9 +2,9 @@
 
 use BaseController;
 use Dashboard\Api\ApiController;
-use Dashboard\Api\Repositories\ContactApiRepositoryInterface as ModelInterface;
+use Dashboard\Api\Repositories\OrderProductApiRepositoryInterface as ModelInterface;
 
-class ContactsController extends ApiController {
+class OrderProductsController extends ApiController {
 
     /**
      * Sets up the model object
