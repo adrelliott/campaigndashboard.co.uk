@@ -1,6 +1,4 @@
-<?php
-
-namespace Dashboard\Crm;
+<?php namespace Dashboard\Crm;
 
 use McCool\LaravelAutoPresenter\BasePresenter;
 use Dashboard\Crm\Contact as Model;
@@ -12,9 +10,9 @@ use Carbon;
 
 class ContactPresenter extends BasePresenter {
 
-     public function __construct(Model $object)
+     public function __construct(Model $model)
     {
-        $this->resource = $object;
+        $this->resource = $model;
     }
 
     public function fullName()

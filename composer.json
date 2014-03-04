@@ -5,7 +5,7 @@
     "license": "MIT",
     "require": {
         "laravel/framework": "4.1.16",
-        "way/generators": "dev-master",
+        "way/generators": "1.1",
          "ircmaxell/password-compat": "1.0.*",
          "way/form": "dev-master",
          "anahkiasen/former": "dev-master",
@@ -14,8 +14,7 @@
          "loic-sharma/profiler": "dev-master",
          "creolab/laravel-modules": "dev-master",
          "bllim/datatables": "*",
-         "mccool/laravel-auto-presenter": "*",
-         "barryvdh/laravel-migration-generator": "dev-master"
+         "mccool/laravel-auto-presenter": "*"
     },
     "autoload": {
         "classmap": [

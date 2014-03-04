@@ -1,5 +1,4 @@
-<?php 
-namespace Helpers;
+<?php namespace Helpers;
 
 /**
 * Creates a nicely formatted dump (tee hee!)

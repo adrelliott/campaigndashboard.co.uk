@@ -10,9 +10,9 @@ class ContactsController extends BaseController {
     protected $foldername = 'contacts';
 
 
-    public function __construct(ModelInterface $model)
+    public function __construct(ModelInterface $repo)
     {
-        parent::__construct($model);
+        parent::__construct($repo);
     } 
 
 }

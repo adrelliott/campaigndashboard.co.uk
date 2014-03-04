@@ -19,7 +19,7 @@
         ->role('Form')
         ->class('form-inline')
         ->method('PUT')
-        ->route('app.users.update', $record->id)
+        ->route('api.v1.users.update', $record->id)
         ->populate($record);
     }}
 

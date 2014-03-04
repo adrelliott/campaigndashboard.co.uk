@@ -4,9 +4,9 @@ use Dashboard\Crm\Contact as Model;
 
 class EloquentContactRepository extends EloquentRepository implements ContactRepositoryInterface {
 
-    public function __construct(Model $contact)
+    public function __construct(Model $model)
     {
-        $this->model = $contact;
+        $this->model = $model;
     }
 
 }

@@ -33,9 +33,9 @@ class EloquentApiContactRepository extends EloquentApiRepository implements Cont
         'legacy_id' => 'legacy_id',
         );
 
-    public function __construct(Model $contact)
+    public function __construct(Model $model)
     {
-        $this->model = $contact;
+        $this->model = $model;
         $this->model->allowableCols = $this->allowableCols;
     }
 

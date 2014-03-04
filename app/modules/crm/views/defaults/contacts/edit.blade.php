@@ -17,7 +17,7 @@
 
 @section('overview')
     <h3 class="text-primary"><i class="fa fa-info-circle"></i> Overview</h3>
-    
+   
     {{ Former::open()
     ->role('Form')
     ->class('ajax-form')

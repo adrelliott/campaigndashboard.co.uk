@@ -1,9 +1,7 @@
-<?php
+<?php namespace Dashboard\Crm;
 
-namespace Dashboard\Crm;
-
-use Input, BaseModel;
-use Dashboard\Crm\ContactPresenter as Presenter;
+use BaseModel;
+// use Dashboard\Crm\ContactPresenter as Presenter;
 
 class Contact extends BaseModel {
     
