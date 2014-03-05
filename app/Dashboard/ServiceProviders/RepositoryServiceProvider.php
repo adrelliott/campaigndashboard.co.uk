@@ -11,7 +11,36 @@ class RepositoryServiceProvider extends ServiceProvider {
     public function register()
     {
         
-        // Bind the Crm Interfaces
+        // Bind the Admin Interfaces
+        $this->app->bind(
+            'Dashboard\Repositories\UserRepositoryInterface',
+            'Dashboard\Repositories\EloquentUserRepository'
+            // 'Dashboard\Repositories\FileContactRepository'
+        );
+
+
+        // Bind the Api Interfaces
+        $this->app->bind(
+            'Dashboard\Api\Repositories\BroadcastApiRepositoryInterface',
+            'Dashboard\Api\Repositories\EloquentApiBroadcastRepository'
+        );
+        $this->app->bind(
+            'Dashboard\Api\Repositories\ContactApiRepositoryInterface',
+            'Dashboard\Api\Repositories\EloquentApiContactRepository'
+        );
+        $this->app->bind(
+            'Dashboard\Api\Repositories\OrderApiRepositoryInterface',
+            'Dashboard\Api\Repositories\EloquentApiOrderRepository'
+        );
+
+         // Bind the Broadcast Interfaces
+        $this->app->bind(
+            'Dashboard\Repositories\BroadcastRepositoryInterface',
+            'Dashboard\Repositories\EloquentBroadcastRepository'
+            // 'Dashboard\Repositories\FileContactRepository'
+        );
+
+         // Bind the Crm Interfaces
         $this->app->bind(
             'Dashboard\Repositories\ContactRepositoryInterface',
             'Dashboard\Repositories\EloquentContactRepository'
@@ -31,23 +60,6 @@ class RepositoryServiceProvider extends ServiceProvider {
         );
 
 
-        // Bind the Admin Interfaces
-        $this->app->bind(
-            'Dashboard\Repositories\UserRepositoryInterface',
-            'Dashboard\Repositories\EloquentUserRepository'
-            // 'Dashboard\Repositories\FileContactRepository'
-        );
-
-
-        // Bind the Api Interfaces
-        $this->app->bind(
-            'Dashboard\Api\Repositories\ContactApiRepositoryInterface',
-            'Dashboard\Api\Repositories\EloquentApiContactRepository'
-        );
-        $this->app->bind(
-            'Dashboard\Api\Repositories\OrderApiRepositoryInterface',
-            'Dashboard\Api\Repositories\EloquentApiOrderRepository'
-        );
 
 
     }

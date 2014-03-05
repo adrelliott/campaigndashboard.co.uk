@@ -1,13 +1,10 @@
-<?php 
-
-// Set up namespace
-namespace Dashboard\Broadcast;
+<?php namespace Dashboard\Broadcasts;
 use Route;
 
 // Contacts
 Route::group(array(
     'prefix' => 'app', 
-    'namespace' => 'Dashboard\Broadcast', 
+    'namespace' => 'Dashboard\Broadcasts', 
     'before' => 'auth'
     ), 
     function()

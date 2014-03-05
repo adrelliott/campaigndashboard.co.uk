@@ -1,10 +1,9 @@
-<?php
-
-namespace Dashboard\Email;
+<?php namespace Dashboard\Broadcasts;
 
 use McCool\LaravelAutoPresenter\BasePresenter;
-use Dashboard\Email\Broadcast as Model;
+use Dashboard\Broadcasts\Broadcast as Model;
 use Carbon;
+
 
 class BroadcastPresenter extends BasePresenter {
 
