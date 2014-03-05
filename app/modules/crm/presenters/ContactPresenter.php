@@ -34,6 +34,25 @@ class ContactPresenter extends BasePresenter {
         return $this->resource->created_at->diffForHumans();
     }
 
+    public function tags()
+    {
+         $cols = array('tag_name', 'variant', 'tag_note');
+         return $this->resource->tags()->get($cols)->toArray();
+    }
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
     public function getNotes()
     {
         // return Note::where('contact_id', $this->resource->id)->get();

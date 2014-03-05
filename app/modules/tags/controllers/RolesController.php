@@ -1,13 +1,12 @@
 <?php namespace Dashboard\Tags;
 
 use BaseController;
-use Dashboard\Repositories\TagRepositoryInterface as ModelInterface;
+use Dashboard\Repositories\TagPivotRepositoryInterface as ModelInterface;
 
-class TagsController extends BaseController {
+class RolesController extends BaseController {
 
     protected $modulename = 'tags';
-    protected $foldername = 'tag';
-    
+    protected $foldername = 'roles';
 
     /**
      * Sets up the model object

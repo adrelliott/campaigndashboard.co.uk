@@ -13,6 +13,7 @@ Route::group(array(
         Route::resource('contacts', 'ContactsController');
         Route::resource('orders', 'OrdersController');
         Route::resource('broadcasts', 'BroadcastsController');
+        Route::post('contacts/storeRole', array('as' => 'api.v1.contacts.storeRole', 'uses' => 'ContactsController@storeRole'));
         // Route::get('dataTables', array('as' => 'dataTables', 'uses' => 'ContactsController@indexDatatables'));
     }
 );

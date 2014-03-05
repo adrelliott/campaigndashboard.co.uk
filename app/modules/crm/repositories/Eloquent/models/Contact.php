@@ -23,11 +23,34 @@ class Contact extends BaseModel {
     );
 
 
-    // public function orderProduct()
+    /**
+     * Defines the relaitonship of tags->contacts
+     * @return obj 
+     */
+    public function tags()
+    {
+        return $this->belongsToMany('Dashboard\Tags\Tag', 'tag_pivot');
+    }
+
+    public function roles()
+    {
+        return $this->hasMany('Dashboard\Tags\Role');
+    }
+    
+    /**
+     * Defines the relaitonship of roles->contacts 
+     *
+     * IMPORTANT: Roles are actually tags with extra info
+     * 
+     * @return obj 
+     */
+    // public function tags()
     // {
-    //     return $this->hasManyThrough('OrderProduct', 'User');
+    //     return $this->belongsToMany('Dashboard\Tags\Tag');
+    //     // return $this->belongsToMany('Dashboard\Tags\Role', 'tag_pivot', 'contact_id', 'tag_id');
     // }
 
+    
 
     
     /**

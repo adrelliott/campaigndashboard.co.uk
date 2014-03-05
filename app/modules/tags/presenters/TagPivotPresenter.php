@@ -1,9 +1,7 @@
 <?php namespace Dashboard\Tags;
 
 use McCool\LaravelAutoPresenter\BasePresenter;
-
-
-// use Dashboard\Crm\Contact as Model;
+use Dashboard\Tags\TagPivot as Model;
 // use Dashboard\Crm\Action as Action;
 // use Dashboard\Crm\Note as Note;
 // use Dashboard\Crm\Tag as Tag;
@@ -11,7 +9,7 @@ use McCool\LaravelAutoPresenter\BasePresenter;
 
 use Carbon;
 
-class TagPresenter extends BasePresenter {
+class TagPivotPresenter extends BasePresenter {
 
      public function __construct(Model $repo)
     {

@@ -17,7 +17,7 @@
 
 @section('overview')
     <h3 class="text-primary"><i class="fa fa-info-circle"></i> Overview</h3>
-   
+    
     {{ Former::open()
     ->role('Form')
     ->class('ajax-form')
@@ -74,7 +74,7 @@
         </div>
         
         <div class="col-lg-4 col-md-5 col-sm-12  col-xs-12">
-            {{ Former::date('date_of_birth')->class('form-control input-sm')->placeholder('25/05/77')->value('0000/00/00') }}
+            {{ Former::date('date_of_birth')->class('form-control input-sm')->placeholder('25/05/77') }}
         </div>
 
         <div class="form-group">
@@ -135,7 +135,7 @@
             <div class="form-group">
                 <div class="input-group input-group-sm ">
                     <span class="input-group-addon">@</span>
-                    <input type="text" name="twitter_id" class="form-control" placeholder="Don't include the @" value="{{ $record->twitter_id }}">
+                    <input type="text" name="twitter_id" class="form-control" placeholder="Don't include the @">
                 </div>
             </div>
         </div>
@@ -144,7 +144,7 @@
             <div class="form-group">
                 <div class="input-group input-group-sm ">
                     <span class="input-group-addon">(00)</span>
-                    <input type="text" name="overseas_phone" class="form-control" placeholder="44 770334563"  value="{{ $record->overseas_phone }}">
+                    <input type="text" name="overseas_phone" class="form-control" placeholder="44 770334563">
                 </div>
             </div>
         </div>
@@ -231,30 +231,24 @@
 
 @section('purchases')
     <h3 class="text-primary"><i class="fa fa-gbp"></i> Purchases</h3>
-    <div class="table-responsive clearfix">
-        <table class="table dataTable data-table minitable" id="purchases_table" 
-        data-ajaxsource="/api/v1/orders?cols=id,order_title,order_date&datatables=true&contact_id={{ $record->id}}"
-         data-showid="true" data-linkurl="/app/orders" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/orders" >
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Order Name</th>
-                    <th>Order Date</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </div>
-    
+    <ul class="list-group">
+        @foreach( $record->orders as $o )
+            <li class="list-group-item">
+                <i class="fa fa-chevron-right"></i> {{ $o->temp_item}} ({{$o->temp_season}}) <a href="#" class="btn btn-default btn-xs pull-right open-modal" modal-source="{{ Url::route('app.orders.edit', $o->id)}}">View</a>
+            </li>
+        @endforeach
+    </ul>
     <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Purchase</a>
 @stop
 
 @section('roles')
     <h3 class="text-primary"><i class="fa fa-gbp"></i> Roles</h3>
     <ul class="list-group">
-        {{ \Debug::dump($record->tags)}}
-        
+        @foreach( $record->orders as $o )
+            <li class="list-group-item">
+                <i class="fa fa-chevron-right"></i> {{ $o->order_title}} ({{$o->payment_method}}) <a href="#" class="btn btn-default btn-xs pull-right open-modal" modal-source="{{ Url::route('app.orders.edit', $o->id)}}">View</a>
+            </li>
+        @endforeach
     </ul>
     <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Role</a>
 @stop
