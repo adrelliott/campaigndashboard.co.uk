@@ -101,6 +101,18 @@ class BaseController extends Controller {
         //Form submists as DELETE to contacts/$id
     }
 
+    public function getAll()
+    {
+        // Get all results (pass 'true' to use Bllim\DataTables class)
+        return $this->repo->getAll(TRUE);
+    }
+    
+    public function getFor()
+    {
+        // Get all results (pass 'true' to use Bllim\DataTables class)
+        return $this->repo->getFor(TRUE);
+    }
+
 
 
 
@@ -169,29 +181,6 @@ class BaseController extends Controller {
 
         Session::put('owner_id', $this->user->owner_id);
     }
-
-
-
-    // /**
-    //  * Redirect upon successful method result
-    //  * @param  string $viewFile The name of the view to direct to (usally edit or index)
-    //  */
-    // public function success($viewFile = 'edit')
-    // {
-    //    return Redirect::route('app.' . $this->foldername . '.' . $viewFile, array($this->record->id))
-    //                 ->with('success', 'That\'s saved!');  
-    // }
-    
-    // /**
-    //  * Go back ot form if the method result is a fail
-    //  */
-    // public function fail()
-    // {
-    //     return Redirect::back()
-    //             ->with('error', 'Some fields don\'t look right. Can you take a look?')
-    //             ->withErrors($this->record->errors())
-    //             ->withInput();
-    // }
 
     
 

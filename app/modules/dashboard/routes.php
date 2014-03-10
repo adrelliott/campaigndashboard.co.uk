@@ -1,7 +1,5 @@
-<?php 
+<?php namespace Dashboard\Home;
 
-// Set up namespace
-namespace Dashboard\Home;
 use Route;
 
 Route::get('app/dashboard', array(

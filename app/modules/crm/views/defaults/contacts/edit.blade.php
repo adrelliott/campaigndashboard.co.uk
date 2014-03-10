@@ -233,7 +233,22 @@
     <h3 class="text-primary"><i class="fa fa-gbp"></i> Purchases</h3>
     <div class="table-responsive clearfix">
         <table class="table dataTable data-table minitable" id="purchases_table" 
-        data-ajaxsource="/api/v1/orders?cols=id,order_title,order_date&datatables=true&contact_id={{ $record->id}}"
+        data-ajaxsource="/dt/orders/getFor?cols=id,order_title,order_date&contact_id={{ $record->id}}"
+         data-showid="true" data-linkurl="/app/orders" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/orders" >
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Order Name</th>
+                    <th>Order Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <div class="table-responsive clearfix">
+        <table class="table dataTable data-table minitable" id="orders_table" 
+        data-ajaxsource="/dt/orders/getFor?cols=id,order_title,order_date&contact_id={{ $record->id}}"
          data-showid="true" data-linkurl="/app/orders" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/orders" >
             <thead>
                 <tr>
