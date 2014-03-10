@@ -29,15 +29,4 @@ class OrderProduct extends BaseModel {
         return $this->belongsTo('Dashboard\Sales\Order');
     }
 
-    // public function orderItems()
-    // {
-    //     return $this->hasMany('Dashboard\Sales\OrdersProducts');
-    // }
-
-//May also have many notes, tasks, tags
-
-    // public function getSeenAttribute($value)
-    //     {
-    //         return (boolean) $value;
-    //     }    
 }

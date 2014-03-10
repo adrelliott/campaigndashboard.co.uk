@@ -46,6 +46,11 @@ class RepositoryServiceProvider extends ServiceProvider {
             'Dashboard\Repositories\EloquentContactRepository'
             // 'Dashboard\Repositories\FileContactRepository'
         );
+        $this->app->bind(
+            'Dashboard\Repositories\ContactRoleRepositoryInterface',
+            'Dashboard\Repositories\EloquentContactRoleRepository'
+            // 'Dashboard\Repositories\FileContactRepository'
+        );
 
         // Bind the Sales Interfaces
         $this->app->bind(

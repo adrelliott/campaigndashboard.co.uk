@@ -251,12 +251,24 @@
 @stop
 
 @section('roles')
-    <h3 class="text-primary"><i class="fa fa-gbp"></i> Roles</h3>
-    <ul class="list-group">
-        {{ \Debug::dump($record->tags)}}
-        
-    </ul>
-    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Role</a>
+    <h3 class="text-primary"><i class="fa fa-group"></i> Roles</h3>
+    <div class="table-responsive clearfix">
+        <table class="table dataTable data-table minitable" id="roles_table" 
+        data-ajaxsource="/api/v1/roles?cols=id,role_title,order_date&datatables=true&contact_id={{ $record->id}}"
+         data-showid="true" data-linkurl="/app/orders" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/orders" >
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Order Name</th>
+                    <th>Order Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    
+    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.roles.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Role</a>
 @stop
 
 @section('modal')

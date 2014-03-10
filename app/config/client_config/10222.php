@@ -77,7 +77,7 @@ return array(
    //The tabs for views/contacts/show.blade.php
     'contactsshow' => array(
         'col1tabs' => ['Overview', 'In Depth', 'Opt In', 'Notes'],
-        'col2tabs' => ['Purchases'],
+        'col2tabs' => ['Purchases', 'Roles'],
         ),
 
     //The tabs for views/contacts/show.blade.php
@@ -121,6 +121,23 @@ return array(
         'Ms' => 'Ms',
         'Dr' => 'Dr',
         ),
+    
+
+    // Roles
+    'roles' => array(
+        1 => 'Volunteer (Office)',
+        2 => 'Volunteer (Matchday)',
+        3 => 'Paid Office Staff',
+        4 => 'Community Staff',
+        5 => 'Board Member',
+        6 => 'External Supplier',
+        7 => 'Coaching/Backroom Staff',
+        8 => '1st Team Player',
+        9 => 'Youth Team Player',
+        10 => 'Women\'s Team Player',
+        ),
+
+
 
 
 
@@ -231,3 +248,4 @@ return array(
 
 
 );
+

@@ -2,9 +2,9 @@
 
 use BaseController;
 use Dashboard\Api\ApiController;
-use Dashboard\Api\Repositories\TagPivotApiRepositoryInterface as ModelInterface;
+use Dashboard\Api\Repositories\ContactRoleApiRepositoryInterface as ModelInterface;
 
-class TagPivotsController extends ApiController {
+class ContactsRolesController extends ApiController {
 
     /**
      * Sets up the model object

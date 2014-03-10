@@ -1,9 +1,9 @@
 <?php namespace Dashboard\Api;
 
-use BaseController;
+use BaseController, Auth, Input;
 use Dashboard\Api\ApiController;
 use Dashboard\Api\Repositories\ContactApiRepositoryInterface as ModelInterface;
-use Dashboard\Tags\Role;
+use Dashboard\Crm\ContactRole as Role;
 
 class ContactsController extends ApiController {
 
@@ -16,20 +16,19 @@ class ContactsController extends ApiController {
         parent::__construct($model);
     }
 
-    public function storeRole($contact_id)
+    public function storeRole()
     {
         // 1. Get the contact model
-        $contact = $this->repo->findRecord($id);
-        $role = new Role(\Input::all());
+        $contact = $this->repo->findRecord(Input::get('contact_id'));
 
-    $role->owner_id = 10222;
+        // Set up the role...
+        $role = new Role(Input::all());
+        $role->owner_id = Auth::user()->owner_id;
     
+        // Now add the role
+        $result = $contact->roles()->save($role);
 
-    // Now add the role
-    $result = $contact->roles()->save($role);
-
-    //return $contact->roles;
-
+        return $role;
     }
 
 }

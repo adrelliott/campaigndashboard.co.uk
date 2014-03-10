@@ -34,7 +34,7 @@ class Contact extends BaseModel {
 
     public function roles()
     {
-        return $this->hasMany('Dashboard\Tags\Role');
+        return $this->hasMany('Dashboard\Crm\ContactRole');
     }
     
     /**

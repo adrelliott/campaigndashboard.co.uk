@@ -10,7 +10,7 @@ Route::group(array(
     ), 
     function()
     {
-        Route::resource('roles', 'RolesController');
+        // Route::resource('roles', 'RolesController');
         // Route::resource('contacts', 'ContactsController');
         // 
         // 
