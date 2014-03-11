@@ -37,7 +37,7 @@
     // $('.wysihtml5').each(function() {
     //     $(this).wysihtml5();
     // });
-    $('.wysihtml5').summernote({focus: true, height: 300});
+    
 
 
 
@@ -60,7 +60,6 @@
         $('tr:last', table).after(row);
     });
 
-    
 
     
     /* Add list itmes to a <ul> for search page */
@@ -87,9 +86,13 @@
     });
 
     /* Copy first name to nickname in contacts/show */
-    $("#first_name").keyup(function () {
+    // $("#create-first_name").keyup(function () {
+    //   var value = $(this).val();
+    //   $("#create-nickname").val(value);
+    // }).keyup();
+    $("#copy-source").keyup(function () {
       var value = $(this).val();
-      $("form#create_contact_div #nickname").val(value);
+      $(".copy-destination").val(value);
     }).keyup();
 
     /* Intialise... */
@@ -109,5 +112,7 @@
 
 
 console.log('all done');
+
+$('.wysihtml5').summernote({focus: true, height: 300});
 
 })(jQuery);

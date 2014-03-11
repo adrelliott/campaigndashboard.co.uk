@@ -16,7 +16,6 @@
             {{ Former::open()
             ->role('Form')
             ->class('')
-            ->id('create_contact_div')
             ->method('POST')
             ->route('app.contacts.store');
             // ->populate($record->resource);
@@ -27,7 +26,7 @@
                 </div>
 
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                    {{ Former::text('first_name')->class('form-control input-lg')->placeholder('E.g. Lionel') }}
+                    {{ Former::text('first_name')->class('form-control input-lg')->placeholder('E.g. Lionel')->id('copy-source') }}
                 </div>
 
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
@@ -35,7 +34,7 @@
                 </div>
 
                <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                    {{ Former::text('nickname')->class('form-control input-lg')->placeholder('E.g. Dancing Li')->label('Known As') }}
+                    {{ Former::text('nickname')->class('form-control input-lg copy-destination')->placeholder('E.g. Dancing Li')->label('Known As') }}
                 </div>
 
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">

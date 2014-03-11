@@ -6,7 +6,7 @@
 {{ Former::open()
 ->role('Form')
 ->class('ajax-form')
-->id('')
+->tableId('notes')
 ->method('POST')
 ->ajaxMethod('POST')
 ->route('app.notes.store');

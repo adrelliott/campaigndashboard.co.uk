@@ -10,9 +10,8 @@
         ->tableId('roles')
         ->method('POST')
         ->ajaxMethod('POST')
-        ->route('app.roles.store');
-        // ->populate($record->resource);
-
+        ->route('app.roles.update', $record->id)
+        ->populate($record->resource);
         }}
             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
@@ -23,17 +22,6 @@
                 </div>
             </div>
 
-            // Role title
-
-            //start date
-
-            //emd date
-
-            season
-
-            notes
-
-            <input type="hidden" class="" name="contact_id" value="{{ Input::get('contact_id') }}">
             <input type="hidden" class="" name="user_id" value="{{ Auth::user()->id }}">
 
             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">

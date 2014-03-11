@@ -19,7 +19,47 @@ class RepositoryServiceProvider extends ServiceProvider {
         );
 
 
-        // Bind the Api Interfaces
+       
+         // Bind the Broadcast Interfaces
+        $this->app->bind(
+            'Dashboard\Repositories\BroadcastRepositoryInterface',
+            'Dashboard\Repositories\EloquentBroadcastRepository'
+        );
+
+
+
+         // Bind the Crm Interfaces
+        $this->app->bind(
+            'Dashboard\Repositories\ContactRepositoryInterface',
+            'Dashboard\Repositories\EloquentContactRepository'
+        );
+        $this->app->bind(
+            'Dashboard\Repositories\ContactRoleRepositoryInterface',
+            'Dashboard\Repositories\EloquentContactRoleRepository'
+        );
+        $this->app->bind(
+            'Dashboard\Repositories\NoteRepositoryInterface',
+            'Dashboard\Repositories\EloquentNoteRepository'
+        );
+
+
+
+        // Bind the Sales Interfaces
+        $this->app->bind(
+            'Dashboard\Repositories\OrderRepositoryInterface',
+            'Dashboard\Repositories\EloquentOrderRepository'
+        );
+        $this->app->bind(
+            'Dashboard\Repositories\OrderProductRepositoryInterface',
+            'Dashboard\Repositories\EloquentOrderProductRepository'
+        );
+
+
+
+
+
+
+ // Bind the Api Interfaces
         $this->app->bind(
             'Dashboard\Api\Repositories\BroadcastApiRepositoryInterface',
             'Dashboard\Api\Repositories\EloquentApiBroadcastRepository'
@@ -32,39 +72,6 @@ class RepositoryServiceProvider extends ServiceProvider {
             'Dashboard\Api\Repositories\OrderApiRepositoryInterface',
             'Dashboard\Api\Repositories\EloquentApiOrderRepository'
         );
-
-         // Bind the Broadcast Interfaces
-        $this->app->bind(
-            'Dashboard\Repositories\BroadcastRepositoryInterface',
-            'Dashboard\Repositories\EloquentBroadcastRepository'
-            // 'Dashboard\Repositories\FileContactRepository'
-        );
-
-         // Bind the Crm Interfaces
-        $this->app->bind(
-            'Dashboard\Repositories\ContactRepositoryInterface',
-            'Dashboard\Repositories\EloquentContactRepository'
-            // 'Dashboard\Repositories\FileContactRepository'
-        );
-        $this->app->bind(
-            'Dashboard\Repositories\ContactRoleRepositoryInterface',
-            'Dashboard\Repositories\EloquentContactRoleRepository'
-            // 'Dashboard\Repositories\FileContactRepository'
-        );
-
-        // Bind the Sales Interfaces
-        $this->app->bind(
-            'Dashboard\Repositories\OrderRepositoryInterface',
-            'Dashboard\Repositories\EloquentOrderRepository'
-            // 'Dashboard\Repositories\FileContactRepository'
-        );
-        $this->app->bind(
-            'Dashboard\Repositories\OrderProductRepositoryInterface',
-            'Dashboard\Repositories\EloquentOrderProductRepository'
-            // 'Dashboard\Repositories\FileContactRepository'
-        );
-
-
 
 
     }

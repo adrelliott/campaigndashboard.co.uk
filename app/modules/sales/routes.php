@@ -11,6 +11,7 @@ Route::group(array(
     function()
     {
         Route::resource('orders', 'OrdersController');
+        Route::resource('orderproducts', 'OrderProductsController');
         Route::resource('products', 'ProductsController');
         Route::resource('leads', 'LeadsController');
     }

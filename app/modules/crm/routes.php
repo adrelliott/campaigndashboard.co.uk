@@ -15,26 +15,28 @@ Route::group(array(
         Route::resource('notes', 'NotesController');
         Route::resource('roles', 'RolesController');
 
+        Route::post('contacts/storeRole', array('as' => 'app.contacts.storeRole', 'uses' => 'ContactsController@storeRole'));
+
     }
 );
 
 
 // Route::get('/app/contacts/dump', array('uses' => 'Dashboard\Crm\ContactsController@Dump'));
 
-Route::get('app/addRole/{contact_id}/{role_id}', function($contact_id, $role_id)
-{
-    // Get the contact
-    $contact = Contact::find($contact_id);
+// Route::get('app/addRole/{contact_id}/{role_id}', function($contact_id, $role_id)
+// {
+//     // Get the contact
+//     $contact = Contact::find($contact_id);
 
-    $role = new \Dashboard\Crm\ContactRole;
+//     $role = new \Dashboard\Crm\ContactRole;
 
-    $role->role_id = 1;
-    $role->owner_id = 10222;
-    $role->role_variant = '2013';
+//     $role->role_id = 1;
+//     $role->owner_id = 10222;
+//     $role->role_variant = '2013';
 
 
-    // Now add the role
-    $result = $contact->roles()->save($role);
+//     // Now add the role
+//     $result = $contact->roles()->save($role);
 
-    return $contact->roles;
-});
+//     return $contact->roles;
+// });

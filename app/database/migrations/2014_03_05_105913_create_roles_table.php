@@ -14,14 +14,15 @@ class CreateRolesTable extends Migration {
 	{
 		Schema::create('contact_role', function(Blueprint $table) {
 			$table->increments('id');
-            $table->integer('role_id')->unsigned();
+            $table->integer('role_id')->unsigned()->nullable();
             $table->integer('contact_id')->unsigned();
             $table->integer('owner_id')->unsigned();
 			$table->integer('user_id')->unsigned()->nullable();
 			$table->datetime('role_start_timestamp')->nullable();
 			$table->datetime('role_end_timestamp')->nullable();
 			$table->text('role_note')->nullable();
-			$table->string('role_variant')->nullable();
+            $table->string('role_variant')->nullable();
+			$table->string('role_title')->nullable();
 			$table->timestamps();
             $table->softDeletes();
 		});

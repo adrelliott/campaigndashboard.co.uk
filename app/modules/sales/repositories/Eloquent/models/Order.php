@@ -30,10 +30,10 @@ class Order extends BaseModel {
     //  * Connect the Orders table with the Products table via pivot order_product
     //  * @return 
      
-    // public function products()
-    // {
-    //     return $this->belongsToMany('Dashboard\Sales\Product');
-    // }
+    public function products()
+    {
+        return $this->belongsToMany('Dashboard\Sales\Product');
+    }
 
 
     

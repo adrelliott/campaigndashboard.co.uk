@@ -6,7 +6,7 @@
         {{ Former::open()
         ->role('Form')
         ->class('ajax-form')
-        ->id('')
+        ->tableId('orders')
         ->method('PUT')
         ->ajaxMethod('PUT')
         ->route('api.v1.orders.update', $record->id)
@@ -43,10 +43,10 @@
                                 {{ Former::select('_order_product[variant][]')->class('form-control input')->options($config['seasons'])->label(false)->value($attr['variant']) }}
                             </td>
                             <td>
-                                {{ Former::text('_order_product[quantity][]')->class('form-control input')->label(false)->value($attr['quantity']) }}
+                                {{ Former::text('_order_product[quantity][]')->class('form-control input')->label(false)->value($attr['quantity'])->value(0) }}
                             </td>
                             <td>
-                                {{ Former::text('_order_product[price][]')->class('form-control input')->label(false)->value($attr['price']) }}
+                                {{ Former::text('_order_product[price][]')->class('form-control input')->label(false)->value($attr['price'])->value(0) }}
                             </td>
                         </tr>
                     @endforeach

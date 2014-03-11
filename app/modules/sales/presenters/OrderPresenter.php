@@ -40,7 +40,7 @@ class OrderPresenter extends BasePresenter {
 
     public function orderItems()
     {
-        return $this->resource->products()->get($this->cols['orderItems'])->toArray();
+        return $this->resource->orderProducts()->get($this->cols['orderItems'])->toArray();
     }
 
     public function orderItemsBlankRow()

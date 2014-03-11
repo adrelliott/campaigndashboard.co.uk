@@ -1,6 +1,4 @@
-<?php
-
-namespace Dashboard\Home;
+<?php namespace Dashboard\Home;
 use BaseController;
 
 class DashboardController extends BaseController {
