@@ -20,14 +20,14 @@ class CreateBroadcastsTable extends Migration {
 			$table->integer('user_id')->nullable();
             $table->integer('search_id')->nullable();
 			$table->string('broadcast_name', 150)->nullable();
-            $table->string('broadcast_type', 100);
+            $table->string('broadcast_type', 100)->default('email');
             $table->string('broadcast_description', 300)->nullable();
-            $table->string('broadcast_from', 100);
+            $table->string('broadcast_from', 100)->nullable();
             $table->string('subject_line', 300)->nullable();
 			$table->text('broadcast_body')->nullable();
-			$table->string('broadcast_template', 100);
-			$table->boolean('ready_to_send');
-			$table->boolean('sent');
+			$table->string('broadcast_template', 100)->nullable();
+			$table->boolean('ready_to_send')->default(0);
+			$table->boolean('sent')->default(0);
 			$table->timestamps();
 		});
 	}
