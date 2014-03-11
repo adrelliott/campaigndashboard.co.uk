@@ -9,11 +9,18 @@ Route::group(array(
     ), 
     function()
     {
+        // Most times, the route will map to the main controller (that extends BaseController)
+        // However, we can also extend that controller and add new methods:
+        // e.g. Route::get('contacts', '***Datatables****\ContactsController@getAll');
+
+
         // Contacts
         Route::get('contacts', 'Crm\ContactsController@getAll');
-        // We can also extend that controller and add new methods:
-        // Route::get('contacts/getAll', 'Datatables\ContactsController@getAll');
-
+        Route::get('notes', 'Crm\NotesController@getAll');
+        Route::get('notes/getFor', 'Crm\NotesController@getFor');
+        Route::get('roles', 'Crm\RolesController@getAll');
+        Route::get('roles/getFor', 'Crm\RolesController@getFor');
+        
         // Orders
         Route::get('orders', 'Sales\OrdersController@getAll');
         Route::get('orders/getFor', 'Sales\OrdersController@getFor');

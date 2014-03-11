@@ -149,15 +149,25 @@ class BaseController extends Controller {
     public function redirect($viewFile = 'edit')
     {
         // If save is successful, then redirect to the $viewFile page
-        if ( $this->record->result ) 
-            return Redirect::route('app.' . $this->foldername . '.' . $viewFile, array($this->record->id))
-                    ->with('success', 'That\'s saved!');  
+        if ( $this->record->result )
+        {
+            // if ( Request::ajax() ) return Response::make($this->record, 200); 
+            if ( Request::ajax() ) return Response::make($this->record, 200); 
+            else return Redirect::route('app.' . $this->foldername . '.' . $viewFile, array($this->record->id))
+                    ->with('success', 'That\'s saved!'); 
+        }
+             
 
         // ... else go back and show errors
-        else return Redirect::back()
+        else
+        {
+            if ( Request::ajax() ) return Response::make($this->record, 500);
+
+            else return Redirect::back()
                 ->with('error', 'Some fields don\'t look right. Can you take a look?')
                 ->withErrors($this->record->errors())
                 ->withInput();
+        }
 
     }
 

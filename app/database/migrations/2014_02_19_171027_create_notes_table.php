@@ -22,10 +22,10 @@ class CreateNotesTable extends Migration {
 			$table->integer('lead_id')->nullable();
 			$table->string('note_name', 150)->nullable();
 			$table->text('note_body')->nullable();
-			$table->string('note_type', 100);
+			$table->string('note_type', 100)->nullable();
 			$table->string('note_category', 100)->nullable();
 			$table->string('note_status', 100)->nullable();
-			$table->boolean('seen');
+			$table->boolean('seen')->default(0);
 			$table->timestamps();
 		});
 	}

@@ -23,7 +23,7 @@
     ->class('ajax-form')
     ->ajaxMethod('PUT')
     ->method('PUT')
-    ->route('api.v1.contacts.update', $record->id)
+    ->route('app.contacts.update', $record->id)
     ->populate($record->resource);
     
     }}
@@ -74,7 +74,7 @@
         </div>
         
         <div class="col-lg-4 col-md-5 col-sm-12  col-xs-12">
-            {{ Former::date('date_of_birth')->class('form-control input-sm')->placeholder('25/05/77')->value('0000/00/00') }}
+            {{ Former::date('date_of_birth')->class('form-control input-sm')->placeholder('25/05/77')->value('1900-01-01') }}
         </div>
 
         <div class="form-group">
@@ -195,6 +195,34 @@
 @section('notes')
     <h3 class="text-primary"><i class="fa fa-book"></i> Notes</h3>
     
+    <div class="table-responsive clearfix">
+        <table class="table dataTable data-table minitable" id="notes-table" 
+        data-ajaxsource="/dt/notes/getFor?cols=id,note_name,created_at&sortDESC=created_at&contact_id={{ $record->id}}"
+         data-showid="true" data-linkurl="/app/notes" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/notes" >
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Note title</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    
+    
+    <div class="pull-right margin_top_15" style="margin-top:10px">
+        <a class="btn btn-primary open-modal " href="#" modal-source="{{URL::route('app.notes.create', array('contact_id' => $record->id)) }}" data-view="show_modal" >
+            <i class="fa fa-plus"></i> Create New Note
+        </a>
+    </div>
+
+@stop
+
+@section('notes_old')
+    <h3 class="text-primary"><i class="fa fa-book"></i> Notes</h3>
+    
         <div class="panel-group" id="accordion">
             <div class="panel panel-default panel-accordian">
                 @foreach( $record->notes as $n )
@@ -232,23 +260,8 @@
 @section('purchases')
     <h3 class="text-primary"><i class="fa fa-gbp"></i> Purchases</h3>
     <div class="table-responsive clearfix">
-        <table class="table dataTable data-table minitable" id="purchases_table" 
-        data-ajaxsource="/dt/orders/getFor?cols=id,order_title,order_date&contact_id={{ $record->id}}"
-         data-showid="true" data-linkurl="/app/orders" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/orders" >
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Order Name</th>
-                    <th>Order Date</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </div>
-    <div class="table-responsive clearfix">
-        <table class="table dataTable data-table minitable" id="orders_table" 
-        data-ajaxsource="/dt/orders/getFor?cols=id,order_title,order_date&contact_id={{ $record->id}}"
+        <table class="table dataTable data-table minitable" id="orders-table" 
+        data-ajaxsource="/dt/orders/getFor?cols=id,order_title,order_date&sortDESC=updated_at&contact_id={{ $record->id}}"
          data-showid="true" data-linkurl="/app/orders" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/orders" >
             <thead>
                 <tr>
@@ -262,20 +275,20 @@
         </table>
     </div>
     
-    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Purchase</a>
+    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Order</a>
 @stop
 
 @section('roles')
     <h3 class="text-primary"><i class="fa fa-group"></i> Roles</h3>
     <div class="table-responsive clearfix">
-        <table class="table dataTable data-table minitable" id="roles_table" 
-        data-ajaxsource="/api/v1/roles?cols=id,role_title,order_date&datatables=true&contact_id={{ $record->id}}"
-         data-showid="true" data-linkurl="/app/orders" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/orders" >
+        <table class="table dataTable data-table minitable" id="roles-table" 
+        data-ajaxsource="/dt/roles?cols=id,role_title,role_variant&sortDESC=role_variant&contact_id={{ $record->id}}"
+         data-showid="false" data-linkurl="/app/roles" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/roles" >
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Order Name</th>
-                    <th>Order Date</th>
+                    <th>Role Name</th>
+                    <th>Season</th>
                 </tr>
             </thead>
             <tbody>

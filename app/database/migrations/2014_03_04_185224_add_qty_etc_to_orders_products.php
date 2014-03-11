@@ -14,6 +14,7 @@ class AddQtyEtcToOrdersProducts extends Migration {
         Schema::table('orders_products', function($table)
         {
             $table->string('variant')->nullable()->after('product_id');
+            $table->string('product_description')->nullable()->after('product_id');
             $table->smallInteger('quantity')->nullable()->after('product_id');
             $table->integer('price')->nullable()->after('product_id');
         });

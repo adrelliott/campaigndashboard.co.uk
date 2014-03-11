@@ -1,6 +1,6 @@
 <?php namespace Dashboard\Repositories;
 
-use Auth, Input;
+use Auth, Input, DB;
 use Bllim\Datatables\Datatables;
 
 /**
@@ -28,26 +28,28 @@ class EloquentRepository {
     public function createRecord()
     {
         // 1. Create new object and fill it with $_POST ($fillable is set)
-        $record = new $this->model(Input::all());
-        $record->owner_id = Auth::user()->owner_id;       
+        $this->q = new $this->model(Input::all());
+
+        // 2. Set the owner_id
+        $this->q->owner_id = Auth::user()->owner_id;       
 
         // 2. Now save it and set a success flag
-        if ( $record->save() ) $record->result = TRUE;
+        if ( $this->q->save() ) $this->q->result = TRUE;
 
-        return $record;
+        return $this->q;
     }
 
 
     public function updateRecord($id = FALSE)
     {
         // 1. Find the model & fill with $_POST (protected with $fillable)
-        $record = $this->model->findOrFail($id);
-        $record->fill(Input::all());
-        $record->owner_id = Auth::user()->owner_id;   
+        $this->q = $this->model->findOrFail($id);
+        $this->q->fill(Input::all());
+        $this->q->owner_id = Auth::user()->owner_id;   
 
         // 2. Save the new model and set a success flag
-        if ( $record->save() ) $record->result = TRUE;
-        return $record;
+        if ( $this->q->save() ) $this->q->result = TRUE;
+        return $this->q;
     }
 
 
@@ -75,6 +77,8 @@ class EloquentRepository {
     {
         $this->setCols();
         if ( $contact_id = Input::get('contact_id') ) $this->q->where('contact_id', $contact_id);
+        if ( $sortASC = Input::get('sortASC') ) $this->q->orderBy($sortASC, 'asc');
+        if ( $sortDESC = Input::get('sortDESC') ) $this->q->orderBy($sortDESC, 'desc');
         return $this->getResult($dataTable);
     }
 
@@ -82,11 +86,34 @@ class EloquentRepository {
     /**
      * Sets up the 'select' portioncof the query (from $_GET['cols'] params)
      */
-    public function setCols()
+    public function setCols($cols = FALSE)
     {
-        // Set up cols from $_GET['cols'] CSV
-        if ( Input::get('cols') ) $cols = explode(',', Input::get('cols'));
-        else $cols = array('id');
+        // we can pass the cols as array, or get from Input
+        if ( ! $cols )
+        {
+            if ( $input = Input::get('cols') ) $cols = explode(',', $input);
+            else $cols = array('id'); 
+        }
+
+        // Format dates
+        foreach ($cols as $k => $col)
+        {
+            switch ($col) {
+                case 'created_at':
+                case 'updated_at':
+                    $cols[$k] = DB::raw('DATE_FORMAT(' . $col . ', \'%d/%m/%Y, %H\:%i\') AS ' . $col);
+                    break;
+                
+                case 'date_of_birth':
+                case 'order_date':
+                    $cols[$k] = DB::raw('DATE_FORMAT(' . $col . ', \'%d/%m/%Y\') AS ' . $col);
+                    break;
+            }
+
+        } 
+
+        // Add in the id if its not already
+        if ( ! in_array('id', $cols) ) array_unshift($cols, 'id');
 
         //Set up  the query object
         $this->q = $this->model->select($cols);

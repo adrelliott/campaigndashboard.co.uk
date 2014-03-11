@@ -6,13 +6,17 @@
         {{ Former::open()
         ->role('Form')
         ->class('ajax-form')
-        ->id('')
+        ->tableId('orders')
         ->method('POST')
         ->ajaxMethod('POST')
         ->route('api.v1.orders.store');
         // ->populate($record->resource);
 
         }}
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                {{ Former::text('order_title')->class('form-control input-sm copy-destination')->label('Order Summary')->placeholder('Add summary of order here') }}
+            </div>
+
             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     {{ Former::date('order_date')->class('form-control input-sm')->label('Order Date')->value(date('Y-m-d', time())) }}
@@ -38,10 +42,10 @@
                             {{ Former::select('_order_product[variant][]')->class('form-control input')->options($config['seasons'])->label(false) }}
                         </td>
                         <td>
-                            {{ Former::text('_order_product[quantity][]')->class('form-control input')->label(false) }}
+                            {{ Former::text('_order_product[quantity][]')->class('form-control input')->label(false)->value(0) }}
                         </td>
                         <td>
-                            {{ Former::text('_order_product[price][]')->class('form-control input')->label(false) }}
+                            {{ Former::text('_order_product[price][]')->class('form-control input')->label(false)->value(0) }}
                         </td>
                     </tr>
                 </table>
