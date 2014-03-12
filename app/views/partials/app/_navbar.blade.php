@@ -9,15 +9,15 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="/app/dashboard" class="navbar-brand">
-                {{ HTML::image($logo['small'], 'Campaign Dashboard Logo', array('class' => 'visible-sm')) }}    
-                {{ HTML::image($logo['large'], 'Campaign Dashboard Logo', array('class' => 'hidden-sm')) }} 
+                {{ HTML::image($logos['logoSmall'], 'Campaign Dashboard Logo', array('class' => 'visible-sm')) }}    
+                {{ HTML::image($logos['logoLarge'], 'Campaign Dashboard Logo', array('class' => 'hidden-sm')) }} 
             </a>
         </div>
         
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 @foreach ($navbar as $nav)
-                    @if ( $nav['min_admin_level'] >= $user['admin_level'])
+                    @if ( $nav['min_admin_level'] >= $current_user['admin_level'])
                         @if ( count($nav['dropdowns']))
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -26,7 +26,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     @foreach ($nav['dropdowns'] as $dropdown)
-                                        @if ( $dropdown['min_admin_level'] >= $user['admin_level'])
+                                        @if ( $dropdown['min_admin_level'] >= $current_user['admin_level'])
                                             <li class="">
                                                 <a href="/{{ $dropdown['route'] }}"><i class="fa fa-{{ $dropdown['icon'] }} "></i> 
                                                     {{ $dropdown['label'] }}

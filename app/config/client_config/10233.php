@@ -17,6 +17,14 @@ return array(
         'label' => 'client',
         ),
 
+    
+    'logos' => array(
+        'logoSmall' => '/assets/img/bootstrap/cdash_logo75px.png',
+        'logoLarge' => '/assets/img/bootstrap/cdash_logo150px.png',
+        ),
+
+
+
      /*
     |--------------------------------------------------------------------------
     | Navbar

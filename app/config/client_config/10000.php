@@ -21,6 +21,13 @@ return array(
         'label' => 'lead',
         ),
 
+    'logos' => array(
+        'logoSmall' => '/assets/img/bootstrap/cdash_logo75px.png',
+        'logoLarge' => '/assets/img/bootstrap/cdash_logo150px.png',
+        ),
+
+
+
      /*
     |--------------------------------------------------------------------------
     | Navbar

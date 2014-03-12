@@ -7,12 +7,12 @@ class BaseController extends Controller {
     protected $record;
 
     protected $user;
+
+    protected $viewPath = '{MODULE}::{PATH}.{CONTROLLER}.{METHOD}';
     
-    // public function __construct($repo = NULL)
-	public function __construct($repo = NULL)
+	/** Accepts type-hinted intefaces etc in the classes that extedn this **/
+    public function __construct($repo = NULL)
     {
-        // Set up view objects & repo
-        if ( Auth::check() ) $this->setUpData(); //This is nasty
         $this->repo = $repo;
     }
 
@@ -123,26 +123,29 @@ class BaseController extends Controller {
 
 
 /***************** View & Routing methods ****************/
+    public function buildPath($find, $replace)
+    {
+        $this->viewPath = str_replace($find, strtolower($replace), $this->viewPath);
+    }
 
      public function render($viewFile = FALSE)
     {
-        //Get current controller name and method
-        if ( ! $viewFile )
-        {
-            $t = explode('Controller@' ,Route::currentRouteAction());
-            $viewFile = $t[1];
-        }
+        //Get get current method - this is the viewfile (unless overidden)
+        $t = explode('Controller@' ,Route::currentRouteAction());
+        if ( ! $viewFile ) $viewFile = $t[1];
+        $this->buildPath('{METHOD}', $viewFile);
 
-        $path = $this->foldername . '.' . $viewFile;
+        // now set the rest of the paths
+        $t = explode('\\', $t[0]);
+        $owner_id = Auth::user()->owner_id;
+        $this->buildPath('{MODULE}', $t[1]);
+        $this->buildPath('{CONTROLLER}', $t[2]);
+        $this->buildPath('{PATH}', $owner_id);
 
-        //Test to see if it exists
-        if ( ! View::exists($view = $this->modulename . '::' . $this->user->owner_id . '.' . $path))
-        {
-            $view = $this->modulename . '::defaults.' . $path;
-        }
-        
-        return View::make($view, $this->data);
-        
+        // Look for a custom file & set as defaults if none found
+        if ( ! View::exists( $this->viewPath ) ) $this->buildPath($owner_id, 'defaults');
+
+        return View::make($this->viewPath);
     }
 
 
@@ -171,28 +174,97 @@ class BaseController extends Controller {
 
     }
 
-     /**
-     * Yuuuuk. Nasty method to intialise our vars. this can be MUCH better
-     */
-    public function setUpData()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  public function render_old($viewFile = FALSE)
     {
-        //Set up user var
-        $this->user = Auth::user();
-        $this->data['user'] = $this->user;
+        // This si the pattern of the view path
+        // $this->viewPath = '{MODULE}::{PATH}.{CONTROLLER}.{METHOD}';
+
+        //Get get current method - this is the viewfile (unless overidden)
+        $t = explode('Controller@' ,Route::currentRouteAction());
+        if ( ! $viewFile ) $viewFile = $t[1];
+        $this->buildPath('{METHOD}', $viewFile);
+        //$viewPath = str_replace('{METHOD}', strtolower($viewFile), $viewPath);
+
+        // now set the rest of the paths
+        $t = explode('\\', $t[0]);
+        $owner_id = Auth::user()->owner_id;
+        // $viewPath = str_replace('{MODULE}', strtolower($t[1]), $viewPath);
+        $this->buildPath('{MODULE}', $t[1]);
+        $this->buildPath('{CONTROLLER}', $t[2]);
+        $this->buildPath('{PATH}', $owner_id);
+        // $viewPath = str_replace('{CONTROLLER}', strtolower($t[2]), $viewPath);
+
+        // Look for a custom file & set as defaults if none found
+        // $view = str_replace('{PATH}', Auth::user()->owner_id, $viewPath );
+        // if ( ! View::exists( $view ) ) $view = str_replace('{PATH}', 'defaults', $viewPath );
+        if ( ! View::exists( $this->viewPath ) ) $this->buildPath($owner_id, 'defaults');
+
+        return View::make($this->viewPath);
+
+       
+//        dd($view);
+
+// dd( View::exists( strtolower('Crm::defaults.contacts.index') ) );
+
+//         // Do we have a custom file?
+//         if ( ! View::exists($view = $view['module'] . '.' . Auth::user()->owner_id . '.' . $view['folder'] . '.' . $view['file'] ))
+//         {
+//             $view = $this->modulename . '::defaults.' . $path;
+//         }
         
-        //Set up environment vars
-        $this->data['config'] = Config::get('client_config/' . $this->user->owner_id);
-        $this->data['navbar'] = $this->data['config']['navbar'];
-        $this->data['owner_id'] = $this->user->owner_id;
-        $this->data['logo']['large'] = '/assets/img/bootstrap/cdash_logo150px.png';
-        $this->data['logo']['small'] = '/assets/img/bootstrap/cdash_logo75px.png';
-        $this->data['controller'] = strtolower(Request::segment(2));
-        $this->data['misc']['env'] = App::environment();
+//         return View::make($view);
+        
 
-        Session::put('owner_id', $this->user->owner_id);
+//         dd($t);
+        
+//         //module = namseapce, folder = controller, viewfile = method
+
+
+//         if ( ! $viewFile )
+//         {
+//             $t = explode('Controller@' ,Route::currentRouteAction());
+//             dd($t);
+//             $viewFile = $t[1];
+//         }
+
+//         $path = $this->foldername . '.' . $viewFile;
+
+//         //Test to see if it exists
+//         if ( ! View::exists($view = $this->modulename . '.' . Auth::user()->owner_id . '.' . $path))
+//         {
+//             $view = $this->modulename . '::defaults.' . $path;
+//         }
+        
+//         return View::make($view);
+//         // return View::make($view, $this->data);
+        
     }
-
-    
-
-   
+  
 }

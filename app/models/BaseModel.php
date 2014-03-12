@@ -21,37 +21,4 @@ class BaseModel extends Magniloquent {
         'update' => array()
     );
 
-
-    /* Used for the API call */
-    // public static function prepareQuery()
-    // {
-    //     // Set up defaults
-    //     $defaults = array(
-    //         'cols' => 'id',
-    //         'where' => FALSE,
-    //         );
-
-    //     // Get all the URL paramaters 
-    //     foreach (Input::all() as $p => $val)
-    //     {
-    //         if (array_key_exists($p, $defaults))
-    //         {
-    //             $defaults[$p] = explode(',', str_replace(' ', '', $val)); 
-    //             // switch ($p)
-    //             // {
-    //             //     case 'cols':
-    //             //         $defaults[$p] = explode(',', str_replace(' ', '', $val)); 
-    //             //         break;
-
-    //             //     case 'where':
-    //             //         $defaults[$p] = explode(',', str_replace(' ', '', $val));
-    //             //         break;
-
-    //             // }   
-    //         }
-    //     }
-
-    //     return $defaults;
-    // }
-    
 }

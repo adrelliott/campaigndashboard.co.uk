@@ -84,3 +84,16 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+
+/*
+|--------------------------------------------------------------------------
+| Require The Composers File
+|--------------------------------------------------------------------------
+|
+| The composers allow us to bind data to views. They can be found in
+| app/Dashboard/Composers folder
+|
+*/
+
+require app_path().'/composers.php';

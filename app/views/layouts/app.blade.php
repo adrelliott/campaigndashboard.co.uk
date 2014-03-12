@@ -9,7 +9,7 @@
 
         <title>Dashboard</title>
 
-        @include('partials.app.scripts._header-' . $misc['env'])
+        @include('partials.app.scripts._header-' . $environment)
         
     </head>
 
@@ -58,7 +58,7 @@
         @show
         <!-- / Modal -->
 
-        @include('partials.app.scripts._footer-' . $misc['env'])
+        @include('partials.app.scripts._footer-' . $environment)
         
     </body>
 </html>
