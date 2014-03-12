@@ -1,9 +1,6 @@
 <?php
-    /**
-     * This brings int he base config
-     * @var array
-     */
-    $config = require app_path('config/client_config/10000.php');
+
+return array(
 
 
      /*
@@ -12,15 +9,21 @@
     |--------------------------------------------------------------------------
     |
     */
-    $config['users'] = array(
+    'users' => array(
         'total_number' => 'up to 10'
-        );
+        ),
 
-    $config['contacts'] = array(
+    'contacts' => array(
         'label' => 'fan',
-        );
+        ),
 
     
+    'logos' => array(
+        'logoSmall' => '/assets/img/bootstrap/cdash_logo75px.png',
+        'logoLarge' => '/assets/img/bootstrap/cdash_logo150px.png',
+        ),
+
+
 
      /*
     |--------------------------------------------------------------------------
@@ -34,7 +37,7 @@
     |
     */
 
-    $config['navbar'] = array(
+    'navbar' => array(
         'home' => array(
             'route' => 'app/dashboard',
             'icon' => 'tachometer',
@@ -69,7 +72,7 @@
                     ),
                 ),
             ),
-        );
+        ),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,16 +83,16 @@
     |
     */
    //The tabs for views/contacts/show.blade.php
-    $config['contactsshow'] = array(
+    'contactsshow' => array(
         'col1tabs' => ['Overview', 'In Depth', 'Opt In', 'Notes'],
         'col2tabs' => ['Purchases', 'Roles'],
-        );
+        ),
 
     //The tabs for views/contacts/show.blade.php
-    $config['usersshow'] = array(
+    'usersshow' => array(
         'col1tabs' => ['Details', 'Permissions'],
         'col2tabs' => ['Password'],
-        );
+        ),
 
 
 
@@ -104,7 +107,7 @@
     */
    
     // Seasons
-    $config['seasons'] = array(
+    'seasons' => array(
         '2013/14' => '2013/14',
         '2012/13' => '2012/13',
         '2011/12' => '2011/12',
@@ -114,11 +117,21 @@
         '2007/08' => '2007/08',
         '2006/07' => '2006/07',
         '2005/06' => '2005/06',
-        );
+        ),
 
+    // Contacts
+    'titles' => array(
+        '' => '',
+        'Mr' => 'Mr',
+        'Mrs' => 'Mrs',
+        'Miss' => 'Miss',
+        'Ms' => 'Ms',
+        'Dr' => 'Dr',
+        ),
     
+
     // Roles
-    $config['roles'] = array(
+    'roles' => array(
         1 => 'Volunteer (Office)',
         2 => 'Volunteer (Matchday)',
         3 => 'Paid Office Staff',
@@ -129,9 +142,9 @@
         8 => '1st Team Player',
         9 => 'Youth Team Player',
         10 => 'Women\'s Team Player',
-        );
+        ),
 
-    $config['roles'] = array(
+    'roles' => array(
         'Volunteer (Office)' => 'Volunteer (Office)',
         'Volunteer (Matchday)' => 'Volunteer (Matchday)',
         'Paid Office Staff' => 'Paid Office Staff',
@@ -142,15 +155,43 @@
         '1st Team Player' => '1st Team Player',
         'Youth Team Player' => 'Youth Team Player',
         'Women\'s Team Player' => 'Women\'s Team Player',
-        );
+        ),
 
 
 
 
 
+     // Notes
+    'noteTypes' => array(
+        '' => '',
+        'Mr' => 'Mr',
+        'Mrs' => 'Mrs',
+        'Miss' => 'Miss',
+        'Ms' => 'Ms',
+        'Dr' => 'Dr',
+        ),
 
-   
-    $config['productList'] = array(
+
+
+    // Orders
+    'orderSource' => array(
+        '' => '',
+        'Online' => 'Online',
+        'Post' => 'Post',
+        'Telephone' => 'Telephone',
+        'Telephone' => 'Telephone',
+        'Office' => 'Office',
+        'Stall' => 'Stall',
+        ),
+    'paymentMethod' => array(
+        '' => '',
+        'Cash' => 'Cash',
+        'Cheque' => 'Cheque',
+        'Credit-Debit Card' => 'Credit-Debit Card',
+        'Standing Order' => 'Standing Order',
+        'PayPal' => 'PayPal'
+        ),
+    'productList' => array(
         '' => 'Choose a product...',
         1 => 'Adult Membership',
         2 => 'Junior Membership',
@@ -176,7 +217,7 @@
         22 => 'Club Events',
         23 => 'Merchanidise',
         24 => 'Away Match Travel',
-        );
+        ),
 
     // 'productList' => array(
     //     '' => 'Choose a product...',
@@ -208,32 +249,51 @@
 
 
     
-    
-     $config['savedSearches'] = array(
+         // Broadcasts
+    'broadcastTypes' => array(
+        '' => '',
+        'Newsletter' => 'Newsletter',
+        'Offer' => 'Offer',
+        'Event' => 'Event',
+        'Other' => 'Other'
+        ),
+     'savedSearches' => array(
         '1' => 'All opted-in contacts',
         '2' => 'All Season Ticket holders',
         '3' => 'All Adult Members',
         '4' => 'All Members',
-        );
-
-    $config['emailFrom'] = array(
+        ),
+    'emailFrom' => array(
         'Paul Howarth|paul@fc-utd.co.uk' => 'Paul Howarth',
         'Lindsey Howard|lindsey@fc-utd.co.uk' => 'Lindsey Howard',
         'Michael Holdsworth|michael@fc-utd.co.uk' => 'Michael Holdsworth',
-        );
-
-    $config['testEmailto'] = array(
+        ),
+    'testEmailto' => array(
         'paul@fc-utd.co.uk',
         'lindsey@fc-utd.co.uk',
         'Michael@fc-utd.co.uk'
-        );
-
-    $config['emailTemplate'] = array(
+        ),
+    'emailTemplate' => array(
         '1' => 'FC Red',
         '2' => 'FC Black',
         '3' => 'FC Pink',
         '4' => 'Plain text',
-        );
+        ),
+
+    
+
+    // Admin
+    'adminLevels' => array(
+        '0' => 'Super Super SUPER Admin',
+        '1' => 'Dashboard Super Admin',
+        '2' => 'Dashboard Admin',
+        '3' => 'Supervisor',
+        '4' => 'User',
+        '5' => 'Observer',
+        ),
 
 
-    return $config;
+
+
+);
+

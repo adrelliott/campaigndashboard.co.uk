@@ -17,10 +17,7 @@ return array(
         'label' => 'client',
         ),
 
-    'leads' => array(
-        'label' => 'lead',
-        ),
-
+    
     'logos' => array(
         'logoSmall' => '/assets/img/bootstrap/cdash_logo75px.png',
         'logoLarge' => '/assets/img/bootstrap/cdash_logo150px.png',
@@ -108,7 +105,7 @@ return array(
    //The tabs for views/contacts/show.blade.php
     'contactsshow' => array(
         'col1tabs' => ['Overview', 'In Depth', 'Opt In', 'Notes'],
-        'col2tabs' => ['purchases', 'tags'],
+        'col2tabs' => ['Purchases', 'Tags'],
         ),
 
     //The tabs for views/contacts/show.blade.php
@@ -129,7 +126,14 @@ return array(
     |
     */
    
-   
+    // Seasons
+    'businessTypes' => array(
+        '' => 'Choose a Sector',
+        'Social' => 'Social',
+        'Charity' => 'Charity',
+        'Private' => 'Private',
+        'Public Sector' => 'Public Sector',
+        ),
 
     // Contacts
     'titles' => array(
@@ -144,13 +148,11 @@ return array(
 
 
      // Notes
-    'noteTypes' => array(
+    'businessSizes' => array(
         '' => '',
-        'Mr' => 'Mr',
-        'Mrs' => 'Mrs',
-        'Miss' => 'Miss',
-        'Ms' => 'Ms',
-        'Dr' => 'Dr',
+        'Small' => 'Small',
+        'Medium' => 'Medium',
+        'Large' => 'Large',
         ),
 
 
@@ -161,11 +163,8 @@ return array(
         'Online' => 'Online',
         'Post' => 'Post',
         'Telephone' => 'Telephone',
-        'Telephone' => 'Telephone',
         'Office' => 'Office',
-        'Stall' => 'Stall',
         ),
-
     'paymentMethod' => array(
         '' => '',
         'Cash' => 'Cash',
@@ -174,8 +173,21 @@ return array(
         'Standing Order' => 'Standing Order',
         'PayPal' => 'PayPal'
         ),
+    'productList' => array(
+        'Ooomph consultancy' => 'Ooomph consultancy',
+        'Accidental Biz Training' => 'Accidental Biz Training',
+        'Ooomph Training' => 'Ooomph Training',
+        'Survival Pack' => 'Survival Pack',
+        'Board Booster' => 'Board Booster',
+        'Innovation training' => 'Innovation training',
+        'Innovation consultancy' => 'Innovation consultancy',
+        'Procurement consultancy' => 'Procurement consultancy',
+        'Public speaking' => 'Public speaking',
+        'Facilitation services' => 'Facilitation services',
+        'Other' => 'Other'
+        ),
 
-    
+
     
          // Broadcasts
     'broadcastTypes' => array(
@@ -187,22 +199,27 @@ return array(
         ),
      'savedSearches' => array(
         '1' => 'All opted-in contacts',
-        '2' => 'All leads',
+        '2' => 'All RS Consultants',
+        '3' => 'All Blog Subscribers',
+        '4' => 'All Paying Clients',
         ),
-    
     'emailFrom' => array(
-        // 'Paul Howarth|paul@fc-utd.co.uk' => 'Paul Howarth',
-        // 'Lindsey Howard|lindsey@fc-utd.co.uk' => 'Lindsey Howard',
-        // 'Michael Holdsworth|michael@fc-utd.co.uk' => 'Michael Holdsworth',
+        'Isla Wilson|isla@RubyStarAssociates.co.uk' => 'Isla Wilson',
+        'Rachel Warhurst|rachel@RubyStarAssociates.co.uk' => 'Rachel Warhurst',
+        'RubyStar Newsletter|newsletter@RubyStarAssociates.co.uk' => 'RubyStar Newsletter',
         ),
     'testEmailto' => array(
-        
+        'isla@RubyStarAssociates.co.uk',
+        'rachel@RubyStarAssociates.co.uk',
+        'sales@RubyStarAssociates.co.uk'
         ),
     'emailTemplate' => array(
-       
+        '1' => 'Public newsletter',
+        '2' => 'New Blog Post',
+        '3' => 'RS Team',
+        '4' => 'Plain text',
         ),
 
-    
 
     // Admin
     'adminLevels' => array(

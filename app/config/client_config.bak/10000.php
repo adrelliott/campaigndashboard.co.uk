@@ -129,7 +129,19 @@ return array(
     |
     */
    
-   
+    // Seasons
+    'seasons' => array(
+        '' => 'Season',
+        '2013/14' => '2013/14',
+        '2012/13' => '2012/13',
+        '2011/12' => '2011/12',
+        '2010/11' => '2010/11',
+        '2009/10' => '2009/10',
+        '2008/09' => '2008/09',
+        '2007/08' => '2007/08',
+        '2006/07' => '2006/07',
+        '2005/06' => '2005/06',
+        ),
 
     // Contacts
     'titles' => array(
@@ -165,7 +177,6 @@ return array(
         'Office' => 'Office',
         'Stall' => 'Stall',
         ),
-
     'paymentMethod' => array(
         '' => '',
         'Cash' => 'Cash',
@@ -174,8 +185,61 @@ return array(
         'Standing Order' => 'Standing Order',
         'PayPal' => 'PayPal'
         ),
+    'productList' => array(
+        '' => 'Choose a product...',
+        1 => 'Adult Membership',
+        2 => 'Junior Membership',
+        3 => 'Season Ticket (Adult)',
+        4 => 'Season Ticket (Junior)',
+        5 => 'Community Shares',
+        6 => 'TreasureLine',
+        7 => 'Holiday Draw',
+        8 => '127 Club',
+        9 => 'Match Sponsor',
+        10 => 'Matchball Sponsor',
+        11 => 'Matchday Programme Sponsor',
+        12 => 'Programme Adverts',
+        13 => 'Pitchside Hording',
+        14 => 'Pink Sponsorship',
+        15 => 'Newsletter Sponsor',
+        16 => 'Community Sponsor',
+        17 => 'Youth Team Sponsor',
+        18 => 'Women Team Sponsor',
+        19 => 'Player Sponsor',
+        20 => 'Club Donations',
+        21 => 'DF Donations',
+        22 => 'Club Events',
+        23 => 'Merchanidise',
+        24 => 'Away Match Travel',
+        ),
+// '' => 'Choose a product...',
+//         'Adult Membership' => 'Adult Membership',
+//         'Junior Membership' => 'Junior Membership',
+//         'Season Ticket (Adult)' => 'Season Ticket (Adult)',
+//         'Season Ticket (Junior) ' => 'Season Ticket (Junior)',
+//         'Community Shares' => 'Community Shares',
+//         'Treasureline' => 'TreasureLine',
+//         'Holiday Draw' => 'Holiday Draw',
+//         '127 Club' => '127 Club',
+//         'Match Sponsor' => 'Match Sponsor',
+//         'Matchball Sponsor' => 'Matchball Sponsor',
+//         'Matchday Programme Sponsor' => 'Matchday Programme Sponsor',
+//         'Programme Adverts' => 'Programme Adverts',
+//         'Pitchside Hording' => 'Pitchside Hording',
+//         'Pink Sponsorship' => 'Pink Sponsorship',
+//         'Newsletter Sponsor' => 'Newsletter Sponsor',
+//         'Community Sponsor' => 'Community Sponsor',
+//         'Youth Team Sponsor' => 'Youth Team Sponsor',
+//         'Women Team Sponsor' => 'Women Team Sponsor',
+//         'Player Sponsor' => 'Player Sponsor',
+//         'Club Donations' => 'Club Donations',
+//         'Df Donations' => 'DF Donations',
+//         'Club Events' => 'Club Events',
+//         'Merchanidise' => 'Merchanidise',
+//         'Away Match Travel' => 'Away Match Travel',
+//         ),
 
-    
+
     
          // Broadcasts
     'broadcastTypes' => array(
@@ -187,19 +251,25 @@ return array(
         ),
      'savedSearches' => array(
         '1' => 'All opted-in contacts',
-        '2' => 'All leads',
+        '2' => 'All Season Ticket holders',
+        '3' => 'All Adult Members',
+        '4' => 'All Members',
         ),
-    
     'emailFrom' => array(
-        // 'Paul Howarth|paul@fc-utd.co.uk' => 'Paul Howarth',
-        // 'Lindsey Howard|lindsey@fc-utd.co.uk' => 'Lindsey Howard',
-        // 'Michael Holdsworth|michael@fc-utd.co.uk' => 'Michael Holdsworth',
+        'Paul Howarth|paul@fc-utd.co.uk' => 'Paul Howarth',
+        'Lindsey Howard|lindsey@fc-utd.co.uk' => 'Lindsey Howard',
+        'Michael Holdsworth|michael@fc-utd.co.uk' => 'Michael Holdsworth',
         ),
     'testEmailto' => array(
-        
+        'paul@fc-utd.co.uk',
+        'lindsey@fc-utd.co.uk',
+        'Michael@fc-utd.co.uk'
         ),
     'emailTemplate' => array(
-       
+        '1' => 'FC Red',
+        '2' => 'FC Black',
+        '3' => 'FC Pink',
+        '4' => 'Plain text',
         ),
 
     
