@@ -5,9 +5,6 @@ use Dashboard\Repositories\TagRepositoryInterface as ModelInterface;
 
 class TagsController extends BaseController {
 
-    protected $modulename = 'tags';
-    protected $foldername = 'tag';
-    
 
     /**
      * Sets up the model object

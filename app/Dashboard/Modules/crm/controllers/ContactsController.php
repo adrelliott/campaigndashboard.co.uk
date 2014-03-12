@@ -5,9 +5,6 @@ use Dashboard\Repositories\ContactRepositoryInterface as ModelInterface;
 
 
 class ContactsController extends BaseController {
-    
-    protected $modulename = 'crm';
-    protected $foldername = 'contacts';
 
 
     public function __construct(ModelInterface $repo)

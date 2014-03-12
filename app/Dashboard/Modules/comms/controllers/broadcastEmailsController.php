@@ -1,16 +1,10 @@
 <?php namespace Dashboard\Comms;
 
-//** Amend anything caled Comms **//
-
-
-use BaseController, Auth, Response;
+use BaseController;
 use Dashboard\Repositories\CommsRepositoryInterface as ModelInterface;
 
 class BroadcastEmailsController extends BaseController {
 
-    protected $modulename = 'Comms';
-    protected $foldername = 'broadcastemails';
-    
 
     /**
      * Sets up the model object

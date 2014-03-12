@@ -1,16 +1,10 @@
 <?php namespace Dashboard\Template;
 
-//** Amend anything caled Template **//
-
-
-use BaseController, Auth, Response;
+use BaseController;
 use Dashboard\Repositories\TemplateRepositoryInterface as ModelInterface;
 
 class TemplatesController extends BaseController {
 
-    protected $modulename = 'template';
-    protected $foldername = 'template';
-    
 
     /**
      * Sets up the model object

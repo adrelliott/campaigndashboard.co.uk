@@ -5,8 +5,6 @@ use Dashboard\Repositories\TagPivotRepositoryInterface as ModelInterface;
 
 class TagPivotsController extends BaseController {
 
-    protected $modulename = 'tags';
-    protected $foldername = 'tagpivot';
 
     /**
      * Sets up the model object

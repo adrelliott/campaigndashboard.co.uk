@@ -5,9 +5,6 @@ use Dashboard\Repositories\OrderProductRepositoryInterface as ModelInterface;
 
 class OrderProductsController extends BaseController {
 
-    protected $modulename = 'sales';
-    protected $foldername = 'orderproducts';
-
 
     public function __construct(ModelInterface $repo)
     {
