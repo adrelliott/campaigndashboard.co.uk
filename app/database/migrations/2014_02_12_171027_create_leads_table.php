@@ -15,7 +15,11 @@ class CreateLeadsTable extends Migration {
 		Schema::create('leads', function(Blueprint $table) {
 			$table->increments('id');
 			$table->datetime('deleted_at')->nullable();
-			$table->integer('owner_id');
+			$table->integer('owner_id')->unsigned()->index();;
+
+// DON'T FORGET TO SET FK!
+//  
+
 			$table->timestamps();
 		});
 	}

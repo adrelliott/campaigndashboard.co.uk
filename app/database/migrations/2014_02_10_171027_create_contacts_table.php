@@ -15,7 +15,7 @@ class CreateContactsTable extends Migration {
 		Schema::create('contacts', function(Blueprint $table) {
 			$table->increments('id');
 			$table->datetime('deleted_at')->nullable();
-			$table->integer('owner_id');
+			$table->integer('owner_id')->unsigned()->index();;
 			$table->string('title', 15)->nullable();
 			$table->string('first_name', 255)->nullable();
 			$table->string('last_name', 255)->nullable();
