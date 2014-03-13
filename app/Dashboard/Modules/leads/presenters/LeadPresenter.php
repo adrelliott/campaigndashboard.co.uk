@@ -1,6 +1,7 @@
 <?php namespace Dashboard\Leads;
 
-use McCool\LaravelAutoPresenter\BasePresenter;
+// use McCool\LaravelAutoPresenter\BasePresenter;
+use Dashboard\Presenters\Presenter;
 
 // use Dashboard\Crm\Contact as Model;
 // use Dashboard\Crm\Action as Action;
@@ -10,7 +11,7 @@ use McCool\LaravelAutoPresenter\BasePresenter;
 
 use Carbon;
 
-class LeadPresenter extends BasePresenter {
+class LeadPresenter extends Presenter {
 
      public function __construct(Model $repo)
     {

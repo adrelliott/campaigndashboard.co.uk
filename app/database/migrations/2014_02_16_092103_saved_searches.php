@@ -14,7 +14,9 @@ class SavedSearches extends Migration {
 	{
 		Schema::create('saved_searches', function(Blueprint $table) {
 			$table->increments('id');
-			$table->integer('user_id')->unsigned()->index();;
+            $table->datetime('deleted_at')->nullable();
+			$table->integer('user_id')->unsigned()->index();
+            $table->integer('owner_id')->unsigned()->index();
 
              // Define FK
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -36,7 +38,7 @@ class SavedSearches extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('searches');
+		Schema::drop('saved_searches');
 	}
 
 }

@@ -1,6 +1,9 @@
 @extends('layouts.modal')
 
 @section('modal-body')
+{{ $record->productList() }}
+{{ dump($record, 1) }}
+{{-- dump($record->hello) --}}
     <h1>Create an order</h1>
     <div class="row">  
         {{ Former::open()
@@ -9,7 +12,7 @@
         ->tableId('orders')
         ->method('POST')
         ->ajaxMethod('POST')
-        ->route('api.v1.orders.store');
+        ->route('app.orders.store');
         // ->populate($record->resource);
 
         }}
@@ -36,7 +39,7 @@
                     </tr>
                     <tr >
                         <td>
-                            {{ Former::select('_order_product[product_id][]')->class('form-control input')->options($config['productList'])->label(false) }}
+                            {{-- Former::select('_order_product[product_id][]')->class('form-control input')->options()->label(false) --}}
                         </td>
                         <td>
                             {{ Former::select('_order_product[variant][]')->class('form-control input')->options($config['seasons'])->label(false) }}

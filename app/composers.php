@@ -16,3 +16,13 @@ use View, Auth;
 if ( Auth::check() ) 
     View::composer('*', 'Dashboard\Composers\AppComposer');
 
+View::composer('partials.vars.test', function($view)
+{
+    $view->with('test1', 'hello');
+});
+
+/* Pass product array to the views that need it */
+// View::composers(array(
+//         // Apply product composer to these views
+//     'ProductComposer' => array(),
+// ));

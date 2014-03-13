@@ -77,7 +77,7 @@ Route::group(array(
 
 //      }  
 
-//      \Debug::dump($data);
+//      dump($data);
 
 //     // simulate order items
 //     $orderItems = array(
@@ -105,7 +105,7 @@ Route::group(array(
 //         ),
 //     );
 
-//     \Debug::dump($orderItems, 1);
+//     dump($orderItems, 1);
 
 //     // $order->products()->sync($orderItems);
 //     $order->products()

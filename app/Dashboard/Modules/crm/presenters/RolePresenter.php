@@ -1,10 +1,11 @@
 <?php namespace Dashboard\Crm;
 
-use McCool\LaravelAutoPresenter\BasePresenter;
+// use McCool\LaravelAutoPresenter\BasePresenter;
+use Dashboard\Presenters\Presenter;
 use Dashboard\Crm\ContactRole as Model;
 use Carbon;
 
-class RolePresenter extends BasePresenter {
+class RolePresenter extends Presenter {
 
      public function __construct(Model $object)
     {

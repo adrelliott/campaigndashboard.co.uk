@@ -78,7 +78,7 @@ abstract class EloquentApiRepository {
 
             ->select($this->params['cols']);
 
-        // \Debug::dump($q, 1);
+        // dump($q, 1);
         return $q;
     }
 

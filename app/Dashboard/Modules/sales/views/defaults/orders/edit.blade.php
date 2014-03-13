@@ -1,6 +1,8 @@
 @extends('layouts.modal')
 
-@section('modal-body')
+{{ $record->hello }}
+{{ dump($record, 1) }}
+{{ dump($record, 1) }}
 <h1>Edit order (id = {{ $record->id}})</h1>
     <div class="row">  
         {{ Former::open()
@@ -9,7 +11,7 @@
         ->tableId('orders')
         ->method('PUT')
         ->ajaxMethod('PUT')
-        ->route('api.v1.orders.update', $record->id)
+        ->route('app.orders.update', $record->id)
         ->populate($record->resource);
 
         }}
@@ -24,7 +26,7 @@
                     {{ Former::select('order_source')->class('form-control input-sm')->options($config['orderSource']) }}
                 </div>
             </div>
-           {{-- \Debug::dump($record->orderItems)--}}
+           {{-- dump($record->orderItems)--}}
              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <table id="lineitems" >
                     <tr>
@@ -33,7 +35,7 @@
                         <th style="width:10%">Qty</th>
                         <th style="width:15%">Price</th>
                     </tr>
-                    {{-- \Debug::dump($record->orderItemsBlankRow)--}}
+                    {{-- dump($record->orderItemsBlankRow)--}}
                     @foreach( $record->orderItemsBlankRow as $row => $attr )
                         <tr >
                             <td>

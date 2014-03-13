@@ -14,6 +14,8 @@ class PivotOrderProductTable extends Migration {
 	{
 		Schema::create('order_product', function(Blueprint $table) {
 			$table->increments('id');
+            $table->datetime('deleted_at')->nullable();
+            $table->integer('owner_id')->unsigned()->index();
 			$table->integer('order_id')->unsigned()->index();
 			$table->integer('product_id')->unsigned()->index();
 
@@ -26,6 +28,7 @@ class PivotOrderProductTable extends Migration {
             $table->integer('quantity')->nullable()->unsigned();
             $table->integer('tax')->nullable();
             $table->integer('price')->nullable();
+            $table->timestamps();
 		});
 	}
 

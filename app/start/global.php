@@ -97,3 +97,16 @@ require app_path().'/filters.php';
 */
 
 require app_path().'/composers.php';
+
+
+/*
+|--------------------------------------------------------------------------
+| Require The Custom helpers File
+|--------------------------------------------------------------------------
+|
+| The composers allow us to bind data to views. They can be found in
+| app/Dashboard/Composers folder
+|
+*/
+
+require app_path().'/Dashboard/Helpers/debugHelpers.php';

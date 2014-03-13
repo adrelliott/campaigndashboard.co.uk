@@ -1,7 +1,7 @@
 <?php namespace Dashboard\Tags;
 
-use McCool\LaravelAutoPresenter\BasePresenter;
-
+// use McCool\LaravelAutoPresenter\BasePresenter;
+use Dashboard\Presenters\Presenter;
 
 // use Dashboard\Crm\Contact as Model;
 // use Dashboard\Crm\Action as Action;
@@ -11,7 +11,7 @@ use McCool\LaravelAutoPresenter\BasePresenter;
 
 use Carbon;
 
-class TagPresenter extends BasePresenter {
+class TagPresenter extends Presenter {
 
      public function __construct(Model $repo)
     {

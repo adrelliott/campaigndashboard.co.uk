@@ -197,7 +197,7 @@
     
     <div class="table-responsive clearfix">
         <table class="table dataTable data-table minitable" id="notes-table" 
-        data-ajaxsource="/dt/notes/getFor?cols=id,note_name,created_at&sortDESC=created_at&contact_id={{ $record->id}}"
+        data-ajaxsource="/dt/notes/getFor?cols=id,note_title,created_at&sortDESC=created_at&contact_id={{ $record->id}}"
          data-showid="true" data-linkurl="/app/notes" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/notes" >
             <thead>
                 <tr>
@@ -210,42 +210,6 @@
             </tbody>
         </table>
     </div>
-    
-    
-    <div class="pull-right margin_top_15" style="margin-top:10px">
-        <a class="btn btn-primary open-modal " href="#" modal-source="{{URL::route('app.notes.create', array('contact_id' => $record->id)) }}" data-view="show_modal" >
-            <i class="fa fa-plus"></i> Create New Note
-        </a>
-    </div>
-
-@stop
-
-@section('notes_old')
-    <h3 class="text-primary"><i class="fa fa-book"></i> Notes</h3>
-    
-        <div class="panel-group" id="accordion">
-            <div class="panel panel-default panel-accordian">
-                @foreach( $record->notes as $n )
-                    <div class="panel-heading clearfix">
-                        <p class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#{{ $n->id }}">
-                                <b class="caret"> </b> 
-                                 {{ $n->note_name }} 
-                            </a>
-                            </a>
-                        </p>
-                    </div>
-                    <div id="{{ $n->id }}" class="panel-collapse collapse ">
-                        <div class="panel-body">
-                            <p>{{ $n->note_body }}</p>
-                            <p class=""><em>
-                                <h6 class="muted ">({{ $n->created_at->toDayDateTimeString() }})</h6>
-                            </em></p>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
     
     
     <div class="pull-right margin_top_15" style="margin-top:10px">
@@ -281,7 +245,7 @@
 @section('roles')
     <h3 class="text-primary"><i class="fa fa-group"></i> Roles</h3>
     <div class="table-responsive clearfix">
-        <table class="table dataTable data-table minitable" id="roles-table" 
+        <table class="table dataTablexxxxxxxxx data-tableXXXXXXXX minitable" id="roles-table" 
         data-ajaxsource="/dt/roles?cols=id,role_title,role_variant&sortDESC=role_variant&contact_id={{ $record->id}}"
          data-showid="false" data-linkurl="/app/roles" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/roles" >
             <thead>

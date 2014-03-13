@@ -9,6 +9,13 @@ class Order extends BaseModel {
 
     // Wrap in a presenter (ShawnMcCool)
     public $presenter = 'Dashboard\Sales\OrderPresenter';
+    // 
+    // Return a presenter
+    // public function getPresenter()
+    // {
+    //     return new OrderPresenter($this);
+    // }
+          
     
     // Validation rules
     public static $rules = array(

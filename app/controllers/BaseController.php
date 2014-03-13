@@ -34,7 +34,7 @@ class BaseController extends Controller {
      */
     public function create()
     {
-        return $this->render()->withRecord($this->repo);
+        return $this->render()->withRecord($this->repo->model);
     }
 
 

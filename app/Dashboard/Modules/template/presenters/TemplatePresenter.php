@@ -1,6 +1,7 @@
 <?php namespace Dashboard\Template;
 
-use McCool\LaravelAutoPresenter\BasePresenter;
+// use McCool\LaravelAutoPresenter\BasePresenter;
+use Dashboard\Presenters\Presenter;
 
 // use Dashboard\Crm\Contact as Model;
 // use Dashboard\Crm\Action as Action;
@@ -10,7 +11,7 @@ use McCool\LaravelAutoPresenter\BasePresenter;
 
 use Carbon;
 
-class TemplatePresenter extends BasePresenter {
+class TemplatePresenter extends Presenter {
 
      public function __construct(Model $repo)
     {

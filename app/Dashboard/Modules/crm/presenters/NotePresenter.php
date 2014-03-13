@@ -1,8 +1,8 @@
-<?php
+<?php namespace Dashboard\Crm;
 
-namespace Dashboard\Crm;
+// use McCool\LaravelAutoPresenter\BasePresenter;
+use Dashboard\Presenters\Presenter;
 
-use McCool\LaravelAutoPresenter\BasePresenter;
 use Dashboard\Crm\Note as Model;
 use Dashboard\Crm\Action as Action;
 use Dashboard\Crm\Contact as Contact;
@@ -10,7 +10,7 @@ use Dashboard\Crm\Tag as Tag;
 use Dashboard\Admin\User as User;
 use Carbon;
 
-class NotePresenter extends BasePresenter {
+class NotePresenter extends Presenter {
 
      public function __construct(Model $object)
     {

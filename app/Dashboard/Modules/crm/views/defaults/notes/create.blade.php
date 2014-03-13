@@ -14,7 +14,7 @@
 
 }}
     <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-        {{ Former::text('note_name')->class('form-control input')->placeholder('E.g. Fan called')->label('Note Title') }}
+        {{ Former::text('note_title')->class('form-control input')->placeholder('E.g. Fan called')->label('Note Title') }}
     </div>
 
     <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
