@@ -1,6 +1,6 @@
 <?php
 
-use Dashboard\Admin\User;
+// use Dashboard\Admin\User;
 
 class UserTableSeeder extends Seeder {
 
@@ -12,7 +12,7 @@ class UserTableSeeder extends Seeder {
 
         // IMPORTANT !!!!!!!!!!!!!!!!!!!!!!! Don;t forget to comment out the validation rules to seed!
 
-		User::create(
+		DB::table('users')->insert(
             array(
                 'first_name' => "Al",
                 'last_name' => "Elliott",
@@ -27,7 +27,7 @@ class UserTableSeeder extends Seeder {
                 'work_phone' => '065635353531'
             )
         );
-        User::create(
+        DB::table('users')->insert(
             array(
                 'first_name' => "Isla",
                 'last_name' => "Wilson",
@@ -42,7 +42,7 @@ class UserTableSeeder extends Seeder {
                 'work_phone' => '065635353531'
             )
         );
-        User::create(
+        DB::table('users')->insert(
             array(
                 'first_name' => "Paul",
                 'last_name' => "Howarth",
