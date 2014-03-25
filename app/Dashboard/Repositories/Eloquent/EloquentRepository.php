@@ -17,24 +17,26 @@ class EloquentRepository {
 
    
    /****************** RESTful methods *******************/
-
-    // Basic RESTful methods   
+ 
     public function findRecord($id)
     {
-        return $this->model->findOrFail($id);
+        if (is_subclass_of($this->model, 'BaseModel'))
+            $this->model->whereOwnerId(Auth::user()->owner_id);
+        return $this->model->findOrFail( $id );
     }
 
 
     public function createRecord()
     {
         // 1. Create new object and fill it with $_POST ($fillable is set)
-        $this->q = new $this->model(Input::all());
+        $this->q = new $this->model( Input::all() );
 
         // 2. Set the owner_id
         $this->q->owner_id = Auth::user()->owner_id;       
 
         // 2. Now save it and set a success flag
-        if ( $this->q->save() ) $this->q->result = TRUE;
+        // if ( $this->q->save() ) $this->q->result = TRUE;
+        $this->q->result = $this->q->save();
 
         return $this->q;
     }
@@ -43,12 +45,14 @@ class EloquentRepository {
     public function updateRecord($id = FALSE)
     {
         // 1. Find the model & fill with $_POST (protected with $fillable)
-        $this->q = $this->model->findOrFail($id);
-        $this->q->fill(Input::all());
+        $this->q = $this->model->findOrFail( $id );
+        $this->q->fill( Input::all() );
         $this->q->owner_id = Auth::user()->owner_id;   
 
         // 2. Save the new model and set a success flag
-        if ( $this->q->save() ) $this->q->result = TRUE;
+        // if ( $this->q->save() ) $this->q->result = TRUE;
+        $this->q->result = $this->q->save();
+
         return $this->q;
     }
 

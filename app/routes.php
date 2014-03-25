@@ -4,16 +4,18 @@
  * NOTE: We use MODULES in this app. Look in the app/modules folder for all routes
  */
 
-// Route::get('/c', function() {
-//     var_dump('This is the master brach');
-//     var_dump(App::environment());
-//     var_dump(DB::getQueryLog());
-//     if(DB::connection()->getDatabaseName())
-// {
-//    var_dump( "conncted sucessfully to database ".DB::connection()->getDatabaseName() );
-// }
-//     return Config::get('database');
-// });
+Route::get('/c', function() {
+    var_dump('This is the master brach');
+    var_dump(App::environment());
+    var_dump(DB::connection());
+    var_dump(DB::connection()->getDatabaseName());
+    var_dump(DB::getQueryLog());
+    if(DB::connection()->getDatabaseName())
+{
+   var_dump( "conncted sucessfully to database ".DB::connection()->getDatabaseName() );
+}
+    return Config::get('database');
+});
 
 App::error(function(PDOException $exception)
 {
@@ -32,3 +34,5 @@ Route::get('/', function(){
 Route::get('/app', function(){
     return Redirect::to('app/dashboard');
 });
+
+

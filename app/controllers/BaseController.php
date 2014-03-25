@@ -1,19 +1,28 @@
 <?php
 
+// use Illuminate\Routing\Route;
+
 class BaseController extends Controller {
 
     protected $repo;
 
     protected $record;
 
-    protected $user;
-
     protected $viewPath = '{MODULE}::{PATH}.{CONTROLLER}.{METHOD}';
     
-	/** Accepts type-hinted intefaces etc in the classes that extedn this **/
+
     public function __construct($repo = NULL)
     {
         $this->repo = $repo;
+        // dump($route->getName(), 1, 'title');
+        // dump(Route::getActionName(), 0, 'title');
+        // dump(Route::getAction(), 0, 'title');
+        // dump(Route::getCompiled(), 0, 'title');
+        // dump(Route::getUri(), 0, 'title');
+        // dump(Route::prefix(), 0, 'title');
+        // dump(Route::getPath(), 0, 'title');
+        // dump(Route::uri(), 0, 'title');
+        // dump(Route::uri(), 1, 'title');
     }
 
     
@@ -34,7 +43,7 @@ class BaseController extends Controller {
      */
     public function create()
     {
-        return $this->render()->withRecord($this->repo->model);
+        return $this->render()->withRecord($this->repo->model); // Wraps in presenter
     }
 
 
@@ -123,12 +132,14 @@ class BaseController extends Controller {
 
 
 /***************** View & Routing methods ****************/
+
     public function buildPath($find, $replace)
     {
         $this->viewPath = str_replace($find, strtolower($replace), $this->viewPath);
     }
 
-     public function render($viewFile = FALSE)
+
+    public function render($viewFile = FALSE)
     {
         //Get get current method - this is the viewfile (unless overidden)
         $t = explode('Controller@' ,Route::currentRouteAction());
@@ -156,7 +167,7 @@ class BaseController extends Controller {
         {
             // if ( Request::ajax() ) return Response::make($this->record, 200); 
             if ( Request::ajax() ) return Response::make($this->record, 200); 
-            else return Redirect::route('app.' . $this->foldername . '.' . $viewFile, array($this->record->id))
+            else return Redirect::route('app.' . strtolower(Request::segment(2)) . '.' . $viewFile, array($this->record->id))
                     ->with('success', 'That\'s saved!'); 
         }
              
@@ -201,70 +212,70 @@ class BaseController extends Controller {
 
 
 
-  public function render_old($viewFile = FALSE)
-    {
-        // This si the pattern of the view path
-        // $this->viewPath = '{MODULE}::{PATH}.{CONTROLLER}.{METHOD}';
+//   public function render_old($viewFile = FALSE)
+//     {
+//         // This si the pattern of the view path
+//         // $this->viewPath = '{MODULE}::{PATH}.{CONTROLLER}.{METHOD}';
 
-        //Get get current method - this is the viewfile (unless overidden)
-        $t = explode('Controller@' ,Route::currentRouteAction());
-        if ( ! $viewFile ) $viewFile = $t[1];
-        $this->buildPath('{METHOD}', $viewFile);
-        //$viewPath = str_replace('{METHOD}', strtolower($viewFile), $viewPath);
+//         //Get get current method - this is the viewfile (unless overidden)
+//         $t = explode('Controller@' ,Route::currentRouteAction());
+//         if ( ! $viewFile ) $viewFile = $t[1];
+//         $this->buildPath('{METHOD}', $viewFile);
+//         //$viewPath = str_replace('{METHOD}', strtolower($viewFile), $viewPath);
 
-        // now set the rest of the paths
-        $t = explode('\\', $t[0]);
-        $owner_id = Auth::user()->owner_id;
-        // $viewPath = str_replace('{MODULE}', strtolower($t[1]), $viewPath);
-        $this->buildPath('{MODULE}', $t[1]);
-        $this->buildPath('{CONTROLLER}', $t[2]);
-        $this->buildPath('{PATH}', $owner_id);
-        // $viewPath = str_replace('{CONTROLLER}', strtolower($t[2]), $viewPath);
+//         // now set the rest of the paths
+//         $t = explode('\\', $t[0]);
+//         $owner_id = Auth::user()->owner_id;
+//         // $viewPath = str_replace('{MODULE}', strtolower($t[1]), $viewPath);
+//         $this->buildPath('{MODULE}', $t[1]);
+//         $this->buildPath('{CONTROLLER}', $t[2]);
+//         $this->buildPath('{PATH}', $owner_id);
+//         // $viewPath = str_replace('{CONTROLLER}', strtolower($t[2]), $viewPath);
 
-        // Look for a custom file & set as defaults if none found
-        // $view = str_replace('{PATH}', Auth::user()->owner_id, $viewPath );
-        // if ( ! View::exists( $view ) ) $view = str_replace('{PATH}', 'defaults', $viewPath );
-        if ( ! View::exists( $this->viewPath ) ) $this->buildPath($owner_id, 'defaults');
+//         // Look for a custom file & set as defaults if none found
+//         // $view = str_replace('{PATH}', Auth::user()->owner_id, $viewPath );
+//         // if ( ! View::exists( $view ) ) $view = str_replace('{PATH}', 'defaults', $viewPath );
+//         if ( ! View::exists( $this->viewPath ) ) $this->buildPath($owner_id, 'defaults');
 
-        return View::make($this->viewPath);
+//         return View::make($this->viewPath);
 
        
-//        dd($view);
+// //        dd($view);
 
-// dd( View::exists( strtolower('Crm::defaults.contacts.index') ) );
+// // dd( View::exists( strtolower('Crm::defaults.contacts.index') ) );
 
-//         // Do we have a custom file?
-//         if ( ! View::exists($view = $view['module'] . '.' . Auth::user()->owner_id . '.' . $view['folder'] . '.' . $view['file'] ))
-//         {
-//             $view = $this->modulename . '::defaults.' . $path;
-//         }
+// //         // Do we have a custom file?
+// //         if ( ! View::exists($view = $view['module'] . '.' . Auth::user()->owner_id . '.' . $view['folder'] . '.' . $view['file'] ))
+// //         {
+// //             $view = $this->modulename . '::defaults.' . $path;
+// //         }
         
-//         return View::make($view);
+// //         return View::make($view);
         
 
-//         dd($t);
+// //         dd($t);
         
-//         //module = namseapce, folder = controller, viewfile = method
+// //         //module = namseapce, folder = controller, viewfile = method
 
 
-//         if ( ! $viewFile )
-//         {
-//             $t = explode('Controller@' ,Route::currentRouteAction());
-//             dd($t);
-//             $viewFile = $t[1];
-//         }
+// //         if ( ! $viewFile )
+// //         {
+// //             $t = explode('Controller@' ,Route::currentRouteAction());
+// //             dd($t);
+// //             $viewFile = $t[1];
+// //         }
 
-//         $path = $this->foldername . '.' . $viewFile;
+// //         $path = $this->foldername . '.' . $viewFile;
 
-//         //Test to see if it exists
-//         if ( ! View::exists($view = $this->modulename . '.' . Auth::user()->owner_id . '.' . $path))
-//         {
-//             $view = $this->modulename . '::defaults.' . $path;
-//         }
+// //         //Test to see if it exists
+// //         if ( ! View::exists($view = $this->modulename . '.' . Auth::user()->owner_id . '.' . $path))
+// //         {
+// //             $view = $this->modulename . '::defaults.' . $path;
+// //         }
         
-//         return View::make($view);
-//         // return View::make($view, $this->data);
+// //         return View::make($view);
+// //         // return View::make($view, $this->data);
         
-    }
+//     }
   
 }

@@ -13,6 +13,10 @@ Route::group(array(
         // However, we can also extend that controller and add new methods:
         // e.g. Route::get('contacts', '***Datatables****\ContactsController@getAll');
 
+// Note = why don;t we create a datatables output class in the Eloquent respoitary, and if we pass contact_id= then constrain by contact using scopeByContact()? 
+// 
+// also where shjuld this logic go? should we have a search class????
+
 
         // Contacts
         Route::get('contacts', 'Crm\ContactsController@getAll');
