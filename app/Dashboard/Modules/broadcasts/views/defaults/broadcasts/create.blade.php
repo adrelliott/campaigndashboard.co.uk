@@ -23,7 +23,7 @@
         }}
         
             <div class="form-group col-lg-8 col-md-8 col-sm-12  col-xs-12">
-                {{ Former::text('broadcast_name')->class('form-control input-lg')->placeholder('E.g. Weekly Newsletter ') }}
+                {{ Former::text('broadcast_title')->class('form-control input-lg')->placeholder('E.g. Weekly Newsletter ') }}
             </div>
             <div class="form-group col-lg-4 col-md-4 col-sm-12  col-xs-12">
                 {{ Former::select('broadcast_type')->class('form-control input-lg')->options($config['broadcastTypes']) }}

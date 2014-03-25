@@ -184,32 +184,25 @@
     {{ Former::close() }}
 @stop
 
+
 @section('notes')
     <h3 class="text-primary"><i class="fa fa-book"></i> Notes</h3>
     
-        <div class="panel-group" id="accordion">
-            <div class="panel panel-default panel-accordian">
-                @foreach( $record->notes as $n )
-                    <div class="panel-heading clearfix">
-                        <p class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#{{ $n->id }}">
-                                <b class="caret"> </b> 
-                                 {{ $n->note_name }} 
-                            </a>
-                            </a>
-                        </p>
-                    </div>
-                    <div id="{{ $n->id }}" class="panel-collapse collapse ">
-                        <div class="panel-body">
-                            <p>{{ $n->note_body }}</p>
-                            <p class=""><em>
-                                <h6 class="muted ">({{ $n->created_at->toDayDateTimeString() }})</h6>
-                            </em></p>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
+    <div class="table-responsive clearfix">
+        <table class="table dataTable data-table minitable" id="notes-table" 
+        data-ajaxsource="/dt/notes/getFor?cols=id,note_title,created_at&sortDESC=created_at&contact_id={{ $record->id}}"
+         data-showid="true" data-linkurl="/app/notes" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/notes" >
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Note title</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
     
     
     <div class="pull-right margin_top_15" style="margin-top:10px">
@@ -223,26 +216,44 @@
 
 @section('purchases')
     <h3 class="text-primary"><i class="fa fa-gbp"></i> Purchases</h3>
-    <ul class="list-group">
-        @foreach( $record->orders as $o )
-            <li class="list-group-item">
-                <i class="fa fa-chevron-right"></i> {{ $o->temp_item}} <a href="#" class="btn btn-default btn-xs pull-right open-modal" modal-source="{{ Url::route('app.orders.edit', $o->id)}}">View</a>
-            </li>
-        @endforeach
-    </ul>
-    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Purchase</a>
+    <div class="table-responsive clearfix">
+        <table class="table dataTable data-table minitable" id="orders-table" 
+        data-ajaxsource="/dt/orders/getFor?cols=id,order_title,order_date&sortDESC=updated_at&contact_id={{ $record->id}}"
+         data-showid="true" data-linkurl="/app/orders" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/orders" >
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Order Name</th>
+                    <th>Order Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    
+    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Order</a>
 @stop
 
 @section('roles')
-    <h3 class="text-primary"><i class="fa fa-gbp"></i> Roles</h3>
-    <ul class="list-group">
-        @foreach( $record->orders as $o )
-            <li class="list-group-item">
-                <i class="fa fa-chevron-right"></i> {{ $o->order_title}} ({{$o->payment_method}}) <a href="#" class="btn btn-default btn-xs pull-right open-modal" modal-source="{{ Url::route('app.orders.edit', $o->id)}}">View</a>
-            </li>
-        @endforeach
-    </ul>
-    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Role</a>
+    <h3 class="text-primary"><i class="fa fa-group"></i> Roles</h3>
+    <div class="table-responsive clearfix">
+        <table class="table dataTablexxxxxxxxx data-tableXXXXXXXX minitable" id="roles-table" 
+        data-ajaxsource="/dt/roles?cols=id,role_title,role_variant&sortDESC=role_variant&contact_id={{ $record->id}}"
+         data-showid="false" data-linkurl="/app/roles" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/roles" >
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Role Name</th>
+                    <th>Season</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    
+    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.roles.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Role</a>
 @stop
 
 @section('modal')

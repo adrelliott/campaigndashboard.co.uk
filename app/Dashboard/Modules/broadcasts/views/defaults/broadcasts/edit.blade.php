@@ -48,7 +48,7 @@
             </div>
             <div class="panel-body form-inline">
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                    {{ Former::textarea('broadcast_name')->class('form-control input-sm')->rows(3)->placeholder('E.g. Weekly Newsletter ')}}
+                    {{ Former::textarea('broadcast_title')->class('form-control input-sm')->rows(3)->placeholder('E.g. Weekly Newsletter ')}}
                 </div>
 
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">

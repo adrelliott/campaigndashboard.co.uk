@@ -2,7 +2,7 @@
 
 @section('top-line')
     <h1>
-        <i class="fa fa-dashboard"></i> 1Welcome to the {{ $current_user_new->company }} Dashboard
+        <i class="fa fa-dashboard"></i> Welcome to the {{ $current_user->company }} Dashboard
     </h1>
     <p class="lead">
         Need help? Call 0161 883 2244
@@ -61,7 +61,7 @@
         <i class="fa fa-user"></i> Your {{ $config['contacts']['label'] }}s
     </h1>
     <div class="table-responsive clearfix">
-        <table class="table dataTable data-table" id="contacts_table" data-ajaxsource="/api/contacts?cols=id,first_name,last_name,postcode,email,mobile_phone" data-showid="false" data-linkurl="contacts" data-iDisplayLength="5">
+        <table class="table dataTable data-table" id="contacts_table" data-ajaxsource="/dt/contacts?cols=id,first_name,last_name,postcode,email,mobile_phone" data-showid="false" data-linkurl="contacts" data-iDisplayLength="5">
             <thead>
                 <tr>
                     <th>Id</th>

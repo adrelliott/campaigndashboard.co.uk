@@ -16,7 +16,7 @@
 @section('table')
     <div class="table-responsive clearfix">
         <table class="table dataTable data-table" id="contacts_table" 
-        data-ajaxsource="/api/v1/broadcasts?cols=id,broadcast_name,subject_line&datatables=true"
+        data-ajaxsource="/dt/broadcasts?cols=id,broadcast_title,subject_line"
         data-showid="true" data-linkurl="/app/broadcasts" data-iDisplayLength="5">
             <thead>
                 <tr>
