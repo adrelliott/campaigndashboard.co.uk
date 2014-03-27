@@ -23,7 +23,7 @@
     ->class('ajax-form')
     ->ajaxMethod('PUT')
     ->method('PUT')
-    ->route('api.v1.contacts.update', $record->id)
+    ->route('app.contacts.update', $record->id)
     ->populate($record->resource);
     
     }}
@@ -40,15 +40,15 @@
         </div>
 
         <div class="col-lg-5 col-md-5 col-sm-12  col-xs-12">
-            {{ Former::text('nickname')->class('form-control ')->placeholder('E.g. Blair')->label('Known As') }}
+            {{ Former::text('nickname')->class('form-control ')->placeholder('E.g. Li The Guy')->label('Known As') }}
         </div>
         
         <div class="col-lg-4 col-md-4 col-sm-12  col-xs-12">
-            {{ Former::text('legacy_id')->class('form-control ')->placeholder('Not a member')->label('Memb No')->disabled() }}
+             {{ Former::select('record_type')->class('form-control ')->options($config['businessTypes'])->formGroup('col-lg-12') }}
         </div>
 
         <div class="col-lg-8 col-md-8 col-sm-12  col-xs-12">
-            {{ Former::text('email')->class('form-control ')->placeholder('E.g. Blair') }}
+            {{ Former::text('email')->class('form-control ')->placeholder('E.g. dancing_li@hotmail.com') }}
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -59,18 +59,10 @@
 
 @section('inDepth')
     <h3 class="text-primary"><i class="fa fa-folder-open"></i> In-Depth</h3>
-    
-        <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12 form-inline">
-            {{ Former::radios('gender')
-                  ->radios(array(
-                  ' <i class="fa fa-male "></i> Male  ' => array('name' => 'gender', 'value' => 'male'),
-                  ' <i class="fa fa-female "></i> Female  ' => array('name' => 'gender', 'value' => 'female')
-                  ))->label(false) }}
-        </div>
 
         
         <div class="col-lg-8 col-md-7 col-sm-12  col-xs-12">
-            {{ Former::email('email2')->class('form-control input-sm')->placeholder('E.g. Lionel@hotmail.com')->label('Email 2')->help('The format paul@fcutd.co.uk') }}
+            {{ Former::email('email2')->class('form-control input-sm')->placeholder('E.g. Lionel@hotmail.com')->label('Email 2') }}
         </div>
         
         <div class="col-lg-4 col-md-5 col-sm-12  col-xs-12">
@@ -135,7 +127,7 @@
             <div class="form-group">
                 <div class="input-group input-group-sm ">
                     <span class="input-group-addon">@</span>
-                    <input type="text" name="twitter_id" class="form-control" placeholder="Don't include the @">
+                    <input type="text" name="twitter_id" class="form-control" placeholder="Twitter Id">
                 </div>
             </div>
         </div>
@@ -144,7 +136,7 @@
             <div class="form-group">
                 <div class="input-group input-group-sm ">
                     <span class="input-group-addon">(00)</span>
-                    <input type="text" name="overseas_phone" class="form-control" placeholder="44 770334563">
+                    <input type="text" name="overseas_phone" class="form-control" placeholder="Overseas phone Number">
                 </div>
             </div>
         </div>
@@ -192,32 +184,25 @@
     {{ Former::close() }}
 @stop
 
+
 @section('notes')
     <h3 class="text-primary"><i class="fa fa-book"></i> Notes</h3>
     
-        <div class="panel-group" id="accordion">
-            <div class="panel panel-default panel-accordian">
-                @foreach( $record->notes as $n )
-                    <div class="panel-heading clearfix">
-                        <p class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#{{ $n->id }}">
-                                <b class="caret"> </b> 
-                                 {{ $n->note_name }} 
-                            </a>
-                            </a>
-                        </p>
-                    </div>
-                    <div id="{{ $n->id }}" class="panel-collapse collapse ">
-                        <div class="panel-body">
-                            <p>{{ $n->note_body }}</p>
-                            <p class=""><em>
-                                <h6 class="muted ">({{ $n->created_at->toDayDateTimeString() }})</h6>
-                            </em></p>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
+    <div class="table-responsive clearfix">
+        <table class="table dataTable data-table minitable" id="notes-table" 
+        data-ajaxsource="/dt/notes/getFor?cols=id,note_title,created_at&sortDESC=created_at&contact_id={{ $record->id}}"
+         data-showid="true" data-linkurl="/app/notes" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/notes" >
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Note title</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
     
     
     <div class="pull-right margin_top_15" style="margin-top:10px">
@@ -231,26 +216,44 @@
 
 @section('purchases')
     <h3 class="text-primary"><i class="fa fa-gbp"></i> Purchases</h3>
-    <ul class="list-group">
-        @foreach( $record->orders as $o )
-            <li class="list-group-item">
-                <i class="fa fa-chevron-right"></i> {{ $o->temp_item}} ({{$o->temp_season}}) <a href="#" class="btn btn-default btn-xs pull-right open-modal" modal-source="{{ Url::route('app.orders.edit', $o->id)}}">View</a>
-            </li>
-        @endforeach
-    </ul>
-    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Purchase</a>
+    <div class="table-responsive clearfix">
+        <table class="table dataTable data-table minitable" id="orders-table" 
+        data-ajaxsource="/dt/orders/getFor?cols=id,order_title,order_date&sortDESC=updated_at&contact_id={{ $record->id}}"
+         data-showid="true" data-linkurl="/app/orders" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/orders" >
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Order Name</th>
+                    <th>Order Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    
+    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Order</a>
 @stop
 
 @section('roles')
-    <h3 class="text-primary"><i class="fa fa-gbp"></i> Roles</h3>
-    <ul class="list-group">
-        @foreach( $record->orders as $o )
-            <li class="list-group-item">
-                <i class="fa fa-chevron-right"></i> {{ $o->order_title}} ({{$o->payment_method}}) <a href="#" class="btn btn-default btn-xs pull-right open-modal" modal-source="{{ Url::route('app.orders.edit', $o->id)}}">View</a>
-            </li>
-        @endforeach
-    </ul>
-    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Role</a>
+    <h3 class="text-primary"><i class="fa fa-group"></i> Roles</h3>
+    <div class="table-responsive clearfix">
+        <table class="table dataTablexxxxxxxxx data-tableXXXXXXXX minitable" id="roles-table" 
+        data-ajaxsource="/dt/roles?cols=id,role_title,role_variant&sortDESC=role_variant&contact_id={{ $record->id}}"
+         data-showid="false" data-linkurl="/app/roles" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/roles" >
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Role Name</th>
+                    <th>Season</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    
+    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.roles.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Role</a>
 @stop
 
 @section('modal')

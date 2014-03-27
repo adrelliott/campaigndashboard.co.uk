@@ -14,15 +14,6 @@ class BaseController extends Controller {
     public function __construct($repo = NULL)
     {
         $this->repo = $repo;
-        // dump($route->getName(), 1, 'title');
-        // dump(Route::getActionName(), 0, 'title');
-        // dump(Route::getAction(), 0, 'title');
-        // dump(Route::getCompiled(), 0, 'title');
-        // dump(Route::getUri(), 0, 'title');
-        // dump(Route::prefix(), 0, 'title');
-        // dump(Route::getPath(), 0, 'title');
-        // dump(Route::uri(), 0, 'title');
-        // dump(Route::uri(), 1, 'title');
     }
 
     

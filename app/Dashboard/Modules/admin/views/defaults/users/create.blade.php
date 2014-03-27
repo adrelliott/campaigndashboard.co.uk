@@ -23,6 +23,8 @@
             
             }}
 
+            @section('col1-userform')
+
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                     {{ Former::text('first_name')->class('form-control input-lg')->placeholder('E.g. Tom') }}
                 </div>
@@ -46,6 +48,8 @@
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                     {{ Former::tel('mobile_phone')->class('form-control input-lg')->placeholder('E.g. 07703545343') }}
                 </div>
+
+            @show
 
                 {{ Form::hidden('active', 1) }}
 

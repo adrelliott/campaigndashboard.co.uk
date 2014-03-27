@@ -1,7 +1,4 @@
-<?php 
-
-// Set up namespace
-namespace Dashboard\Admin;
+<?php namespace Dashboard\Admin;
 use Route;
 
 // Contacts

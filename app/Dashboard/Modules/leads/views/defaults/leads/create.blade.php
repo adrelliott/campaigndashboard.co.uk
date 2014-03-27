@@ -22,6 +22,8 @@
             // ->populate($record->resource);
             
             }}
+
+            @section('create-form')
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                     {{ Former::select('title')->class('form-control input-lg')->options($config['titles']) }}
                 </div>
@@ -49,6 +51,8 @@
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                     {{ Former::email('email')->class('form-control input-lg')->placeholder('E.g. lionel@GiveUsAClue.com') }}
                 </div>
+
+            @show
 
                 <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <button type="submit" class="btn btn-lg btn-success pull-right"><i class="fa fa-check"></i> Create this {{ $config['contacts']['label'] }}</button>

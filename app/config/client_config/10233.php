@@ -102,6 +102,11 @@ return array(
     | The settings for the view files
     |
     */
+   // Dashboard
+   'dashboardindex' => array(
+        'tables' => ['Contacts', 'Orders'],
+        ),
+
    //The tabs for views/contacts/show.blade.php
     'contactsshow' => array(
         'col1tabs' => ['Overview', 'In Depth', 'Opt In', 'Notes'],

@@ -22,6 +22,8 @@
             // ->populate($record->resource);  
         }}
         
+        @section('content-form')
+
             <div class="form-group col-lg-8 col-md-8 col-sm-12  col-xs-12">
                 {{ Former::text('broadcast_title')->class('form-control input-lg')->placeholder('E.g. Weekly Newsletter ') }}
             </div>
@@ -34,6 +36,9 @@
             <div class="form-group col-lg-8 col-md-6 col-sm-12 col-xs-12">
                 <p class="help-block"><strong>"Oh no! Where do I write my email?"</strong><br/> Calm down dear, there's space on the next page for all that</p>
             </div>
+
+        @show
+            
             <div class="form-group col-lg-4 col-md-6 col-sm-12 col-xs-12">
                 <button type="submit" class="btn btn-lg btn-success pull-right"><i class="fa fa-check"></i> Create this Broadcast</button>
             </div>   

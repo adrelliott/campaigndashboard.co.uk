@@ -1,6 +1,6 @@
 <?php namespace Dashboard\Crm;
 
-use BaseController;
+use BaseController, View;
 use Dashboard\Repositories\ContactRepositoryInterface as ModelInterface;
 
 
@@ -11,6 +11,7 @@ class ContactsController extends BaseController {
     {
         parent::__construct($repo);
     }
+
 
 /** pretty sure this should be in the repo ********************************/
     public function storeRole()

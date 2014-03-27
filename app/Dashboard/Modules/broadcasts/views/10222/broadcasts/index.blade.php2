@@ -1,5 +1,5 @@
+@extends('broadcasts::broadcasts.create')
 
-
-
+@section('a')
     Hello from crm/view/contacts/index - I am in the 10222 folder
-
+@stop

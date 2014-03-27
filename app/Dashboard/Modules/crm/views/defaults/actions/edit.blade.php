@@ -24,6 +24,8 @@
         
     }}
 
+    @section('overview_form')
+
         <div class="form-group col-lg-6 col-md-12 col-sm-12  col-xs-12">
             {{ Former::text('first_name')->class('form-control input-lg')->placeholder('E.g. Lionel') }}
         </div>
@@ -32,6 +34,8 @@
             {{ Former::text('last_name')->class('form-control input-lg')->placeholder('E.g. Blair') }}
         </div>
 
+    @show
+
         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <button type="submit" class="btn btn-success pull-right"><i class="fa fa-check"></i> Save Changes</button>
         </div>
@@ -39,14 +43,7 @@
 
 @section('inDepth')
     <h3 class="text-primary"><i class="fa fa-folder-open"></i> In-Depth</h3>
-        <div class="form-group col-lg-6 col-md-12 col-sm-12  col-xs-12">
-            {{ Former::text('email')->class('form-control input-lg')->placeholder('E.g. Lionel@GiveUsAClue.com') }}
-        </div>
-
-        <div class="form-group col-lg-6 col-md-12 col-sm-12  col-xs-12">
-            {{ Former::text('mobile')->class('form-control input-lg')->placeholder('E.g. 07707 565656') }}
-        </div>
-
+        
         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <button type="submit" class="btn btn-success pull-right"><i class="fa fa-check"></i> Save Changes</button>
         </div>

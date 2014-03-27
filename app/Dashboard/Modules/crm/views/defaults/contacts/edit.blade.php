@@ -27,6 +27,9 @@
     ->populate($record->resource);
     
     }}
+
+    @section('overview-form')
+
         <div class="col-lg-4 col-md-5 col-sm-4  col-xs-12">
             {{ Former::select('title')->class('form-control ')->options($config['titles'])->formGroup('col-lg-12') }}
         </div>
@@ -51,6 +54,8 @@
             {{ Former::text('email')->class('form-control ')->placeholder('E.g. Blair') }}
         </div>
 
+    @show
+
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <button type="submit" class="btn btn-success pull-right"><i class="fa fa-check"></i> Save Changes</button>
         </div>
@@ -60,6 +65,8 @@
 @section('inDepth')
     <h3 class="text-primary"><i class="fa fa-folder-open"></i> In-Depth</h3>
     
+    @section('inDepth-form-1')
+
         <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12 form-inline">
             {{ Former::radios('gender')
                   ->radios(array(
@@ -76,6 +83,9 @@
         <div class="col-lg-4 col-md-5 col-sm-12  col-xs-12">
             {{ Former::date('date_of_birth')->class('form-control input-sm')->placeholder('25/05/77')->value('1900-01-01') }}
         </div>
+
+    @show
+    @section('inDepth-form-2')
 
         <div class="form-group">
             <h4>Address:</h4>
@@ -126,6 +136,9 @@
         <div class="col-lg-5 col-md-5 col-sm-5  col-xs-12">
             {{ Former::text('country')->class('form-control input-sm')->placeholder('E.g. United Kingdom') }}
         </div>
+
+    @show
+    @section('inDepth-form-3')
         
         <div class="form-group">
             <h4>Contact:</h4>
@@ -149,6 +162,8 @@
             </div>
         </div>
 
+    @show
+
         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <button type="submit" class="btn btn-lg btn-success pull-right"><i class="fa fa-check"></i> Save Changes</button>
         </div>
@@ -156,6 +171,8 @@
 
 @section('optIn')
     <h3 class="text-primary"><i class="fa fa-lock"></i> Opt Ins</h3>
+
+    @section('optIn-form')
         
         <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12 form-inline">
             <h4 class="radio-label hidden-md hidden-lg">Receive Emails? </h4>
@@ -184,6 +201,7 @@
                   ))->label('<h4 class="radio-label visible-md visible-lg">Receive Post?</h4>') }}
         </div>
 
+    @show
 
         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <button type="submit" class="btn btn-lg btn-success pull-right"><i class="fa fa-check"></i> Save Changes</button>
@@ -193,72 +211,84 @@
 @stop
 
 @section('notes')
-    <h3 class="text-primary"><i class="fa fa-book"></i> Notes</h3>
+        <h3 class="text-primary"><i class="fa fa-book"></i> Notes</h3>
+        
+    @section('notes-table')
+
+        <div class="table-responsive clearfix">
+            <table class="table dataTable data-table minitable" id="notes-table" 
+            data-ajaxsource="/dt/notes/getFor?cols=id,note_title,created_at&sortDESC=created_at&contact_id={{ $record->id}}"
+             data-showid="true" data-linkurl="/app/notes" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/notes" >
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Note title</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table> 
+        </div>
     
-    <div class="table-responsive clearfix">
-        <table class="table dataTable data-table minitable" id="notes-table" 
-        data-ajaxsource="/dt/notes/getFor?cols=id,note_title,created_at&sortDESC=created_at&contact_id={{ $record->id}}"
-         data-showid="true" data-linkurl="/app/notes" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/notes" >
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Note title</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </div>
-    
-    
-    <div class="pull-right margin_top_15" style="margin-top:10px">
-        <a class="btn btn-primary open-modal " href="#" modal-source="{{URL::route('app.notes.create', array('contact_id' => $record->id)) }}" data-view="show_modal" >
-            <i class="fa fa-plus"></i> Create New Note
-        </a>
-    </div>
+    @show  
+        
+        <div class="pull-right margin_top_15" style="margin-top:10px">
+            <a class="btn btn-primary open-modal " href="#" modal-source="{{URL::route('app.notes.create', array('contact_id' => $record->id)) }}" data-view="show_modal" >
+                <i class="fa fa-plus"></i> Create New Note
+            </a>
+        </div>
 
 @stop
 
-
 @section('purchases')
     <h3 class="text-primary"><i class="fa fa-gbp"></i> Purchases</h3>
-    <div class="table-responsive clearfix">
-        <table class="table dataTable data-table minitable" id="orders-table" 
-        data-ajaxsource="/dt/orders/getFor?cols=id,order_title,order_date&sortDESC=updated_at&contact_id={{ $record->id}}"
-         data-showid="true" data-linkurl="/app/orders" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/orders" >
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Order Name</th>
-                    <th>Order Date</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </div>
+    
+    @section('purchases-table')
+    
+        <div class="table-responsive clearfix">
+            <table class="table dataTable data-table minitable" id="orders-table" 
+            data-ajaxsource="/dt/orders/getFor?cols=id,order_title,order_date&sortDESC=updated_at&contact_id={{ $record->id}}"
+             data-showid="true" data-linkurl="/app/orders" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/orders" >
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Order Name</th>
+                        <th>Order Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+    @show
     
     <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Order</a>
 @stop
 
 @section('roles')
     <h3 class="text-primary"><i class="fa fa-group"></i> Roles</h3>
-    <div class="table-responsive clearfix">
-        <table class="table dataTablexxxxxxxxx data-tableXXXXXXXX minitable" id="roles-table" 
-        data-ajaxsource="/dt/roles?cols=id,role_title,role_variant&sortDESC=role_variant&contact_id={{ $record->id}}"
-         data-showid="false" data-linkurl="/app/roles" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/roles" >
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Role Name</th>
-                    <th>Season</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </div>
+
+    @section('roles-table')
+
+        <div class="table-responsive clearfix">
+            <table class="table dataTablexxxxxxxxx data-tableXXXXXXXX minitable" id="roles-table" 
+            data-ajaxsource="/dt/roles?cols=id,role_title,role_variant&sortDESC=role_variant&contact_id={{ $record->id}}"
+             data-showid="false" data-linkurl="/app/roles" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/roles" >
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Role Name</th>
+                        <th>Season</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+    @show
     
     <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.roles.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Role</a>
 @stop

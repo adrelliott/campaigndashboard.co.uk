@@ -1,6 +1,10 @@
-@extends('layouts.modal')
+@extends('sales::defaults.orders.create')
 
-@section('modal-body')
+@section('create-form1')
+    //this si the creat form for 10233
+@stop
+
+@section('modal-body1')
     <div class="row">  
         {{ Former::open()
         ->role('Form')

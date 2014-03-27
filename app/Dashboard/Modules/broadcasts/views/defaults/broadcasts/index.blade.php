@@ -29,7 +29,6 @@
             </tbody>
         </table>
     </div>
-
 @stop
 
 @section('below-table')

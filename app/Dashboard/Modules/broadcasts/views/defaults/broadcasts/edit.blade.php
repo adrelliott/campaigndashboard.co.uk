@@ -26,6 +26,8 @@
             ->populate($record->resource);  
         }}
         
+        @section('content-form')
+
             <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                 {{ Former::select('search_id')->class('form-control input-lg')->options($config['savedSearches'])->label('Who is this email to?') }}
             </div>
@@ -35,6 +37,8 @@
             <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                 {{ Former::textarea('broadcast_body')->class('form-control input-lg wysihtml5')->placeholder('Write your email here. E.g. Hi <<first_name>>, You need to see our awesome new thing')->rows(20)->help('<span class="text-primary"><i class="fa fa-lightbulb-o"></i> Don\'t forget, you can personalise your emails using &#123;&#123;first_name&#125;&#125;, &#123;&#123;last_name&#125;&#125; or &#123;&#123;nickname&#125;&#125;</span>') }}
             </div>
+
+        @show
             
             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <button type="submit" class="btn btn-lg btn-success pull-right"><i class="fa fa-check"></i> Create this Broadcast</button>
@@ -46,15 +50,20 @@
             <div class="panel-heading">
                 <h3 class="panel-title">About this Broadcast</h3>
             </div>
+
+        @section('about-form')
+
             <div class="panel-body form-inline">
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                     {{ Former::textarea('broadcast_title')->class('form-control input-sm')->rows(3)->placeholder('E.g. Weekly Newsletter ')}}
                 </div>
 
                 <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                    {{ Former::textarea('broadcast_description')->class('form-control input-sm')->placeholder('E.g. Update on latest research')->rows(6)->label('Description') }}
+                    {{ Former::textarea('broadcast_description')->class('form-control input-sm')->placeholder('E.g. Update on latest news')->rows(6)->label('Description') }}
                 </div>
 
+        @show
+                
                 <div class="form-group col-lg-12 col-md-12 col-sm-12">
                     <button type="submit" class="btn btn-sm btn-success pull-right"><i class="fa fa-check"></i> Save Changes</button>
                 </div>
@@ -77,6 +86,9 @@
                     <h3 class="panel-title">About this Email</h3>
                 </div>
                 <div class="panel-body">
+                
+                @section('about-email')
+
                     <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                         {{ Former::select('broadcast_from')->class('form-control input-sm')->options($config['emailFrom'])->label('Who is this email from?') }}
                     </div>
@@ -91,6 +103,9 @@
                               ' <i class="fa fa-thumbs-o-down "></i> No' => array('name' => 'ready_to_send', 'value' => '0')
                               ))->label(false) }}
                     </div>
+
+                @show
+
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <button type="submit" class="btn btn-sm btn-success pull-right"><i class="fa fa-check"></i> Save Changes</button>
                     </div>
@@ -105,6 +120,8 @@
                 </div>
                 <div class="panel-body">
                     {{ Former::open() }}
+
+                @section('send-email')
                     
                     <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                         {{ Former::select('_test_send_to')->class('form-control input-sm')->label(false)->options($config['testEmailto'])->label('Send a test to:') }}
@@ -118,6 +135,8 @@
                              {{ Former::text('_test_send_to')->class('form-control input-sm')->placeholder('E.g. lionel@gmail.co.uk')->label('Email Address') }}
                         </div>
                     </div>
+    
+                @show
 
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
                         <button type="submit" class="btn btn-sm btn-success pull-right"><i class="fa fa-thumbs-o-up"></i> Send Test Email</button>

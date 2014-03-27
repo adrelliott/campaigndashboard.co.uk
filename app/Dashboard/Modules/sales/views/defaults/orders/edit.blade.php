@@ -15,6 +15,9 @@
         ->populate($record->resource);
 
         }}
+
+        @section('create-form-top')
+
             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 {{ Former::text('order_title')->class('form-control input-sm') }}
             </div>
@@ -27,6 +30,8 @@
                 </div>
             </div>
            {{-- dump($record->orderItems)--}}
+        @show
+        @section('orderitems-form')
              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <table id="lineitems" >
                     <tr>
@@ -55,6 +60,9 @@
                 </table>
                 <a class="add_row pull-right" data-tableid="lineitems"><h5><i class="fa fa-plus"></i> Add more items</h5></a>
             </div>
+
+        @show
+        @section('create-form-bottom')
             
             <div class="form-group col-lg-6 col-md-6 col-sm-6  col-xs-12">
                 {{ Former::textarea('order_notes')->class('form-control input')->placeholder('E.g. Send out the card recorded delivery')->rows(5) }}
@@ -69,6 +77,8 @@
                     {{ Former::select('payment_method')->class('form-control input-sm')->options($config['paymentMethod']) }}
                 </div>
             </div>
+
+        @show
 
             <input type="hidden" class="" name="_user_id" value="{{ Auth::user()->id }}">
 

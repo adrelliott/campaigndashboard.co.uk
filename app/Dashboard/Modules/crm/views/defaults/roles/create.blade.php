@@ -14,6 +14,9 @@
         // ->populate($record->resource);
 
         }}
+
+        @section('content-form')
+
             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                     {{ Former::select('role_title')->class('form-control input-sm')->label('Role')->options($config['roles']) }}
@@ -32,6 +35,8 @@
             season
 
             notes
+            
+        @show
 
             <input type="hidden" class="" name="contact_id" value="{{ Input::get('contact_id') }}">
             <input type="hidden" class="" name="user_id" value="{{ Auth::user()->id }}">

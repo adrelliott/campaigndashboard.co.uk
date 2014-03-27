@@ -1,5 +1,5 @@
-@extends('defaults.layouts.deleteme')
+@extends('admin::users.create')
 
-@section('a')
-    Hello from crm/view/contacts/index - I am in the 10222 folder
+@section('table')
+    override the table here
 @stop
