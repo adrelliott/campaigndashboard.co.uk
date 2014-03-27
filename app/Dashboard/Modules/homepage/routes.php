@@ -5,6 +5,6 @@ use Route;
 Route::get('app/dashboard', array(
     'before' => 'auth',
     'as' => 'dashboard', 
-    'uses' => 'Dashboard\Dashboard\DashboardController@index'
+    'uses' => 'Dashboard\Homepage\HomepageController@index'
     )
 );

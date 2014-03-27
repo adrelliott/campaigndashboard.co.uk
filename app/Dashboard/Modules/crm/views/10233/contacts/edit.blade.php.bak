@@ -1,4 +1,4 @@
-@extends('layouts.show')
+@extends('crm::defaults.contacts.edit')
 
 
 @section('page-title')

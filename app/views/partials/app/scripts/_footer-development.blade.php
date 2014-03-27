@@ -25,9 +25,9 @@
 
 <h4>Owner id: {{ $owner_id }}</h4>
 <h4>Current User</h4>
-{{ Debug::dump($current_user) }}
+{{ dump($current_user) }}
 
 @if(isset($record))
     <h4>Current record</h4>
-    {{ Debug::dump($record) }}
+    {{ dump($record) }}
 @endif

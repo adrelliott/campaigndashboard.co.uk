@@ -8,12 +8,15 @@ class BaseController extends Controller {
 
     protected $record;
 
-    protected $viewPath = '{MODULE}::{PATH}.{CONTROLLER}.{METHOD}';
+    protected $classAttributes;
     
 
     public function __construct($repo = NULL)
     {
         $this->repo = $repo;
+        $this->setClassAttributes();
+        
+        // dd($this->classAttributes);
     }
 
     
@@ -24,6 +27,7 @@ class BaseController extends Controller {
      */
     public function index()
     {
+       Event::fire( join('.', $this->classAttributes) );
        return $this->render();
     }
 
@@ -34,6 +38,7 @@ class BaseController extends Controller {
      */
     public function create()
     {
+        Event::fire( join('.', $this->classAttributes) );
         return $this->render()->withRecord($this->repo->model); // Wraps in presenter
     }
 
@@ -47,6 +52,7 @@ class BaseController extends Controller {
     {
         //Try to store and pass result to redirect() method
         $this->record = $this->repo->createRecord();
+        Event::fire( join('.', $this->classAttributes) );
         return $this->redirect();
     }
 
@@ -60,7 +66,8 @@ class BaseController extends Controller {
      
     public function show($id)
     {
-         return $this->render('edit')->withRecord($this->repo->findRecord($id));
+        Event::fire( join('.', $this->classAttributes) );
+        return $this->render('edit')->withRecord($this->repo->findRecord($id));
     }
 
 
@@ -72,6 +79,7 @@ class BaseController extends Controller {
      */
     public function edit($id)
     {
+        Event::fire( join('.', $this->classAttributes) );
         return $this->render()->withRecord($this->repo->findRecord($id));
     }
 
@@ -86,6 +94,7 @@ class BaseController extends Controller {
     {
         //Try to update and pass result to redirect() method
         $this->record = $this->repo->updateRecord($id);
+        Event::fire( join('.', $this->classAttributes) );
         return $this->redirect();
     }
 
@@ -99,7 +108,9 @@ class BaseController extends Controller {
     public function destroy($id)
     {
         //Form submists as DELETE to contacts/$id
+        Event::fire( join('.', $this->classAttributes) );
     }
+    
 
     public function getAll()
     {
@@ -124,32 +135,35 @@ class BaseController extends Controller {
 
 /***************** View & Routing methods ****************/
 
-    public function buildPath($find, $replace)
+    public function setClassAttributes()
     {
-        $this->viewPath = str_replace($find, strtolower($replace), $this->viewPath);
-    }
-
-
-    public function render($viewFile = FALSE)
-    {
-        //Get get current method - this is the viewfile (unless overidden)
+        // Explode the namespace
         $t = explode('Controller@' ,Route::currentRouteAction());
-        if ( ! $viewFile ) $viewFile = $t[1];
-        $this->buildPath('{METHOD}', $viewFile);
+        $t['exploded'] = explode('\\', $t[0]);
 
-        // now set the rest of the paths
-        $t = explode('\\', $t[0]);
-        $owner_id = Auth::user()->owner_id;
-        $this->buildPath('{MODULE}', $t[1]);
-        $this->buildPath('{CONTROLLER}', $t[2]);
-        $this->buildPath('{PATH}', $owner_id);
+        // Build the array
+        foreach ( $t['exploded']  as $att )
+        {
+            $this->classAttributes[] = strtolower($att);
+        }
 
-        // Look for a custom file & set as defaults if none found
-        if ( ! View::exists( $this->viewPath ) ) $this->buildPath($owner_id, 'defaults');
-
-        return View::make($this->viewPath);
+        // Put it all together
+        array_push($this->classAttributes, strtolower($t[1]));
     }
 
+    
+
+    public function render( $viewFile = FALSE )
+    {
+        $filePath =  $this->classAttributes[1] . '::defaults.' . $this->classAttributes[2] . '.' . $this->classAttributes[3];
+        $customFilePath = str_replace('defaults', Auth::user()->owner_id, $filePath);
+
+        // If file exists in tenants dir, load that, otherwise load default
+        if ( View::exists( $customFilePath ) ) $filePath = $customFilePath;
+        return View::make( $filePath );
+
+      
+    }
 
     public function redirect($viewFile = 'edit')
     {
@@ -268,5 +282,34 @@ class BaseController extends Controller {
 // //         // return View::make($view, $this->data);
         
 //     }
+//     
+//     
+//     
+    // public function buildPath($find, $replace)
+    // {
+    //     $this->viewPath = str_replace($find, strtolower($replace), $this->viewPath);
+    // }
+
+    // public function render1($viewFile = FALSE)
+    // {
+    //     //Get get current method - this is the viewfile (unless overidden)
+    //     $t = explode('Controller@' ,Route::currentRouteAction());
+    //     if ( ! $viewFile ) $viewFile = $t[1];
+    //     $this->buildPath('{METHOD}', $viewFile);
+
+    //     // now set the rest of the paths
+    //     $t = explode('\\', $t[0]);
+    //     $owner_id = Auth::user()->owner_id;
+    //     $this->buildPath('{MODULE}', $t[1]);
+    //     $this->buildPath('{CONTROLLER}', $t[2]);
+    //     $this->buildPath('{PATH}', $owner_id);
+
+    //     // Look for a custom file & set as defaults if none found
+    //     if ( ! View::exists( $this->viewPath ) ) $this->buildPath($owner_id, 'defaults');
+
+    //     return View::make($this->viewPath);
+    // }
+
+
   
 }

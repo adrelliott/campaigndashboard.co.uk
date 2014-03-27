@@ -1,7 +1,7 @@
 <?php namespace Dashboard\Auth;
 
 use Dashboard\Admin\User;
-use Controller, View, Redirect, Session, Input, Auth;
+use Controller, View, Redirect, Session, Input, Auth, Event;
 
 class SessionController extends Controller {
 
@@ -16,7 +16,10 @@ class SessionController extends Controller {
         if ( Auth::check() ) return Redirect::to('/app/dashboard');
 
         // If the cookie is set, then send them to intended route or dashboard
-        if ( Auth::viaRemember() ) return Redirect::intended('/app/dashboard');
+        if ( Auth::viaRemember() )
+        {
+            return Redirect::intended('/app/dashboard');  
+        } 
 
         // Otherwise make them log in again
         else return View::make('auth::login');

@@ -1,4 +1,4 @@
-@extends('dashboard::defaults.dashboard.index')
+@extends('homepage::defaults.homepage.index')
 
 @section('well')
 
