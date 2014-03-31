@@ -6,6 +6,11 @@ class EventHandler {
 
     public $prefix;
 
+    public function __construct()
+    {
+        $this->prefix = $this->eventPrefix;;
+    }
+
     public function handle()
     {
         $event = Event::firing();

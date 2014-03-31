@@ -218,7 +218,7 @@
         <div class="table-responsive clearfix">
             <table class="table dataTable data-table minitable" id="notes-table" 
             data-ajaxsource="/dt/notes/getFor?cols=id,note_title,created_at&sortDESC=created_at&contact_id={{ $record->id}}"
-             data-showid="true" data-linkurl="/app/notes" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/notes" >
+             data-showid="false" data-linkurl="/app/notes" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/notes" >
                 <thead>
                     <tr>
                         <th>Id</th>

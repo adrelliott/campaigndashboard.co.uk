@@ -45,6 +45,8 @@
     $(document).on( 'click', '.add_row', function(e) {
         e.preventDefault();
 
+        var row = '';
+
         //get table & rows
         var tableId = $(this).data('tableid');
         console.log('table id', tableId);

@@ -1,8 +1,6 @@
-<?php
+<?php namespace Dashboard\Sales;
 
-namespace Dashboard\Sales;
-
-use Input, BaseModel;
+use BaseModel;
 
 class Product extends BaseModel {
     

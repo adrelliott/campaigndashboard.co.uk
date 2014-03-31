@@ -21,4 +21,25 @@ class BaseModel extends Magniloquent {
         'update' => array()
     );
 
+    public static function boot()
+    {
+        parent::boot();
+
+        // Hook into the create & update event & set the ownerId
+        static::creating(function($thing){ $thing->forceOwnerId(); });
+        static::updating(function($thing){ $thing->forceOwnerId(); });
+
+    }
+
+    public function forceOwnerId()
+    {
+        if (!$this->owner_id)
+          $this->owner_id = Auth::user()->owner_id;
+    }
+
+    public function scopeOnlyOwners($query)
+    {
+        $query->whereOwnerId(Auth::user()->owner_id);
+    }
+
 }

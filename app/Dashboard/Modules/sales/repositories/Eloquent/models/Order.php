@@ -9,12 +9,6 @@ class Order extends BaseModel {
 
     // Wrap in a presenter (ShawnMcCool)
     public $presenter = 'Dashboard\Sales\OrderPresenter';
-    // 
-    // Return a presenter
-    // public function getPresenter()
-    // {
-    //     return new OrderPresenter($this);
-    // }
           
     
     // Validation rules
@@ -28,10 +22,10 @@ class Order extends BaseModel {
         'update' => array()
     );
 
-    public function orderProducts()
-    {
-        return $this->hasMany('Dashboard\Sales\OrderProduct');
-    }
+    // public function products()
+    // {
+    //     return $this->hasMany('Dashboard\Sales\Product');
+    // }
 
     // *
     //  * Connect the Orders table with the Products table via pivot order_product
@@ -39,7 +33,9 @@ class Order extends BaseModel {
      
     public function products()
     {
-        return $this->belongsToMany('Dashboard\Sales\Product');
+        return $this->belongsToMany('Dashboard\Sales\Product')
+                    ->withPivot('variant', 'quantity', 'tax', 'price')
+                    ->withTimestamps();
     }
 
 

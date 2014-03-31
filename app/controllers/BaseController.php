@@ -9,14 +9,17 @@ class BaseController extends Controller {
     protected $record;
 
     protected $classAttributes;
-    
+
+    protected $with = NULL;
+
+
 
     public function __construct($repo = NULL)
     {
         $this->repo = $repo;
         $this->setClassAttributes();
         
-        // dd($this->classAttributes);
+        // dump($this->classAttributes);
     }
 
     
@@ -27,8 +30,11 @@ class BaseController extends Controller {
      */
     public function index()
     {
-       Event::fire( join('.', $this->classAttributes) );
-       return $this->render();
+        $this->record = $this->repo->model;
+
+        // Fire the event and render the view
+        $this->fireEvent();
+        return $this->render();
     }
 
     /**
@@ -38,8 +44,11 @@ class BaseController extends Controller {
      */
     public function create()
     {
-        Event::fire( join('.', $this->classAttributes) );
-        return $this->render()->withRecord($this->repo->model); // Wraps in presenter
+        $this->record = $this->repo->model;
+
+        // Fire the event and render the view
+        $this->fireEvent($this->record);
+        return $this->render()->withRecord($this->record); // Wraps in presenter
     }
 
 
@@ -52,7 +61,9 @@ class BaseController extends Controller {
     {
         //Try to store and pass result to redirect() method
         $this->record = $this->repo->createRecord();
-        Event::fire( join('.', $this->classAttributes) );
+        
+        // Fire the event and render the view
+        $this->fireEvent($this->record);
         return $this->redirect();
     }
 
@@ -66,8 +77,11 @@ class BaseController extends Controller {
      
     public function show($id)
     {
-        Event::fire( join('.', $this->classAttributes) );
-        return $this->render('edit')->withRecord($this->repo->findRecord($id));
+        $this->record = $this->repo->findRecord($id, $this->with);
+        
+        // Fire the event and render the view
+        $this->fireEvent($this->record);
+        return $this->render('edit')->withRecord($this->record);
     }
 
 
@@ -79,8 +93,12 @@ class BaseController extends Controller {
      */
     public function edit($id)
     {
-        Event::fire( join('.', $this->classAttributes) );
-        return $this->render()->withRecord($this->repo->findRecord($id));
+        // Get the record (and associated records via with() )
+        $this->record = $this->repo->findRecord($id, $this->with);
+
+        // Fire the event and render the view
+        $this->fireEvent($this->record);
+        return $this->render()->withRecord($this->record);
     }
 
 
@@ -94,7 +112,9 @@ class BaseController extends Controller {
     {
         //Try to update and pass result to redirect() method
         $this->record = $this->repo->updateRecord($id);
-        Event::fire( join('.', $this->classAttributes) );
+
+        // Fire the event and render the view
+        $this->fireEvent($this->record);
         return $this->redirect();
     }
 
@@ -108,9 +128,18 @@ class BaseController extends Controller {
     public function destroy($id)
     {
         //Form submists as DELETE to contacts/$id
-        Event::fire( join('.', $this->classAttributes) );
+        //
+        // Fire the event and render the view
+        $this->fireEvent($this->record);
+        // where's my view???
     }
     
+
+
+
+
+
+
 
     public function getAll()
     {
@@ -151,9 +180,21 @@ class BaseController extends Controller {
         array_push($this->classAttributes, strtolower($t[1]));
     }
 
+
+    /**
+     * Fires an event. To subscribe:
+     * 1. Register listener in app/events.php
+     * 2. Set up handler class in app/Dashboard/Handlers
+     * (note: Use one class per module)
+     */
+    public function fireEvent( $param = NULL )
+    {
+        $event = join('.', $this->classAttributes);
+        $this->record->eventResponse = Event::fire( $event, $param );
+    }
     
 
-    public function render( $viewFile = FALSE )
+    public function render()
     {
         $filePath =  $this->classAttributes[1] . '::defaults.' . $this->classAttributes[2] . '.' . $this->classAttributes[3];
         $customFilePath = str_replace('defaults', Auth::user()->owner_id, $filePath);
@@ -170,9 +211,10 @@ class BaseController extends Controller {
         // If save is successful, then redirect to the $viewFile page
         if ( $this->record->result )
         {
-            // if ( Request::ajax() ) return Response::make($this->record, 200); 
             if ( Request::ajax() ) return Response::make($this->record, 200); 
-            else return Redirect::route('app.' . strtolower(Request::segment(2)) . '.' . $viewFile, array($this->record->id))
+            
+            else 
+                return Redirect::route('app.' . strtolower(Request::segment(2)) . '.' . $viewFile, array($this->record->id))
                     ->with('success', 'That\'s saved!'); 
         }
              
@@ -180,9 +222,11 @@ class BaseController extends Controller {
         // ... else go back and show errors
         else
         {
-            if ( Request::ajax() ) return Response::make($this->record, 500);
+            if ( Request::ajax() ) 
+                return Response::make($this->record->errors(), 500);
 
-            else return Redirect::back()
+            else 
+                return Redirect::back()
                 ->with('error', 'Some fields don\'t look right. Can you take a look?')
                 ->withErrors($this->record->errors())
                 ->withInput();

@@ -1,4 +1,4 @@
-@extend('sales::defaults.orders.create')
+@extends('sales::defaults.orders.create')
 
 @section('orderitems-form')
 
@@ -12,7 +12,7 @@
             </tr>
             <tr >
                 <td>
-                    {{-- Former::select('_order_product[product_id][]')->class('form-control input')->options()->label(false) --}}
+                    {{ Former::select('_order_product[product_id][]')->class('form-control input')->options(array(1 => 'prod 1'))->label(false) }}
                 </td>
                 <td>
                     {{ Former::select('_order_product[variant][]')->class('form-control input')->options($config['seasons'])->label(false) }}

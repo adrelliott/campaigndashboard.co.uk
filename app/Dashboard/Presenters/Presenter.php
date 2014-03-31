@@ -4,5 +4,8 @@ use McCool\LaravelAutoPresenter\BasePresenter;
 
 class Presenter extends BasePresenter {
 
-    // we casn put methods in here that apply to all presenters
+     public function toPounds($price)
+     {
+         return $price / 100;
+     }
 }

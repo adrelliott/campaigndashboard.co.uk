@@ -10,6 +10,8 @@ interface RepositoryInterface {
     
     public function getAll();
 
+    public function findAll();
+
     public function findRecord($id);
         
     public function createRecord();

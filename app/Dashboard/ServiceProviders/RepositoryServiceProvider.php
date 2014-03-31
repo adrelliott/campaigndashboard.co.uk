@@ -53,6 +53,10 @@ class RepositoryServiceProvider extends ServiceProvider {
             'Dashboard\Repositories\OrderProductRepositoryInterface',
             'Dashboard\Repositories\EloquentOrderProductRepository'
         );
+        $this->app->bind(
+            'Dashboard\Repositories\ProductRepositoryInterface',
+            'Dashboard\Repositories\EloquentProductRepository'
+        );
 
 
 
@@ -60,18 +64,18 @@ class RepositoryServiceProvider extends ServiceProvider {
 
 
  // Bind the Api Interfaces
-        $this->app->bind(
-            'Dashboard\Api\Repositories\BroadcastApiRepositoryInterface',
-            'Dashboard\Api\Repositories\EloquentApiBroadcastRepository'
-        );
-        $this->app->bind(
-            'Dashboard\Api\Repositories\ContactApiRepositoryInterface',
-            'Dashboard\Api\Repositories\EloquentApiContactRepository'
-        );
-        $this->app->bind(
-            'Dashboard\Api\Repositories\OrderApiRepositoryInterface',
-            'Dashboard\Api\Repositories\EloquentApiOrderRepository'
-        );
+        // $this->app->bind(
+        //     'Dashboard\Api\Repositories\BroadcastApiRepositoryInterface',
+        //     'Dashboard\Api\Repositories\EloquentApiBroadcastRepository'
+        // );
+        // $this->app->bind(
+        //     'Dashboard\Api\Repositories\ContactApiRepositoryInterface',
+        //     'Dashboard\Api\Repositories\EloquentApiContactRepository'
+        // );
+        // $this->app->bind(
+        //     'Dashboard\Api\Repositories\OrderApiRepositoryInterface',
+        //     'Dashboard\Api\Repositories\EloquentApiOrderRepository'
+        // );
 
 
     }

@@ -1,29 +1,17 @@
 @extends('layouts.modal')
 
-@section('modal-body')
-    this is the modal body line 1
-
-@show
-
-
-?>
-@section('modal-body1')
-
-<h1>Modal body</h1>
-{{ $record->productList() }}
 {{ dump($record) }}
-{{-- dump($record->hello) --}}
+
+@section('modal-body')
     <h1>Create an order</h1>
     <div class="row">  
         {{ Former::open()
         ->role('Form')
-        ->class('ajax-form')
+        ->class('modal-ajax-form')
         ->tableId('orders')
         ->method('POST')
         ->ajaxMethod('POST')
         ->route('app.orders.store');
-        // ->populate($record->resource);
-
         }}
 
         @section('create-form-top')
@@ -31,6 +19,8 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 {{ Former::text('order_title')->class('form-control input-sm copy-destination')->label('Order Summary')->placeholder('Add summary of order here') }}
             </div>
+
+            {{ Former::text('projects')->useDatalist(Dashboard\Sales\Product::all(), 'product_title') }}
 
             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -42,7 +32,7 @@
             </div>
 
         @show
-        @section('orderitems-form')
+        @section('orderitems-form1')
             
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <table id="lineitems" >
@@ -54,7 +44,7 @@
                     </tr>
                     <tr >
                         <td>
-                            {{-- Former::select('_order_product[product_id][]')->class('form-control input')->options()->label(false) --}}
+                            {{ Former::select('_order_product[product_id][]')->class('form-control input')->options($record->productList())->label(false) }}
                         </td>
                         <td>
                             {{ Former::select('_order_product[variant][]')->class('form-control input')->options($config['seasons'])->label(false) }}

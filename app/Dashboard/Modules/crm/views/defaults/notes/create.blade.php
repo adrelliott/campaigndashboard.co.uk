@@ -5,7 +5,7 @@
             
     {{ Former::open()
     ->role('Form')
-    ->class('ajax-form')
+    ->class('modal-ajax-form')
     ->tableId('notes')
     ->method('POST')
     ->ajaxMethod('POST')

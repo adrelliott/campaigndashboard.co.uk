@@ -5,6 +5,7 @@
  *
  * use this Interface to define Contact specific methods, e.g. getDateOfBirth()
  */
-interface OrderRepositoryInterface extends RepositoryInterface {
-  
+interface ProductRepositoryInterface extends RepositoryInterface {
+    
+    // Override promises here
 }

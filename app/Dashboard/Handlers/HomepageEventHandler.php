@@ -4,17 +4,11 @@ use Dashboard\Events\EventHandler;
 
 class HomepageEventHandler extends EventHandler {
 
-    private $eventPrefix = 'dashboard.homepage.';
-
-    public function __construct()
-    {
-        $this->prefix = $this->eventPrefix;;
-    }
-
+    protected $eventPrefix = 'dashboard.homepage.'; 
     
     public function homepageIndex()
     {
-        dd('event fired: index');
+        // dd('event fired: dashboard indexindex');
     }
 
 }

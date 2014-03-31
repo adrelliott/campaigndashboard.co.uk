@@ -1,4 +1,4 @@
-$('form.ajax-form').on('submit', function(e) {
+$('form.modal-ajax-form').on('submit', function(e) {
     e.preventDefault();
     
     //Set up vars
@@ -27,10 +27,9 @@ $('form.ajax-form').on('submit', function(e) {
 
 
     // Need some validation in here
-    
-    // $('#modal').modal('hide')
-    // console.log('tableId:', tableId);
-    // $('table#'+tableId+'-table').dataTable().fnDraw();
+    $('#modal').modal('hide')
+    console.log('tableId:', tableId);
+    $('table#'+tableId+'-table').dataTable().fnDraw();
 
 
     //Now show some success messages

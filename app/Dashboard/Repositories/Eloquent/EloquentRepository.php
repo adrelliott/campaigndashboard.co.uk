@@ -16,15 +16,17 @@ class EloquentRepository {
     protected $q;
 
    
-   /****************** RESTful methods *******************/
+   /****************** RESTful CRUD methods *******************/
  
-    public function findRecord($id)
+    public function findRecord($id, $with = false)
     {
         if (is_subclass_of($this->model, 'BaseModel'))
             $this->model->whereOwnerId(Auth::user()->owner_id);
-        return $this->model->findOrFail( $id );
-    }
 
+        // If we've passed $with array then eager load
+        if ( $with ) return $this->model->with($with)->findOrFail( $id );
+        else return $this->model->findOrFail( $id );
+    }
 
     public function createRecord()
     {
@@ -32,7 +34,7 @@ class EloquentRepository {
         $this->q = new $this->model( Input::all() );
 
         // 2. Set the owner_id
-        $this->q->owner_id = Auth::user()->owner_id;       
+        //$this->q->owner_id = Auth::user()->owner_id;       
 
         // 2. Now save it and set a success flag
         // if ( $this->q->save() ) $this->q->result = TRUE;
@@ -47,7 +49,7 @@ class EloquentRepository {
         // 1. Find the model & fill with $_POST (protected with $fillable)
         $this->q = $this->model->findOrFail( $id );
         $this->q->fill( Input::all() );
-        $this->q->owner_id = Auth::user()->owner_id;   
+        //$this->q->owner_id = Auth::user()->owner_id;   
 
         // 2. Save the new model and set a success flag
         // if ( $this->q->save() ) $this->q->result = TRUE;
@@ -65,6 +67,26 @@ class EloquentRepository {
 
 
     /*********************** general Mehtods for data handling *******************/
+
+
+    public function findAll()
+    {
+        if (is_subclass_of($this->model, 'BaseModel'))
+            $this->model->whereOwnerId(Auth::user()->owner_id);
+        return $this->model->all();
+    }
+
+    public function lists($cols = array())
+    {
+        return $this->model->lists($cols);
+    }
+
+
+
+
+
+
+
 
     /**
      * Get all records, using URL params to constrain

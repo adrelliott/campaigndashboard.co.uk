@@ -121,3 +121,4 @@ require app_path().'/composers.php';
 */
 
 require app_path().'/Dashboard/Helpers/debugHelpers.php';
+require app_path().'/Dashboard/Helpers/arrayHelpers.php';
