@@ -1,5 +1,5 @@
 @extends('sales::defaults.orders.create')
-
+{{ dump($record->productList()) }}
 @section('orderitems-form')
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <table id="lineitems" >

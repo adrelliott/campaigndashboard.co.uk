@@ -1,8 +1,6 @@
 <?php namespace Dashboard\Sales;
 
 use BaseController;
-use Event;
-use View;
 use Dashboard\Repositories\OrderRepositoryInterface as ModelInterface;
 use Dashboard\Repositories\ProductRepositoryInterface as ProductInterface;
 
@@ -18,8 +16,8 @@ class OrdersController extends BaseController {
 
     protected $beforeRender = array(
         'create' => 'setUpOrderform',
-        'edit' => 'setUpOrderform',
-        'store' => 'createOrder',
+        // 'edit' => 'syncOrderItems',
+        // 'store' => 'syncOrderItems',
     );
     
 
@@ -30,22 +28,35 @@ class OrdersController extends BaseController {
     }
 
 
+    public function store()
+    {
+        # Create the order record
+        $this->record = $this->repo->createRecord();
+
+        # Add/remove any orderItems
+        $this->repo->syncOrderItems($this->record);
+
+        return $this->redirect();
+    }
+
+    public function update($id)
+    {
+        //Try to update and pass result to redirect() method
+        $this->record = $this->repo->updateRecord($id);
+        # Add/remove any orderItems
+        $this->repo->syncOrderItems($this->record);
+        return $this->redirect();
+    }
+
+   
     public function setUpOrderform( $id = FALSE )
     {
         # Set up product list
-        $this->record->productList = $this->productRepo->lists('product_title');
+        $this->record->productList = $this->productRepo->findAll('product_title', 'id');
 
-        # 
+        # Perhpas we should also get the prices of the products? 
     }
 
-    public function createOrder()
-    {
-        # Get order items
-        # Organise into array for pivot table
-        # Remove any lines with quantity = 0
-        # Sync pivot table
-        # 
-    }
 
 
 

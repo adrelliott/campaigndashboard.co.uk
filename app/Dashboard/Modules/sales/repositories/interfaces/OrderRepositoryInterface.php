@@ -6,5 +6,7 @@
  * use this Interface to define Contact specific methods, e.g. getDateOfBirth()
  */
 interface OrderRepositoryInterface extends RepositoryInterface {
+
+    public function syncOrderItems($order);
   
 }

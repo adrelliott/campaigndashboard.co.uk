@@ -31,7 +31,6 @@ class OrderPresenter extends Presenter {
 
    public function productList()
    {
-       dump($this->resource->productList, 1);
        return $this->resource->productList;
    }
 
