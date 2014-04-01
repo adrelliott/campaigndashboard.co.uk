@@ -31,8 +31,8 @@ class OrderPresenter extends Presenter {
 
    public function productList()
    {
-       // return $this->resource->productList->toArray();
-       return array(1 => 'ww');
+       dump($this->resource->productList, 1);
+       return $this->resource->productList;
    }
 
   

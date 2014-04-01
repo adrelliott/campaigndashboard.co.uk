@@ -71,14 +71,14 @@ class EloquentRepository {
 
     public function findAll()
     {
-        if (is_subclass_of($this->model, 'BaseModel'))
-            $this->model->whereOwnerId(Auth::user()->owner_id);
-        return $this->model->all();
+        // if (is_subclass_of($this->model, 'BaseModel'))
+        //     $this->model->whereOwnerId(Auth::user()->owner_id);
+        return $this->model->onlyOwners()->all();
     }
 
     public function lists($cols = array())
     {
-        return $this->model->lists($cols);
+        return $this->model->onlyOwners()->lists($cols);
     }
 
 

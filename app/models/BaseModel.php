@@ -21,6 +21,9 @@ class BaseModel extends Magniloquent {
         'update' => array()
     );
 
+    /**
+     * Runs on every Eloquent Query
+     */
     public static function boot()
     {
         parent::boot();
@@ -29,14 +32,24 @@ class BaseModel extends Magniloquent {
         static::creating(function($thing){ $thing->forceOwnerId(); });
         static::updating(function($thing){ $thing->forceOwnerId(); });
 
+        // What about doing it for delete?????????
+
     }
 
+    /**
+     * Ensures that the record being saved is attributed to the right tenant  
+     * 
+     */
     public function forceOwnerId()
     {
         if (!$this->owner_id)
           $this->owner_id = Auth::user()->owner_id;
     }
 
+    /**
+     * SCOPE: Ensures that we only return the records belonging to the current tenant 
+     * @param  object $query The query form the query builder
+     */
     public function scopeOnlyOwners($query)
     {
         $query->whereOwnerId(Auth::user()->owner_id);
