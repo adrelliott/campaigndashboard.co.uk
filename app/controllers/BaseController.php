@@ -26,9 +26,9 @@ class BaseController extends Controller {
 
     /**
      * Sets up hooks for within a method
-     * @param array $beforeRender 
+     * @param array $postEvent 
      */
-    protected $beforeRender = array();
+    protected $postEvent = array();
 
 
 
@@ -49,6 +49,9 @@ class BaseController extends Controller {
     public function index()
     {
         $this->record = $this->repo->model;
+
+        # Fire event & render view
+        $this->fireEvent();
         return $this->renderView();
     }
 
@@ -60,6 +63,9 @@ class BaseController extends Controller {
     public function create()
     {
         $this->record = $this->repo->model;
+
+        # Fire event & render view
+        $this->fireEvent();
         return $this->renderView()->withRecord($this->record); // Wraps in presenter
     }
 
@@ -73,6 +79,9 @@ class BaseController extends Controller {
     {
         //Try to store and pass result to redirect() method
         $this->record = $this->repo->createRecord();
+
+        # Fire event & redirect
+        $this->fireEvent();
         return $this->redirect();
     }
 
@@ -88,6 +97,9 @@ class BaseController extends Controller {
     {
         // Get the record (and associated records via with() )
         $this->record = $this->repo->findRecord($id, $this->with);
+
+        # Fire event & render view
+        $this->fireEvent();
         return $this->renderView('edit')->withRecord($this->record);
     }
 
@@ -102,6 +114,9 @@ class BaseController extends Controller {
     {
         // Get the record (and associated records via with() )
         $this->record = $this->repo->findRecord($id, $this->with);
+
+        # Fire event & render view
+        $this->fireEvent();
         return $this->renderView()->withRecord($this->record);
     }
 
@@ -116,6 +131,9 @@ class BaseController extends Controller {
     {
         //Try to update and pass result to redirect() method
         $this->record = $this->repo->updateRecord($id);
+        
+        # Fire event & redirect
+        $this->fireEvent();
         return $this->redirect();
     }
 
@@ -130,6 +148,9 @@ class BaseController extends Controller {
     {
         //Form submists as DELETE to contacts/$id
         
+        # Fire event & redirect
+        $this->fireEvent();
+        return $this->redirect();
         // where's my view???
     }
     
@@ -191,8 +212,12 @@ class BaseController extends Controller {
         $event = join('.', $this->classAttributes);
         $retval = Event::fire( $event, $this->record );
 
-        # Turj into a readable array
-        $this->record->eventResponse = $retval[0];
+        # Turn into a readable array
+        // $this->record->eventResponse = $retval[0];
+
+        # HOOK: Do we have any postEvent methods to perform?
+        if ( isset( $this->postEvent[$this->classAttributes[3]]) ) 
+            $this->{$this->postEvent[$this->classAttributes[3]]}();
     }
     
 
@@ -204,13 +229,6 @@ class BaseController extends Controller {
      */
     public function renderView()
     {
-        # Fire event
-        $this->fireEvent();
-
-        # Do we have any beforeRender methods to perform?
-        if ( isset( $this->beforeRender[$this->classAttributes[3]]) ) 
-            $this->{$this->beforeRender[$this->classAttributes[3]]}();
-
         # Check to see if we have a custom view for this client/tenant
         $filePath =  $this->classAttributes[1] . '::defaults.' . $this->classAttributes[2] . '.' . $this->classAttributes[3];
         $customFilePath = str_replace('defaults', Auth::user()->owner_id, $filePath);

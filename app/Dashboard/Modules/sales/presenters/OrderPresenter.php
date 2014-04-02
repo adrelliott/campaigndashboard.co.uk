@@ -34,19 +34,44 @@ class OrderPresenter extends Presenter {
        return $this->resource->productList;
    }
 
-  
-
     public function orderItems()
     {
-        $orderItems = $this->resource->products;
-        
-        foreach ($orderItems as $k => $o )
-        {
-            $orderItems[$k] = $o['pivot'];
-        }
+        return $this->resource->products;
+    }   
 
-        return $orderItems->toArray();
+    public function toGBP($price)
+    {
+        return (float)$price/100;
     }
+
+
+
+// public function orderItems1()
+//     {
+//         $orderItems = $this->resource->toArray();
+
+//         return $orderItems['products'];
+//     }
+
+//     public function getProperty($object)
+//     {
+//         $array = $object->toArray();
+//         return $array[$object];
+//     }   
+
+
+
+    // public function orderItems()
+    // {
+    //     $orderItems = $this->resource->products;
+        
+    //     foreach ($orderItems as $k => $o )
+    //     {
+    //         $orderItems[$k] = $o['pivot'];
+    //     }
+
+    //     return $orderItems->toArray();
+    // }
 
     public function orderItemsBlankRow()
     {

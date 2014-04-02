@@ -12,11 +12,11 @@ class EloquentOrderRepository extends EloquentRepository implements OrderReposit
     }
 
 
-    public function updateRecord($id  = FALSE)
-    {
-        $order = parent::updateRecord($id);
-        $this->syncOrderItems($order);
-    }
+    // public function updateRecord($id  = FALSE)
+    // {
+    //     $order = parent::updateRecord($id);
+    //     $this->syncOrderItems($order);
+    // }
 
     /**
      * Takes the input and formats the '_order_product' array to sync the order_product records
@@ -24,7 +24,7 @@ class EloquentOrderRepository extends EloquentRepository implements OrderReposit
     public function syncOrderItems($order)
     {
         $orderItems = array();
-        dump(Input::all(), 1);
+// dump(Input::all(), 1);
         # Fetch and arrange the orderItems (order_product records)
         if ( Input::has('_order_product') )
         {
@@ -38,9 +38,7 @@ class EloquentOrderRepository extends EloquentRepository implements OrderReposit
 
                      //Convert price to pennies
                     $orderItems[$product]['price'] = (int)Input::get('_order_product.price.' . $k) * 100; 
-                    $orderItems[$product]['owner_id'] = Auth::user()->owner_id;
-
-                   
+                    $orderItems[$product]['owner_id'] = Auth::user()->owner_id;  
                 }
             }
         }

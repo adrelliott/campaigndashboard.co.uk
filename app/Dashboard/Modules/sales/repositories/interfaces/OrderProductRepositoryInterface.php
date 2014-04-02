@@ -7,6 +7,6 @@
  */
 interface OrderProductRepositoryInterface extends RepositoryInterface {
     
-    public function formatOrderProductArray($order_id);
+    //public function formatOrderProductArray($order_id);
 
 }

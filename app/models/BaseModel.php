@@ -29,8 +29,8 @@ class BaseModel extends Magniloquent {
         parent::boot();
 
         // Hook into the create & update event & set the ownerId
-        static::creating(function($thing){ $thing->forceOwnerId(); });
-        static::updating(function($thing){ $thing->forceOwnerId(); });
+        static::creating(function($object){ $object->forceOwnerId(); });
+        static::updating(function($object){ $object->forceOwnerId(); });
 
         // What about doing it for delete?????????
 

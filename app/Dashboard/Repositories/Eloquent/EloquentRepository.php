@@ -15,6 +15,11 @@ class EloquentRepository {
      */
     protected $q;
 
+    // public function __construct()
+    // {
+    //     $this->q =new $this->model;
+    // }
+
    
    /****************** RESTful CRUD methods *******************/
  
@@ -76,9 +81,10 @@ class EloquentRepository {
         return $this->model->onlyOwners()->all();
     }
 
-    public function lists($cols = array())
+    
+    public function dropdown($label)
     {
-        return $this->model->onlyOwners()->lists($cols);
+        return $this->model->onlyOwners()->lists($label,'id');
     }
 
 

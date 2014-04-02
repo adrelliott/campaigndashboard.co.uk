@@ -1,6 +1,5 @@
 @extends('layouts.modal')
 
-
 @section('modal-body')
     <h1>Create an order</h1>
     <div class="row">  
