@@ -293,6 +293,30 @@
     <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.roles.create', array('contact_id' => $record->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Role</a>
 @stop
 
+@section('tags')
+    <h3 class="text-primary"><i class="fa fa-tags"></i> Tags</h3>
+
+    @section('tags-table')
+
+        <div class="table-responsive clearfix">
+            <table class="table dataTable data-table minitable" id="tags-table" 
+            data-ajaxsource="/dt/tags?cols=id,tag_title&sortDESC=id&contact_id={{ $record->id}}"
+             data-showid="false" data-linkurl="/app/tags" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/tags" >
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Tag Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        
+    @show
+
+@stop
+
 @section('modal')
     @include('partials.common._modal', array('modalTitle' => $record->fullName))
 @stop

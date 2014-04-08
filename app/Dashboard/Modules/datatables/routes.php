@@ -20,14 +20,21 @@ Route::group(array(
 
         // Contacts
         Route::get('contacts', 'Crm\ContactsController@getAll');
+        Route::get('contacts/getPivot', 'Crm\ContactsController@getPivot');
+
         Route::get('notes', 'Crm\NotesController@getAll');
         Route::get('notes/getFor', 'Crm\NotesController@getFor');
+
         Route::get('roles', 'Crm\RolesController@getAll');
         Route::get('roles/getFor', 'Crm\RolesController@getFor');
+
+        Route::get('tags', 'Tags\TagsController@getAll');
+        Route::get('tags/getFor', 'Tags\TagsController@getFor');
         
         // Orders
         Route::get('orders', 'Sales\OrdersController@getAll');
         Route::get('orders/getFor', 'Sales\OrdersController@getFor');
+
         Route::get('orderproducts', 'Sales\OrderProductsController@getAll');
         Route::get('orderproducts/getFor', 'Sales\OrderProductsController@getFor');
 

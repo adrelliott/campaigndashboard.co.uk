@@ -29,7 +29,7 @@ class Contact extends BaseModel {
      */
     public function tags()
     {
-        return $this->belongsToMany('Dashboard\Tags\Tag', 'tag_pivot');
+        return $this->belongsToMany('Dashboard\Tags\Tag');
     }
 
     public function roles()

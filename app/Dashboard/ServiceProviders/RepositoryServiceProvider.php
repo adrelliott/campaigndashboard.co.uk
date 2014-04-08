@@ -41,6 +41,10 @@ class RepositoryServiceProvider extends ServiceProvider {
             'Dashboard\Repositories\NoteRepositoryInterface',
             'Dashboard\Repositories\EloquentNoteRepository'
         );
+        $this->app->bind(
+            'Dashboard\Repositories\TagRepositoryInterface',
+            'Dashboard\Repositories\EloquentTagRepository'
+        );
 
 
 

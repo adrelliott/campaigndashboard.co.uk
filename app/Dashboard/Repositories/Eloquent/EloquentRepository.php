@@ -15,10 +15,70 @@ class EloquentRepository {
      */
     protected $q;
 
-    // public function __construct()
-    // {
-    //     $this->q =new $this->model;
-    // }
+    /**
+     * Can be overidden in the models- define what cols to retreive
+     * @var array or '*'
+     */
+    protected $selectCols = '*';
+
+    public function __construct($model)
+    {
+        $this->model = $model;
+        $this->q = $this->model->select($this->selectCols);
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Retrieve methods
+    |--------------------------------------------------------------------------
+    |
+    | Rewrite all Elowuent retrive methods to ensure we only get the 
+    |
+    */
+    public function all()
+    {
+        return $this->q->onlyOwners()->get();
+    }
+
+    public function find($id, $with = FALSE)
+    {
+        return $this->findOrFail($id, $with);
+    }
+
+    public function findOrFail($id, $with = FALSE)
+    {
+        if ( $with ) return $this->q->with($with)->onlyOwners()->findOrFail( $id );
+        else return $this->q->onlyOwners()->findOrFail($id);
+    }
+
+    public function firstOrFail()
+    {
+        return $this->q->onlyOwners()->firstOrFail();
+    }
+
+    public function get()
+    {
+        return $this->q->onlyOwners()->get();
+        // return $this->q->get();
+    }
+
+    public function first()
+    {
+        return $this->q->onlyOwners()->first();
+    }
+
+    public function pluck($colName)
+    {
+        return $this->q->onlyOwners()->pluck($colName);
+    }
+
+    public function lists($colValue, $colKey = 'id')
+    {
+        return $this->q->onlyOwners()->lists($colValue, $colKey);
+    }
+
+   
 
    
    /****************** RESTful CRUD methods *******************/
@@ -71,14 +131,23 @@ class EloquentRepository {
 
 
 
+
+
+
+
+
+
+
+
+
     /*********************** general Mehtods for data handling *******************/
 
 
     public function findAll()
     {
-        // if (is_subclass_of($this->model, 'BaseModel'))
-        //     $this->model->whereOwnerId(Auth::user()->owner_id);
-        return $this->model->onlyOwners()->all();
+        if (is_subclass_of($this->model, 'BaseModel'))
+            return $this->model->whereOwnerId(Auth::user()->owner_id)->get();
+        return $this->model->all();
     }
 
     
@@ -113,6 +182,23 @@ class EloquentRepository {
         if ( $sortDESC = Input::get('sortDESC') ) $this->q->orderBy($sortDESC, 'desc');
         return $this->getResult($dataTable);
     }
+
+    public function getPivot($dataTable = TRUE)
+    {
+        $this->setCols();
+        $otherTable = Input::get('otherTable');
+
+        // Return the results
+        $this->q->$otherTable;
+        dump($this->model->get());
+        return;
+
+        if ( $contact_id = Input::get('contact_id') ) $this->q->where('contact_id', $contact_id);
+        if ( $sortASC = Input::get('sortASC') ) $this->q->orderBy($sortASC, 'asc');
+        if ( $sortDESC = Input::get('sortDESC') ) $this->q->orderBy($sortDESC, 'desc');
+        return $this->getResult($dataTable);
+    }
+
 
    
     /**
@@ -160,7 +246,7 @@ class EloquentRepository {
     public function getResult($dataTable)
     {
         $this->q->where('owner_id', Auth::user()->owner_id);
-       
+
         // if its datatable then run it through Datatables class
         if ( $dataTable ) $result = Datatables::of($this->q)->make();
         else $result = $this->q->get();

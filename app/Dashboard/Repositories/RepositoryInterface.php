@@ -8,7 +8,41 @@
  */
 interface RepositoryInterface {
     
+    /**
+     * Overrides the default all() (and adds in the queryscope to just get this owner's records)
+     * @return returns Eloquent collection
+     */
+    // public function all();
+
+    // public function find($id, $with);
+
+    // public function findOrFail($id, $with);
+
+    // public function firstOrFail();
+
+    // public function first();
+
+    // public function get();
+
+    // public function pluck($colName);
+
+    // public function lists($colValue, $colKey);
+    
+    // public function where($column, $operator = null, $value = null, $boolean = 'and');
+
+    // public function firstOrCreate();
+
+
+
+
+
+    /**
+     * This is the all()
+     * @return [type] [description]
+     */
     public function getAll();
+
+
 
     public function findAll();
 

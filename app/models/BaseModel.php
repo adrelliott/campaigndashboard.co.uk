@@ -36,6 +36,8 @@ class BaseModel extends Magniloquent {
 
     }
 
+    
+
     /**
      * Ensures that the record being saved is attributed to the right tenant  
      * 

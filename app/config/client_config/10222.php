@@ -87,7 +87,7 @@
    //The tabs for views/contacts/show.blade.php
     $config['contactsshow'] = array(
         'col1tabs' => ['Overview', 'In Depth', 'Opt In', 'Notes'],
-        'col2tabs' => ['Purchases', 'Roles'],
+        'col2tabs' => ['Purchases', 'Roles', 'Tags'],
         // 'col2tabs' => ['Purchases', 'Roles', 'Tags', 'Links'],
         );
 

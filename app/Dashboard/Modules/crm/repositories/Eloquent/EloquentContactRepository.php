@@ -6,7 +6,9 @@ class EloquentContactRepository extends EloquentRepository implements ContactRep
 
     public function __construct(Model $model)
     {
-        $this->model = $model;
+        // $this->model = $model;
+        parent::__construct($model);
     }
+
 
 }

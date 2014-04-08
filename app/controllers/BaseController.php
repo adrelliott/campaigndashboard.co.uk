@@ -173,6 +173,12 @@ class BaseController extends Controller {
         return $this->repo->getFor(TRUE);
     }
 
+    public function getPivot()
+    {
+        // Get all results (pass 'true' to use Bllim\DataTables class)
+        return $this->repo->getPivot(TRUE);
+    }
+
 
 
 
