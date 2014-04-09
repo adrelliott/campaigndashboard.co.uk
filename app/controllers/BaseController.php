@@ -173,6 +173,15 @@ class BaseController extends Controller {
     
 
 
+    /****************** Other m,ethods ****************/
+    public function getRelated($id, $relatedModel, $with = FALSE)
+    {
+        // Get this model and its related models
+        $this->record = $this->repo->getRelated($id, $relatedModel, $with);
+        $this->fireEvent();
+        return $this->handleResponse();
+    }
+
 
 
 

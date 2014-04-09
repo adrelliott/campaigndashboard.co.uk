@@ -1,8 +1,6 @@
 <?php namespace Dashboard\Sales;
 
 use Dashboard\Presenters\Presenter;
-use Dashboard\Sales\Order as Model;
-use Dashboard\Repositories\ProductRepositoryInterface as Products;
 use \Carbon;
 
 class OrderPresenter extends Presenter {
@@ -29,9 +27,10 @@ class OrderPresenter extends Presenter {
     // protected $product;
 
 
-   public function productList()
+   public function getProductName()
    {
-       return $this->resource->productList;
+       return 'prod name';
+       // return $this->resource->product->product_title;
    }
 
     public function orderItems()
@@ -44,34 +43,6 @@ class OrderPresenter extends Presenter {
         return (float)$price/100;
     }
 
-
-
-// public function orderItems1()
-//     {
-//         $orderItems = $this->resource->toArray();
-
-//         return $orderItems['products'];
-//     }
-
-//     public function getProperty($object)
-//     {
-//         $array = $object->toArray();
-//         return $array[$object];
-//     }   
-
-
-
-    // public function orderItems()
-    // {
-    //     $orderItems = $this->resource->products;
-        
-    //     foreach ($orderItems as $k => $o )
-    //     {
-    //         $orderItems[$k] = $o['pivot'];
-    //     }
-
-    //     return $orderItems->toArray();
-    // }
 
     public function orderItemsBlankRow()
     {

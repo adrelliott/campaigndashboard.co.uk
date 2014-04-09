@@ -15,18 +15,19 @@ class ContactsController extends BaseController {
     }
 
 
-    public function getRelated($id, $relatedModel)
-    {
-        // Get this model and its related models
-        $this->record = $this->repo->findRecord($id)->$relatedModel;
-        return $this->getResponse();
-    }
+    // public function getRelated($id, $relatedModel)
+    // {
+    //     // Get this model and its related models
+    //     $this->record = $this->repo->findRecord($id)->$relatedModel;
+    //     return $this->getResponse();
+    // }
 
-   public function getOrderProducts($id)
-   {
-        $this->record = $this->repo->findRecord($id, 'orderProducts.product')->orderProducts;
-        return $this->getResponse();
-   }
+   // public function getOrderProducts($id)
+   // {
+   //      return $this->getRelated($id, 'orderProducts', 'orderProducts.product');
+   //      $this->record = $this->repo->findRecord($id, 'orderProducts.product')->orderProducts;
+   //      return $this->handleResponse();
+   // }
 
    
 
@@ -83,30 +84,20 @@ class ContactsController extends BaseController {
 
 
 
-    public function getAllTags($contactId)
-    {
-        // return 'showing all tags for contact ' . $contactId;
-        $this->record = $this->repo->getTags($contactId);
+    // public function getAllTags($contactId)
+    // {
+    //     // return 'showing all tags for contact ' . $contactId;
+    //     $this->record = $this->repo->getTags($contactId);
 
 
-        # If its a datatables request, then send the collection to the makeDataTable() method
+    //     # If its a datatables request, then send the collection to the makeDataTable() method
         
 
-        if ( Input::get('datatables') )
-        {
+    //     if ( Input::get('datatables') )
+    //     {
 
-        }
-    }
+    //     }
+    // }
 
-
-
-    public function allAsJson()
-    {
-        return Datatable::collection($this->repo->all(array('id','first_name', 'owner_id')))
-        ->showColumns('id', 'first_name', 'owner_id')
-        ->searchColumns('first_name')
-        ->orderColumns('id','first_name')
-        ->make();
-    }
 
 }

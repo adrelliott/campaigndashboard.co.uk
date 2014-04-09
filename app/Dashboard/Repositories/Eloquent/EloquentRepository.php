@@ -4,6 +4,7 @@ use Auth;
 use Input;
 use DB;
 use Datatable;
+use Chumper\Datatable\Columns\TextColumn;
 use Bllim\Datatables\Datatables;
 
 /**
@@ -23,6 +24,8 @@ class EloquentRepository {
      * @var array or '*'
      */
     protected $selectCols = array('id', 'owner_id');
+
+    protected $datatableName = '';
 
     /**
      * __construct
@@ -44,33 +47,99 @@ class EloquentRepository {
     | Redfine some main Eloquent methods to restrict to tenant's records only 
     |
     */
+    /**
+     * Gets all records and if URL has datatable=true, fomrats as datatable json
+     * @return  JSON
+     */
     public function all()
     {
-        if ( Input::has('datatable') ) 
+        # Set up the query
+        $this->q = $this->model->onlyOwners();
+        
+        # Is it a datatable request?
+        if ( Input::has('datatable') )
+        {
+            $this->datatableName = 'all';
             return $this->makeDatatable();
-        return $this->model->onlyOwners()->get($this->selectCols);
+        }
+            
+        else return $this->q->get($this->selectCols);
+    }
+    
+    /**
+     * Gets all records related to the record with id
+     *  and if URL has datatable=true, formats as datatable json
+     * @return  JSON
+     */
+    public function getRelated($id, $relatedModel, $with)
+    {
+        
+        # Set up the query (using the findOrFail() method below)
+        $this->q = $this->findOrFail($id, $with)->$relatedModel;
+        
+        # Is it a datatable request?
+        if ( Input::has('datatable') )
+        {
+            $this->datatableName = $relatedModel;
+            return $this->makeDatatable('collection'); // Its a collection, not query
+        }
+        else return $this->q;
     }
 
-     public function find($id, $with = FALSE)
+    /**
+     * Finds a model with id=$id, and if we pass a 'with' value
+     * eager loads those values too
+     * @param  int  $id   id of the model
+     * @param  boolean or string $with The related model(s) to eager load
+     * @return JSON        
+     */
+    public function find($id, $with = FALSE)
     {
         return $this->findOrFail($id, $with);
     }
 
+    /**
+     * Finds a model with id=$id, and if we pass a 'with' value
+     * eager loads those values too
+     * @param  int  $id   id of the model
+     * @param  boolean or string $with The related model(s) to eager load
+     * @return JSON        
+     */
     public function findOrFail($id, $with = FALSE)
     {
-        if ( $with ) return $this->model->with($with)->onlyOwners()->findOrFail( $id );
-        else return $this->model->onlyOwners()->findOrFail($id);
+        # Set up the query
+        $this->q = $this->model->onlyOwners();
+        
+        if ( $with ) return $this->q->with( $with )->findOrFail( $id );
+        else return $this->q->findOrFail( $id );
     }
 
-    public function firstOrFail()
+    /**
+     * Finds the first model where=$where, and if we pass a 'with' value
+     * eager loads those values too
+     * @param  int  $id   id of the model
+     * @param  boolean or string $with The related model(s) to eager load
+     * @return JSON        
+     */
+    public function firstOrFail($where = array())
     {
-        return $this->model->onlyOwners()->firstOrFail();
+        # Set up the query
+        $this->q = $this->model->onlyOwners()->where($where);
+        return $this->q->firstOrFail();
     }
 
     public function get()
     {
-        return $this->model->onlyOwners()->get();
-        // return $this->model->get();
+        # Set up the query
+        $this->q = $this->model->onlyOwners();
+
+         # Is it a datatable request?
+        if ( Input::has('datatable') )
+        {
+            $this->datatableName = 'get';
+            return $this->makeDatatable('collection'); // Its a collection, not query
+        }
+        else return $this->q->get($this->selectCols);
     }
 
     public function first()
@@ -111,6 +180,13 @@ class EloquentRepository {
         elseif ( isset($this->model->selectCols) ) $this->selectCols = $this->model->selectCols;
     }
 
+    public function setDataTableOptions($queryType)
+    {
+        if ( isset($this->dataTableOptions[$queryType]) )
+            $this->dataTableOptions = $this->dataTableOptions[$queryType];
+    }
+
+
     /**
      * uses either a query or a collection to create a datatable
      * @param  string $type either 'query' or 'collection'
@@ -118,12 +194,33 @@ class EloquentRepository {
      */
     public function makeDatatable($type = 'query')
     {
-        return Datatable::$type($this->model->onlyOwners())
-                ->showColumns($this->selectCols)
-                ->searchColumns($this->selectCols)
-                ->orderColumns($this->selectCols)
-                ->make();
+        //Set up the type
+        $this->datatable = Datatable::$type($this->q);
+
+        // Now set up the columns to retrieve search by and order by
+        $this->datatable->showColumns($this->selectCols)
+            ->searchColumns($this->selectCols)
+            ->orderColumns($this->selectCols);
+
+        // Add any custom columns
+        $this->addCustomColumns( $this->datatableName );
+
+        return $this->datatable->make();
     }
+
+
+    protected function addCustomColumns( $tableName )
+    {
+        //can be overwritten in each repo
+    }
+
+
+
+   
+
+
+
+
 
 
 

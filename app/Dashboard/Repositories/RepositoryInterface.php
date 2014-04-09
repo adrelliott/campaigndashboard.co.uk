@@ -12,21 +12,23 @@ interface RepositoryInterface {
      * Overrides the default all() (and adds in the queryscope to just get this owner's records)
      * @return returns Eloquent collection
      */
-    // public function all();
+    public function all();
 
-    // public function find($id, $with);
+    public function getRelated($id, $relatedModel, $with);
 
-    // public function findOrFail($id, $with);
+    public function find($id, $with);
 
-    // public function firstOrFail();
+    public function findOrFail($id, $with);
 
-    // public function first();
+    public function firstOrFail();
 
-    // public function get();
+    public function get();
 
-    // public function pluck($colName);
+    public function first();
 
-    // public function lists($colValue, $colKey);
+    public function pluck($colName);
+
+    public function lists($colValue, $colKey);
     
     // public function where($column, $operator = null, $value = null, $boolean = 'and');
 

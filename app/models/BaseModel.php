@@ -3,7 +3,6 @@
 /**
  * This is the class from which all of the app's modle classses are extended. Pus global logic here.
  */
-use LaravelBook\Ardent\Ardent;
 use Magniloquent\Magniloquent\Magniloquent;
 
 class BaseModel extends Magniloquent {

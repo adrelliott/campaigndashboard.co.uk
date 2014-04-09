@@ -1,7 +1,7 @@
 @extends('layouts.index') 
 
 <?php 
-    // Sets up the table (ensure ot add as an index of the variable $dataTables)
+    // Sets up the table (ensure to add as an index of the variable $dataTables)
     $dataTables['index'] = Datatable::table()       // these are the column headings to be shown  
     ->setUrl(URL::to($config['tables']['contacts_index']['url']))
     ->addColumn($config['tables']['contacts_index']['showCols'])
