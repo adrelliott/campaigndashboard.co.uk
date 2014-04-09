@@ -18,6 +18,10 @@
 {{ HTML::style('/assets/css/main.css') }}
 
 
+<!-- Get JQuery -->
+{{ HTML::script('//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js') }}
+
+
 {{-- HTML::script('//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js') --}}
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->

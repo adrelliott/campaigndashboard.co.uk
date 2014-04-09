@@ -15,8 +15,11 @@
 <!-- Custom styles for this template -->
 {{ HTML::style('/assets/css/main.css') }}
 
-
+<!-- Get AngularJS -->
 {{-- HTML::script('assets/js/angularjs/angular1.2.13.min.js') --}}
+
+<!-- Get JQuery -->
+{{ HTML::script('assets/js/jquery/jquery2.0.0.min.js') }}
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>

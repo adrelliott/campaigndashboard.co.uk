@@ -29,4 +29,9 @@ class OrderProduct extends BaseModel {
         return $this->belongsTo('Dashboard\Sales\Order');
     }
 
+    public function product()
+    {
+        return $this->hasOne('Dashboard\Sales\Product', 'id'); 
+    }
+
 }

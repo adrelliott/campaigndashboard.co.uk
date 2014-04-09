@@ -118,6 +118,41 @@ return array(
         ),
 
 
+    /*
+    |--------------------------------------------------------------------------
+    | Tables
+    |--------------------------------------------------------------------------
+    |
+    | The settings for each table
+    |
+    */
+    'tables' => array(
+        
+
+        //The table displayed on contacts/index
+        'contacts_index' => array(
+            'url' => 'api/contacts?datatable=true&cols=id,first_name,last_name,owner_id',
+            'showCols' => array('Id', 'Frst name', 'Last Name'),
+            'options' => array(
+                'sPaginationType' => 'bootstrap',
+                'iDisplayLength' => 5,
+                'bLengthChange' => false,
+            ),
+        ),
+
+        //The table displayed on homepage under contacts tab
+        'home_contacts' => array(
+            'url' => 'api/contacts?datatable=true&cols=id,first_name,last_name,owner_id',
+            'showCols' => array('Id', 'Frst name', 'Last Name'),
+            'options' => array(
+                'sPaginationType' => 'bootstrap',
+                'iDisplayLength' => 5,
+                'bLengthChange' => false,
+            ),
+        ),
+
+    ),
+   
 
 
     /*

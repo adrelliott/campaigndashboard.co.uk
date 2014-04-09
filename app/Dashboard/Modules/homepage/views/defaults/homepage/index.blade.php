@@ -49,7 +49,7 @@
             
             <div class="table-responsive clearfix">
                 <table class="table dataTable data-table" id="contacts_table"
-                data-ajaxsource="/dt/contacts?cols=id,first_name,last_name,nickname,postcode,email,mobile_phone,legacy_id" data-showid="false" data-linkurl="/app/contacts" data-iDisplayLength="5">
+                data-ajaxsource="/api/contacts?cols=id,first_name,last_name,nickname,postcode,email,mobile_phone,legacy_id&datatable=true" data-showid="false" data-linkurl="/app/contacts" data-iDisplayLength="5">
                     <thead>
                         <tr>
                             <th>Id</th>

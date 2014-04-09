@@ -2,6 +2,10 @@
 
 use Route;
 
+// Route::get('api/contacts', array('as'=>'api.contacts', 'uses'=> 'Dashboard\Crm\ContactsController@allAsJson'));
+
+
+
 Route::group(array(
     'prefix' => 'dt', 
     'before' => 'auth',
@@ -19,6 +23,11 @@ Route::group(array(
 
 
         // Contacts
+        // 
+        Route::get('api/contacts/test', 'Crm\ContactsController@allAsJson');
+        // 
+        // 
+        // 
         Route::get('contacts', 'Crm\ContactsController@getAll');
         Route::get('contacts/getPivot', 'Crm\ContactsController@getPivot');
 

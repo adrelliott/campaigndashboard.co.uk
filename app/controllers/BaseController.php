@@ -4,10 +4,17 @@
 
 class BaseController extends Controller {
 
+    /**
+     * Repository for this model
+     * @var obj
+     */     
     protected $repo;
 
+    /**
+     * Model object
+     * @var obj
+     */
     protected $record;
-
 
     /**
      * Array of the namespace, class & method
@@ -23,20 +30,31 @@ class BaseController extends Controller {
      */
     protected $with = NULL;
 
-
     /**
      * Sets up hooks for within a method
      * @param array $postEvent 
      */
     protected $postEvent = array();
 
+    /**
+     * What type of request is it?
+     * (defaults to NULL, allowing us to assume its a request within normal flow of app)
+     * @var string
+     */
+    protected $asJson = FALSE;
+
 
 
     public function __construct($repo = NULL)
     {
+        // Set up repo & define class attr
         $this->repo = $repo;
         $this->setClassAttributes();
         
+        // Define the request type
+        if ( Request::ajax() || strtolower(Request::segment(1)) == 'api' ) 
+            $this->asJson = TRUE;
+
         // dump($this->classAttributes);
     }
 
@@ -48,11 +66,11 @@ class BaseController extends Controller {
      */
     public function index()
     {
-        $this->record = $this->repo->model;
+        $this->record = $this->repo->all();
 
         # Fire event & render view
         $this->fireEvent();
-        return $this->renderView();
+        return $this->handleResponse();
     }
 
     /**
@@ -66,7 +84,7 @@ class BaseController extends Controller {
 
         # Fire event & render view
         $this->fireEvent();
-        return $this->renderView()->withRecord($this->record); // Wraps in presenter
+        return $this->handleResponse();
     }
 
 
@@ -82,7 +100,7 @@ class BaseController extends Controller {
 
         # Fire event & redirect
         $this->fireEvent();
-        return $this->redirect();
+        return $this->handleResponse();
     }
 
 
@@ -92,7 +110,6 @@ class BaseController extends Controller {
      * @param  int  $id
      * @return Response
      */
-     
     public function show($id)
     {
         // Get the record (and associated records via with() )
@@ -100,7 +117,7 @@ class BaseController extends Controller {
 
         # Fire event & render view
         $this->fireEvent();
-        return $this->renderView('edit')->withRecord($this->record);
+        return $this->handleResponse();
     }
 
 
@@ -117,7 +134,7 @@ class BaseController extends Controller {
 
         # Fire event & render view
         $this->fireEvent();
-        return $this->renderView()->withRecord($this->record);
+        return $this->handleResponse();
     }
 
 
@@ -134,7 +151,7 @@ class BaseController extends Controller {
         
         # Fire event & redirect
         $this->fireEvent();
-        return $this->redirect();
+        return $this->handleResponse();
     }
 
 
@@ -150,7 +167,7 @@ class BaseController extends Controller {
         
         # Fire event & redirect
         $this->fireEvent();
-        return $this->redirect();
+        return $this->handleResponse();
         // where's my view???
     }
     
@@ -161,36 +178,9 @@ class BaseController extends Controller {
 
 
 
-    public function getAll()
-    {
-        // Get all results (pass 'true' to use Bllim\DataTables class)
-        return $this->repo->getAll(TRUE);
-    }
-    
-    public function getFor()
-    {
-        // Get all results (pass 'true' to use Bllim\DataTables class)
-        return $this->repo->getFor(TRUE);
-    }
-
-    public function getPivot()
-    {
-        // Get all results (pass 'true' to use Bllim\DataTables class)
-        return $this->repo->getPivot(TRUE);
-    }
-
-
-
-
-
-
-
-
-
-
 /***************** View & Routing methods ****************/
 
-    public function setClassAttributes()
+    protected function setClassAttributes()
     {
         // Explode the namespace
         $t = explode('Controller@' ,Route::currentRouteAction());
@@ -213,27 +203,61 @@ class BaseController extends Controller {
      * 2. Set up handler class in app/Dashboard/Handlers
      * (note: Use one class per module)
      */
-    public function fireEvent()
+    protected function fireEvent()
     {
         $event = join('.', $this->classAttributes);
-        $retval = Event::fire( $event, $this->record );
-
-        # Turn into a readable array
-        // $this->record->eventResponse = $retval[0];
+        $this->record->eventResponse = Event::fire( $event, $this->record );
 
         # HOOK: Do we have any postEvent methods to perform?
         if ( isset( $this->postEvent[$this->classAttributes[3]]) ) 
             $this->{$this->postEvent[$this->classAttributes[3]]}();
     }
+
+
+    protected function handleResponse($viewFile = 'edit')
+    {
+        # Is it a json request?
+        if ( $this->asJson )
+        {
+            # If we have tried to save(), and it was successful, return the object
+            if ( isset($this->record->result) && $this->record->result === TRUE )
+                $retval = Response::make($this->record, 200);
+            
+            # elseif we have tried to save(), and it was NOT successful, return errors
+            elseif ( isset($this->record->result) && $this->record->result === FALSE )
+                $retval = Response::make($this->record->errors()->toArray(), 400);
+            
+            # else just return the record
+            else $retval = $this->record;
+        }
+
+        # OK, must be a request from the application
+        else
+        {
+            # If we have tried to save(), and it was successful, redirect to edit page
+            if ( isset($this->record->result) && $this->record->result === TRUE )
+                $retval = Redirect::route('app.' . $this->classAttributes[2] . '.' . $viewFile, array($this->record->id))->with('success', 'That\'s saved!');
+
+            # elseif we have tried to save(), and it was NOT successful, go back and show errors
+            elseif ( isset($this->record->result) && $this->record->result === FALSE )
+                $retval = Redirect::back()
+                    ->with('error', 'Some fields don\'t look right. Can you take a look?')
+                    ->withErrors($this->record->errors())
+                    ->withInput();
+
+            # Else just return the view
+            else $retval = $this->renderView($viewFile);
+        }
+
+        return $retval;
+    }
     
 
     /**
-     * This method prepares to render the view by:
-     * 1. Firing an event (like queuing an email, or querying some tables)
-     * 2. Runs any other methods that are defined in the 
-     * @return [type] [description]
+     * This method looks for a custom view and if none found, returns the default view
+     * @return returns a view
      */
-    public function renderView()
+    protected function renderView()
     {
         # Check to see if we have a custom view for this client/tenant
         $filePath =  $this->classAttributes[1] . '::defaults.' . $this->classAttributes[2] . '.' . $this->classAttributes[3];
@@ -241,37 +265,64 @@ class BaseController extends Controller {
 
         # If file exists in tenants dir, load that, otherwise load default
         if ( View::exists( $customFilePath ) ) $filePath = $customFilePath;
-        return View::make( $filePath );
+        return View::make( $filePath )->withRecord( $this->record );
     }
 
 
 
-    public function redirect($viewFile = 'edit')
-    {
-        // If save is successful, then redirect to the $viewFile page
-        if ( $this->record->result )
-        {
-            if ( Request::ajax() ) return Response::make($this->record, 200); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // public function redirect($viewFile = 'edit')
+    // {
+    //     // If save is successful, then redirect to the $viewFile page
+    //     if ( $this->record->result )
+    //     {
+    //         if ( Request::ajax() ) return Response::make($this->record, 200); 
             
-            else 
-                return Redirect::route('app.' . strtolower(Request::segment(2)) . '.' . $viewFile, array($this->record->id))
-                    ->with('success', 'That\'s saved!'); 
-        }
+    //         else 
+    //             return Redirect::route('app.' . strtolower(Request::segment(2)) . '.' . $viewFile, array($this->record->id))
+    //                 ->with('success', 'That\'s saved!'); 
+    //     }
              
 
-        // ... else go back and show errors
-        else
-        {
-            if ( Request::ajax() ) 
-                return Response::make($this->record->errors(), 500);
+    //     // ... else go back and show errors
+    //     else
+    //     {
+    //         if ( Request::ajax() ) 
+    //             return Response::make($this->record->errors(), 500);
 
-            else 
-                return Redirect::back()
-                ->with('error', 'Some fields don\'t look right. Can you take a look?')
-                ->withErrors($this->record->errors())
-                ->withInput();
-        }
+    //         else 
+    //             return Redirect::back()
+    //             ->with('error', 'Some fields don\'t look right. Can you take a look?')
+    //             ->withErrors($this->record->errors())
+    //             ->withInput();
+    //     }
 
-    }
+    // }
 
 }

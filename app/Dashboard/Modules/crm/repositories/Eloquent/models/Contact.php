@@ -22,9 +22,15 @@ class Contact extends BaseModel {
         'update' => array()
     );
 
+    /**
+     * Override here with the cols to return when doing an all() query
+     * Set in base model as '*'. 
+     * @var array or '*'
+     */
+    public $selectCols = array('id', 'first_name', 'last_name');
 
     /**
-     * Defines the relaitonship of tags->contacts
+     * Defines the relationship of tags->contacts
      * @return obj 
      */
     public function tags()
@@ -36,6 +42,25 @@ class Contact extends BaseModel {
     {
         return $this->hasMany('Dashboard\Crm\ContactRole');
     }
+
+    public function orderProducts()
+    {
+        return $this->hasManyThrough('Dashboard\Sales\OrderProduct', 'Dashboard\Sales\Order');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     /**
      * Defines the relaitonship of roles->contacts 

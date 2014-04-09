@@ -1,6 +1,9 @@
 <?php namespace Dashboard\Repositories;
 
-use Auth, Input, DB;
+use Auth;
+use Input;
+use DB;
+use Datatable;
 use Bllim\Datatables\Datatables;
 
 /**
@@ -16,67 +19,118 @@ class EloquentRepository {
     protected $q;
 
     /**
-     * Can be overidden in the models- define what cols to retreive
+     * Can be overidden in the models or the URL - define what cols to retreive
      * @var array or '*'
      */
-    protected $selectCols = '*';
+    protected $selectCols = array('id', 'owner_id');
 
+    /**
+     * __construct
+     */
     public function __construct($model)
     {
+        // Set up model and the SELECT portion of the query
         $this->model = $model;
-        $this->q = $this->model->select($this->selectCols);
+        $this->setCols();
     }
+
 
 
     /*
     |--------------------------------------------------------------------------
-    | Retrieve methods
+    | Main Eloquent methods
     |--------------------------------------------------------------------------
     |
-    | Rewrite all Elowuent retrive methods to ensure we only get the 
+    | Redfine some main Eloquent methods to restrict to tenant's records only 
     |
     */
     public function all()
     {
-        return $this->q->onlyOwners()->get();
+        if ( Input::has('datatable') ) 
+            return $this->makeDatatable();
+        return $this->model->onlyOwners()->get($this->selectCols);
     }
 
-    public function find($id, $with = FALSE)
+     public function find($id, $with = FALSE)
     {
         return $this->findOrFail($id, $with);
     }
 
     public function findOrFail($id, $with = FALSE)
     {
-        if ( $with ) return $this->q->with($with)->onlyOwners()->findOrFail( $id );
-        else return $this->q->onlyOwners()->findOrFail($id);
+        if ( $with ) return $this->model->with($with)->onlyOwners()->findOrFail( $id );
+        else return $this->model->onlyOwners()->findOrFail($id);
     }
 
     public function firstOrFail()
     {
-        return $this->q->onlyOwners()->firstOrFail();
+        return $this->model->onlyOwners()->firstOrFail();
     }
 
     public function get()
     {
-        return $this->q->onlyOwners()->get();
-        // return $this->q->get();
+        return $this->model->onlyOwners()->get();
+        // return $this->model->get();
     }
 
     public function first()
     {
-        return $this->q->onlyOwners()->first();
+        return $this->model->onlyOwners()->first();
     }
 
     public function pluck($colName)
     {
-        return $this->q->onlyOwners()->pluck($colName);
+        return $this->model->onlyOwners()->pluck($colName);
     }
 
     public function lists($colValue, $colKey = 'id')
     {
-        return $this->q->onlyOwners()->lists($colValue, $colKey);
+        return $this->model->onlyOwners()->lists($colValue, $colKey);
     }
+    
+
+    /*
+    |--------------------------------------------------------------------------
+    | Helper methods
+    |--------------------------------------------------------------------------
+    |
+    | Methods that support the main eloquent methods 
+    |
+    */
+    
+    /**
+     * Overwrites the $selectCols array with any passed in the URL 
+     * (using cols={CSV} ), or if none passed, look in the model class 
+     */
+    public function setCols()
+    {
+        # Do we have a 'cols' array in the URL?
+        if ( $input = Input::get('cols') ) $this->selectCols = explode(',', $input);
+
+        # if not, the do we have one set in the model?
+        elseif ( isset($this->model->selectCols) ) $this->selectCols = $this->model->selectCols;
+    }
+
+    /**
+     * uses either a query or a collection to create a datatable
+     * @param  string $type either 'query' or 'collection'
+     * @return json  Json in the format that datatables can consume
+     */
+    public function makeDatatable($type = 'query')
+    {
+        return Datatable::$type($this->model->onlyOwners())
+                ->showColumns($this->selectCols)
+                ->searchColumns($this->selectCols)
+                ->orderColumns($this->selectCols)
+                ->make();
+    }
+
+
+
+
+
+
+   
 
    
 
@@ -204,7 +258,7 @@ class EloquentRepository {
     /**
      * Sets up the 'select' portioncof the query (from $_GET['cols'] params)
      */
-    public function setCols($cols = FALSE)
+    public function setCols1($cols = FALSE)
     {
         // we can pass the cols as array, or get from Input
         if ( ! $cols )

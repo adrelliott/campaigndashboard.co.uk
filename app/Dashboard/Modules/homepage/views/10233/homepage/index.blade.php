@@ -36,7 +36,7 @@
 
 @section('contacts-table')
     <div class="table-responsive clearfix">
-        <table class="table dataTable data-table" id="contacts_table" data-ajaxsource="/dt/contacts?cols=id,first_name,last_name,postcode,email,mobile_phone" data-showid="false" data-linkurl="contacts" data-iDisplayLength="5">
+        <table class="table dataTable data-table" id="contacts_table" data-ajaxsource="/api/contacts?cols=id,first_name,last_name,postcode,email,mobile_phone&datatable=true" data-showid="false" data-linkurl="contacts" data-iDisplayLength="5">
             <thead>
                 <tr>
                     <th>Id</th>

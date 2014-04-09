@@ -1,4 +1,15 @@
-@extends('layouts.index')
+@extends('layouts.index') 
+
+<?php 
+    // Sets up the table (ensure ot add as an index of the variable $dataTables)
+    $dataTables['index'] = Datatable::table()       // these are the column headings to be shown  
+    ->setUrl(URL::to($config['tables']['contacts_index']['url']))
+    ->addColumn($config['tables']['contacts_index']['showCols'])
+    ->setOptions($config['tables']['contacts_index']['options'])
+    ->setCustomValues(array('link-to-record' => '/app/contacts'))
+    ->noScript();
+
+?> 
 
 @section('page-title')
     <h1>
@@ -13,28 +24,15 @@
     <li><a href="{{ route('app.contacts.create') }}"><p><em>Create new {{ $config['contacts']['label'] }}</em></p></a></li>
 @stop
 
+
 @section('table')
-    
-        <div class="table-responsive clearfix">
-            <table class="table dataTable data-table" id="contacts_table" 
-            data-ajaxsource="/dt/contacts?cols=id,first_name,last_name,postcode,email,mobile_phone&datatables=true"
-            data-showid="false" data-linkurl="/app/contacts" data-iDisplayLength="5">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Postcode</th>
-                        <th>Email</th>
-                        <th>Mobile</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
+
+<div class="table-responsive clearfix">
+    {{ $dataTables['index']->render('partials.app._table') }}
+</div>
 
 @stop
+
 
 @section('below-table')
     <div class="row">

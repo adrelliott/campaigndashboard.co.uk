@@ -117,6 +117,7 @@ return array(
         'Profiler\ProfilerServiceProvider',
         'Creolab\LaravelModules\ServiceProvider',
         'Bllim\Datatables\DatatablesServiceProvider',
+        'Chumper\Datatable\DatatableServiceProvider',
         'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider',
         // 'Barryvdh\MigrationGenerator\MigrationGeneratorServiceProvider',
         ),
@@ -190,6 +191,7 @@ return array(
         'Former' => 'Former\Facades\Former',
         'Profiler' => 'Profiler\Facades\Profiler',
         'Datatables'      => 'Bllim\Datatables\Datatables',
+        'Datatable' => 'Chumper\Datatable\Facades\DatatableFacade',
         'Debug'          => 'Helpers\DebugHelper'
 	),
 
