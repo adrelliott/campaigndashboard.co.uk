@@ -44,9 +44,13 @@ Route::group(array(
         Route::get('contacts/{id}/order-items', 
             array('as' => 'api.contacts.order-items', 'uses' => 'ContactsController@getOrderProducts'));
 
-        Route::get('contacts/{id}/{relatedModel}/{nestedRelationship?}', ///{nestedRelationship?} 
+        Route::get('contacts/{id}/{relatedModel}/{nestedRelationship?}', 
             array('as' => 'api.contacts.related-model', 'uses' => 'ContactsController@getRelated'));
-        
+
+        Route::get('contacts/test', 
+            array('as' => 'api.contacts.test', 'uses' => 'ContactsController@test'));
+
+
         // Default endpoints
         Route::resource('contacts', 'ContactsController');
 

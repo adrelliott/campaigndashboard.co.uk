@@ -22,14 +22,7 @@ class Order extends BaseModel {
         'update' => array()
     );
 
-    // public function products()
-    // {
-    //     return $this->hasMany('Dashboard\Sales\Product');
-    // }
-
-    // *
-    //  * Connect the Orders table with the Products table via pivot order_product
-    //  * @return 
+   
      
     public function products()
     {
@@ -37,13 +30,5 @@ class Order extends BaseModel {
                     ->withPivot('variant', 'quantity', 'tax', 'price')
                     ->withTimestamps();
     }
-
-
-    
-    // public function contact()
-    // {
-    //     return $this->belongsTo('Dashboard\Crm\Contact');
-    // }
-
      
 }

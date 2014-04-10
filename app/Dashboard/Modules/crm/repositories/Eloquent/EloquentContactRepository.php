@@ -6,10 +6,13 @@ class EloquentContactRepository extends EloquentRepository implements ContactRep
 
     public function __construct(Model $model)
     {
-        // $this->model = $model;
         parent::__construct($model);
     }
 
+    /**
+     * Handles the output of a Datatable (as defined in EloquentRepository@makeDatatable)
+     * @param string $tableName Often this is the relatedModel value
+     */
     protected function addCustomColumns( $tableName )
     {
         // $tableName is often the relatedModel name
@@ -29,11 +32,6 @@ class EloquentContactRepository extends EloquentRepository implements ContactRep
                         return (string)$model->quantity;
                     }
                 );
-                // $this->datatable->addColumn('Line Price', function($model)
-                //     {
-                //         return round($model->product->product_price / 12, 2);
-                //     }
-                // );
                 $this->datatable->addColumn('Total', function($model)
                     {
                         $total = $model->quantity * $model->price;
@@ -47,7 +45,6 @@ class EloquentContactRepository extends EloquentRepository implements ContactRep
                 break;
         }
 
-        //is overwritten in each repo
         
     }
 

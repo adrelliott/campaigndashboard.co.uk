@@ -102,6 +102,34 @@
 
     /*
     |--------------------------------------------------------------------------
+    | Tables
+    |--------------------------------------------------------------------------
+    |
+    | Config for the tabels in the app
+    |
+    */
+    $config['tables']['contacts_index'] = array(
+        'options' => array(
+            'setUrl' => '/api/contacts?datatable=true&cols=id,first_name,last_name,owner_id',
+            'addColumn' => array('Id', 'First name', 'LastName'),
+            'setOptions' => array(
+                //'sPaginationType' => 'bootstrap',
+                // 'iDisplayLength' => 10,
+                // 'bLengthChange' => false,
+            ),
+            'setCustomValues' => array(
+                'linkurl' => '/app/contacts',
+                'showid' => true,
+                'idisplaylength' => 5,
+            ),
+        ),
+        'tableTemplate' => 'partials.app._indexTable',
+    );
+
+   
+
+    /*
+    |--------------------------------------------------------------------------
     | Dropdowns
     |--------------------------------------------------------------------------
     |

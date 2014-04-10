@@ -20,6 +20,12 @@ class BaseModel extends Magniloquent {
         'update' => array()
     );
 
+    // Define fields that are to be retruned as Carbon instances
+    public function getDates()
+    {
+        return array('created_at', 'updated_at', 'deleted_at');
+    }
+
     /**
      * Runs on every Eloquent Query
      */

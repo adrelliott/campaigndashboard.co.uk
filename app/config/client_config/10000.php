@@ -131,24 +131,21 @@ return array(
 
         //The table displayed on contacts/index
         'contacts_index' => array(
-            'url' => 'api/contacts?datatable=true&cols=id,first_name,last_name,owner_id',
-            'showCols' => array('Id', 'Frst name', 'Last Name'),
             'options' => array(
-                'sPaginationType' => 'bootstrap',
-                'iDisplayLength' => 5,
-                'bLengthChange' => false,
+                'setUrl' => '/api/contacts?datatable=true&cols=id,first_name,last_name,owner_id',
+                'addColumn' => array('Id', 'First name', 'Last Name'),
+                'setOptions' => array(
+                    //'sPaginationType' => 'bootstrap',
+                    // 'iDisplayLength' => 10,
+                    // 'bLengthChange' => false,
+                ),
+                'setCustomValues' => array(
+                    'linkurl' => '/app/contacts',
+                    'showid' => true,
+                    'idisplaylength' => 5,
+                ),
             ),
-        ),
-
-        //The table displayed on homepage under contacts tab
-        'home_contacts' => array(
-            'url' => 'api/contacts?datatable=true&cols=id,first_name,last_name,owner_id',
-            'showCols' => array('Id', 'Frst name', 'Last Name'),
-            'options' => array(
-                'sPaginationType' => 'bootstrap',
-                'iDisplayLength' => 5,
-                'bLengthChange' => false,
-            ),
+            'tableTemplate' => 'partials.app._indexTable',
         ),
 
     ),

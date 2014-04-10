@@ -119,6 +119,7 @@ return array(
         'Bllim\Datatables\DatatablesServiceProvider',
         'Chumper\Datatable\DatatableServiceProvider',
         'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider',
+        'Dashboard\Html\HtmlServiceProvider'
         // 'Barryvdh\MigrationGenerator\MigrationGeneratorServiceProvider',
         ),
 

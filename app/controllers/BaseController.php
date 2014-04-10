@@ -113,7 +113,7 @@ class BaseController extends Controller {
     public function show($id)
     {
         // Get the record (and associated records via with() )
-        $this->record = $this->repo->findRecord($id, $this->with);
+        $this->record = $this->repo->find($id, $this->with);
 
         # Fire event & render view
         $this->fireEvent();
@@ -130,7 +130,7 @@ class BaseController extends Controller {
     public function edit($id)
     {
         // Get the record (and associated records via with() )
-        $this->record = $this->repo->findRecord($id, $this->with);
+        $this->record = $this->repo->find($id, $this->with);
 
         # Fire event & render view
         $this->fireEvent();
@@ -181,7 +181,6 @@ class BaseController extends Controller {
         $this->fireEvent();
         return $this->handleResponse();
     }
-
 
 
 

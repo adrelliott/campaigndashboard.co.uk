@@ -7,17 +7,16 @@
 {{ HTML::script('assets/js/bootstrap/bootstrap3.0.0.min.js') }}
 
 
-<!-- Call all datatables JS -->
-{{ HTML::script('assets/js/datatables/jquery.dataTables.min.js') }}
-{{ HTML::script('assets/js/datatables/dataTables.bootstrapPagination.js') }}
-{{-- HTML::script('assets/js/datatables/datatables.custom.js') --}}
-
-
 <!-- Call Other Plugins -->
 {{-- HTML::script('assets/js/bootstrap/bootstrap-switch.min.js') --}}
 {{ HTML::script('assets/js/flippant/flippant.min.js') }}
 {{ HTML::script('assets/js/bootstrap/summernote.min.js') }}
 
+
+<!-- Call all datatables JS -->
+{{ HTML::script('assets/js/datatables/jquery.dataTables.min.js') }}
+{{ HTML::script('assets/js/datatables/dataTables.bootstrapPagination.js') }}
+{{ HTML::script('assets/js/datatables/dataTables.custom.js') }}
 
 <!-- Call Other JS -->
 {{ HTML::script('assets/js/app/app.js') }}
@@ -33,9 +32,4 @@
     {{ dump($record) }}
 @endif
 
-<!-- Echo out any Datatables scripts -->
-@if(isset($dataTables))
-    @foreach ($dataTables as $t)
-        {{ $t->script() }}
-    @endforeach
-@endif
+

@@ -21,6 +21,7 @@
 <!-- Get JQuery -->
 {{ HTML::script('assets/js/jquery/jquery2.0.0.min.js') }}
 
+
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
         {{ HTML::script('/assets/js/others/html5shiv.js') }}  

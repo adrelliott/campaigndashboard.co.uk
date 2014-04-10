@@ -11,7 +11,7 @@
         //Set up the default settings
         var o = {
             oLanguage: {
-                "sEmptyTable": '<p class="lead">Bit quiet round here, isn\'t it?</p><p>I couldn\'t find any matching records <i>anywhere</i>.<p>',
+                "sEmptyTable": '<p class="lead">Bit quiet round here, isn\'t it?</p><p>I couldn\'t find any matching records <i>anywhere</i>. <br>(I even looked under the bed...)<p>',
             },
             // // aoColumnDefs: [],
             iDisplayLength: 5,
@@ -21,6 +21,14 @@
             aLengthMenu: [[5, 10, 25, 50], [5, 10, 25, 50]],
             // aaSorting: [],
             aoColumnDefs: [],
+            /* Changes by tellenis 15/01/14 */
+            // fnRowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+            //     var numStart =  this.fnPagingInfo().iStart;
+            //     var index =  iDisplayIndexFull;
+            //     $(nRow).attr("id",index );
+            //     return nRow;
+            // }
+            /* End of changes */
             bProcessing: true,
             bServerSide: true,
             sAjaxSource: "",

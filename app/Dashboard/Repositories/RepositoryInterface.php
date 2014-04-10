@@ -8,51 +8,79 @@
  */
 interface RepositoryInterface {
     
-    /**
-     * Overrides the default all() (and adds in the queryscope to just get this owner's records)
-     * @return returns Eloquent collection
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | Retreive Collections
+    |--------------------------------------------------------------------------
+    |
+    | Redfine some main Eloquent methods to restrict to tenant's records only 
+    |
+    */
     public function all();
 
     public function getRelated($id, $relatedModel, $with);
 
+    public function get();
+
+    public function lists($colValue, $colKey);
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Retreive Models
+    |--------------------------------------------------------------------------
+    |
+    | Redfine some main Eloquent methods to restrict to tenant's records only 
+    |
+    */
     public function find($id, $with);
 
     public function findOrFail($id, $with);
 
     public function firstOrFail();
 
-    public function get();
-
     public function first();
 
     public function pluck($colName);
 
-    public function lists($colValue, $colKey);
     
-    // public function where($column, $operator = null, $value = null, $boolean = 'and');
+    /*
+    |--------------------------------------------------------------------------
+    | Create, Update, or Delete multiple records
+    |--------------------------------------------------------------------------
+    |
+    | Redfine some main Eloquent methods to restrict to tenant's records only 
+    |
+    */
+     
 
-    // public function firstOrCreate();
-
-
-
-
-
-    /**
-     * This is the all()
-     * @return [type] [description]
-     */
-    public function getAll();
-
-
-
-    public function findAll();
-
-    public function findRecord($id);
-        
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Create, Update, or Delete individual records
+    |--------------------------------------------------------------------------
+    |
+    | Redfine some main Eloquent methods to restrict to tenant's records only 
+    |
+    */
     public function createRecord();
         
     public function updateRecord($id);
-    
+
     public function destroyRecord($id);
+     
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Query Builder Methods
+    |--------------------------------------------------------------------------
+    |
+    | Redfine some main Eloquent methods to restrict to tenant's records only 
+    |
+    */
+    //things like where()
+   
+        
+   
 }

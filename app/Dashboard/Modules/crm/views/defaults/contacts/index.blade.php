@@ -1,16 +1,5 @@
 @extends('layouts.index') 
 
-<?php 
-    // Sets up the table (ensure to add as an index of the variable $dataTables)
-    $dataTables['index'] = Datatable::table()       // these are the column headings to be shown  
-    ->setUrl(URL::to($config['tables']['contacts_index']['url']))
-    ->addColumn($config['tables']['contacts_index']['showCols'])
-    ->setOptions($config['tables']['contacts_index']['options'])
-    ->setCustomValues(array('link-to-record' => '/app/contacts'))
-    ->noScript();
-
-?> 
-
 @section('page-title')
     <h1>
         <i class="fa fa-user"></i> All Your {{ $config['contacts']['label'] }}s
@@ -26,11 +15,9 @@
 
 
 @section('table')
-
-<div class="table-responsive clearfix">
-    {{ $dataTables['index']->render('partials.app._table') }}
-</div>
-
+    <div class="table-responsive clearfix">
+        {{ getTable('contacts_index', $config) }}
+    </div>
 @stop
 
 

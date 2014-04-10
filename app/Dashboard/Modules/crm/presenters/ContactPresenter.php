@@ -70,11 +70,5 @@ class ContactPresenter extends Presenter {
         return $this->resource->actions;
     }
 
-    public function user_name($user_id)
-    {
-        $user = User::find($user_id);
-
-        return $user->first_name . ' ' . $user->last_name;
-    }
-
+    
 }
