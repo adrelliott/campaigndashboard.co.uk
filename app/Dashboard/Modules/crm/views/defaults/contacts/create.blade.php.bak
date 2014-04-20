@@ -1,39 +1,18 @@
-@extends('crm::defaults.contacts.create')
+@extends('layouts.create')
 
+@section('page-title')
+    <h1>
+        <i class="fa fa-user"></i> Create a new {{ $config['contacts']['label'] }}
+    </h1>
+    <p class="lead">
+        Add the basic details (more options on the next page).
+    </p>
+@stop
 
 @section('col1')
     <div class="well"><!-- Well -->
         <h4 class="text-primary1"><i class="fa fa-pencil"></i> What's your new {{ $config['contacts']['label'] }}'s name...?</h4>
-       
-            
-
-            {{ Form::open(array(
-                    'route' => array('app.contacts.update', 1),
-                    'method' => 'put',
-                    'class' => 'testclass',
-                    'role' => 'Form',
-                    'data-xx' => 'xxxx',
-                    'ajaxMethod' => 'put',
-                )) 
-            }}
-
-                {{ Form::textInput('test_name', array(
-                    'divClass' => 'col-lg-6 col-md-12 col-sm-4 col-xs-12',
-                    'inputClass' => 'input-lg')
-                    ) }}
-            
-            {{ Form::close() }}
-            
-
-
-
-            <hr>
-            
-
-
-
-
-
+        
             {{ Former::open()
             ->role('Form')
             ->class('')
@@ -87,3 +66,5 @@
      
     </div><!-- /Well -->
 @stop
+
+

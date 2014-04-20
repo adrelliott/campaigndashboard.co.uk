@@ -4,13 +4,13 @@
 {{ HTML::style('/assets/css/bootstrap/bootstrap.min.css') }}
 
 <!-- Get other plugin CSS files -->
-{{-- HTML::style('/assets/css/bootstrap/bootstrap-switch.min.css') --}}
-{{ HTML::style('/assets/css/flippant/flippant.css') }}
+{{ HTML::style('/assets/css/bootstrap/bootstrap-switch.min.css') }}
 {{ HTML::style('/assets/css/bootstrap/bootstrap3-summernote.css') }}
 {{ HTML::style('/assets/css/bootstrap/summernote.css') }}
 
 <!-- Include Font-awesome Upgraded from 3.2.1-->
 {{ HTML::style('/assets/css/bootstrap/font-awesome4.0.0.css') }}
+{{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css') }}
 
 <!-- Custom styles for this template -->
 {{ HTML::style('/assets/css/main.css') }}

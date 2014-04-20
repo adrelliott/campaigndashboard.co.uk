@@ -92,10 +92,17 @@
     //   var value = $(this).val();
     //   $("#create-nickname").val(value);
     // }).keyup();
+    
     $("#copy-source").keyup(function () {
       var value = $(this).val();
       $(".copy-destination").val(value);
     }).keyup();
+
+    // $(".copy-and-paste").keyup(function () {
+    //   var value = $(this).val();
+    //   $(".copy-destination").val(value);
+    // }).keyup();
+
 
     /* Intialise... */
     //$("[class='bootstrap-switch']").bootstrapSwitch();

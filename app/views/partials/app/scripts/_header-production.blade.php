@@ -13,6 +13,7 @@
 <!-- Include Font-awesome Upgraded from 3.2.1-->
 {{-- HTML::style('//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css') --}}
 {{ HTML::style('//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css') }}
+{{ HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css') }}
 
 <!-- Custom styles for this template -->
 {{ HTML::style('/assets/css/main.css') }}

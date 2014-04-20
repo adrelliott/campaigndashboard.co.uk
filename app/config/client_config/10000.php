@@ -11,20 +11,20 @@ return array(
     */
     'users' => array(
         'total_number' => 'unlimited'
-        ),
+    ),
 
     'contacts' => array(
         'label' => 'client',
-        ),
+    ),
 
     'leads' => array(
         'label' => 'lead',
-        ),
+    ),
 
     'logos' => array(
         'logoSmall' => '/assets/img/bootstrap/cdash_logo75px.png',
         'logoLarge' => '/assets/img/bootstrap/cdash_logo150px.png',
-        ),
+    ),
 
 
 
@@ -47,14 +47,14 @@ return array(
             'label' => 'Dashboard',
             'min_admin_level' => 3,
             'dropdowns' => array(),
-            ),
+        ),
         'contacts' => array(
             'route' => 'app/contacts',
             'icon' => 'user',
             'label' => 'Contacts',
             'min_admin_level' => 3,
-            'dropdowns' => array(),
-            ),
+        'dropdowns' => array(),
+        ),
         'marketing' => array(
             'route' => '',
             'icon' => 'bolt',
@@ -66,15 +66,15 @@ return array(
                     'icon' => 'bullhorn',
                     'label' => 'Broadcasts',
                     'min_admin_level' => 3,
-                    ),
+                ),
                 'dropdown2' => array(
                     'route' => 'app/broadcasts',
                     'icon' => 'bullhorn',
                     'label' => 'restricted',
                     'min_admin_level' => 0,
-                    ),
                 ),
             ),
+        ),
         'admin' => array(
             'route' => '',
             'icon' => 'bolt',
@@ -86,16 +86,16 @@ return array(
                     'icon' => 'bullhorn',
                     'label' => 'Users',
                     'min_admin_level' => 3,
-                    ),
+                ),
                 'dropdown2' => array(
                     'route' => 'app/broadcasts',
                     'icon' => 'bullhorn',
                     'label' => 'restricted',
                     'min_admin_level' => 0,
-                    ),
                 ),
             ),
         ),
+    ),
 
     /*
     |--------------------------------------------------------------------------
@@ -109,13 +109,13 @@ return array(
     'contactsshow' => array(
         'col1tabs' => ['Overview', 'In Depth', 'Opt In', 'Notes'],
         'col2tabs' => ['purchases', 'tags'],
-        ),
+    ),
 
     //The tabs for views/contacts/show.blade.php
     'usersshow' => array(
         'col1tabs' => ['Details', 'Permissions'],
         //'col2tabs' => ['Purchases', 'Roles'],
-        ),
+    ),
 
 
     /*
@@ -127,7 +127,6 @@ return array(
     |
     */
     'tables' => array(
-        
 
         //The table displayed on contacts/index
         'contacts_index' => array(
@@ -154,100 +153,469 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
+    | Forms
+    |--------------------------------------------------------------------------
+    |
+    | The settings for each form in the app
+    |
+    | NOTE: Very important:
+    |   1. You cannot apply 'input-lg' to radio, checkboxes or multiple selects
+    |   2. You can set a default value by defining 'value' => yourvalue
+    |   3. Anything under 'inputAttributes' is set as key=value in the <input> 
+    |       tag, e.g. 'mykey' => 'value', is <input mykey="value" >
+    |   4. Specify a 'multiple' => '' index on inputAttributes to create multiple select
+    |   5. For dropdowns, radio or checkboxes you can specify the index of the dropdown array
+    |       (in this config file) or an array of new values
+        6. Put the fields in order that you wnat them to show up 
+    |   SEE EXAMPLE BELOW:
+    */
+    'forms' => array(
+
+            /* *** EXAMPLE FIELD SETUP *** **/
+                'col_name' => array(
+                    'type' => 'select', //seelct, text, radio etc
+                    'config' => array(
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        'responsiveClass' => FALSE, //This doesn;t create a wrapping div 
+                        'label' => 'New label', //Leave blank to create label from name, or FALSE to have no label
+                        'labelClass' => '', //add label class here
+                        'wrapClass' => FALSE, //Leave blank for 'form-group' or FALSE for none
+                        'options' => 'titles', // either add index in dropdowns, 
+                                                //or an array of options
+                        'value' => 2,   // Set a default value (overidden by value from model)
+                        'inputAttributes' => array( //Anything added here is added to <input>
+                            'class' => 'input-lg',  // Don't use input-lg on radio/checkbox/select
+                            'placeholder' => 'Add placeholder here',
+                            // 'multiple' => '', // Add multiple for <select multiple >
+                            'test' => 'nice',   //<input test="nice">
+                        ), 
+                    ),
+                ),
+
+
+
+
+        /* Contacts */
+        'contacts' => array(
+            /* Create*/
+            'create' => array(
+             
+                'title_multiple' => array(
+                    'type' => 'select',
+                    'config' => array(
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        
+                        'options' => 'titles',
+                        'value' => 2,
+                        'inputAttributes' => array(
+                            'multiple' => '',
+                            'test' => 'nice',
+                        ), 
+                    ),
+                ),
+                'first_name' => array(
+                    'type' => 'text',
+                    'config' => array(
+                        // 'label' => FALSE,
+                        // 'label' => 'Nee label',
+                        'wrapClass' => 'form-group has-success',
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        // 'value' => 'override',
+                        'inputAttributes' => array(
+                            'placeholder' => 'E.g. Lionel',
+                            'class' => 'input-lg',
+                            'data-copy' => 'source',
+                        ),
+                    ),
+                ),
+                'last_name' => array(
+                    'type' => 'text',
+                    'config' => array(
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        'value' => 'overriddde',
+                        'inputAttributes' => array(
+                            'placeholder' => 'E.g. Blair',
+                            'class' => 'input-lg',
+                        ),
+                    ),
+                ),
+                'nickname' => array(
+                    'type' => 'text',
+                    'config' => array(
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        'label' => 'Known As',
+                        'inputAttributes' => array(
+                            'placeholder' => 'E.g. Dancing Li',
+                            'class' => 'input-lg',
+                            'data-copy' => 'destination',
+                        ),
+                    ),
+                ),
+                'email' => array(
+                    'type' => 'email',
+                    'config' => array(
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        'inputAttributes' => array(
+                            'placeholder' => 'LiTheGuy@hotmail.com',
+                            'class' => 'input-lg',
+                        ),
+                    ),
+                ),
+                'hide' => array(
+                    'type' => 'hidden',
+                    'config' => array(
+                        'value' => 'topsecret',
+                        'label' => FALSE,
+                        'responsiveClass' => FALSE,
+                        'wrapClass' => FALSE,
+                    ),
+                ),
+                'notes' => array(
+                    'type' => 'textarea',
+                    'config' => array(
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        'value' => 'Set in config',
+                        'inputAttributes' => array(
+                            'placeholder' => 'Tghis is where your notes go',
+                            'class' => 'input-lg',
+                            'rows' => 5,
+                        ),
+                    ),
+                ),
+                'password' => array(
+                    'type' => 'password',
+                    'config' => array(
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        'inputAttributes' => array(
+                            'placeholder' => 'LiTheGuy@hotmail.com',
+                            'class' => 'input-lg',
+                        ),
+                    ),
+                ),
+                'file' => array(
+                    'type' => 'file',
+                    'config' => array(
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        'helpBlock' => 'This is help text',
+                        'inputAttributes' => array(
+                            'placeholder' => 'LiTheGuy@hotmail.com',
+                            'class' => 'input-lg',
+                        ),
+                    ),
+                ),
+                'datetime' => array(
+                    'type' => 'datetime',
+                    'config' => array(
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        'helpBlock' => 'This is help text',
+                        'inputAttributes' => array(
+                            'placeholder' => 'LiTheGuy@hotmail.com',
+                            'class' => 'input-lg',
+                        ),
+                    ),
+                ),
+                'date' => array(
+                    'type' => 'date',
+                    'config' => array(
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        'helpBlock' => 'This is help text',
+                        'inputAttributes' => array(
+                            'placeholder' => 'LiTheGuy@hotmail.com',
+                            'class' => 'input-lg',
+                        ),
+                    ),
+                ),
+                'month' => array(
+                    'type' => 'month',
+                    'config' => array(
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        'helpBlock' => 'This is help text',
+                        'inputAttributes' => array(
+                            'placeholder' => 'LiTheGuy@hotmail.com',
+                            'class' => 'input-lg',
+                        ),
+                    ),
+                ),
+                'time' => array(
+                    'type' => 'time',
+                    'config' => array(
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        'helpBlock' => 'This is help text',
+                        'inputAttributes' => array(
+                            'placeholder' => 'LiTheGuy@hotmail.com',
+                            'class' => 'input-lg',
+                        ),
+                    ),
+                ),
+                'week' => array(
+                    'type' => 'week',
+                    'config' => array(
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        'helpBlock' => 'This is help text',
+                        'inputAttributes' => array(
+                            'placeholder' => 'LiTheGuy@hotmail.com',
+                            'class' => 'input-lg',
+                        ),
+                    ),
+                ),
+                'number' => array(
+                    'type' => 'number',
+                    'wrapClass' => 'has-success',
+                    'config' => array(
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        'helpBlock' => 'This is help text',
+                        'inputAttributes' => array(
+                            'placeholder' => 'LiTheGuy@hotmail.com',
+                            'class' => 'input-lg',
+                        ),
+                    ),
+                ),
+                'url' => array(
+                    'type' => 'url',
+                    'config' => array(
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        'helpBlock' => 'This is help text',
+                        'inputAttributes' => array(
+                            'placeholder' => 'LiTheGuy@hotmail.com',
+                            'class' => 'input-lg',
+                            'disabled' => '',
+                        ),
+                    ),
+                ),
+                'checkbox' => array(
+                    'type' => 'checkbox',
+                    'config' => array(
+                        // 'placeholder' => 'LiTheGuy@hotmail.com',
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        'wrapClass' => '',
+                        'helpBlock' => 'Choose one of these',
+                        'labelClass' => 'checkbox-inline',
+                        // 'options' => array(
+                        //     'male' => 'Male',
+                        //     'female' => 'Female',
+                        // ),
+                        'options' => 'titles',
+                        'inputAttributes' => array(
+                            // 'class' => 'input-lg',
+                        ),
+                    ),
+                ),
+                'radio' => array(
+                    'type' => 'radio',
+                    'config' => array(
+                        // 'placeholder' => 'LiTheGuy@hotmail.com',
+                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+                        'wrapClass' => '',
+                        // 'labelClass' => 'checkbox-inline',
+                        // 'options' => array(
+                        //     'male' => 'Male',
+                        //     'female' => 'Female',
+                        // ),
+                        'options' => 'titles',
+                        'inputAttributes' => array(
+                            // 'class' => 'input-lg',
+                        ),
+                    ),
+                ),
+            ),
+
+            /* FORM: Create Contacts */
+            'create' => array(
+             
+                'first_name' => array('inputAttributes' => array(
+                    'class' => 'input-lg',
+                    'id' => 'copy-source',
+                    )
+                ),
+                'last_name' => array('inputAttributes' => array('class' => 'input-lg')),
+                'email' => array('inputAttributes' => array('class' => 'input-lg')),
+                'nickname' => array('inputAttributes' => array(
+                    'class' => 'input-lg copy-destination',
+                    )
+                ),
+                
+
+            ),
+            
+            /* FORM: Edit overview of Contacts */
+            'edit_overview' => array(
+             
+                'title' => array(
+                    'type' => 'select',
+                    'options' => 'titles',
+                ),
+                'first_name' => array('inputAttributes' => array('class' => 'input-lg')),
+                'last_name' => array('inputAttributes' => array('class' => 'input-lg')),
+                'email' => array('inputAttributes' => array('class' => 'input-lg')),
+                'gender' => array(
+                    'type' => 'radio',
+                    'options' => 'genders',
+                    'labelClass' => 'radio-inline',
+                ),
+
+            ),
+
+            /* FORM: Edit indepth of Contacts */
+            'edit_indepth' => array(
+             
+                // 'title' => array(
+                //     'type' => 'select',
+                //     'options' => 'titles',
+                // ),
+                // 'first_name' => array('inputAttributes' => array('class' => 'input-lg')),
+                // 'last_name' => array('inputAttributes' => array('class' => 'input-lg')),
+                // 'email' => array('inputAttributes' => array('class' => 'input-lg')),
+                // 'gender' => array(
+                //     'type' => 'radio',
+                //     'options' => 'genders',
+                //     'labelClass' => 'radio-inline',
+                // ),
+
+            ),
+
+            /* FORM: Edit optin for Contacts */
+            'edit_optin' => array(
+                'optin_email' => array(
+                    'type' => 'radio',
+                    'options' => array(
+                        1 => 'Receive Emails',
+                        0 => 'No Emails',
+                    ),
+                    'labelClass' => 'radio-inline',
+                ),
+                'optin_sms' => array(
+                    'type' => 'radio',
+                    'options' => array(
+                        1 => 'Receive SMS',
+                        0 => 'No SMS',
+                    ),
+                    'labelClass' => 'radio-inline',
+                ),
+                'optin_post' => array(
+                    'type' => 'radio',
+                    'options' => array(
+                        1 => 'Receive Post',
+                        0 => 'No Post',
+                    ),
+                    'labelClass' => 'radio-inline',
+                ),
+
+            ),
+
+
+        ),
+    ),
+
+
+
+
+    /*
+    |--------------------------------------------------------------------------
     | Dropdowns
     |--------------------------------------------------------------------------
     |
     | Dropdowns for the forms
-    |
+    |           'value' => 'label'
     */
-   
-   
+    'dropdowns' => array(
 
-    // Contacts
-    'titles' => array(
-        '' => '',
-        'Mr' => 'Mr',
-        'Mrs' => 'Mrs',
-        'Miss' => 'Miss',
-        'Ms' => 'Ms',
-        'Dr' => 'Dr',
+        // standard
+        'genders' => array(
+            'male' => 'Male',
+            'female' => 'Female'
+        ),
+        'yesno' => array(
+            1 => 'Yes',
+            2 => 'No',
+        ),
+        'optin' => array(
+            1 => 'Opted In',
+            2 => 'Opted Out',
         ),
 
 
 
-     // Notes
-    'noteTypes' => array(
-        '' => '',
-        'Mr' => 'Mr',
-        'Mrs' => 'Mrs',
-        'Miss' => 'Miss',
-        'Ms' => 'Ms',
-        'Dr' => 'Dr',
+        // Contacts
+        'titles' => array(
+            '' => '',
+            'Mr' => 'Mr',
+            'Mrs' => 'Mrs',
+            'Miss' => 'Miss',
+            'Ms' => 'Ms',
+            'Dr' => 'Dr',
         ),
 
 
 
-    // Orders
-    'orderSource' => array(
-        '' => '',
-        'Online' => 'Online',
-        'Post' => 'Post',
-        'Telephone' => 'Telephone',
-        'Telephone' => 'Telephone',
-        'Office' => 'Office',
-        'Stall' => 'Stall',
+         // Notes
+        'noteTypes' => array(
+            '' => '',
+            'Mr' => 'Mr',
+            'Mrs' => 'Mrs',
+            'Miss' => 'Miss',
+            'Ms' => 'Ms',
+            'Dr' => 'Dr',
         ),
 
-    'paymentMethod' => array(
-        '' => '',
-        'Cash' => 'Cash',
-        'Cheque' => 'Cheque',
-        'Credit-Debit Card' => 'Credit-Debit Card',
-        'Standing Order' => 'Standing Order',
-        'PayPal' => 'PayPal'
+
+
+        // Orders
+        'orderSource' => array(
+            '' => '',
+            'Online' => 'Online',
+            'Post' => 'Post',
+            'Telephone' => 'Telephone',
+            'Telephone' => 'Telephone',
+            'Office' => 'Office',
+            'Stall' => 'Stall',
         ),
 
-    
-    
-         // Broadcasts
-    'broadcastTypes' => array(
-        '' => '',
-        'Newsletter' => 'Newsletter',
-        'Offer' => 'Offer',
-        'Event' => 'Event',
-        'Other' => 'Other'
+        'paymentMethod' => array(
+            '' => '',
+            'Cash' => 'Cash',
+            'Cheque' => 'Cheque',
+            'Credit-Debit Card' => 'Credit-Debit Card',
+            'Standing Order' => 'Standing Order',
+            'PayPal' => 'PayPal'
         ),
-     'savedSearches' => array(
-        '1' => 'All opted-in contacts',
-        '2' => 'All leads',
-        ),
-    
-    'emailFrom' => array(
-        // 'Paul Howarth|paul@fc-utd.co.uk' => 'Paul Howarth',
-        // 'Lindsey Howard|lindsey@fc-utd.co.uk' => 'Lindsey Howard',
-        // 'Michael Holdsworth|michael@fc-utd.co.uk' => 'Michael Holdsworth',
-        ),
-    'testEmailto' => array(
+
         
+        
+             // Broadcasts
+        'broadcastTypes' => array(
+            '' => '',
+            'Newsletter' => 'Newsletter',
+            'Offer' => 'Offer',
+            'Event' => 'Event',
+            'Other' => 'Other'
         ),
-    'emailTemplate' => array(
-       
+         'savedSearches' => array(
+            '1' => 'All opted-in contacts',
+            '2' => 'All leads',
+        ),
+        
+        'emailFrom' => array(
+            // 'Paul Howarth|paul@fc-utd.co.uk' => 'Paul Howarth',
+            // 'Lindsey Howard|lindsey@fc-utd.co.uk' => 'Lindsey Howard',
+            // 'Michael Holdsworth|michael@fc-utd.co.uk' => 'Michael Holdsworth',
+        ),
+        'testEmailto' => array(
+            
+        ),
+        'emailTemplate' => array(
+           
         ),
 
-    
+        
 
-    // Admin
-    'adminLevels' => array(
-        '0' => 'Super Super SUPER Admin',
-        '1' => 'Dashboard Super Admin',
-        '2' => 'Dashboard Admin',
-        '3' => 'Supervisor',
-        '4' => 'User',
-        '5' => 'Observer',
+        // Admin
+        'adminLevels' => array(
+            '0' => 'Super Super SUPER Admin',
+            '1' => 'Dashboard Super Admin',
+            '2' => 'Dashboard Admin',
+            '3' => 'Supervisor',
+            '4' => 'User',
+            '5' => 'Observer',
         ),
-
-
-
-
-
+    ),
 );
