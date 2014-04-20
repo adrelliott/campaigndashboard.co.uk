@@ -192,233 +192,27 @@ return array(
                     ),
                 ),
 
+            /* Defaults - This si the default in then FormBuilder class*/
+            // $defaultConfig = array(
+            //     'wrapClass' => 'form-group',
+            //     'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
+            //     'labelClass' => '',
+            //     'inputClass' => '',
+            //     'extra' => '',
+            //     'helpBlock' => FALSE,
+            //     'checked' => FALSE,
+            //     'inputAttributes' => array(),
+            //     'value' => null,
+            //     'type' => 'text',
+
+            // );
+
 
 
 
         /* Contacts */
         'contacts' => array(
-            /* Create*/
-            'create' => array(
-             
-                'title_multiple' => array(
-                    'type' => 'select',
-                    'config' => array(
-                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
-                        
-                        'options' => 'titles',
-                        'value' => 2,
-                        'inputAttributes' => array(
-                            'multiple' => '',
-                            'test' => 'nice',
-                        ), 
-                    ),
-                ),
-                'first_name' => array(
-                    'type' => 'text',
-                    'config' => array(
-                        // 'label' => FALSE,
-                        // 'label' => 'Nee label',
-                        'wrapClass' => 'form-group has-success',
-                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
-                        // 'value' => 'override',
-                        'inputAttributes' => array(
-                            'placeholder' => 'E.g. Lionel',
-                            'class' => 'input-lg',
-                            'data-copy' => 'source',
-                        ),
-                    ),
-                ),
-                'last_name' => array(
-                    'type' => 'text',
-                    'config' => array(
-                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
-                        'value' => 'overriddde',
-                        'inputAttributes' => array(
-                            'placeholder' => 'E.g. Blair',
-                            'class' => 'input-lg',
-                        ),
-                    ),
-                ),
-                'nickname' => array(
-                    'type' => 'text',
-                    'config' => array(
-                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
-                        'label' => 'Known As',
-                        'inputAttributes' => array(
-                            'placeholder' => 'E.g. Dancing Li',
-                            'class' => 'input-lg',
-                            'data-copy' => 'destination',
-                        ),
-                    ),
-                ),
-                'email' => array(
-                    'type' => 'email',
-                    'config' => array(
-                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
-                        'inputAttributes' => array(
-                            'placeholder' => 'LiTheGuy@hotmail.com',
-                            'class' => 'input-lg',
-                        ),
-                    ),
-                ),
-                'hide' => array(
-                    'type' => 'hidden',
-                    'config' => array(
-                        'value' => 'topsecret',
-                        'label' => FALSE,
-                        'responsiveClass' => FALSE,
-                        'wrapClass' => FALSE,
-                    ),
-                ),
-                'notes' => array(
-                    'type' => 'textarea',
-                    'config' => array(
-                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
-                        'value' => 'Set in config',
-                        'inputAttributes' => array(
-                            'placeholder' => 'Tghis is where your notes go',
-                            'class' => 'input-lg',
-                            'rows' => 5,
-                        ),
-                    ),
-                ),
-                'password' => array(
-                    'type' => 'password',
-                    'config' => array(
-                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
-                        'inputAttributes' => array(
-                            'placeholder' => 'LiTheGuy@hotmail.com',
-                            'class' => 'input-lg',
-                        ),
-                    ),
-                ),
-                'file' => array(
-                    'type' => 'file',
-                    'config' => array(
-                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
-                        'helpBlock' => 'This is help text',
-                        'inputAttributes' => array(
-                            'placeholder' => 'LiTheGuy@hotmail.com',
-                            'class' => 'input-lg',
-                        ),
-                    ),
-                ),
-                'datetime' => array(
-                    'type' => 'datetime',
-                    'config' => array(
-                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
-                        'helpBlock' => 'This is help text',
-                        'inputAttributes' => array(
-                            'placeholder' => 'LiTheGuy@hotmail.com',
-                            'class' => 'input-lg',
-                        ),
-                    ),
-                ),
-                'date' => array(
-                    'type' => 'date',
-                    'config' => array(
-                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
-                        'helpBlock' => 'This is help text',
-                        'inputAttributes' => array(
-                            'placeholder' => 'LiTheGuy@hotmail.com',
-                            'class' => 'input-lg',
-                        ),
-                    ),
-                ),
-                'month' => array(
-                    'type' => 'month',
-                    'config' => array(
-                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
-                        'helpBlock' => 'This is help text',
-                        'inputAttributes' => array(
-                            'placeholder' => 'LiTheGuy@hotmail.com',
-                            'class' => 'input-lg',
-                        ),
-                    ),
-                ),
-                'time' => array(
-                    'type' => 'time',
-                    'config' => array(
-                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
-                        'helpBlock' => 'This is help text',
-                        'inputAttributes' => array(
-                            'placeholder' => 'LiTheGuy@hotmail.com',
-                            'class' => 'input-lg',
-                        ),
-                    ),
-                ),
-                'week' => array(
-                    'type' => 'week',
-                    'config' => array(
-                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
-                        'helpBlock' => 'This is help text',
-                        'inputAttributes' => array(
-                            'placeholder' => 'LiTheGuy@hotmail.com',
-                            'class' => 'input-lg',
-                        ),
-                    ),
-                ),
-                'number' => array(
-                    'type' => 'number',
-                    'wrapClass' => 'has-success',
-                    'config' => array(
-                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
-                        'helpBlock' => 'This is help text',
-                        'inputAttributes' => array(
-                            'placeholder' => 'LiTheGuy@hotmail.com',
-                            'class' => 'input-lg',
-                        ),
-                    ),
-                ),
-                'url' => array(
-                    'type' => 'url',
-                    'config' => array(
-                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
-                        'helpBlock' => 'This is help text',
-                        'inputAttributes' => array(
-                            'placeholder' => 'LiTheGuy@hotmail.com',
-                            'class' => 'input-lg',
-                            'disabled' => '',
-                        ),
-                    ),
-                ),
-                'checkbox' => array(
-                    'type' => 'checkbox',
-                    'config' => array(
-                        // 'placeholder' => 'LiTheGuy@hotmail.com',
-                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
-                        'wrapClass' => '',
-                        'helpBlock' => 'Choose one of these',
-                        'labelClass' => 'checkbox-inline',
-                        // 'options' => array(
-                        //     'male' => 'Male',
-                        //     'female' => 'Female',
-                        // ),
-                        'options' => 'titles',
-                        'inputAttributes' => array(
-                            // 'class' => 'input-lg',
-                        ),
-                    ),
-                ),
-                'radio' => array(
-                    'type' => 'radio',
-                    'config' => array(
-                        // 'placeholder' => 'LiTheGuy@hotmail.com',
-                        'responsiveClass' => 'col-lg-12 col-md-12 col-sm-12  col-xs-12',
-                        'wrapClass' => '',
-                        // 'labelClass' => 'checkbox-inline',
-                        // 'options' => array(
-                        //     'male' => 'Male',
-                        //     'female' => 'Female',
-                        // ),
-                        'options' => 'titles',
-                        'inputAttributes' => array(
-                            // 'class' => 'input-lg',
-                        ),
-                    ),
-                ),
-            ),
-
+            
             /* FORM: Create Contacts */
             'create' => array(
              
@@ -431,9 +225,8 @@ return array(
                 'email' => array('inputAttributes' => array('class' => 'input-lg')),
                 'nickname' => array('inputAttributes' => array(
                     'class' => 'input-lg copy-destination',
-                    )
+                    ),
                 ),
-                
 
             ),
             
@@ -475,6 +268,7 @@ return array(
 
             /* FORM: Edit optin for Contacts */
             'edit_optin' => array(
+                
                 'optin_email' => array(
                     'type' => 'radio',
                     'options' => array(

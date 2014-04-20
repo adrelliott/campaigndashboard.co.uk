@@ -34,10 +34,6 @@
         return false;
     });
 
-    // $('.wysihtml5').each(function() {
-    //     $(this).wysihtml5();
-    // });
-    
 
 
 
@@ -88,35 +84,15 @@
     });
 
     /* Copy first name to nickname in contacts/show */
-    // $("#create-first_name").keyup(function () {
-    //   var value = $(this).val();
-    //   $("#create-nickname").val(value);
-    // }).keyup();
-    
     $("#copy-source").keyup(function () {
       var value = $(this).val();
       $(".copy-destination").val(value);
     }).keyup();
 
-    // $(".copy-and-paste").keyup(function () {
-    //   var value = $(this).val();
-    //   $(".copy-destination").val(value);
-    // }).keyup();
+    /* Fade a message out after 5 seconds */
+    $(".fade-out").delay(1000).fadeOut('slow')
 
-
-    /* Intialise... */
-    //$("[class='bootstrap-switch']").bootstrapSwitch();
-    
-    /* flippant.js */
-    // var front = document.getElementById('flipthis')
-    //     , back_content = "<h2>I'm the back!</h2><button id='closeCard'>&laquo; Back</button>"
-    //     , back
-    // document.getElementById("flipCard").addEventListener('click',function(e){
-    //     back = flippant.flip(front, back_content)
-    //     document.getElementById("closeCard").addEventListener('click',function(e){
-    //         back = back.close();
-    //     })
-    // })
+ 
 
 
 

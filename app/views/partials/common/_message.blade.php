@@ -1,5 +1,5 @@
 @if ($message = Session::get('success'))
-<div class="alert alert-success alert-dismissable">
+<div class="alert fade-out alert-success alert-dismissable">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
   <strong>Woo Hoo!</strong> {{ $message }}
 </div>
@@ -23,7 +23,7 @@
 @endif
 
 @if ($message = Session::get('info'))
-<div class="alert alert-info alert-dismissable">
+<div class="alert fade-out alert-info alert-dismissable">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
   <strong>Just so you know...</strong> {{ $message }}
 </div>
