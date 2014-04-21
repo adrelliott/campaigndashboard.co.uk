@@ -228,14 +228,11 @@ class EloquentRepository implements RepositoryInterface {
      public function createRecord()
     {
         // 1. Create new object and fill it with $_POST ($fillable is set)
-        $this->q = new $this->model( Input::all() );
-
-        // 2. Set the owner_id
-        //$this->q->owner_id = Auth::user()->owner_id;       
+        $this->q = new $this->model( Input::all() );     
 
         // 2. Now save it and set a success flag
-        // if ( $this->q->save() ) $this->q->result = TRUE;
-        $this->q->result = $this->q->save();
+        $this->q->success = $this->q->save();
+        $this->q->errors = $this->q->errors()->toArray();
 
         return $this->q;
     }
@@ -245,12 +242,11 @@ class EloquentRepository implements RepositoryInterface {
     {
         // 1. Find the model & fill with $_POST (protected with $fillable)
         $this->q = $this->model->findOrFail( $id );
-        $this->q->fill( Input::all() );
-        //$this->q->owner_id = Auth::user()->owner_id;   
+        $this->q->fill( Input::all() );  
 
         // 2. Save the new model and set a success flag
-        // if ( $this->q->save() ) $this->q->result = TRUE;
-        $this->q->result = $this->q->save();
+        $this->q->success = $this->q->save();
+        $this->q->errors = $this->q->errors()->toArray();
 
         return $this->q;
     }

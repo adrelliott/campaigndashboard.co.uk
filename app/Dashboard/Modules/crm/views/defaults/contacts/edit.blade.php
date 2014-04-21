@@ -24,6 +24,9 @@
             'route' => array('app.contacts.update', $record->id),
             'method' => 'PATCH',
             'role' => 'form',
+            'class' => 'ajax-form',
+            'ajax-url' => '/api/contacts/' . $record->id,
+            'ajax-method' => 'PATCH',
         )
     )}}
 

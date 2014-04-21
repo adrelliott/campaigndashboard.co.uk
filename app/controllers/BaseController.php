@@ -70,7 +70,7 @@ class BaseController extends Controller {
 
         # Fire event & render view
         $this->fireEvent();
-        return $this->handleResponse();
+        return $this->handleResponse(TRUE);
     }
 
     /**
@@ -215,6 +215,7 @@ class BaseController extends Controller {
     {
         $event = join('.', $this->classAttributes);
         $this->record->eventResponse = Event::fire( $event, $this->record );
+        // $this->record = Event::fire( $event, $this->record );
 
         # HOOK: Do we have any postEvent methods to perform?
         if ( isset( $this->postEvent[$this->classAttributes[3]]) ) 
@@ -225,19 +226,7 @@ class BaseController extends Controller {
     protected function handleResponse($viewFile = 'edit')
     {
         # Is it a json request?
-        if ( $this->asJson )
-        {
-            # If we have tried to save(), and it was successful, return the object
-            if ( isset($this->record->result) && $this->record->result === TRUE )
-                $retval = Response::make($this->record, 200);
-            
-            # elseif we have tried to save(), and it was NOT successful, return errors
-            elseif ( isset($this->record->result) && $this->record->result === FALSE )
-                $retval = Response::make($this->record->errors()->toArray(), 400);
-            
-            # else just return the record
-            else $retval = $this->record;
-        }
+        if ( $this->asJson ) $retval = $this->record;
 
         # OK, must be a request from the application
         else

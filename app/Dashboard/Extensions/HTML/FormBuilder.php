@@ -62,7 +62,7 @@ class FormBuilder extends BaseFormBuilder {
         $html = $this->{$this->config['type'] . 'BS'}($this->config['value']);
 
         # Add help block if passed
-        if ( $this->config['helpBlock'] ) 
+        if ( $this->config['helpBlock'] != FALSE )
             $html .= '<span class="help-block"><em>' . $this->config['helpBlock'] . '</em></span>';
 
          # Wrap in a div, if its defined in the config
@@ -300,9 +300,15 @@ class FormBuilder extends BaseFormBuilder {
     {
         if ( $this->config[$type] != FALSE )
         {
-            return '<div class="' . $this->config[$type] . '">' . $html . '</div>';
+            return '<div class="' . $this->config[$type] . '" ' . $this->getId($type) . '>' . $html . '</div>';
         }
         else return $html;
+    }
+
+    public function getId($type)
+    {
+        # Set up an Id if its a wrap class
+        if ( $type == 'wrapClass' ) return ' id="' . $this->name . '" ';
     }
 
     /**

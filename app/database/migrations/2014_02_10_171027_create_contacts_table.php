@@ -39,9 +39,9 @@ class CreateContactsTable extends Migration {
 			$table->string('gender', 15)->nullable();
 			$table->date('date_of_birth')->nullable();
 			$table->string('twitter_id', 15)->nullable();
-			$table->boolean('optin_email')->nullable();
-			$table->boolean('optin_sms')->nullable();
-			$table->boolean('optin_post')->nullable();
+			$table->boolean('optin_email')->default(1);
+			$table->boolean('optin_sms')->default(1);
+			$table->boolean('optin_post')->default(1);
 			$table->timestamps();
 		});
 	}

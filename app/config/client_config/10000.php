@@ -179,7 +179,7 @@ return array(
                         'responsiveClass' => FALSE, //This doesn;t create a wrapping div 
                         'label' => 'New label', //Leave blank to create label from name, or FALSE to have no label
                         'labelClass' => '', //add label class here
-                        'wrapClass' => FALSE, //Leave blank for 'form-group' or FALSE for none
+                        'wrapClass' => '', //Leave blank for 'form-group' or FALSE to not have one ( but we cannot show errors via ajax if we do this)
                         'options' => 'titles', // either add index in dropdowns, 
                                                 //or an array of options
                         'value' => 2,   // Set a default value (overidden by value from model)
@@ -216,10 +216,11 @@ return array(
             /* FORM: Create Contacts */
             'create' => array(
              
-                'first_name' => array('inputAttributes' => array(
-                    'class' => 'input-lg',
-                    'id' => 'copy-source',
-                    )
+                'first_name' => array('
+                    inputAttributes' => array(
+                        'class' => 'input-lg',
+                        'id' => 'copy-source',
+                    ),
                 ),
                 'last_name' => array('inputAttributes' => array('class' => 'input-lg')),
                 'email' => array('inputAttributes' => array('class' => 'input-lg')),
@@ -237,8 +238,13 @@ return array(
                     'type' => 'select',
                     'options' => 'titles',
                 ),
-                'first_name' => array('inputAttributes' => array('class' => 'input-lg')),
-                'last_name' => array('inputAttributes' => array('class' => 'input-lg')),
+                'first_name' => array(
+                    'inputAttributes' => array('class' => 'input-lg')
+                ),
+                'last_name' => array(
+                    'inputAttributes' => array('class' => 'input-lg'),
+                    'helpBlock' => 'This si the passed help',
+                ),
                 'email' => array('inputAttributes' => array('class' => 'input-lg')),
                 'gender' => array(
                     'type' => 'radio',
@@ -287,6 +293,7 @@ return array(
                 ),
                 'optin_post' => array(
                     'type' => 'radio',
+                    'value' => 1,
                     'options' => array(
                         1 => 'Receive Post',
                         0 => 'No Post',

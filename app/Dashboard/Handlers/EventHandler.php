@@ -19,6 +19,12 @@ class EventHandler {
      */
     public $event;
 
+    /**
+     * The main record object. We can manipulate the properties via the event_add(event)     
+     * @var object 
+     */
+    public $record;
+
 
     public function __construct()
     {
@@ -26,8 +32,9 @@ class EventHandler {
         $this->event = Event::firing();
     }
 
-    public function handle()
+    public function handle($record)
     {
+        $this->record = $record;
         $method = camel_case(str_replace('.', '_', str_replace($this->prefix, '', $this->event)));
 
         // Now check and see a tenant-specific method is defined...

@@ -1,7 +1,7 @@
 <?php namespace Dashboard\Api;
 
 use Route;
-use Dashboard\Repositories\ContactRepositoryInterface;
+// use Dashboard\Repositories\ContactRepositoryInterface;
 
 
 // Route::bind('contact', function($value, $route)
@@ -24,9 +24,8 @@ Route::group(array(
     'before' => 'auth',
     'namespace' => 'Dashboard\Crm'
     ), 
-    function($repo)
+    function()
     {
-        
         
 
         // // Standard CRUD endpoints

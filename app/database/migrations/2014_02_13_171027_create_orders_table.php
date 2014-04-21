@@ -31,7 +31,7 @@ class CreateOrdersTable extends Migration {
             $table->string('order_source', 100)->nullable();
 			$table->string('order_reference', 100)->nullable();
 			$table->text('order_notes')->nullable();
-			$table->float('order_total')->nullable();
+			$table->float('order_total')->nullable()->unsigned();
 			$table->timestamps();
 		});
 	}
