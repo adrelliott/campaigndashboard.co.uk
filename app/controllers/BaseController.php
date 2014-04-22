@@ -213,9 +213,9 @@ class BaseController extends Controller {
      */
     protected function fireEvent()
     {
+        // Construct event name and pass through a reference to $this
         $event = join('.', $this->classAttributes);
         $this->record->eventResponse = Event::fire( $event, $this->record );
-        // $this->record = Event::fire( $event, $this->record );
 
         # HOOK: Do we have any postEvent methods to perform?
         if ( isset( $this->postEvent[$this->classAttributes[3]]) ) 
@@ -245,7 +245,7 @@ class BaseController extends Controller {
             # Else just return the view
             else $retval = $this->renderView($viewFile);
         }
-
+        
         return $retval;
     }
     

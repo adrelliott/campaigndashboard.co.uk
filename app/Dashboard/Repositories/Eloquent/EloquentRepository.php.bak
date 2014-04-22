@@ -87,7 +87,7 @@ class EloquentRepository implements RepositoryInterface {
         return $this->r;
     }
 
-    public function getDatatable($name, $queryType = 'query')
+    protected function getDatatable($name, $queryType = 'query')
     {
         if ( Input::has('datatable') )
         {
@@ -115,8 +115,115 @@ class EloquentRepository implements RepositoryInterface {
         return $this->r;
     }
 
+    /**
+     * Takes the eager loading params ad restricts to just tenant's records
+     * @param  mixed $args The passed args
+     */
+    public function with($args)
+    {
+        return $this->q->with(
+            array($args => function($query)
+            {
+                $query->onlyOwners();
+            })
+        );
+    }
 
+    /**
+     * Retrives a collection based on the query that's been built
+     * (You can run $this->where() to constrain the query)
+     * @return colection 
+     */
+    // public function get()
+    // {
+    //     return $this->q->get($this->selectCols);
+    // }
 
+    /**
+     * Returns a list of value pairs for a dropdown menu
+     * @param  string $colValue The value to return (e.g. product_title)
+     * @param  string $colKey   Defaults to id - no need ot change this usually
+     * @return array           A key=>value array 
+     */
+    // public function lists($colValue, $colKey = 'id')
+    // {
+    //     return $this->q->lists($colValue, $colKey);
+    // }
+    
+
+    /*
+    |--------------------------------------------------------------------------
+    | Retreive Models
+    |--------------------------------------------------------------------------
+    |
+    | Redfine some main Eloquent methods to restrict to tenant's records only 
+    |
+    */
+
+    /**
+     * Finds a model with id=$id, and if we pass a 'with' value
+     * eager loads those values too
+     * @param  int  $id   id of the model
+     * @param  boolean or string $with The related model(s) to eager load
+     * @return JSON        
+     */
+    // public function find($id, $with = FALSE)
+    // {
+    //     return $this->findOrFail($id, $with);
+    // }
+
+    /**
+     * Finds a model with id=$id, and if we pass a 'with' value
+     * eager loads those values too
+     * @param  int  $id   id of the model
+     * @param  boolean or string $with The related model(s) to eager load
+     * @return JSON        
+     */
+    public function findOrFail($id, $with = FALSE)
+    {
+        if ( $with ) $this->with($with);
+            // return $this->q->with( $with )->findOrFail( $id );
+         return $this->q->findOrFail( $id );
+    }
+
+    public function firstOrFail()
+    {
+        //tyo be built out
+    }
+
+    /**
+     * Finds the first model where=$where, and if we pass a 'with' value
+     * eager loads those values too
+     * @param  int  $id   id of the model
+     * @param  boolean or string $with The related model(s) to eager load
+     * @return JSON        
+     */
+    // public function firstOrFail($where = array(), $with = FALSE)
+    // {
+    //     extract($where);
+    //     # Set up the query
+    //     $this->q = $this->model->onlyOwners()->where( (string)$where);
+        
+    //     if ( $with ) return $this->q->with( $with )->firstOrFail();
+    //     else return $this->q->firstOrFail();
+
+    //     # Set up the query
+    //     // $this->q = $this->model->onlyOwners()->where($where);
+    //     // return $this->q->firstOrFail();
+    // }
+
+    
+
+    // public function first($where = NULL)
+    // {
+    //     if ( $where ) return $this->q->where($where)->first();
+    //     else return $this->q->first();
+    // }
+
+    // public function pluck($colName)
+    // {
+    //     return $this->q->pluck($colName);
+    // }
 
     
     /*
@@ -169,34 +276,46 @@ class EloquentRepository implements RepositoryInterface {
         die('The destroy method has not been created yet - see Dashbpard\Repo\Eloquent\Eloquentrepo');
     }
 
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Query Builder Methods
+    |--------------------------------------------------------------------------
+    |
+    | Redfine some main Eloquent methods to restrict to tenant's records only 
+    |
+    */
+    
+
+    // public function where($column, $operator = null, $value = null, $boolean = 'and')
+    // {
+    //     return $this->q->where($column, $operator, $value, $boolean);
+    // }
+
+
    
         
 
 
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | Eloquent methods/Query Builder
-    |--------------------------------------------------------------------------
-    |
-    | Over=ride eloquent methods here
-    |
-    */
-   
-    /**
-     * Takes the eager loading params ad restricts to just tenant's records
-     * @param  mixed $args The passed args
-     */
-    public function with($args)
-    {
-        return $this->q->with(
-            array($args => function($query)
-            {
-                $query->onlyOwners();
-            })
-        );
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -209,7 +328,7 @@ class EloquentRepository implements RepositoryInterface {
     |
     */
    
-
+   
     /**
      * Overwrites the $selectCols array with any passed in the URL 
      * (using cols={CSV} ), or if none passed, look in the model class 

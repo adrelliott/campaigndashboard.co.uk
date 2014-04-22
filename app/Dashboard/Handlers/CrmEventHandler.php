@@ -11,12 +11,12 @@ class CrmEventHandler extends EventHandler {
      */
     protected $eventPrefix = 'dashboard.crm.';
 
-    public function contactsEdit()
-    {
-        // dd($this->record);
-        $this->record->city = 'Manchester';
-        return 'My respinse';
-    }
+    // public function contactsEdit()
+    // {
+    //     // dd($this->record);
+    //     $this->record->city = 'Manchester';
+    //     return 'My respinse';
+    // }
 
 
 }

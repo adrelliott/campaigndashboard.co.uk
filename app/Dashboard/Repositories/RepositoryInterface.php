@@ -18,12 +18,11 @@ interface RepositoryInterface {
     */
     public function all();
 
+    public function getDatatable($name, $queryType);
+
     public function getRelated($id, $relatedModel, $with);
 
-    public function get();
-
-    public function lists($colValue, $colKey);
-
+   
 
     /*
     |--------------------------------------------------------------------------
@@ -33,16 +32,7 @@ interface RepositoryInterface {
     | Redfine some main Eloquent methods to restrict to tenant's records only 
     |
     */
-    public function find($id, $with);
-
-    public function findOrFail($id, $with);
-
-    public function firstOrFail();
-
-    public function first();
-
-    public function pluck($colName);
-
+    
     
     /*
     |--------------------------------------------------------------------------
@@ -80,6 +70,7 @@ interface RepositoryInterface {
     |
     */
     //things like where()
+    public function with($args);
    
         
    

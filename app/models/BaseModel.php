@@ -53,6 +53,13 @@ class BaseModel extends Magniloquent {
           $this->owner_id = Auth::user()->owner_id;
     }
 
+
+    /**
+     * Global Scopes
+     *
+     * Add scoped for individual models in the relevant model classes
+     */
+
     /**
      * SCOPE: Ensures that we only return the records belonging to the current tenant 
      * @param  object $query The query form the query builder

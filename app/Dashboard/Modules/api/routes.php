@@ -1,22 +1,6 @@
 <?php namespace Dashboard\Api;
 
 use Route;
-// use Dashboard\Repositories\ContactRepositoryInterface;
-
-
-// Route::bind('contact', function($value, $route)
-// {
-//     return ContactInterface::where('name', $value)->first();
-// });
-
-// Route::get('api/c/{id}', function($id)
-// {
-    
-//     dump( Contact::findOrFail($id)->tags->toArray() );
-// });
-// Route::model('contact', 'Dashboard\Crm\Contact');
-
-// Route::model('contact', 'Dashboard\Crm\Contact');
 
 // Set up contacts
 Route::group(array(
@@ -26,32 +10,39 @@ Route::group(array(
     ), 
     function()
     {
-        
-
-        // // Standard CRUD endpoints
-        // Route::get('/', function()
-        // {
-        //     return Contact::onlyOwners()->get();
-        // });
-        
-        // Route::get('/{contact}', function($contact)
-        // {
-        //     return $contact;
-        // });
-
-        // Custom endpoints
+        /**
+         * Gets the order-items for the passed contact
+         */
         Route::get('contacts/{id}/order-items', 
             array('as' => 'api.contacts.order-items', 'uses' => 'ContactsController@getOrderProducts'));
 
+        /**
+         * Gets any related model for the contact (and returns nested relationship cols)
+         */
         Route::get('contacts/{id}/{relatedModel}/{nestedRelationship?}', 
             array('as' => 'api.contacts.related-model', 'uses' => 'ContactsController@getRelated'));
+        
+/**
+ * Use this to test the eloquent methods - see the method in contacts controller
+ */
+Route::get('contacts/test', 
+    array('uses' => 'ContactsController@test'));
 
-        Route::get('contacts/test', 
-            array('as' => 'api.contacts.test', 'uses' => 'ContactsController@test'));
-
-
-        // Default endpoints
+        /**
+         * Sets up the default RESTful endpoints
+         */
         Route::resource('contacts', 'ContactsController');
+
+
+
+
+
+
+    }
+);
+
+
+
 
         
 
@@ -103,7 +94,3 @@ Route::group(array(
  //            array('as'=>'api.contacts', 'uses'=> 'ContactsController@index'));
  //        Route::get('contacts', 
  //            array('as'=>'api.contacts', 'uses'=> 'ContactsController@index'));
-
-
-    }
-);

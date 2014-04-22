@@ -20,7 +20,7 @@ class EventHandler {
     public $event;
 
     /**
-     * The main record object. We can manipulate the properties via the event_add(event)     
+     * The main record object. We can manipulate the properties via the event, plus respond with reponses    
      * @var object 
      */
     public $record;
@@ -34,6 +34,7 @@ class EventHandler {
 
     public function handle($record)
     {
+        // Pass a refernece to the main record object through
         $this->record = $record;
         $method = camel_case(str_replace('.', '_', str_replace($this->prefix, '', $this->event)));
 
@@ -44,6 +45,8 @@ class EventHandler {
         // ...if not, then have we got a general method defined?
         elseif ( method_exists($this, $method) ) 
             return $this->$method();
+
+        else return;
     }
 
     
