@@ -21,6 +21,10 @@ return array(
         'label' => 'lead',
     ),
 
+    'orders' => array(
+        'label' => 'orders',
+    ),
+
     'logos' => array(
         'logoSmall' => '/assets/img/bootstrap/cdash_logo75px.png',
         'logoLarge' => '/assets/img/bootstrap/cdash_logo150px.png',
@@ -128,8 +132,9 @@ return array(
     */
     'tables' => array(
 
-        //The table displayed on contacts/index
-        'contacts_index' => array(
+        /********* All Tables on the Homepage ******/
+        
+        'homepage_contacts' => array( //The table displayed on homepage/contacts
             'options' => array(
                 'setUrl' => '/api/contacts?datatable=true&cols=id,first_name,last_name,owner_id',
                 'addColumn' => array('Id', 'First name', 'Last Name'),
@@ -146,6 +151,46 @@ return array(
             ),
             'tableTemplate' => 'partials.app._indexTable',
         ),
+
+
+        /********* All Tables on the Contacts pages ******/
+        
+        'contacts_index' => array(  //The table displayed on contacts/index
+            'options' => array(
+                'setUrl' => '/api/contacts?datatable=true&cols=id,first_name,last_name,owner_id',
+                'addColumn' => array('Id', 'First name', 'Last Name'),
+                'setOptions' => array(
+                    //'sPaginationType' => 'bootstrap',
+                    // 'iDisplayLength' => 10,
+                    // 'bLengthChange' => false,
+                ),
+                'setCustomValues' => array(
+                    'linkurl' => '/app/contacts',
+                    'showid' => true,
+                    'idisplaylength' => 5,
+                ),
+            ),
+            'tableTemplate' => 'partials.app._indexTable',
+        ),
+
+        'notes_table' => array(  //The table displayed on contacts/edit --> notes tab
+            'options' => array(
+                'setUrl' => '/api/contacts/%id%/notes?datatable=true&cols=id,note_title,owner_id',
+                'addColumn' => array('Id', 'Note Title', 'Owner Id'),
+                'setOptions' => array(
+                    //'sPaginationType' => 'bootstrap',
+                    // 'iDisplayLength' => 10,
+                    // 'bLengthChange' => false,
+                ),
+                'setCustomValues' => array(
+                    'linkurl' => '/app/contacts',
+                    'showid' => true,
+                    'idisplaylength' => 5,
+                ),
+            ),
+            'tableTemplate' => 'partials.app._indexTable',
+        ),
+
 
     ),
    

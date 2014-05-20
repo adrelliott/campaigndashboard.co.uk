@@ -35,18 +35,37 @@ class Contact extends BaseModel {
      */
     public function tags()
     {
-        return $this->belongsToMany('Dashboard\Tags\Tag');
+        return $this->belongsToMany('Dashboard\Tags\Tag')->onlyOwners();
     }
 
     public function roles()
     {
-        return $this->hasMany('Dashboard\Crm\ContactRole');
+        return $this->hasMany('Dashboard\Crm\ContactRole')->onlyOwners();
     }
 
     public function orderProducts()
     {
-        return $this->hasManyThrough('Dashboard\Sales\OrderProduct', 'Dashboard\Sales\Order');
+        
+        return $this->hasManyThrough('Dashboard\Sales\OrderProduct', 'Dashboard\Sales\Order')
+            ->onlyOwners('order_product');
     }
+    
+    /**
+     * Notes relationship
+     */
+    public function notes()
+    {
+        return $this->hasMany('Dashboard\Crm\Note')->onlyOwners();
+    }
+
+    /**
+     * Orders relationship
+     */
+    public function orders()
+    {
+        return $this->hasMany('Dashboard\Sales\Order')->onlyOwners();
+    }
+
 
 
 
@@ -78,22 +97,7 @@ class Contact extends BaseModel {
     
 
     
-    /**
-     * Notes relationship
-     */
-    public function notes()
-    {
-        return $this->hasMany('Dashboard\Crm\Note');
-    }
-
-    /**
-     * Orders relationship
-     */
-    public function orders()
-    {
-        return $this->hasMany('Dashboard\Sales\Order');
-    }
-
+   
     
 
 }

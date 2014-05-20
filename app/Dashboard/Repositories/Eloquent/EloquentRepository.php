@@ -1,8 +1,8 @@
 <?php namespace Dashboard\Repositories;
 
-use Auth;
+// use Auth;
 use Input;
-use DB;
+// use DB;
 use Datatable;
 use Chumper\Datatable\Columns\TextColumn;
 // use Bllim\Datatables\Datatables;
@@ -106,7 +106,10 @@ class EloquentRepository implements RepositoryInterface {
     {
         
         # Set up the query (using the findOrFail() method below)
-        $this->q = $this->findOrFail($id, $with)->$relatedModel;
+        if ( $with ) $this->with( $with );
+
+        # Get related model
+        $this->q = $this->findOrFail($id)->$relatedModel;
 
         # If its not a datatable request, then just do a straight get()
         if ( ! $this->r = $this->getDatatable($relatedModel, 'collection') )
@@ -190,12 +193,21 @@ class EloquentRepository implements RepositoryInterface {
      */
     public function with($args)
     {
-        return $this->q->with(
-            array($args => function($query)
-            {
-                $query->onlyOwners();
-            })
-        );
+        # Get the passed args as an array
+        $args = func_get_args();
+
+        # Loop through each and apply the onlyOwners() constraint
+        foreach ( $args as $arg )
+        {
+            $this->q->with(
+                array($arg => function($query)
+                {
+                    $query->onlyOwners();
+                })
+            );
+        }
+
+        return $this->q;
     }
 
 

@@ -26,9 +26,10 @@ class Order extends BaseModel {
      
     public function products()
     {
-        return $this->belongsToMany('Dashboard\Sales\Product')
+        return $this->belongsToMany('Dashboard\Sales\Order')
                     ->withPivot('variant', 'quantity', 'tax', 'price')
-                    ->withTimestamps();
+                    ->withTimestamps()
+                    ->onlyOwners();
     }
      
 }

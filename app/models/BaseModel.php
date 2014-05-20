@@ -57,16 +57,17 @@ class BaseModel extends Magniloquent {
     /**
      * Global Scopes
      *
-     * Add scoped for individual models in the relevant model classes
+     * Add scopes for individual models in the relevant model classes
      */
 
     /**
      * SCOPE: Ensures that we only return the records belonging to the current tenant 
      * @param  object $query The query form the query builder
      */
-    public function scopeOnlyOwners($query)
+    public function scopeOnlyOwners($query, $tableName = NULL, $colName = 'owner_id')
     {
-        $query->whereOwnerId(Auth::user()->owner_id);
+        if ( $tableName ) $colName = $tableName . '.owner_id';
+        $query->where($colName, Auth::user()->owner_id);
     }
 
 }

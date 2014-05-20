@@ -23,7 +23,7 @@ class Product extends BaseModel {
      */
     public function orders()
     {
-        return $this->belongsToMany('Dashboard\Sales\Order');
+        return $this->belongsToMany('Dashboard\Sales\Order')->onlyOwners();
     }
 
 }

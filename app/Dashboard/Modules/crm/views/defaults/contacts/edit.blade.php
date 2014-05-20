@@ -68,27 +68,12 @@
 @stop
 
 @section('notes')
-        <h3 class="text-primary"><i class="fa fa-book"></i> Notes</h3>
+        <h3 class="text-primary"><i class="fa fa-book"></i> Notes1</h3>
         
-    @section('notes-table')
-
         <div class="table-responsive clearfix">
-            <table class="table dataTable data-table minitable" id="notes-table" 
-            data-ajaxsource="/dt/notes/getFor?cols=id,note_title,created_at&sortDESC=created_at&contact_id={{ $record->id}}"
-             data-showid="false" data-linkurl="/app/notes" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/notes" >
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Note title</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table> 
-        </div>
-    
-    @show  
+        {{ getTable('notes_table', $config) }}
+    </div>
+
         
         <div class="pull-right margin_top_15" style="margin-top:10px">
             <a class="btn btn-primary open-modal " href="#" modal-source="{{URL::route('app.notes.create', array('contact_id' => $record->id)) }}" data-view="show_modal" >

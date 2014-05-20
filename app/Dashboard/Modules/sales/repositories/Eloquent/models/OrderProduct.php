@@ -26,12 +26,12 @@ class OrderProduct extends BaseModel {
 
     public function orders()
     {
-        return $this->belongsTo('Dashboard\Sales\Order');
+        return $this->belongsTo('Dashboard\Sales\Order')->onlyOwners();
     }
 
     public function product()
     {
-        return $this->hasOne('Dashboard\Sales\Product', 'id'); 
+        return $this->belongsTo('Dashboard\Sales\Product')->onlyOwners();
     }
 
 }

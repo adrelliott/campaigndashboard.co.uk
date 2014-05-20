@@ -43,42 +43,29 @@
 
 @section('contacts')
     <h1>
-        <i class="fa fa-user"></i> Your {{ $config['contacts']['label'] }}s
+        <i class="fa fa-user"></i> Your {{ $config['contacts']['label'] }}s 
     </h1>
-        @section('contacts-table')
             
-            <div class="table-responsive clearfix">
-                <table class="table dataTable data-table" id="contacts_table"
-                data-ajaxsource="/api/contacts?cols=id,first_name,last_name,nickname,postcode,email,mobile_phone,legacy_id&datatable=true" data-showid="false" data-linkurl="/app/contacts" data-iDisplayLength="5">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Known As</th>
-                            <th>Postcode</th>
-                            <th>Email</th>
-                            <th>Mobile</th>
-                            <th>Memb No</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
+    <div class="table-responsive clearfix">
+        {{ getTable('homepage_contacts', $config) }}
+    </div>
 
-        @show
-
-    @section('below-contacts-table')
-
-        <div class="row">
-            <a href="/app/contacts/create" class="btn btn-primary btn-lg pull-right"><i class="fa fa-plus"></i> Create New {{ $config['contacts']['label'] }}</a>
-        </div>
-
-    @stop
+    <div class="row">
+        <a href="/app/contacts/create" class="btn btn-primary btn-lg pull-right"><i class="fa fa-plus"></i> Create New {{ $config['contacts']['label'] }}</a>
+    </div>
 
 @stop
 
 @section('orders')
-    //this is orders
+    <h1>
+        <i class="fa fa-user"></i> Your {{ $config['orders']['label'] }}s 
+    </h1>
+            
+    <div class="table-responsive clearfix">
+        {{ getTable('homepage_contacts', $config) }}
+    </div>
+
+    <div class="row">
+        <a href="/app/orders/create" class="btn btn-primary btn-lg pull-right"><i class="fa fa-plus"></i> Create New {{ $config['orders']['label'] }}</a>
+    </div> 
 @stop

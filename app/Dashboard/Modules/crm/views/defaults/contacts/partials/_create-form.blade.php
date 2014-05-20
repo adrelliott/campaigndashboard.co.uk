@@ -1,1 +1,0 @@
-<p>The output within the include= {{ $output }}</p>

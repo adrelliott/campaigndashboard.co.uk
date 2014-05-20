@@ -47,14 +47,18 @@ class ContactsController extends BaseController {
         // $this->record = $this->repo->select('first_name as user_name')->get()->toArray();
         // $this->record = $this->repo->select('first_name');
         // $this->record = $this->repo->addSelect('owner_id')->get()->toArray();
-        // $this->record = $this->repo->with('orders')->find(1)->toArray();
-        // $this->record = $this->getRelated(1, 'orderProducts', 'orderProducts.product')->toArray();
+        // $this->record = $this->repo->with('orders', 'orderProducts')->find(1)->toArray();
+        // 
+        $this->record = $this->getRelated(1, 'orderProducts', 'orderProducts.product')->toArray();
+        // 
         // $this->record = $this->repo->findOrFail(1)->toArray();
-        $this->record = $this->repo->firstOrFail()->toArray();
+        // $this->record = $this->repo->firstOrFail()->toArray();
         // $this->record = $this->repo->whereBetween('id', array(1, 27))->get()->toArray();
         // $this->record = $this->repo->where('first_name', 'al')->pluck('last_name');
-        // $this->record = $this->repo->test();
-        // $this->record = $this->repo->test();
+        // 
+        // $this->record = $this->repo->getRelated(1,'notes', null)->toArray();
+        // 
+        // $this->record = $this->repo->();
         // $this->record = $this->repo->test();
         // $this->record = $this->repo->test();
         // 

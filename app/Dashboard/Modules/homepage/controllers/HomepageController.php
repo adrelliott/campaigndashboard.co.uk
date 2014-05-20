@@ -3,20 +3,15 @@ use BaseController;
 
 
 // ****** temporaray model!!!!!!!!!! **** should be saved search
-use Dashboard\Repositories\OrderRepositoryInterface as SavedSearchInterface;
-
+use Dashboard\Repositories\ContactRepositoryInterface as ModelInterface;
 
 
 class HomepageController extends BaseController {
 
-
-    /**
-     * Pass the models required throgh here (like saved search )
-     * @param SavedInterface $repo [description]
-     */
-    public function __construct(SavedSearchInterface $repo)
+    public function __construct(ModelInterface $repo)
     {
         parent::__construct($repo);
-    } 
+    }
+
 
 }

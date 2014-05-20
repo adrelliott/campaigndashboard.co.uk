@@ -174,7 +174,7 @@ class BaseController extends Controller {
 
 
     /****************** Other m,ethods ****************/
-    public function getRelated($id, $relatedModel, $with = FALSE)
+    public function getRelated($id, $relatedModel, $with = NULL)
     {
         // Get this model and its related models
         $this->record = $this->repo->getRelated($id, $relatedModel, $with);
