@@ -1,10 +1,13 @@
 <table
-class="table table-responsive clearfix data-table {{ $class }}  "
+class="table table-responsive clearfix data-table {{ $class }} "
 data-ajaxsource="{{ $options['sAjaxSource'] }}"
+
+table-id="{{ $class }}"
 
 @foreach($values as $property => $value)
     data-{{ $property }}="{{ $value }}"
 @endforeach
+
 
 >
 

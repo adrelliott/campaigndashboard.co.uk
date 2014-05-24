@@ -6,7 +6,7 @@ class EloquentContactRoleRepository extends EloquentRepository implements Contac
 
     public function __construct(Model $model)
     {
-        $this->model = $model;
+        parent::__construct($model);
     }
 
 }

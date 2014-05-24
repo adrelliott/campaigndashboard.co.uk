@@ -3,7 +3,7 @@
 @section('modal-body')
     <h4 class="text-primary1"><i class="fa fa-pencil"></i> What do you want to say, {{ $current_user->first_name }}?</h4>
             
-    {{ Former::open()
+    {{-- Former::open()
     ->role('Form')
     ->class('modal-ajax-form')
     ->tableId('notes')
@@ -12,18 +12,25 @@
     ->route('app.notes.store');
     // ->populate($record->resource);
 
-    }}
+    --}}
+{{ Form::model(
+$record->resource,
+array(
+'route' => array('api.notes.store'),
+'method' => 'POST',
+'role' => 'form',
+'class' => 'modal-ajax-form',
+'ajax-url' => '/api/notes/',
+'ajax-method' => 'POST',
+'table-id' => 'notes',
+))
+}}
 
     @section('content-form')
 
-        <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-            {{ Former::text('note_title')->class('form-control input')->placeholder('E.g. Phone call')->label('Note Title') }}
-        </div>
-
-        <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-            {{ Former::textarea('note_body')->class('form-control input')->placeholder('E.g. They wanted to know where their order was. I told them it had been dispatched.')->rows(5) }}
-        </div>
-
+        @foreach ($config['forms']['notes']['create'] as $field => $attr)
+            {{ Form::inputBS($field, $attr) }}
+        @endforeach
     @show
     
         <input type="hidden" class="" name="user_id" value="{{ $current_user->id }}"> 

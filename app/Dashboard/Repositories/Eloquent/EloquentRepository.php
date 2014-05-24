@@ -47,7 +47,7 @@ class EloquentRepository implements RepositoryInterface {
         // $this->q is the query
         $this->q = $this->model->onlyOwners();
 
-        // Set the cols varaible (this determines what cols are being retrived)
+        // Set the cols variable (this determines what cols are being retrieved)
         $this->setCols();
 
 
@@ -67,10 +67,10 @@ class EloquentRepository implements RepositoryInterface {
 
     /*
     |--------------------------------------------------------------------------
-    | Retreive Collections
+    | Retrieve Collections
     |--------------------------------------------------------------------------
     |
-    | Redfine some main Eloquent methods to restrict to tenant's records only 
+    | Redefine some main Eloquent methods to restrict to tenant's records only
     |
     */
    
@@ -104,7 +104,6 @@ class EloquentRepository implements RepositoryInterface {
      */
     public function getRelated($id, $relatedModel, $with)
     {
-        
         # Set up the query (using the findOrFail() method below)
         if ( $with ) $this->with( $with );
 
@@ -114,7 +113,7 @@ class EloquentRepository implements RepositoryInterface {
         # If its not a datatable request, then just do a straight get()
         if ( ! $this->r = $this->getDatatable($relatedModel, 'collection') )
             $this->r = $this->q;
-        
+
         return $this->r;
     }
 

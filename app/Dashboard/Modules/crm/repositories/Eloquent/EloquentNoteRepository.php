@@ -6,7 +6,7 @@ class EloquentNoteRepository extends EloquentRepository implements NoteRepositor
 
     public function __construct(Model $model)
     {
-        $this->model = $model;
+        parent::__construct($model);
     }
 
 }

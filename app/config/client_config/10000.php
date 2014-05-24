@@ -175,33 +175,34 @@ return array(
 
         'notes_table' => array(  //The table displayed on contacts/edit --> notes tab
             'options' => array(
-                'setUrl' => '/api/contacts/%id%/notes?datatable=true&cols=id,note_title,owner_id',
-                'addColumn' => array('Id', 'Note Title', 'Owner Id'),
+                'setUrl' => '/api/contacts/%id%/notes?datatable=true&cols=id,note_title,created_at',
+                'addColumn' => array('Id', 'Note Title', 'Date'),
                 'setOptions' => array(
                     //'sPaginationType' => 'bootstrap',
                     // 'iDisplayLength' => 10,
                     // 'bLengthChange' => false,
                 ),
                 'setCustomValues' => array(
-                    'linkurl' => '/app/contacts',
+                    'linkurl' => '/app/notes',
                     'showid' => true,
                     'idisplaylength' => 5,
+                    'linkclass' => 'open-modal'
                 ),
             ),
-            'tableTemplate' => 'partials.app._indexTable',
+            'tableTemplate' => 'partials.app._recordTable',
         ),
 
         'purchases_table' => array(  //The table displayed on contacts/edit --> purchases tab
             'options' => array(
-                'setUrl' => '/api/contacts/%id%/notes?datatable=true&cols=id,note_title,owner_id',
-                'addColumn' => array('Id', 'Note Title', 'Owner Id'),
+                'setUrl' => '/api/contacts/%id%/order-items?datatable=true&cols=order_id',
+                'addColumn' => array('Order Id', 'Item', 'Qty', 'Total'),
                 'setOptions' => array(
                     //'sPaginationType' => 'bootstrap',
                     // 'iDisplayLength' => 10,
                     // 'bLengthChange' => false,
                 ),
                 'setCustomValues' => array(
-                    'linkurl' => '/app/contacts',
+                    'linkurl' => '/app/actions',
                     'showid' => true,
                     'idisplaylength' => 5,
                 ),
@@ -402,9 +403,20 @@ return array(
                 ),
 
             ),
+        ),// End of CONTACTS
 
-
+        // Begin NOTES
+        'notes' => array(
+            /* FORM: Create a Note */
+            'create' => array(
+                'note_title' => array('inputAttributes' => array('class' => 'input-lg', 'placeholder' => 'E.g. Phone call')),
+                'note_body' => array(
+                    'type' => 'textarea',
+                    'inputAttributes' => array('class' => 'input-lg', 'placeholder' => 'E.g. They wanted to know where their order was. I told them it had been dispatched.')
+                ),
+            ),
         ),
+        // End NOTES
     ),
 
 

@@ -22,16 +22,6 @@ Route::group(array(
         Route::get('contacts/{id}/{relatedModel}/{nestedRelationship?}', 
             array('as' => 'api.contacts.related-model', 'uses' => 'ContactsController@getRelated'));
 
-
-
-
-
-/**
- * Use this to test the eloquent methods - see the method in contacts controller
- */
-Route::get('contacts/test', 
-    array('uses' => 'ContactsController@test'));
-
         /**
          * Sets up the default RESTful endpoints
          */
@@ -39,9 +29,28 @@ Route::get('contacts/test',
 
 
 
+        /**
+         * Use this to test the eloquent methods - see the method in contacts controller
+         */
+        Route::get('contacts/test',
+            array('uses' => 'ContactsController@test'));
 
 
+    }
+);
 
+// Set up notes
+Route::group(array(
+        'prefix' => 'api',
+        'before' => 'auth',
+        'namespace' => 'Dashboard\Crm'
+    ),
+    function()
+    {
+        /**
+         * Sets up the default RESTful endpoints
+         */
+        Route::resource('notes', 'NotesController');
     }
 );
 

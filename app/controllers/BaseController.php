@@ -52,7 +52,7 @@ class BaseController extends Controller {
         $this->setClassAttributes();
         
         // Define the request type
-        if ( Request::ajax() || strtolower(Request::segment(1)) == 'api' ) 
+        if ( Request::ajax() && strtolower(Request::segment(1)) == 'api' )
             $this->asJson = TRUE;
 
         // dump($this->classAttributes);
@@ -60,7 +60,7 @@ class BaseController extends Controller {
 
     
     /**
-     * Display the listing page of the resource (note records are retrived via Ajax).
+     * Display the listing page of the resource (note records are retrieved via Ajax).
      *
      * @return Response
      */
@@ -173,7 +173,7 @@ class BaseController extends Controller {
     
 
 
-    /****************** Other m,ethods ****************/
+    /****************** Other methods ****************/
     public function getRelated($id, $relatedModel, $with = NULL)
     {
         // Get this model and its related models

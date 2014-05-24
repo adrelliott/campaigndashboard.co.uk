@@ -10,7 +10,7 @@
         $.each($(this).data(), function(k,v) {
             post[k] = v;
         });
-
+console.log('post', post);
         /* check we are logged in */
         // $.ajax({ 
         //     url: '/ajax/contacts/check_login', 
@@ -26,20 +26,24 @@
         $('#modal').modal('show');
         //if we have a url, the load the view from that url
         if ( url ) {
-            $('.modal-body').html('');
-            $('.modal-loader').addClass('loader');
+            console.log('url', url);
+            $('.modal-body').html('').addClass('loader');
+//            $('.modal-loader').addClass('loader');
             
             //Now get the view
-            $.ajax({
-                url: url,
-                type: 'GET',
-                // data: data,
-                success: function(html) {
-                    $('.modal-body').html(html);
-                    $('.modal-loader').removeClass('loader');
-                    
-                }
-            });
+            $(".modal-body").load( url ).removeClass('loader');
+//
+// $.ajax({
+//                url: url,
+//                type: 'GET',
+//                // data: data,
+//                success: function(html) {
+//                    console.log('htlm', html);
+//                    $('.modal-body').html(html);
+//                    $('.modal-loader').removeClass('loader');
+//
+//                }
+//            });
         }
     });
 

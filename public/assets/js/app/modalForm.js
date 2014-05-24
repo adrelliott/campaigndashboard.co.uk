@@ -21,15 +21,17 @@ $('form.modal-ajax-form').on('submit', function(e) {
         success: function(response) {
             //response is an array of the updated/created record
             //response_parsed = $.parseJSON(response);
-            console.log(response);
+            console.log('response',response);
         }
     });
 
 
     // Need some validation in here
-    $('#modal').modal('hide')
-    console.log('tableId:', tableId);
-    $('table#'+tableId+'-table').dataTable().fnDraw();
+    $('#modal').modal('hide');
+    console.log('refeshing table wiht class:', tableId+'_table');
+    console.log('alertClass:', alertClass);
+    $('table.data-table').dataTable().fnDraw();
+//    $('table').each().dataTable().fnDraw();
 
 
     //Now show some success messages

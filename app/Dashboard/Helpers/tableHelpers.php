@@ -35,6 +35,9 @@ if ( ! function_exists('getTable'))
         # Add url back into options
         $config['options']['setUrl'] = $url;
 
+        # Add table name as a class
+        $config['options']['setClass'] = $tableName;
+
 //        dump($config);var_dump($tableName); dump($fields, 1);
 
         # Set up any options passed in the config array

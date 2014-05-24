@@ -108,19 +108,15 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Dashboard\ServiceProviders\RepositoryServiceProvider',
+        'Dashboard\ServiceProviders\HtmlServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
-        // 'Cartalyst\Sentry\SentryServiceProvider',
-        // 'Authority\Repo\RepoServiceProvider',
-        // 'Authority\Service\Form\FormServiceProvider',
         'Former\FormerServiceProvider',
         'Way\Form\FormServiceProvider',
         'Profiler\ProfilerServiceProvider',
         'Creolab\LaravelModules\ServiceProvider',
-        'Bllim\Datatables\DatatablesServiceProvider',
+//        'Bllim\Datatables\DatatablesServiceProvider',
         'Chumper\Datatable\DatatableServiceProvider',
-        'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider',
-        'Dashboard\Html\HtmlServiceProvider'
-        // 'Barryvdh\MigrationGenerator\MigrationGeneratorServiceProvider',
+        'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider'
         ),
 
 	/*
@@ -191,7 +187,7 @@ return array(
         // 'Crm'             => 'Dallasmatthews\Crm\Crm'
         'Former' => 'Former\Facades\Former',
         'Profiler' => 'Profiler\Facades\Profiler',
-        'Datatables'      => 'Bllim\Datatables\Datatables',
+//        'Datatables'      => 'Bllim\Datatables\Datatables',
         'Datatable' => 'Chumper\Datatable\Facades\DatatableFacade',
         'Debug'          => 'Helpers\DebugHelper'
 	),

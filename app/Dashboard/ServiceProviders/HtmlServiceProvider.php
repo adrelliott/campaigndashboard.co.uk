@@ -1,7 +1,6 @@
-<?php namespace Dashboard\Html;
+<?php namespace Dashboard\ServiceProviders;
 
 use Illuminate\Support\ServiceProvider;
-
 use Dashboard\Html\FormBuilder;
 use Illuminate\Html\HtmlBuilder;
 

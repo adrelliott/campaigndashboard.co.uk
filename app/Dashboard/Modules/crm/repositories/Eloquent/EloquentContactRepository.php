@@ -23,7 +23,8 @@ class EloquentContactRepository extends EloquentRepository implements ContactRep
                 $this->datatable->addColumn('Product name', function($model)
                     {
                         $retval = $model->product->product_title . ' (at £';
-                        $retval .= round($model->price / 100, 2) . ')';
+//                        $retval .= round($model->price / 100, 2) . ')';
+                        $retval .= number_format((float)$model->price / 100, 2, '.', ',') . ')';
                         return $retval;
                     }
                 );
