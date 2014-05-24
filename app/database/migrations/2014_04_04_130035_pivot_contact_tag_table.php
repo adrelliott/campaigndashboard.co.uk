@@ -14,7 +14,7 @@ class PivotContactTagTable extends Migration {
 	{
 		Schema::create('contact_tag', function(Blueprint $table) {
 			$table->increments('id'); 
-            $table->datetime('deleted_at')->nullable();
+//            $table->datetime('deleted_at')->nullable();
             $table->integer('owner_id')->unsigned()->index();
 
             // Define FK
@@ -26,6 +26,7 @@ class PivotContactTagTable extends Migration {
             // Define the rest of the columns
             $table->string('tag_note')->nullable();
             $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

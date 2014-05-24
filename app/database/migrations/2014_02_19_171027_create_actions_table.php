@@ -14,7 +14,7 @@ class CreateActionsTable extends Migration {
 	{
 		Schema::create('actions', function(Blueprint $table) {
 			$table->increments('id');
-			$table->datetime('deleted_at')->nullable();
+//			$table->datetime('deleted_at')->nullable();
 			$table->integer('owner_id')->unsigned()->index();
 			$table->integer('contact_id')->unsigned()->index();
 			$table->integer('user_id')->nullable()->unsigned()->index();
@@ -37,6 +37,7 @@ class CreateActionsTable extends Migration {
 			$table->datetime('action_end_timestamp')->nullable()->default('0000-01-01 00:00');
 			$table->datetime('action_start_timestamp')->nullable()->default('0000-01-01 00:00');
 			$table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

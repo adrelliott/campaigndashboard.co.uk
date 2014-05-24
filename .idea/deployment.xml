@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Stagr">
+    <serverData>
+      <paths name="Stagr">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="http://127.0.0.1:1111/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
+

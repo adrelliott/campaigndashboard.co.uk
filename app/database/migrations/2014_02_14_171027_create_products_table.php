@@ -14,7 +14,7 @@ class CreateProductsTable extends Migration {
 	{
 		Schema::create('products', function(Blueprint $table) {
 			$table->increments('id');
-			$table->datetime('deleted_at')->nullable();
+//			$table->datetime('deleted_at')->nullable();
 			$table->integer('owner_id')->unsigned()->index();
 			$table->string('product_title', 250);
 			$table->text('product_description')->nullable();
@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration {
 			$table->string('product_category', 100)->nullable();
 			$table->string('product_sku', 20)->nullable();
 			$table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

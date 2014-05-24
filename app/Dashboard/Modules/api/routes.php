@@ -21,7 +21,11 @@ Route::group(array(
          */
         Route::get('contacts/{id}/{relatedModel}/{nestedRelationship?}', 
             array('as' => 'api.contacts.related-model', 'uses' => 'ContactsController@getRelated'));
-        
+
+
+
+
+
 /**
  * Use this to test the eloquent methods - see the method in contacts controller
  */

@@ -191,9 +191,64 @@ return array(
             'tableTemplate' => 'partials.app._indexTable',
         ),
 
+        'purchases_table' => array(  //The table displayed on contacts/edit --> purchases tab
+            'options' => array(
+                'setUrl' => '/api/contacts/%id%/notes?datatable=true&cols=id,note_title,owner_id',
+                'addColumn' => array('Id', 'Note Title', 'Owner Id'),
+                'setOptions' => array(
+                    //'sPaginationType' => 'bootstrap',
+                    // 'iDisplayLength' => 10,
+                    // 'bLengthChange' => false,
+                ),
+                'setCustomValues' => array(
+                    'linkurl' => '/app/contacts',
+                    'showid' => true,
+                    'idisplaylength' => 5,
+                ),
+            ),
+            'tableTemplate' => 'partials.app._indexTable',
+        ),
+
+        'roles_table' => array(  //The table displayed on contacts/edit --> roles tab
+            'options' => array(
+                'setUrl' => '/api/contacts/%id%/notes?datatable=true&cols=id,note_title,owner_id',
+                'addColumn' => array('Id', 'Note Title', 'Owner Id'),
+                'setOptions' => array(
+                    //'sPaginationType' => 'bootstrap',
+                    // 'iDisplayLength' => 10,
+                    // 'bLengthChange' => false,
+                ),
+                'setCustomValues' => array(
+                    'linkurl' => '/app/contacts',
+                    'showid' => true,
+                    'idisplaylength' => 5,
+                ),
+            ),
+            'tableTemplate' => 'partials.app._indexTable',
+        ),
+
+        'tags_table' => array(  //The table displayed on contacts/edit --> tags tab
+            'options' => array(
+                'setUrl' => '/api/contacts/%id%/notes?datatable=true&cols=id,note_title,owner_id',
+                'addColumn' => array('Id', 'Note Title', 'Owner Id'),
+                'setOptions' => array(
+                    //'sPaginationType' => 'bootstrap',
+                    // 'iDisplayLength' => 10,
+                    // 'bLengthChange' => false,
+                ),
+                'setCustomValues' => array(
+                    'linkurl' => '/app/contacts',
+                    'showid' => true,
+                    'idisplaylength' => 5,
+                ),
+            ),
+            'tableTemplate' => 'partials.app._indexTable',
+        ),
+
+
 
     ),
-   
+
 
 
     /*
@@ -206,12 +261,12 @@ return array(
     | NOTE: Very important:
     |   1. You cannot apply 'input-lg' to radio, checkboxes or multiple selects
     |   2. You can set a default value by defining 'value' => yourvalue
-    |   3. Anything under 'inputAttributes' is set as key=value in the <input> 
+    |   3. Anything under 'inputAttributes' is set as key=value in the <input>
     |       tag, e.g. 'mykey' => 'value', is <input mykey="value" >
     |   4. Specify a 'multiple' => '' index on inputAttributes to create multiple select
     |   5. For dropdowns, radio or checkboxes you can specify the index of the dropdown array
     |       (in this config file) or an array of new values
-        6. Put the fields in order that you wnat them to show up 
+        6. Put the fields in order that you wnat them to show up
     |   SEE EXAMPLE BELOW:
     */
     'forms' => array(
@@ -390,6 +445,24 @@ return array(
             'Ms' => 'Ms',
             'Dr' => 'Dr',
         ),
+
+        // Roles
+//        'roles' => array(
+//            '' => '',
+//            'Volunteer (Office)' => 'Volunteer (Office)',
+//            'Volunteer (Matchday)' => 'Volunteer (Matchday)',
+//            'Paid Office Staff' => 'Paid Office Staff',
+//            'Community Staff' => 'Community Staff',
+//            'Board Member' => 'Board Member',
+//            'External Supplier' => 'External Supplier',
+//            'Coaching/Backroom Staff' => 'Coaching/Backroom Staff',
+//            '1st Team Player' => '1st Team Player',
+//            'Youth Team Player' => 'Youth Team Player',
+//            'Women\'s Team Player' => 'Women\'s Team Player'
+//        ),
+
+
+
 
 
 

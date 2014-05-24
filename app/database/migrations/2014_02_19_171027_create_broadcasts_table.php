@@ -14,7 +14,7 @@ class CreateBroadcastsTable extends Migration {
 	{
 		Schema::create('broadcasts', function(Blueprint $table) {
 			$table->increments('id');
-			$table->datetime('deleted_at')->nullable();
+//			$table->datetime('deleted_at')->nullable();
 			$table->integer('owner_id')->unsigned()->index();
 			$table->integer('user_id')->nullable()->unsigned()->index();
             $table->integer('search_id')->nullable()->unsigned()->index();
@@ -36,6 +36,7 @@ class CreateBroadcastsTable extends Migration {
 			$table->boolean('sent')->default(0);
             $table->datetime('sent_at')->nullable();
 			$table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

@@ -27,8 +27,8 @@
             'class' => 'ajax-form',
             'ajax-url' => '/api/contacts/' . $record->id,
             'ajax-method' => 'PATCH',
-        )
-    )}}
+        ))
+    }}
 
         @foreach ($config['forms']['contacts']['edit_overview'] as $field => $attr)
             {{ Form::inputBS($field, $attr) }}
@@ -71,10 +71,9 @@
         <h3 class="text-primary"><i class="fa fa-book"></i> Notes1</h3>
         
         <div class="table-responsive clearfix">
-        {{ getTable('notes_table', $config) }}
-    </div>
+            {{ getTable('notes_table', $config, array('id' => $record->id)) }}
+        </div>
 
-        
         <div class="pull-right margin_top_15" style="margin-top:10px">
             <a class="btn btn-primary open-modal " href="#" modal-source="{{URL::route('app.notes.create', array('contact_id' => $record->id)) }}" data-view="show_modal" >
                 <i class="fa fa-plus"></i> Create New Note
@@ -87,6 +86,10 @@
     <h3 class="text-primary"><i class="fa fa-gbp"></i> Purchases</h3>
     
     @section('purchases-table')
+
+        <div class="table-responsive clearfix">
+            {{ getTable('purchases_table', $config, array('id' => $record->id)) }}
+        </div>
     
         <div class="table-responsive clearfix">
             <table class="table dataTable data-table minitable" id="orders-table" 
@@ -115,6 +118,10 @@
     @section('roles-table')
 
         <div class="table-responsive clearfix">
+            {{ getTable('roles_table', $config, array('id' => $record->id)) }}
+        </div>
+
+        <div class="table-responsive clearfix">
             <table class="table dataTablexxxxxxxxx data-tableXXXXXXXX minitable" id="roles-table" 
             data-ajaxsource="/dt/roles?cols=id,role_title,role_variant&sortDESC=role_variant&contact_id={{ $record->id}}"
              data-showid="false" data-linkurl="/app/roles" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/roles" >
@@ -141,6 +148,9 @@
     @section('tags-table')
 
         <div class="table-responsive clearfix">
+            {{ getTable('tags_table', $config, array('id' => $record->id)) }}
+        </div>
+<div class="table-responsive clearfix">
             <table class="table dataTable data-table minitable" id="tags-table" 
             data-ajaxsource="/dt/tags?cols=id,tag_title&sortDESC=id&contact_id={{ $record->id}}"
              data-showid="false" data-linkurl="/app/tags" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/tags" >

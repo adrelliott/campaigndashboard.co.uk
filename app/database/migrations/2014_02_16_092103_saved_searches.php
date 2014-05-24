@@ -14,7 +14,7 @@ class SavedSearches extends Migration {
 	{
 		Schema::create('saved_searches', function(Blueprint $table) {
 			$table->increments('id');
-            $table->datetime('deleted_at')->nullable();
+//            $table->datetime('deleted_at')->nullable();
 			$table->integer('user_id')->unsigned()->index();
             $table->integer('owner_id')->unsigned()->index();
 
@@ -27,6 +27,7 @@ class SavedSearches extends Migration {
 			$table->string('search_category');
 			$table->text('search_query');
 			$table->timestamps();
+            $table->softDeletes();
 		});
 	}
 
