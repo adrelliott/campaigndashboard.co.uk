@@ -163,6 +163,7 @@ return array(
                     //'sPaginationType' => 'bootstrap',
                     // 'iDisplayLength' => 10,
                     // 'bLengthChange' => false,
+//                    'order' => '[[0, "desc" ]]',
                 ),
                 'setCustomValues' => array(
                     'linkurl' => '/app/contacts',
@@ -175,18 +176,21 @@ return array(
 
         'notes_table' => array(  //The table displayed on contacts/edit --> notes tab
             'options' => array(
-                'setUrl' => '/api/contacts/%id%/notes?datatable=true&cols=id,note_title,created_at',
+                'setUrl' => '/api/contacts/%id%/notes?datatable=true&cols=id,note_title,created_at&orderby=created_at&orderdirection=desc',
                 'addColumn' => array('Id', 'Note Title', 'Date'),
                 'setOptions' => array(
                     //'sPaginationType' => 'bootstrap',
-                    // 'iDisplayLength' => 10,
-                    // 'bLengthChange' => false,
+//                     'iDisplayLength' => 10,
+                    // 'bLengthChange' => false,\
+
                 ),
                 'setCustomValues' => array(
                     'linkurl' => '/app/notes',
                     'showid' => true,
                     'idisplaylength' => 5,
-                    'linkclass' => 'open-modal'
+                    'linkclass' => 'open-modal',
+//                    'iSortCol_0' => 1,
+//                    'sSortDir_0' => 'desc'
                 ),
             ),
             'tableTemplate' => 'partials.app._recordTable',

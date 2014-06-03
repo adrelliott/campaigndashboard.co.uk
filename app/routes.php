@@ -5,8 +5,9 @@
  */
 
 Route::get('/c', function() {
-    var_dump('This is the master brach');
     var_dump(App::environment());
+    var_dump(Config::get('database.connections'));
+    var_dump(Config::get('app.url'));
     var_dump(DB::connection()->getDatabaseName());
     var_dump(DB::getQueryLog());
     if(DB::connection()->getDatabaseName())

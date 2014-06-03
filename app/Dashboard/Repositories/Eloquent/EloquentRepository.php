@@ -14,7 +14,7 @@ use Dashboard\Repositories\RepositoryInterface;
 
 class EloquentRepository implements RepositoryInterface {
 
-    /** 
+    /**
      * Holds the model object ready for the query
      * @var obj
      */
@@ -33,35 +33,43 @@ class EloquentRepository implements RepositoryInterface {
     protected $selectCols = array('id', 'owner_id');
 
     /**
+     * Field & direction to order by
+     * @var string
+     */
+    protected $orderBy = 'id';
+    protected $orderDirection = 'asc';
+
+    /**
      * Identifes the datatble name (allows us to write custom functions in each model class)
      * @var string
      */
     protected $datatableName = '';
 
-    
+
     public function __construct($model)
     {
-        // Set up model and the SELECT portion of the query
+        // Set up model (used in C, U, D)
         $this->model = $model;
 
-        // $this->q is the query
-        $this->q = $this->model->onlyOwners();
+        // Set up the query (used in Read)
+        $this->q = $model->onlyOwners();
 
         // Set the cols variable (this determines what cols are being retrieved)
         $this->setCols();
 
-
+        // Set the orderBy
+//        $this->setOrder();
     }
 
     /**
-     * Takes called method and adds scope of onlyOwners() to it.
+     * Passes through methods, unless they're overidden here.
      * @param  string $method Method name
-     * @param  mixed $args   Supplied args
+     * @param  mixed $args Supplied args
+     * @return mixed
      */
     public function __call($method, $args)
     {
-        // dd( implode(', ', $args));
-        if ( ! method_exists($this, $method) ) 
+        if ( ! method_exists($this, $method) )
             return call_user_func_array(array($this->q, $method), $args);
     }
 
@@ -73,30 +81,25 @@ class EloquentRepository implements RepositoryInterface {
     | Redefine some main Eloquent methods to restrict to tenant's records only
     |
     */
-   
+
     /**
      * Gets all records and if URL has datatable=true, fomrats as datatable json
      * @return  JSON
      */
     public function all()
     {
+        //Set the order (and pass TRUE to add an order clause to $this->q)
+        $this->setOrder(TRUE);
+
         # If its not a datatable request, then just do a straight get()
         if ( ! $this->r = $this->getDatatable('all') )
             $this->r = $this->q->get( $this->selectCols );
-        
+
         return $this->r;
     }
 
-    public function getDatatable($name, $queryType = 'query')
-    {
-        if ( Input::has('datatable') )
-        {
-            $this->datatableName = $name;
-            return $this->makeDatatable($queryType);
-        }
-        else return FALSE;
-    }
-    
+
+
     /**
      * Gets all records related to the record with id
      *  and if URL has datatable=true, formats as datatable json
@@ -107,8 +110,15 @@ class EloquentRepository implements RepositoryInterface {
         # Set up the query (using the findOrFail() method below)
         if ( $with ) $this->with( $with );
 
-        # Get related model
-        $this->q = $this->findOrFail($id)->$relatedModel;
+       # Set the sort order properties
+       $this->setOrder();
+
+        # Get related model as a collection & store in $this->q
+        $this->q = $this->q
+            ->findOrFail($id)
+            ->$relatedModel()
+            ->orderBy($this->orderBy, $this->orderDirection)
+            ->get();
 
         # If its not a datatable request, then just do a straight get()
         if ( ! $this->r = $this->getDatatable($relatedModel, 'collection') )
@@ -120,13 +130,13 @@ class EloquentRepository implements RepositoryInterface {
 
 
 
-    
+
     /*
     |--------------------------------------------------------------------------
     | Create, Update, or Delete multiple records
     |--------------------------------------------------------------------------
     |
-    | Redfine some main Eloquent methods to restrict to tenant's records only 
+    | Redfine some main Eloquent methods to restrict to tenant's records only
     |
     */
     // things like insertall
@@ -136,13 +146,13 @@ class EloquentRepository implements RepositoryInterface {
     | Create, Update, or Delete individual records
     |--------------------------------------------------------------------------
     |
-    | Redfine some main Eloquent methods to restrict to tenant's records only 
+    | Redfine some main Eloquent methods to restrict to tenant's records only
     |
     */
      public function createRecord()
     {
         // 1. Create new object and fill it with $_POST ($fillable is set)
-        $this->q = new $this->model( Input::all() );     
+        $this->q = new $this->model( Input::all() );
 
         // 2. Now save it and set a success flag
         $this->q->success = $this->q->save();
@@ -156,7 +166,7 @@ class EloquentRepository implements RepositoryInterface {
     {
         // 1. Find the model & fill with $_POST (protected with $fillable)
         $this->q = $this->model->findOrFail( $id );
-        $this->q->fill( Input::all() );  
+        $this->q->fill( Input::all() );
 
         // 2. Save the new model and set a success flag
         $this->q->success = $this->q->save();
@@ -171,8 +181,8 @@ class EloquentRepository implements RepositoryInterface {
         die('The destroy method has not been created yet - see Dashbpard\Repo\Eloquent\Eloquentrepo');
     }
 
-   
-        
+
+
 
 
 
@@ -185,7 +195,7 @@ class EloquentRepository implements RepositoryInterface {
     | Over=ride eloquent methods here
     |
     */
-   
+
     /**
      * Takes the eager loading params ad restricts to just tenant's records
      * @param  mixed $args The passed args
@@ -216,14 +226,14 @@ class EloquentRepository implements RepositoryInterface {
     | Helper methods
     |--------------------------------------------------------------------------
     |
-    | Methods that support the main eloquent methods 
+    | Methods that support the main eloquent methods
     |
     */
-   
+
 
     /**
-     * Overwrites the $selectCols array with any passed in the URL 
-     * (using cols={CSV} ), or if none passed, look in the model class 
+     * Overwrites the $selectCols array with any passed in the URL
+     * (using cols={CSV} ), or if none passed, look in the model class
      */
     public function setCols()
     {
@@ -232,12 +242,48 @@ class EloquentRepository implements RepositoryInterface {
 
         # if not, the do we have one set in the model?
         elseif ( isset($this->model->selectCols) ) $this->selectCols = $this->model->selectCols;
+
+        return;
     }
+
+    /**
+     * Overrides default sort (defined above) by the sort defined in either the URL params or the model
+     */
+    protected function setOrder($applySort = FALSE)
+    {
+        # Do we have a 'orderby' key in the URL?
+        if ( $input = Input::get('orderby') ) $this->orderBy = $input;
+
+        # Do we have a 'orderdirection' key in the URL?
+        if ( $input = Input::get('orderdirection') ) $this->orderDirection = $input;
+
+        # Do we apply the sort to $this->q?
+        if ( $applySort ) $this->q->orderBy($this->orderBy, $this->orderDirection);
+
+        return;
+    }
+
 
     public function setDataTableOptions($queryType)
     {
         if ( isset($this->dataTableOptions[$queryType]) )
             $this->dataTableOptions = $this->dataTableOptions[$queryType];
+    }
+
+    /**
+     * Tests for presence of datatable=true URL param, and return datatable if true
+     * @param $name
+     * @param string $queryType
+     * @return bool|json
+     */
+    public function getDatatable($name, $queryType = 'query')
+    {
+        if ( Input::has('datatable') )
+        {
+            $this->datatableName = $name;
+            return $this->makeDatatable($queryType);
+        }
+        else return FALSE;
     }
 
 
@@ -248,13 +294,13 @@ class EloquentRepository implements RepositoryInterface {
      */
     public function makeDatatable($type = 'query')
     {
-        //Set up the type
+        //Set up the type & feed in the query or the collection
         $this->datatable = Datatable::$type($this->q);
 
         // Now set up the columns to retrieve search by and order by
         $this->datatable->showColumns($this->selectCols)
-            ->searchColumns($this->selectCols)
-            ->orderColumns($this->selectCols);
+            ->searchColumns($this->selectCols);
+//            ->orderColumns('Date');
 
         // Add any custom columns
         $this->addCustomColumns( $this->datatableName );
@@ -273,5 +319,5 @@ class EloquentRepository implements RepositoryInterface {
     }
 
 
-   
+
 }

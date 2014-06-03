@@ -19,11 +19,11 @@
             sPaginationType: "bootstrap",
             bLengthChange: false,
             aLengthMenu: [[5, 10, 25, 50], [5, 10, 25, 50]],
-            // aaSorting: [],
             aoColumnDefs: [],
             bProcessing: true,
             bServerSide: true,
             sAjaxSource: "",
+            order: false
         };
 
         //Now Iterate over the dataTablesOptions object and test to see if we've passed a new attribute
@@ -34,7 +34,7 @@
             }
         });
 
-
+console.log('o options', o);
         var a = {
             // tableid : "",
             linkurl: false,

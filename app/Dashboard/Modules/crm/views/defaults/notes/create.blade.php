@@ -13,9 +13,7 @@
     // ->populate($record->resource);
 
     --}}
-{{ Form::model(
-$record->resource,
-array(
+{{ Form::open( array(
 'route' => array('api.notes.store'),
 'method' => 'POST',
 'role' => 'form',
@@ -23,7 +21,7 @@ array(
 'ajax-url' => '/api/notes/',
 'ajax-method' => 'POST',
 'table-id' => 'notes',
-))
+) )
 }}
 
     @section('content-form')

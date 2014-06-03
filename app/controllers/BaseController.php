@@ -52,10 +52,8 @@ class BaseController extends Controller {
         $this->setClassAttributes();
         
         // Define the request type
-        if ( Request::ajax() && strtolower(Request::segment(1)) == 'api' )
-            $this->asJson = TRUE;
+        if ( strtolower(Request::segment(1)) == 'api' ) $this->asJson = TRUE;
 
-        // dump($this->classAttributes);
     }
 
     
@@ -80,7 +78,8 @@ class BaseController extends Controller {
      */
     public function create()
     {
-        $this->record = $this->repo->model;
+        $this->record = $this->repo;
+//        $this->record = $this->repo->model;
 
         # Fire event & render view
         $this->fireEvent();

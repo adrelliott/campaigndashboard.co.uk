@@ -27,8 +27,33 @@ return array(
     */
 
     //'url' => 'http://localhost',
-    'url' => 'http://campaigndashboard.app',
+    'url' => 'http://campaigndashboard.dev',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Application Timezone
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify the default timezone for your application, which
+    | will be used by the PHP date and date-time functions. We have gone
+    | ahead and set this to a sensible default for you out of the box.
+    |
+    */
+
+    'timezone' => 'UTC',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Locale Configuration
+    |--------------------------------------------------------------------------
+    |
+    | The application locale determines the default locale that will be used
+    | by the translation service provider. You are free to set this value
+    | to any of the locales which will be supported by the application.
+    |
+    */
+
+    'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -43,5 +68,5 @@ return array(
 
     'key' => 'wpqdbE2Veq65RC5DF0jI5QGHsQiEiUBR',
 
-
+   
 );
