@@ -28,7 +28,7 @@
       <file leaf-file-name="start.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bootstrap/start.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="28" selection-start="1026" selection-end="1026" vertical-scroll-proportion="0.56899005" vertical-offset="0" max-vertical-offset="1420">
+            <state line="30" column="23" selection-start="1049" selection-end="1049" vertical-scroll-proportion="0.5974395" vertical-offset="0" max-vertical-offset="1420">
               <folding />
             </state>
           </provider>
@@ -887,7 +887,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bootstrap/start.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="28" selection-start="1026" selection-end="1026" vertical-scroll-proportion="0.56899005" vertical-offset="0" max-vertical-offset="1420">
+        <state line="30" column="23" selection-start="1049" selection-end="1049" vertical-scroll-proportion="0.5974395" vertical-offset="0" max-vertical-offset="1420">
           <folding />
         </state>
       </provider>
