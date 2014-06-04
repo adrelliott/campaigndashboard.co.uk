@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cec5ecd0-69c2-4968-9e14-e0a448ec7618" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.env_name.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bootstrap/start.php" afterPath="$PROJECT_DIR$/bootstrap/start.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="cec5ecd0-69c2-4968-9e14-e0a448ec7618" name="Default" comment="" />
     <ignored path="campaigndashboard.co.uk.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,10 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="start.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="start.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bootstrap/start.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="48" selection-start="944" selection-end="957" vertical-scroll-proportion="0.5405405" vertical-offset="0" max-vertical-offset="1500">
+            <state line="28" column="48" selection-start="944" selection-end="957" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1500">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".env_name.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.env_name.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="25" selection-start="116" selection-end="116" vertical-scroll-proportion="0.08534851" vertical-offset="0" max-vertical-offset="703">
               <folding />
             </state>
           </provider>
@@ -746,13 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env_name.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="4" selection-start="11" selection-end="11" vertical-scroll-proportion="0.056899004" vertical-offset="0" max-vertical-offset="703">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="13" selection-start="97" selection-end="97" vertical-scroll-proportion="0.17069702" vertical-offset="0" max-vertical-offset="703">
@@ -762,7 +759,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bootstrap/start.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="48" selection-start="944" selection-end="957" vertical-scroll-proportion="0.5405405" vertical-offset="0" max-vertical-offset="1500">
+        <state line="28" column="48" selection-start="944" selection-end="957" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1500">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env_name.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="25" selection-start="116" selection-end="116" vertical-scroll-proportion="0.08534851" vertical-offset="0" max-vertical-offset="703">
           <folding />
         </state>
       </provider>
