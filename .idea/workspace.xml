@@ -2,21 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cec5ecd0-69c2-4968-9e14-e0a448ec7618" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/config/development/app.php" afterPath="$PROJECT_DIR$/app/config/local/app.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/config/development/database.php" afterPath="$PROJECT_DIR$/app/config/local/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/client_config/10000.php" afterPath="$PROJECT_DIR$/app/config/client_config/10000.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/database/migrations/2014_02_12_171027_create_leads_table.php" afterPath="$PROJECT_DIR$/app/database/migrations/2014_02_12_171027_create_leads_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/BaseController.php" afterPath="$PROJECT_DIR$/app/controllers/BaseController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Dashboard/Repositories/Eloquent/EloquentRepository.php" afterPath="$PROJECT_DIR$/app/Dashboard/Repositories/Eloquent/EloquentRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/development/app.php" afterPath="$PROJECT_DIR$/app/config/development/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/notes/create.blade.php" afterPath="$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/notes/create.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/database.php" afterPath="$PROJECT_DIR$/app/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/development/database.php" afterPath="$PROJECT_DIR$/app/config/development/database.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/controllers/TemplateController.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/module.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/presenters/TemplatePresenter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/repositories/Eloquent/EloquentTemplateRepository.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/repositories/Eloquent/models/Template.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/repositories/interfaces/TemplateRepositoryInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/routes.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/views/defaults/templates/create.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/views/defaults/templates/edit.blade.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/views/defaults/templates/index.blade.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/datatables/datatables.custom.js" afterPath="$PROJECT_DIR$/public/assets/js/datatables/datatables.custom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.php" afterPath="$PROJECT_DIR$/public/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/mail.php" afterPath="$PROJECT_DIR$/app/config/mail.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bootstrap/start.php" afterPath="$PROJECT_DIR$/bootstrap/start.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php" afterPath="$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/app/modalForm.js" afterPath="$PROJECT_DIR$/public/assets/js/app/modalForm.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="campaigndashboard.co.uk.iws" />
@@ -39,7 +37,74 @@
     <favorites_list name="campaigndashboard.co.uk" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="10000.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/client_config/10000.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="185" column="18" selection-start="6062" selection-end="6062" vertical-scroll-proportion="0.0" vertical-offset="3330" max-vertical-offset="11240">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="modalForm.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/assets/js/app/modalForm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="25" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.658606" vertical-offset="377" max-vertical-offset="1080">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="datatables.custom.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/js/datatables/datatables.custom.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="0" selection-start="782" selection-end="782" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2060">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="autoload.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bootstrap/autoload.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1620">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/js/app/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="1357" max-vertical-offset="2160">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="121" column="0" selection-start="3880" selection-end="3880" vertical-scroll-proportion="0.0" vertical-offset="2050" max-vertical-offset="2740">
+              <folding>
+                <marker date="1401827626000" expanded="true" signature="57:126" placeholder="..." />
+                <marker date="1401827626000" expanded="true" signature="147:227" placeholder="..." />
+                <marker date="1401827626000" expanded="true" signature="1058:1192" placeholder="..." />
+                <marker date="1401827626000" expanded="true" signature="1519:1653" placeholder="..." />
+                <marker date="1401827626000" expanded="true" signature="1968:2102" placeholder="..." />
+                <marker date="1401827626000" expanded="true" signature="2289:2383" placeholder="..." />
+                <marker date="1401827626000" expanded="false" signature="2439:2454" placeholder="..." />
+                <marker date="1401827626000" expanded="true" signature="2455:2718" placeholder="..." />
+                <marker date="1401827626000" expanded="true" signature="2626:2703" placeholder="..." />
+                <marker date="1401827626000" expanded="true" signature="2904:3006" placeholder="..." />
+                <marker date="1401827626000" expanded="true" signature="3422:3520" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -52,7 +117,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/_to_delete/2014_03_05_105913_create_roles_table.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_05_24_120052_pivot_contact_group_table.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_02_10_171027_create_contacts_table.php" />
@@ -84,8 +148,6 @@
         <option value="$PROJECT_DIR$/vendor/chumper/datatable/src/Chumper/Datatable/Table.php" />
         <option value="$PROJECT_DIR$/app/views/partials/app/_recordTable.blade.php" />
         <option value="$PROJECT_DIR$/app/Dashboard/Modules/api/routes.php" />
-        <option value="$PROJECT_DIR$/public/assets/js/app/modalForm.js" />
-        <option value="$PROJECT_DIR$/public/assets/js/datatables/datatables.custom.js" />
         <option value="$PROJECT_DIR$/vendor/chumper/datatable/src/config/config.php" />
         <option value="$PROJECT_DIR$/vendor/chumper/datatable/src/Chumper/Datatable/Engines/BaseEngine.php" />
         <option value="$PROJECT_DIR$/app/controllers/BaseController.php" />
@@ -99,6 +161,10 @@
         <option value="$PROJECT_DIR$/bootstrap/start.php" />
         <option value="$PROJECT_DIR$/app/database/migrations/2014_02_12_171027_create_leads_table.php" />
         <option value="$PROJECT_DIR$/app/config/development/database.php" />
+        <option value="$PROJECT_DIR$/public/assets/js/datatables/datatables.custom.js" />
+        <option value="$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php" />
+        <option value="$PROJECT_DIR$/bootstrap/autoload.php" />
+        <option value="$PROJECT_DIR$/public/assets/js/app/modalForm.js" />
       </list>
     </option>
   </component>
@@ -182,6 +248,98 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="datatables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="bootstrap" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -214,7 +372,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
+              <option name="myItemId" value="Dashboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -232,11 +390,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
+              <option name="myItemId" value="Dashboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="seeds" />
+              <option name="myItemId" value="Modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -254,11 +412,155 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="database" />
+              <option name="myItemId" value="Dashboard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
+              <option name="myItemId" value="Modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="defaults" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="defaults" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="notes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="defaults" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contacts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -400,7 +702,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -408,7 +710,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32968536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -461,41 +763,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/controllers/NotesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="5" selection-start="282" selection-end="282" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="380" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/notes/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="740" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="19" selection-start="849" selection-end="992" vertical-scroll-proportion="0.0" vertical-offset="220" max-vertical-offset="3620" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/packages/chumper/datatable/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="23" selection-start="1081" selection-end="1081" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2900" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/controllers/ContactsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="72" selection-start="124" selection-end="124" vertical-scroll-proportion="0.060790274" vertical-offset="0" max-vertical-offset="1800" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/app/modalForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="0" selection-start="1073" selection-end="1073" vertical-scroll-proportion="0.0" vertical-offset="237" max-vertical-offset="1100" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/chumper/datatable/src/Chumper/Datatable/DatatableServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="6" selection-start="93" selection-end="93" vertical-scroll-proportion="0.11379801" vertical-offset="0" max-vertical-offset="940" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/api/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="2" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.0" vertical-offset="577" max-vertical-offset="2300" />
@@ -508,7 +775,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/partials/app/_recordTable.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="19" selection-start="534" selection-end="534" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="860" />
+        <state line="22" column="19" selection-start="534" selection-end="534" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="860">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/chumper/datatable/src/Chumper/Datatable/Engines/QueryEngine.php">
@@ -561,11 +830,6 @@
         <state line="20" column="30" selection-start="880" selection-end="880" vertical-scroll-proportion="0.59084195" vertical-offset="0" max-vertical-offset="1940" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/datatables/datatables.custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="12" selection-start="1818" selection-end="1819" vertical-scroll-proportion="-8.5" vertical-offset="959" max-vertical-offset="2060" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/chumper/datatable/src/views/template.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="703" />
@@ -584,13 +848,6 @@
     <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/repositories/Eloquent/models/Note.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="703" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/notes/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="22" selection-start="281" selection-end="281" vertical-scroll-proportion="0.0" vertical-offset="40" max-vertical-offset="1040">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/storage/logs/laravel.log">
@@ -628,13 +885,6 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/BaseController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="80" column="36" selection-start="1668" selection-end="1668" vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="6580">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/client_config/10000.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="173" column="58" selection-start="5514" selection-end="5514" vertical-scroll-proportion="0.0" vertical-offset="3350" max-vertical-offset="11240">
           <folding />
         </state>
       </provider>
@@ -761,6 +1011,93 @@
     <entry file="file://$PROJECT_DIR$/app/config/development/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="42" selection-start="980" selection-end="980" vertical-scroll-proportion="0.31721196" vertical-offset="357" max-vertical-offset="1060">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/datatables/jquery.dataTables.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3220">
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="121" column="0" selection-start="3880" selection-end="3880" vertical-scroll-proportion="0.0" vertical-offset="2050" max-vertical-offset="2740">
+          <folding>
+            <marker date="1401827626000" expanded="true" signature="57:126" placeholder="..." />
+            <marker date="1401827626000" expanded="true" signature="147:227" placeholder="..." />
+            <marker date="1401827626000" expanded="true" signature="1058:1192" placeholder="..." />
+            <marker date="1401827626000" expanded="true" signature="1519:1653" placeholder="..." />
+            <marker date="1401827626000" expanded="true" signature="1968:2102" placeholder="..." />
+            <marker date="1401827626000" expanded="true" signature="2289:2383" placeholder="..." />
+            <marker date="1401827626000" expanded="false" signature="2439:2454" placeholder="..." />
+            <marker date="1401827626000" expanded="true" signature="2455:2718" placeholder="..." />
+            <marker date="1401827626000" expanded="true" signature="2626:2703" placeholder="..." />
+            <marker date="1401827626000" expanded="true" signature="2904:3006" placeholder="..." />
+            <marker date="1401827626000" expanded="true" signature="3422:3520" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/client_config/10000.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="185" column="18" selection-start="6062" selection-end="6062" vertical-scroll-proportion="0.0" vertical-offset="3330" max-vertical-offset="11240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/notes/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="22" selection-start="281" selection-end="281" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1040">
+          <folding>
+            <marker date="1401379512000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1401379512000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/app/modal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="32" selection-start="1241" selection-end="1241" vertical-scroll-proportion="0.0" vertical-offset="537" max-vertical-offset="1240">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/app/form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1700">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bootstrap/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1620">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2160">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/datatables/datatables.custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="0" selection-start="782" selection-end="782" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2060">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/app/modalForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="25" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.658606" vertical-offset="377" max-vertical-offset="1080">
           <folding />
         </state>
       </provider>

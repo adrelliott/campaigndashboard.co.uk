@@ -22,8 +22,8 @@
             aoColumnDefs: [],
             bProcessing: true,
             bServerSide: true,
-            sAjaxSource: "",
-            order: false
+            sAjaxSource: ""
+
         };
 
         //Now Iterate over the dataTablesOptions object and test to see if we've passed a new attribute

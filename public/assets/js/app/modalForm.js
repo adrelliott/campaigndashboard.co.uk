@@ -29,9 +29,8 @@ $('form.modal-ajax-form').on('submit', function(e) {
     // Need some validation in here
     $('#modal').modal('hide');
     console.log('refeshing table wiht class:', tableId+'_table');
-    console.log('alertClass:', alertClass);
-    $('table.data-table').dataTable().fnDraw();
-//    $('table').each().dataTable().fnDraw();
+    console.log('tableId:', tableId);
+
 
 
     //Now show some success messages
@@ -41,8 +40,8 @@ $('form.modal-ajax-form').on('submit', function(e) {
         $('.form-success').addClass('hide');
     }, 1800);
 
-
-    
+    // refresh the tables
+    $('table.'+tableId+'_table').dataTable().fnDraw();
 
     return false;
 });

@@ -88,24 +88,10 @@
     @section('purchases-table')
 
         <div class="table-responsive clearfix">
-            {{ getTable('purchases_table', $config, array('id' => $record->id)) }}
+            {{-- getTable('purchases_table', $config, array('id' => $record->id)) --}}
         </div>
     
-        <div class="table-responsive clearfix">
-            <table class="table dataTable data-table minitable" id="orders-table" 
-            data-ajaxsource="/dt/orders/getFor?cols=id,order_title,order_date&sortDESC=updated_at&contact_id={{ $record->id}}"
-             data-showid="true" data-linkurl="/app/orders" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/orders" >
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Order Name</th>
-                        <th>Order Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
+
 
     @show
     
@@ -118,24 +104,10 @@
     @section('roles-table')
 
         <div class="table-responsive clearfix">
-            {{ getTable('roles_table', $config, array('id' => $record->id)) }}
+            {{-- getTable('roles_table', $config, array('id' => $record->id)) --}}
         </div>
 
-        <div class="table-responsive clearfix">
-            <table class="table dataTablexxxxxxxxx data-tableXXXXXXXX minitable" id="roles-table" 
-            data-ajaxsource="/dt/roles?cols=id,role_title,role_variant&sortDESC=role_variant&contact_id={{ $record->id}}"
-             data-showid="false" data-linkurl="/app/roles" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/roles" >
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Role Name</th>
-                        <th>Season</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
+
 
     @show
     
@@ -147,23 +119,7 @@
 
     @section('tags-table')
 
-        <div class="table-responsive clearfix">
-            {{ getTable('tags_table', $config, array('id' => $record->id)) }}
-        </div>
-<div class="table-responsive clearfix">
-            <table class="table dataTable data-table minitable" id="tags-table" 
-            data-ajaxsource="/dt/tags?cols=id,tag_title&sortDESC=id&contact_id={{ $record->id}}"
-             data-showid="false" data-linkurl="/app/tags" data-iDisplayLength="5" data-linkclass="open-modal" data-modalsource="/app/tags" >
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Tag Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
+
         
     @show
 
