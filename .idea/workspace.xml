@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cec5ecd0-69c2-4968-9e14-e0a448ec7618" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/controllers/TemplateController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/module.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/presenters/TemplatePresenter.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/repositories/Eloquent/EloquentTemplateRepository.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/repositories/Eloquent/models/Template.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/repositories/interfaces/TemplateRepositoryInterface.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/routes.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/views/defaults/templates/create.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/views/defaults/templates/edit.blade.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/_module_template/views/defaults/templates/index.blade.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/datatables/datatables.custom.js" afterPath="$PROJECT_DIR$/public/assets/js/datatables/datatables.custom.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php" afterPath="$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/app/modalForm.js" afterPath="$PROJECT_DIR$/public/assets/js/app/modalForm.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/staging/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/app.php" afterPath="$PROJECT_DIR$/app/config/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/database.php" afterPath="$PROJECT_DIR$/app/config/database.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="campaigndashboard.co.uk.iws" />
@@ -47,10 +37,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="modalForm.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="modalForm.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/assets/js/app/modalForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="25" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.658606" vertical-offset="377" max-vertical-offset="1080">
+            <state line="42" column="25" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.0" vertical-offset="377" max-vertical-offset="1080">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/staging/app.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="52" selection-start="990" selection-end="990" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1060">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="database.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/config/database.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="66" column="0" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.79658604" vertical-offset="720" max-vertical-offset="2220">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/app.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="44" selection-start="917" selection-end="917" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4020">
               <folding />
             </state>
           </provider>
@@ -134,7 +151,6 @@
         <option value="$PROJECT_DIR$/app/Dashboard/Extensions/HTML/HtmlServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/Dashboard/ServiceProviders/HtmlServiceProvider.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/app/config/app.php" />
         <option value="$PROJECT_DIR$/app/Dashboard/Modules/sales/repositories/Eloquent/EloquentOrderProductRepository.php" />
         <option value="$PROJECT_DIR$/app/Dashboard/Modules/crm/repositories/Eloquent/EloquentContactRepository.php" />
         <option value="$PROJECT_DIR$/app/Dashboard/Modules/crm/controllers/ContactsController.php" />
@@ -165,6 +181,10 @@
         <option value="$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php" />
         <option value="$PROJECT_DIR$/bootstrap/autoload.php" />
         <option value="$PROJECT_DIR$/public/assets/js/app/modalForm.js" />
+        <option value="$PROJECT_DIR$/app/config/app.php" />
+        <option value="$PROJECT_DIR$/app/config/staging/app.php" />
+        <option value="$PROJECT_DIR$/app/config/staging/database.php" />
+        <option value="$PROJECT_DIR$/app/config/database.php" />
       </list>
     </option>
   </component>
@@ -600,6 +620,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="staging" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="local" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -642,6 +684,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/config" />
       <recent name="$PROJECT_DIR$/app/views/partials/app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -763,16 +806,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/api/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="2" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.0" vertical-offset="577" max-vertical-offset="2300" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Dashboard/Repositories/RepositoryInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="20" selection-start="673" selection-end="673" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1660" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/partials/app/_recordTable.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="19" selection-start="534" selection-end="534" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="860">
@@ -920,13 +953,6 @@
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="3317" max-vertical-offset="4020">
           <folding />
         </state>
       </provider>
@@ -1097,7 +1123,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/js/app/modalForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="25" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.658606" vertical-offset="377" max-vertical-offset="1080">
+        <state line="42" column="25" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.0" vertical-offset="377" max-vertical-offset="1080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="44" selection-start="917" selection-end="917" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4020">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/staging/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="52" selection-start="990" selection-end="990" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1060">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="0" selection-start="1960" selection-end="1960" vertical-scroll-proportion="0.79658604" vertical-offset="720" max-vertical-offset="2220">
           <folding />
         </state>
       </provider>
