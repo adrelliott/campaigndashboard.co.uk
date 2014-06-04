@@ -27,6 +27,7 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(function() {
 
     // Look for an env var called 'ENV' and set the env to that, else default to 'local'
+    var_dump(getenv('ENV'));
     return getenv('ENV') ?: 'development';
 
 });
