@@ -25,6 +25,10 @@ App::error(function(PDOException $exception)
 });
 
 
+Route::get('/e', function(){
+    var_dump(App::environment());
+    var_dump(Config::get('database.connections'));
+});
 
 
 Route::get('/', function(){
