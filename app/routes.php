@@ -9,6 +9,7 @@ Route::get('/c', function() {
     dump( Config::get('app.url') );
     echo '<br>Env: ' . App::environment();
     dump(DB::connection()->getDatabaseName());
+
     
 
 
