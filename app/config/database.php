@@ -50,9 +50,6 @@ return array(
 	*/
 
 	'connections' => array(
-
-
-
           'mysql' => array(
             'driver'    => 'mysql',
             'host'      => getenv('db_host'),
@@ -64,9 +61,6 @@ return array(
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
         ),
-
-
-
 	),
 
 	/*
