@@ -28,7 +28,7 @@ App::error(function(PDOException $exception)
 Route::get('/e', function(){
     var_dump(App::environment());
     var_dump($_ENV);
-    var_dump(getenv('test'));
+    var_dump(getenv('test_staging'));
 });
 
 
