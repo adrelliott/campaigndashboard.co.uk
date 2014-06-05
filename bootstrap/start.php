@@ -32,8 +32,6 @@ $env = $app->detectEnvironment(function() {
         return 'production';
     }
 
-//    return $_ENV['ENVIRONMENT'] ?: 'development';
-
 });
 
 /*

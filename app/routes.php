@@ -6,6 +6,10 @@
 
 Route::get('/c', function() {
     var_dump(App::environment());
+
+    if ( App::environment() == 'production' ) return;
+
+
     var_dump(Config::get('database.connections'));
     var_dump(Config::get('app.url'));
     var_dump(DB::connection()->getDatabaseName());
