@@ -5,20 +5,26 @@
  */
 
 Route::get('/c', function() {
-    var_dump(App::environment());
+    dump(Config::get('database.connections'));
+    dump( Config::get('app.url') );
+    echo '<br>Env: ' . App::environment();
 
-    if ( App::environment() == 'production' ) return;
+
+//    $retval .= '<br>url: ' . Config::get('app.url');
+//    $retval .= '<br>DB=: ' . ;
+
+//    if ( App::environment() == 'production' ) return;
 
 
-    var_dump(Config::get('database.connections'));
-    var_dump(Config::get('app.url'));
-    var_dump(DB::connection()->getDatabaseName());
-    var_dump(DB::getQueryLog());
-    if(DB::connection()->getDatabaseName())
-{
-   var_dump( "conncted sucessfully to database ".DB::connection()->getDatabaseName() );
-}
-    return Config::get('database');
+//    var_dump(DB::connection()->getDatabaseName());
+//    var_dump(DB::getQueryLog());
+//    if(DB::connection()->getDatabaseName())
+//{
+//   var_dump( "conncted sucessfully to database ".DB::connection()->getDatabaseName() );
+//    $retval .= Config::get('database');
+//}
+//    return $retval;
+
 });
 
 App::error(function(PDOException $exception)
