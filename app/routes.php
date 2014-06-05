@@ -8,6 +8,7 @@ Route::get('/c', function() {
     dump(Config::get('database.connections'));
     dump( Config::get('app.url') );
     echo '<br>Env: ' . App::environment();
+    dump(DB::connection()->getDatabaseName());
 
 
 //    $retval .= '<br>url: ' . Config::get('app.url');
