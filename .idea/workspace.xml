@@ -37,7 +37,7 @@
       <file leaf-file-name="routes.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="44" selection-start="299" selection-end="299" vertical-scroll-proportion="0.22759601" vertical-offset="0" max-vertical-offset="1160">
+            <state line="11" column="4" selection-start="306" selection-end="306" vertical-scroll-proportion="0.25604552" vertical-offset="0" max-vertical-offset="1180">
               <folding />
             </state>
           </provider>
@@ -756,7 +756,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="44" selection-start="299" selection-end="299" vertical-scroll-proportion="0.22759601" vertical-offset="0" max-vertical-offset="1160">
+        <state line="11" column="4" selection-start="306" selection-end="306" vertical-scroll-proportion="0.25604552" vertical-offset="0" max-vertical-offset="1180">
           <folding />
         </state>
       </provider>
