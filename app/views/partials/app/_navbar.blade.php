@@ -60,10 +60,8 @@
                         <i class="fa fa-cogs "></i> Settings<b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="">
-                            <a href="/app/logout"><i class="fa fa-off "></i> Log Out
-                            </a>
-                        </li>                                                                    
+                        <li><a href="{{ URL::route('app.account.show') }}"><i class="fa fa-cogs"></i> Account</a></li>
+                        <li class=""><a href="/app/logout"><i class="fa fa-off "></i> Log Out</a></li>
                     </ul>
                 </li>
             </ul>
