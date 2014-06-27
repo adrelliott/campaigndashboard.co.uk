@@ -50,11 +50,22 @@ class BaseController extends Controller {
         // Set up repo & define class attr
         $this->repo = $repo;
         $this->setClassAttributes();
+
+        // Not 100% sure this should be here, but okay
+        Former::framework('TwitterBootstrap3');
+
+        // Defaults for before and after
+        $this->beforeFilter('@before');
+        $this->afterFilter('@after');
         
         // Define the request type
         if ( strtolower(Request::segment(1)) == 'api' ) $this->asJson = TRUE;
 
     }
+
+    // Shells
+    public function before($route, $request) { }
+    public function after($route, $request) { }
 
     
     /**

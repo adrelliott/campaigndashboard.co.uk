@@ -5,11 +5,12 @@ use Route, View;
 Route::group(array(
     'prefix' => 'app',
     'namespace' => 'Dashboard\Account',
+    'before' => 'auth',
     ),
     function()
     {
-        Route::get('account',  array('as' => 'app.account.show', 'uses' => 'AccountController@index'));
-        Route::patch('account',  array('as' => 'app.account.update', 'uses' => 'AccountController@index'));
+        Route::get('account',  array('as' => 'app.account.showOne', 'uses' => 'AccountController@showOne'));
+        Route::patch('account',  array('as' => 'app.account.updateOne', 'uses' => 'AccountController@updateOne'));
     }
 );
 
