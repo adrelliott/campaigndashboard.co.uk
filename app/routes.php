@@ -21,11 +21,12 @@ Route::get('/c', function() {
 
 //    var_dump(DB::connection()->getDatabaseName());
 //    var_dump(DB::getQueryLog());
-//    if(DB::connection()->getDatabaseName())
-//{
-//   var_dump( "conncted sucessfully to database ".DB::connection()->getDatabaseName() );
-//    $retval .= Config::get('database');
-//}
+    if( DB::connection()->getDatabaseName()  )
+{
+   var_dump( "conncted sucessfully to database");
+    dump(DB::connection());
+
+}
 //    return $retval;
 
 });
