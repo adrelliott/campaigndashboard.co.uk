@@ -28,7 +28,25 @@
       <file leaf-file-name="routes.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="49" selection-start="639" selection-end="639" vertical-scroll-proportion="0.5974395" vertical-offset="40" max-vertical-offset="1220">
+            <state line="44" column="32" selection-start="987" selection-end="987" vertical-scroll-proportion="0.45945945" vertical-offset="517" max-vertical-offset="1220">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/staging/app.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="34" selection-start="937" selection-end="937" vertical-scroll-proportion="0.0" vertical-offset="97" max-vertical-offset="1060">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="database.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/database.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="40" selection-start="1453" selection-end="1453" vertical-scroll-proportion="0.0" vertical-offset="657" max-vertical-offset="2120">
               <folding />
             </state>
           </provider>
@@ -167,6 +185,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="staging" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -506,11 +564,6 @@
         <state line="25" column="0" selection-start="782" selection-end="782" vertical-scroll-proportion="0.7246377" vertical-offset="0" max-vertical-offset="2060" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/staging/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="34" selection-start="937" selection-end="937" vertical-scroll-proportion="0.79658604" vertical-offset="0" max-vertical-offset="1060" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/js/app/modalForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="25" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.658606" vertical-offset="377" max-vertical-offset="1080" />
@@ -559,11 +612,6 @@
         <state line="19" column="8" selection-start="1631" selection-end="1631" vertical-scroll-proportion="0.057971016" vertical-offset="340" max-vertical-offset="1520" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="49" selection-start="1832" selection-end="1832" vertical-scroll-proportion="-0.056899004" vertical-offset="1140" max-vertical-offset="2120" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/development/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="0" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="500">
@@ -592,9 +640,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/staging/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="34" selection-start="937" selection-end="937" vertical-scroll-proportion="0.0" vertical-offset="97" max-vertical-offset="1060">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="40" selection-start="1453" selection-end="1453" vertical-scroll-proportion="0.0" vertical-offset="657" max-vertical-offset="2120">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="49" selection-start="639" selection-end="639" vertical-scroll-proportion="0.5974395" vertical-offset="40" max-vertical-offset="1220">
+        <state line="44" column="32" selection-start="987" selection-end="987" vertical-scroll-proportion="0.45945945" vertical-offset="517" max-vertical-offset="1220">
           <folding />
         </state>
       </provider>
