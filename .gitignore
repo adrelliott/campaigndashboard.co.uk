@@ -9,3 +9,5 @@ composer.lock
 Thumbs.db
 install.sh
 Vagrantfile
+.idea
+.vagrant

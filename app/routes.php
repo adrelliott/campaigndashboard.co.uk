@@ -21,11 +21,12 @@ Route::get('/c', function() {
 
 //    var_dump(DB::connection()->getDatabaseName());
 //    var_dump(DB::getQueryLog());
-//    if(DB::connection()->getDatabaseName())
-//{
-//   var_dump( "conncted sucessfully to database ".DB::connection()->getDatabaseName() );
-//    $retval .= Config::get('database');
-//}
+    if( DB::connection()->getDatabaseName()  )
+{
+   var_dump( "conncted sucessfully to database");
+    dump(DB::connection());
+
+}
 //    return $retval;
 
 });
@@ -41,7 +42,7 @@ App::error(function(PDOException $exception)
 Route::get('/e', function(){
     var_dump(App::environment());
     var_dump($_ENV);
-    var_dump(getenv('test_staging'));
+    var_dump(getenv('db_username'));
 });
 
 
