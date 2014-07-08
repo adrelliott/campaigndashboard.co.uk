@@ -35,9 +35,9 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
             'password' => 'sometimes|required|alpha_num|min:8|confirmed',
             'password_confirmation' => 'sometimes|required|alpha_num|min:8',
         ),
-        // 'update' => array(  //Rules for just updating
-        //     // use these rules only on update
-        // ),
+        'update' => array(  //Rules for just updating
+            // use these rules only on update
+        ),
         'save' => array(    // rules for both create & update
             'email' => 'required|email',
         )

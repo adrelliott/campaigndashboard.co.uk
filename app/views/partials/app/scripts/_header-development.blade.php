@@ -25,7 +25,7 @@
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
         {{ HTML::script('/assets/js/others/html5shiv.js') }}  
-      <script src="<?php// echo site_url('assets/bootstrap-3/js/respond.min.js'); ?>"></script>
+      <script src="<?php // echo site_url('assets/bootstrap-3/js/respond.min.js'); ?>"></script>
 <![endif]-->
 
 <!-- PostcodeAnywhere stuff -->
