@@ -34,42 +34,27 @@
     |
     */
 
-    $config['navbar'] = array(
-        'home' => array(
-            'route' => 'app/dashboard',
-            'icon' => 'tachometer',
-            'label' => 'Dashboard',
-            'min_admin_level' => 3,
-            'dropdowns' => array(),
-            ),
-        'contacts' => array(
-            'route' => 'app/contacts',
-            'icon' => 'user',
-            'label' => 'Fans',
-            'min_admin_level' => 3,
-            'dropdowns' => array(),
-            ),
-        'marketing' => array(
-            'route' => '',
-            'icon' => 'bolt',
-            'label' => 'Marketing',
-            'min_admin_level' => 3,
-            'dropdowns' => array(
-                'dropdown1' => array(
-                    'route' => 'app/broadcasts',
-                    'icon' => 'bullhorn',
-                    'label' => 'Broadcasts',
-                    'min_admin_level' => 3,
-                    ),
-                'dropdown2' => array(
-                    'route' => 'app/broadcasts',
-                    'icon' => 'bullhorn',
-                    'label' => 'restricted',
-                    'min_admin_level' => 0,
-                    ),
-                ),
-            ),
-        );
+    $config['navbar']['contacts']['label'] = 'Fans';
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Stats
+    |--------------------------------------------------------------------------
+    |
+    | The stats required (often shown on homepage)
+    |
+    */
+
+    $config['stats'] = array(
+        'total_fans' => array(
+            'model' => 'contacts',
+            'method' => 'count_all'
+        ),
+    );
+
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -88,10 +73,9 @@
     $config['contactsshow'] = array(
         'col1tabs' => ['Overview', 'In Depth', 'Opt In', 'Notes'],
         'col2tabs' => ['Purchases', 'Roles', 'Tags'],
-        // 'col2tabs' => ['Purchases', 'Roles', 'Tags', 'Links'],
         );
 
-    //The tabs for views/contacts/show.blade.php
+    //The tabs for views/users/show.blade.php
     $config['usersshow'] = array(
         'col1tabs' => ['Details', 'Permissions'],
         'col2tabs' => ['Password'],
@@ -105,7 +89,7 @@
     | Tables
     |--------------------------------------------------------------------------
     |
-    | Config for the tabels in the app
+    | Config for the tables in the app
     |
     */
     $config['tables']['contacts_index'] = array(
@@ -153,19 +137,6 @@
     
     // Roles
     $config['roles'] = array(
-        1 => 'Volunteer (Office)',
-        2 => 'Volunteer (Matchday)',
-        3 => 'Paid Office Staff',
-        4 => 'Community Staff',
-        5 => 'Board Member',
-        6 => 'External Supplier',
-        7 => 'Coaching/Backroom Staff',
-        8 => '1st Team Player',
-        9 => 'Youth Team Player',
-        10 => 'Women\'s Team Player',
-        );
-
-    $config['roles'] = array(
         'Volunteer (Office)' => 'Volunteer (Office)',
         'Volunteer (Matchday)' => 'Volunteer (Matchday)',
         'Paid Office Staff' => 'Paid Office Staff',
@@ -178,12 +149,6 @@
         'Women\'s Team Player' => 'Women\'s Team Player',
         );
 
-
-
-
-
-
-   
     $config['productList'] = array(
         '' => 'Choose a product...',
         1 => 'Adult Membership',

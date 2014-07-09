@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('jumbotron')
-    <h1>Hello, {{ $current_user->first_name }}!</h1>
+    <h1>Hello {{ $current_user->first_name }}!</h1>
     <p>Use the menus on the top to find your way around.</p>
     <div class="row">
         <p><a href="contacts/create" class="btn btn-primary btn-lg pull-right" role="button"><i class="fa fa-plus"></i>  Create new {{ $config['contacts']['label'] }}</a></p>

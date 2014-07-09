@@ -26,7 +26,6 @@ return array(
     |
     */
 
-    //'url' => 'http://localhost',
     'url' => 'http://campaigndashboard.dev',
 
 

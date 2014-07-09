@@ -1,7 +1,7 @@
 <?php 
 
 /**
- * This is the class from which all of the app's modle classses are extended. Pus global logic here.
+ * This is the class from which all of the app's model classes are extended. Put global logic here.
  */
 use Magniloquent\Magniloquent\Magniloquent;
 
@@ -20,7 +20,7 @@ class BaseModel extends Magniloquent {
         'update' => array()
     );
 
-    // Define fields that are to be retruned as Carbon instances
+    // Define fields that are to be returned as Carbon instances
     public function getDates()
     {
         return array('created_at', 'updated_at', 'deleted_at');
