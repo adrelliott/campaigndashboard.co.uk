@@ -1,14 +1,16 @@
 <?php namespace Dashboard\Crm;
 
 use BaseModel;
+use McCool\LaravelAutoPresenter\PresenterInterface;
 
-class Contact extends BaseModel {
+class Contact extends BaseModel implements PresenterInterface {
     
     // Do not allow updating of these fields
     protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at', 'owner_id'];
 
-    // Wrap in a presenter (ShawnMcCool)
+    // Wrap in a presenter (ShawnMcCool), or delete this line if no presenter required
     public $presenter = 'Dashboard\Crm\ContactPresenter';
+
     
     // Validation rules
     public static $rules = array(
@@ -27,7 +29,6 @@ class Contact extends BaseModel {
      * @var array or '*'
      */
     public $selectCols = array('id', 'first_name', 'last_name');
-
 
     
     /**

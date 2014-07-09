@@ -1,7 +1,6 @@
 <?php namespace Dashboard\Crm;
 
-// use McCool\LaravelAutoPresenter\BasePresenter;
-use Dashboard\Presenters\Presenter;
+use McCool\LaravelAutoPresenter\BasePresenter as Presenter;
 use Dashboard\Crm\Contact as Model;
 use Carbon;
 
@@ -10,7 +9,6 @@ class ContactPresenter extends Presenter {
     public function __construct(Model $model)
     {
         $this->resource = $model;
-        dd('contact_presenter called');
     }
 
     public function fullName()
@@ -23,7 +21,7 @@ class ContactPresenter extends Presenter {
         if ( isset($this->resource->title) )
             return 'This is ' . $this->resource->title . ' ' . $this->resource->last_name;
         
-        //If not, put 
+        //If not, tell them... 
         return 'You only know this contact by their surname (' . $this->resource->last_name . ')';
     }
 
@@ -32,12 +30,7 @@ class ContactPresenter extends Presenter {
         return $this->resource->created_at->diffForHumans();
     }
 
-    public function tags()
-    {
-         $cols = array('tag_name', 'variant', 'tag_note');
-         return $this->resource->tags()->get($cols)->toArray();
-    }
-
+    
 
     
 }

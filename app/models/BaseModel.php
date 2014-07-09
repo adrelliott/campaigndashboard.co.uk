@@ -20,6 +20,21 @@ class BaseModel extends Magniloquent {
         'update' => array()
     );
 
+    /**
+     * Sets a default value for a presenter
+     * @var boolean
+     */
+    public $presenter = FALSE;
+
+    /**
+     * If we use a presnter, we implement the interface 
+     * @return string namespaced path to presenter
+     */
+    public function getPresenter()
+    {
+        return $this->presenter;
+    }
+
     // Define fields that are to be returned as Carbon instances
     public function getDates()
     {

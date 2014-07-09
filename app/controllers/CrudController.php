@@ -9,12 +9,6 @@ class CrudController extends BaseController {
      */     
     protected $repo;
 
-   
-     /**
-     * Data object for the view
-     * @var obj
-     */
-    protected $data;
 
      /**
      * Model object
@@ -46,9 +40,6 @@ class CrudController extends BaseController {
     public function __construct($repo = NULL)
     {
         parent::__construct();
-
-        // Set up data object, model and repo
-        $this->data = new stdClass();
         $this->model = $this->repo = $repo;
     }
 
@@ -182,7 +173,7 @@ class CrudController extends BaseController {
     {
         // Construct event name and pass through a reference to $this
         $event = join('.', $this->classAttributes);
-        $this->data->eventResponse = Event::fire( $event, $this->model );
+        $this->model->eventResponse = Event::fire( $event, $this->model );
 
         # HOOK: Do we have any postEvent methods to perform?
         if ( isset( $this->postEvent[$this->classAttributes[3]]) ) 
@@ -213,8 +204,7 @@ class CrudController extends BaseController {
             # Else dd $this->model into $this->data object and just return the view
             else
             {
-                $this->data->model = $this->model;
-                $retval = $this->renderView($this->data);
+                $retval = $this->renderView($this->model);
             }
         }
             

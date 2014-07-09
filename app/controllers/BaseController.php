@@ -65,7 +65,7 @@ class BaseController extends Controller {
 
         # If file exists in tenants dir, load that, otherwise load default
         if ( View::exists( $customFilePath ) ) $filePath = $customFilePath;
-        return View::make( $filePath )->withData( $data );
+        return View::make( $filePath )->withModel( $data );
     }
 
 
