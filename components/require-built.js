@@ -537,7 +537,7 @@ var requirejs, require, define;
             //Push all the globalDefQueue items into the context's defQueue
             if (globalDefQueue.length) {
                 //Array splice in the values since the context code has a
-                //local var ref to defQueue, so cannot just reassign the one
+                //local.bak var ref to defQueue, so cannot just reassign the one
                 //on context.
                 apsp.apply(defQueue,
                            [defQueue.length - 1, 0].concat(globalDefQueue));
@@ -1662,9 +1662,9 @@ var requirejs, require, define;
      * of dependency string names to fetch. An optional function callback can
      * be specified to execute when all of those dependencies are available.
      *
-     * Make a local req variable to help Caja compliance (it assumes things
+     * Make a local.bak req variable to help Caja compliance (it assumes things
      * on a require that are not standardized), and to give a short
-     * name for minification/local scope use.
+     * name for minification/local.bak scope use.
      */
     req = requirejs = function (deps, callback, errback, optional) {
 
@@ -2108,7 +2108,7 @@ var
 
 	version = "2.1.0",
 
-	// Define a local copy of jQuery
+	// Define a local.bak copy of jQuery
 	jQuery = function( selector, context ) {
 		// The jQuery object is actually just the init constructor 'enhanced'
 		// Need init if jQuery is called (just allow error to be thrown if not included)
@@ -9496,7 +9496,7 @@ var
 	rhash = /#.*$/,
 	rts = /([?&])_=[^&]*/,
 	rheaders = /^(.*?):[ \t]*([^\r\n]*)$/mg,
-	// #7653, #8125, #8152: local protocol detection
+	// #7653, #8125, #8152: local.bak protocol detection
 	rlocalProtocol = /^(?:about|app|app-storage|.+-extension|file|res|widget):$/,
 	rnoContent = /^(?:GET|HEAD)$/,
 	rprotocol = /^\/\//,

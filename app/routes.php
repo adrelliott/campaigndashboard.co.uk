@@ -43,6 +43,22 @@ Route::get('/e', function(){
     var_dump(App::environment());
     var_dump($_ENV);
     var_dump(getenv('db_username'));
+
+    $env = $app->detectEnvironment(function () {
+        $environment = getenv('ENV_NAME');
+        if (strlen($environment) == 0) {
+            if (strpos(__DIR__, '/home/forge/staging.mysite.com') === 0) {
+                $environment = 'staging';
+            } elseif (strpos(__DIR__, '/home/forge/mysite.com') === 0) {
+                $environment = 'production';
+            }
+        }
+        if (strlen($environment) == 0) {
+            $environment = 'development';
+        }
+
+        return $environment;
+    });
 });
 
 

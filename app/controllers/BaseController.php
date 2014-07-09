@@ -50,11 +50,22 @@ class BaseController extends Controller {
         // Set up repo & define class attr
         $this->repo = $repo;
         $this->setClassAttributes();
+
+        // Not 100% sure this should be here, but okay
+        Former::framework('TwitterBootstrap3');
+
+        // Defaults for before and after
+        $this->beforeFilter('@before');
+        $this->afterFilter('@after');
         
         // Define the request type
         if ( strtolower(Request::segment(1)) == 'api' ) $this->asJson = TRUE;
 
     }
+
+    // Shells
+    public function before($route, $request) { }
+    public function after($route, $request) { }
 
     
     /**
@@ -264,61 +275,5 @@ class BaseController extends Controller {
         return View::make( $filePath )->withRecord( $this->record );
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // public function redirect($viewFile = 'edit')
-    // {
-    //     // If save is successful, then redirect to the $viewFile page
-    //     if ( $this->record->result )
-    //     {
-    //         if ( Request::ajax() ) return Response::make($this->record, 200); 
-            
-    //         else 
-    //             return Redirect::route('app.' . strtolower(Request::segment(2)) . '.' . $viewFile, array($this->record->id))
-    //                 ->with('success', 'That\'s saved!'); 
-    //     }
-             
-
-    //     // ... else go back and show errors
-    //     else
-    //     {
-    //         if ( Request::ajax() ) 
-    //             return Response::make($this->record->errors(), 500);
-
-    //         else 
-    //             return Redirect::back()
-    //             ->with('error', 'Some fields don\'t look right. Can you take a look?')
-    //             ->withErrors($this->record->errors())
-    //             ->withInput();
-    //     }
-
-    // }
 
 }

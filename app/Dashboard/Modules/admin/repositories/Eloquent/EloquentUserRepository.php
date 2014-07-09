@@ -9,9 +9,9 @@ class EloquentUserRepository extends EloquentRepository implements UserRepositor
         $this->model = $model;
     }
 
-
-
-
-    
+    public function findRecord($id)
+    {
+        // 
+    }
 
 }
