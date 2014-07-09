@@ -3,7 +3,7 @@
 use BaseController, Auth, Input;
 use \Dashboard\Admin\User;
 
-class AccountController extends BaseController
+class AccountController extends CrudController
 {
     public function before($route, $request)
     {

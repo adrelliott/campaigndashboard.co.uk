@@ -1,10 +1,10 @@
 <?php namespace Dashboard\Crm;
 
-use BaseController;
+use CrudController;
 use Dashboard\Repositories\ContactRoleRepositoryInterface as ModelInterface;
 
 
-class RolesController extends BaseController {
+class RolesController extends CrudController {
     
 
     public function __construct(ModelInterface $repo)

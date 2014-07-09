@@ -6,7 +6,7 @@ use Route;
 Route::group(array(
     'prefix' => 'api', 
     'before' => 'auth',
-    'namespace' => 'Dashboard\Crm'
+    'namespace' => 'Dashboard\Api'
     ), 
     function()
     {
@@ -14,18 +14,18 @@ Route::group(array(
          * Gets the order-items for the passed contact
          */
         Route::get('contacts/{id}/order-items', 
-            array('as' => 'api.contacts.order-items', 'uses' => 'ContactsController@getOrderProducts'));
+            array('as' => 'api.contacts.order-items', 'uses' => 'ApiContactsController@getOrderProducts'));
 
         /**
          * Gets any related model for the contact (and returns nested relationship cols)
          */
         Route::get('contacts/{id}/{relatedModel}/{nestedRelationship?}', 
-            array('as' => 'api.contacts.related-model', 'uses' => 'ContactsController@getRelated'));
+            array('as' => 'api.contacts.related-model', 'uses' => 'ApiContactsController@getRelated'));
 
         /**
          * Sets up the default RESTful endpoints
          */
-        Route::resource('contacts', 'ContactsController');
+        Route::resource('contacts', 'ApiContactsController');
 
 
 
@@ -33,7 +33,7 @@ Route::group(array(
          * Use this to test the eloquent methods - see the method in contacts controller
          */
         Route::get('contacts/test',
-            array('uses' => 'ContactsController@test'));
+            array('uses' => 'ApiContactsController@test'));
 
 
     }
