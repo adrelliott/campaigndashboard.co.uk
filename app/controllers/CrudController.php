@@ -200,11 +200,11 @@ class CrudController extends BaseController {
         else
         {
             # If we have tried to save() and it was successful, redirect to edit page
-            if ( isset($this->model->result) && $this->model->result === TRUE )
+            if ( isset($this->model->success) && $this->model->success === TRUE )
                 $retval = Redirect::route('app.' . $this->classAttributes[2] . '.' . $viewFile, array($this->model->id))->with('success', 'That\'s saved!');
 
             # elseif we have tried to save() and it was NOT successful, go back and show errors
-            elseif ( isset($this->model->result) && $this->model->result === FALSE )
+            elseif ( isset($this->model->success) && $this->model->success === FALSE )
                 $retval = Redirect::back()
                     ->with('error', 'Some fields don\'t look right. Can you take a look?')
                     ->withErrors($this->model->errors())

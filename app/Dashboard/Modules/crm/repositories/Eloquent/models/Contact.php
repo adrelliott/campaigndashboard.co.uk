@@ -1,7 +1,6 @@
 <?php namespace Dashboard\Crm;
 
 use BaseModel;
-// use Dashboard\Crm\ContactPresenter as Presenter;
 
 class Contact extends BaseModel {
     
@@ -29,26 +28,7 @@ class Contact extends BaseModel {
      */
     public $selectCols = array('id', 'first_name', 'last_name');
 
-    /**
-     * Defines the relationship of tags->contacts
-     * @return obj 
-     */
-    public function tags()
-    {
-        return $this->belongsToMany('Dashboard\Tags\Tag')->onlyOwners();
-    }
 
-    public function roles()
-    {
-        return $this->hasMany('Dashboard\Crm\ContactRole')->onlyOwners();
-    }
-
-    public function orderProducts()
-    {
-        
-        return $this->hasManyThrough('Dashboard\Sales\OrderProduct', 'Dashboard\Sales\Order')
-            ->onlyOwners('order_product');
-    }
     
     /**
      * Notes relationship
@@ -66,38 +46,33 @@ class Contact extends BaseModel {
         return $this->hasMany('Dashboard\Sales\Order')->onlyOwners();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
     /**
-     * Defines the relaitonship of roles->contacts 
-     *
-     * IMPORTANT: Roles are actually tags with extra info
-     * 
+     * Defines the relationship of tags->contacts
      * @return obj 
      */
-    // public function tags()
-    // {
-    //     return $this->belongsToMany('Dashboard\Tags\Tag');
-    //     // return $this->belongsToMany('Dashboard\Tags\Role', 'tag_pivot', 'contact_id', 'tag_id');
-    // }
+    public function tags()
+    {
+        return $this->belongsToMany('Dashboard\Tags\Tag')->onlyOwners();
+    }
 
-    
+    /**
+     * Defines relationship of roles
+     * @return obj 
+     */
+    public function roles()
+    {
+        return $this->hasMany('Dashboard\Crm\ContactRole')->onlyOwners();
+    }
 
-    
-   
-    
+    /**
+     * Defines the (complex) relationship orderproducts has to contacts
+     * @return [type] [description]
+     */
+    public function orderProducts()
+    {
+        return $this->hasManyThrough('Dashboard\Sales\OrderProduct', 'Dashboard\Sales\Order')
+            ->onlyOwners('order_product');
+    }
+
 
 }

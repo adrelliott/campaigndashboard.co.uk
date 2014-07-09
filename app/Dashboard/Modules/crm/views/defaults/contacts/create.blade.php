@@ -13,6 +13,11 @@
     <div class="well"><!-- Well -->
         <h4 class="text-primary1"><i class="fa fa-pencil"></i> What's your new {{ $config['contacts']['label'] }}'s name...?</h4>
 
+            @section('create-form')
+                <h1>here si the default form</h1>
+            @show
+
+
             {{ Form::open( array(
                 'route' => array('app.contacts.store'),
                 'role' => 'form',

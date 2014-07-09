@@ -3,17 +3,14 @@
 // use McCool\LaravelAutoPresenter\BasePresenter;
 use Dashboard\Presenters\Presenter;
 use Dashboard\Crm\Contact as Model;
-use Dashboard\Crm\Action as Action;
-use Dashboard\Crm\Note as Note;
-use Dashboard\Crm\Tag as Tag;
-use Dashboard\Admin\User as User;
 use Carbon;
 
 class ContactPresenter extends Presenter {
 
-     public function __construct(Model $model)
+    public function __construct(Model $model)
     {
         $this->resource = $model;
+        dd('contact_presenter called');
     }
 
     public function fullName()
@@ -41,34 +38,6 @@ class ContactPresenter extends Presenter {
          return $this->resource->tags()->get($cols)->toArray();
     }
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-    public function getNotes()
-    {
-        // return Note::where('contact_id', $this->resource->id)->get();
-        // return Note::where('contact_id', $this->resource->id)->get();
-        //return Note::with('user')->get();
-    }
-
-    public function getActions()
-    {
-        //Get associated records
-        //$this->resources = Action::get() 
-
-
-        return $this->resource->actions;
-    }
 
     
 }
