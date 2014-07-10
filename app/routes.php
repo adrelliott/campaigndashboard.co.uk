@@ -31,13 +31,19 @@ Route::get('/c', function() {
 
 });
 
-App::error(function(PDOException $exception)
-{
-    Log::error("Error connecting to database: ".$exception->getMessage());
+// App::error(function(PDOException $exception)
+// {
+//     Log::error("Database error: ".$exception->getMessage());
 
-    return "Error connecting to database";
-});
-
+//     if (App::environment() == 'production')
+//     {
+//         return "Database error - @todo Show more useful page";
+//     }
+//     else
+//     {
+//         throw $exception;
+//     }
+// });
 
 Route::get('/e', function(){
     var_dump(App::environment());
