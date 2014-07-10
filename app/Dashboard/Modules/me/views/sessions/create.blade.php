@@ -19,7 +19,7 @@
                 @include('partials.common._message')
             </div>
             
-            {{ Form::open(array( 'route' => 'contact_login', 'class' => 'form-signin' )) }}
+            {{ Form::open(array( 'route' => 'me.contact_login', 'class' => 'form-signin' )) }}
 
                 <p>
                     <input type="email" name="email" class="form-control" placeholder="Enter your email address" required autofocus>

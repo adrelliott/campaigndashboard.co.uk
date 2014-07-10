@@ -2,10 +2,14 @@ body {
   background: #E5E9EF;
 }
 
-#clientLogin h1 {
+#clientLogin {
   margin-top: 100px;
 }
 
 #clientLogin form label.checkbox {
   margin-left: 10px;
+}
+
+#clientLogin fieldset {
+  margin: 20px 0;
 }
