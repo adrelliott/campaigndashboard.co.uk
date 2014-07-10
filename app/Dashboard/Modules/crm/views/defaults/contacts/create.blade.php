@@ -15,11 +15,10 @@
 
             @section('create-form')
                 {{ Former::open()
-                            ->role('Form')
-                            ->class('')
-                            ->method('POST')
-                            ->route('app.contacts.store');
-                            // ->populate($record->resource);
+                        ->role('Form')
+                        ->class('')
+                        ->method('POST')
+                        ->route('app.contacts.store')
                 }}
 
                     <div class="col-lg-4 col-md-4 col-sm-4  col-xs-12">
@@ -40,10 +39,6 @@
 
                     <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
                         {{ Former::tel('mobile_phone')->class('form-control input-lg')->placeholder('E.g. 07703545343') }}
-                    </div>
-
-                    <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                        {{ Former::tel('home_phone')->class('form-control input-lg')->placeholder('E.g. 01614536464') }}
                     </div>
 
                     <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
