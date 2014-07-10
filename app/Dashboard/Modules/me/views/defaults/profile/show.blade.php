@@ -2,6 +2,10 @@
 
 @section('content')
 <div class="row" >
+    <div class="col-md-12">
+        @include('partials.common._message')
+    </div>
+
     <div class="col-md-6">
         <h1>My Information</h1>
 
