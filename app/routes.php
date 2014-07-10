@@ -31,12 +31,12 @@ Route::get('/c', function() {
 
 });
 
-App::error(function(PDOException $exception)
-{
-    Log::error("Error connecting to database: ".$exception->getMessage());
+// App::error(function(PDOException $exception)
+// {
+//     Log::error("Error connecting to database: ".$exception->getMessage());
 
-    return "Error connecting to database";
-});
+//     return "Error connecting to database";
+// });
 
 
 Route::get('/e', function(){

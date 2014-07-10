@@ -6,7 +6,7 @@ class EloquentBroadcastRepository extends EloquentRepository implements Broadcas
 
     public function __construct(Model $model)
     {
-        $this->model = $model;
+        parent::__construct($model);
     }
 
 }

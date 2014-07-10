@@ -262,6 +262,25 @@ return array(
             'tableTemplate' => 'partials.app._indexTable',
         ),
 
+        'broadcasts_index' => array(  //The table displayed on contacts/index
+            'options' => array(
+                'setUrl' => '/api/broadcasts?datatable=true&cols=id,broadcast_name,sent_at',
+                'addColumn' => array('Id', 'Broadcast name', 'Date Sent'),
+                'setOptions' => array(
+                    //'sPaginationType' => 'bootstrap',
+                    // 'iDisplayLength' => 10,
+                    // 'bLengthChange' => false,
+//                    'order' => '[[0, "desc" ]]',
+                ),
+                'setCustomValues' => array(
+                    'linkurl' => '/app/broadcasts',
+                    'showid' => true,
+                    'idisplaylength' => 5,
+                ),
+            ),
+            'tableTemplate' => 'partials.app._indexTable',
+        ),
+
 
 
     ),
@@ -542,10 +561,10 @@ return array(
         ),
         
         'emailFrom' => array(
-            // 'Paul Howarth|paul@fc-utd.co.uk' => 'Paul Howarth',
-            // 'Lindsey Howard|lindsey@fc-utd.co.uk' => 'Lindsey Howard',
-            // 'Michael Holdsworth|michael@fc-utd.co.uk' => 'Michael Holdsworth',
+            'Al Elliott|al@campaigndashboard.co.uk' => 'Al Elliott',
+            
         ),
+        
         'testEmailto' => array(
             
         ),

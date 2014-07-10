@@ -1,14 +1,16 @@
-<?php namespace Dashboard\Broadcasts;
+<?php namespace Dashboard\Api;
 
-use CrudController;
+use Dashboard\Api\ApiController;
 use Dashboard\Repositories\BroadcastRepositoryInterface as ModelInterface;
 
-class BroadcastsController extends CrudController {
+
+class ApiBroadcastsController extends ApiController {
 
     public function __construct(ModelInterface $repo)
     {
         parent::__construct($repo);
-    } 
+    }
 
     
+
 }

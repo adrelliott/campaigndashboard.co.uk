@@ -22,14 +22,14 @@
             ->id('')
             ->ajaxMethod('PUT')
             ->method('PUT')
-            ->route('app.broadcasts.update', $record->id)
-            ->populate($record->resource);  
+            ->route('app.broadcasts.update', $model->id)
+            ->populate($model->resource);  
         }}
         
         @section('content-form')
 
             <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                {{ Former::select('search_id')->class('form-control input-lg')->options($config['savedSearches'])->label('Who is this email to?') }}
+                {{ Former::select('search_id')->class('form-control input-lg')->options($config['dropdowns']['savedSearches'])->label('Who is this email to?') }}
             </div>
             <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                 {{ Former::text('subject_line')->class('form-control input-lg')->placeholder('E.g. Have you seen the latest blog post?')->label('Subject Line') }}
@@ -70,13 +70,13 @@
             </div>
         </div><!-- /Panel 1 -->
 
-        @if ($record->sent)
+        @if ($model->sent)
             <div class="panel panel-default"><!-- Panel 2 -->
                 <div class="panel-heading">
                     <h3 class="panel-title">Sent Details</h3>
                 </div>
                 <div class="panel-body">
-                    <p class="text-success"><i class="fa fa-check"></i> This email was sent on {{ $record->sent_at }}</p>
+                    <p class="text-success"><i class="fa fa-check"></i> This email was sent on {{ $model->sent_at }}</p>
                     <a href="#" class="text-primary"><i class="fa fa-wrench"></i> View Analytics...</a>
                 </div>
             </div><!-- /Panel 2 -->
@@ -90,10 +90,10 @@
                 @section('about-email')
 
                     <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                        {{ Former::select('broadcast_from')->class('form-control input-sm')->options($config['emailFrom'])->label('Who is this email from?') }}
+                        {{ Former::select('broadcast_from')->class('form-control input-sm')->options($config['dropdowns']['emailFrom'])->label('Who is this email from?') }}
                     </div>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                        {{ Former::select('broadcast_template')->class('form-control input-sm')->options($config['emailTemplate'])->label('Email Template') }}
+                        {{ Former::select('broadcast_template')->class('form-control input-sm')->options($config['dropdowns']['emailTemplate'])->label('Email Template') }}
                     </div>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                         <h5>Ready to Send?</h5>
@@ -124,7 +124,7 @@
                 @section('send-email')
                     
                     <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
-                        {{ Former::select('_test_send_to')->class('form-control input-sm')->label(false)->options($config['testEmailto'])->label('Send a test to:') }}
+                        {{ Former::select('_test_send_to')->class('form-control input-sm')->label(false)->options($config['dropdowns']['testEmailto'])->label('Send a test to:') }}
                     </div>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12  col-xs-12">
                         <small><a href="#" class="unhide_div" div-class="test_other">Send to someone not on this list?</a></small>
@@ -144,7 +144,7 @@
                     {{Former::close() }}
 
                 </div>
-                @if( $record->ready_to_send )
+                @if( $model->ready_to_send )
                     <div class="panel-footer">
                         <div class="row center-block">
                             <!-- <div class="form-group col-lg-12 col-md-12 col-sm-12"> -->

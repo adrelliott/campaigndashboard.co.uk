@@ -28,6 +28,12 @@ Route::group(array(
         Route::resource('contacts', 'ApiContactsController');
 
 
+        /**
+         * Sets up the default RESTful endpoints
+         */
+        Route::resource('broadcasts', 'ApiBroadcastsController');
+
+
 
         /**
          * Use this to test the eloquent methods - see the method in contacts controller
