@@ -47,7 +47,7 @@ Route::filter('auth', function()
 
 Route::filter('auth.contactLogin', function()
 {
-    if (Auth::contactLogin()->guest()) return Redirect::guest(URL::route('contact_login'));
+    if (Auth::contactLogin()->guest()) return Redirect::guest(URL::route('me.contact_login'));
 });
 
 Route::filter('auth.basic', function()
