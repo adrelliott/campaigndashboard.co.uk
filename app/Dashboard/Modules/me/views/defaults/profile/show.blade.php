@@ -66,6 +66,26 @@
     </div>
 
     <div class="col-md-4">
+        <h2>Subscriptions</h2>
+
+        {{ Former::open_vertical()
+            ->route('me.contact', $model->hash)
+            ->method('PATCH')
+            ->populate($contact->resource) }}
+                    {{ Former::hidden('optin_email')->forceValue('0') }}
+                    {{ Former::hidden('optin_sms')->forceValue('0') }}
+                    {{ Former::hidden('optin_post')->forceValue('0') }}
+
+                    {{ Former::checkbox('optin_email') }}
+                    {{ Former::checkbox('optin_sms') }}
+                    {{ Former::checkbox('optin_post') }}
+
+                    {{ Former::large_primary_submit('Save') }}
+
+        {{ Former::close() }}
+    </div>    
+
+    <div class="col-md-4">
         <h2>Update Password</h2>
 
         {{ Former::open()

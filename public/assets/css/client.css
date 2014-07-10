@@ -13,3 +13,7 @@ body {
 #clientLogin fieldset {
   margin: 20px 0;
 }
+
+#clientLogin input[type="checkbox"] {
+  display: block;
+}
