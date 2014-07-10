@@ -1,5 +1,7 @@
 <?php
 
+use Dashboard\Me\ContactLogin;
+
 /*
 |--------------------------------------------------------------------------
 | Application & Route Filters
@@ -47,7 +49,25 @@ Route::filter('auth', function()
 
 Route::filter('auth.contactLogin', function()
 {
-    if (Auth::contactLogin()->guest()) return Redirect::guest(URL::route('me.contact_login'));
+    // Check to see if we're already logged in, and grab the attempted user from the hash in the URL
+    $loggedIn = ! Auth::contactLogin()->guest();
+    $contactLogin = ContactLogin::where('hash', '=', Request::segment(2))->firstOrFail();
+    
+    // If we're not logged in yet but we have a ?login= query string parameter...
+    if ( !$loggedIn && Input::get('login') )
+    {
+        // ...try running our signature against the model to see if we can authenticate that way
+        $loggedIn = ContactLogin::authenticateFromSignature( $contactLogin, Request::query('login') );
+
+        // If that worked, set up the login session (i.e. force a log in)
+        if ( $loggedIn )
+            Auth::contactLogin()->login($contactLogin);
+    }
+
+    // If it didn't work, get the hell outta there
+    if ( !$loggedIn )
+        return Redirect::guest(URL::route('me.contact_login'))
+            ->with('error', 'You don\'t seem to be logged in.');
 });
 
 Route::filter('auth.basic', function()

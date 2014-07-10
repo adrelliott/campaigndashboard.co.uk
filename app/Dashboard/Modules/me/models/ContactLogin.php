@@ -27,6 +27,16 @@ class ContactLogin extends BaseModel implements UserInterface
         )
     );
 
+    public static function authenticateFromSignature(ContactLogin $login, $signature)
+    {
+        return ($signature == $login->authentication_signature);
+    }
+
+    public function getAuthenticationSignatureAttribute()
+    {
+        return sha1($this->id . $this->contact_id . $this->authenticate_salt);
+    }
+
     public function getAuthIdentifier()
     {
         return $this->getKey();
