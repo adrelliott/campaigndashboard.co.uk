@@ -1,11 +1,11 @@
 <?php namespace Dashboard\Me;
 
 use CrudController;
-use Dashboard\Repositories\MeContactRepository;
+use Dashboard\Repositories\ContactLoginRepository;
 
 class ProfileController extends CrudController
 {
-    public function __construct(MeContactRepository $repo)
+    public function __construct(ContactLoginRepository $repo)
     {
         parent::__construct($repo);
     }
@@ -16,6 +16,9 @@ class ProfileController extends CrudController
      */
     public function show($hash)
     {
-        $this->record = $this->repo->find($hash);
+        $this->model = $this->repo->find($hash);
+
+        $this->fireEvent();
+        return $this->handleResponse();
     }
 }

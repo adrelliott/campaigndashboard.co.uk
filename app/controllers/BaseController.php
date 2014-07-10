@@ -15,7 +15,6 @@ class BaseController extends Controller {
      * @var array
      */
     public $classAttributes;
-    
 
     public function __construct()
     {
@@ -53,23 +52,32 @@ class BaseController extends Controller {
         array_push($this->classAttributes, strtolower($t[1]));
     }
 
-    
-    
-
     /**
      * This method looks for a custom view and if none found, returns the default view
      * @return returns a view
      */
-    protected function renderView($data = NULL)
+    protected function renderView(BaseModel $model = NULL)
     {
+        // Are we a logged in user? If we're not, check on the model
+        // for an owner ID. There might be one there.
+        if (Auth::user())
+            $ownerId = Auth::user()->owner_id;
+        elseif ($model && isset($model->owner_id) && $model->owner_id)
+            $ownerId = $model->owner_id;
+        else
+            $ownerId = FALSE;
+
         # Check to see if we have a custom view for this client/tenant
-        $filePath =  $this->classAttributes[1] . '::defaults.' . $this->classAttributes[2] . '.' . $this->classAttributes[3];
-        $customFilePath = str_replace('defaults', Auth::user()->owner_id, $filePath);
+        if ($ownerId)
+        {
+            $filePath =  $this->classAttributes[1] . '::defaults.' . $this->classAttributes[2] . '.' . $this->classAttributes[3];
+            $customFilePath = str_replace('defaults', $ownerId, $filePath);
 
-        # If file exists in tenants dir, load that, otherwise load default
-        if ( View::exists( $customFilePath ) ) $filePath = $customFilePath;
-        return View::make( $filePath )->withModel( $data );
+            # If file exists in tenants dir, load that, otherwise load default
+            if ( View::exists( $customFilePath ) ) $filePath = $customFilePath;
+        }
+
+        // Load the view
+        return View::make( $filePath )->withModel( $model );
     }
-
-
 }
