@@ -7,7 +7,7 @@ class AccountController extends CrudController
 {
     public function before($route, $request)
     {
-        $this->record = Auth::user();
+        $this->record = Auth::user()->user();
     }
 
     // blahOne() – we're only working with one resource (a logged-in user will

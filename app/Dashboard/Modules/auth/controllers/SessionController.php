@@ -13,10 +13,10 @@ class SessionController extends Controller {
 	public function create()
 	{
         // If the user is already logged in, send them to the dashboard
-        if ( Auth::check() ) return Redirect::to('/app/dashboard');
+        if ( Auth::user()->check() ) return Redirect::to('/app/dashboard');
 
         // If the cookie is set, then send them to intended route or dashboard
-        if ( Auth::viaRemember() )
+        if ( Auth::user()->viaRemember() )
         {
             return Redirect::intended('/app/dashboard');  
         } 
@@ -32,13 +32,13 @@ class SessionController extends Controller {
 	 */
 	public function store()
 	{
-		// Set up the credentials to pass to Auth::attempt()
+		// Set up the credentials to pass to Auth::user()->attempt()
         $credentials = Input::only('email', 'password');
         $credentials['active'] = 1;
         $remember = (bool)Input::get('remember');
 
         // Attempt login
-        if ( Auth::attempt($credentials, $remember) )    //remember them if checked
+        if ( Auth::user()->attempt($credentials, $remember) )    //remember them if checked
             return Redirect::intended('/app/dashboard');
 
         // Spit you back out if they're wrong
@@ -55,7 +55,7 @@ class SessionController extends Controller {
 	 */
 	public function destroy()
 	{
-		Auth::logout();
+		Auth::user()->logout();
         return Redirect::route('login')
             ->with('info', 'you\'re logged out now!<br>');
 	}

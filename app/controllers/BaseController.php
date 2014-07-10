@@ -60,8 +60,8 @@ class BaseController extends Controller {
     {
         // Are we a logged in user? If we're not, check on the model
         // for an owner ID. There might be one there.
-        if (Auth::user())
-            $ownerId = Auth::user()->owner_id;
+        if (Auth::user()->user())
+            $ownerId = Auth::user()->user()->owner_id;
         elseif ($model && isset($model->owner_id) && $model->owner_id)
             $ownerId = $model->owner_id;
         else

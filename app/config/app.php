@@ -81,7 +81,7 @@ return array(
 	'providers' => array(
 
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
-		'Illuminate\Auth\AuthServiceProvider',
+		// 'Illuminate\Auth\AuthServiceProvider',
 		'Illuminate\Cache\CacheServiceProvider',
 		'Illuminate\Session\CommandsServiceProvider',
 		'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
@@ -99,7 +99,7 @@ return array(
 		'Illuminate\Queue\QueueServiceProvider',
 		'Illuminate\Redis\RedisServiceProvider',
 		'Illuminate\Remote\RemoteServiceProvider',
-		'Illuminate\Auth\Reminders\ReminderServiceProvider',
+		// 'Illuminate\Auth\Reminders\ReminderServiceProvider',
 		'Illuminate\Database\SeedServiceProvider',
 		'Illuminate\Session\SessionServiceProvider',
 		'Illuminate\Translation\TranslationServiceProvider',
@@ -115,7 +115,9 @@ return array(
         'Creolab\LaravelModules\ServiceProvider',
 //        'Bllim\Datatables\DatatablesServiceProvider',
         'Chumper\Datatable\DatatableServiceProvider',
-        'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider'
+        'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider',
+
+        'Ollieread\Multiauth\MultiauthServiceProvider',
         ),
 
 	/*

@@ -34,8 +34,8 @@ class AppComposer extends Composer {
 
     public function setUser()
     {
-        $this->user = Auth::user();
-        $this->user['admin_level'] = Auth::user()->admin_level;
+        $this->user = Auth::user()->user();
+        $this->user['admin_level'] = Auth::user()->user()->admin_level;
 
         return $this->user;
     }

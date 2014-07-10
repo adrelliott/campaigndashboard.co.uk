@@ -65,7 +65,7 @@ class BaseModel extends Magniloquent {
     public function forceOwnerId()
     {
         if (!$this->owner_id)
-          $this->owner_id = Auth::user()->owner_id;
+          $this->owner_id = Auth::user()->user()->owner_id;
     }
 
 
@@ -82,7 +82,7 @@ class BaseModel extends Magniloquent {
     public function scopeOnlyOwners($query, $tableName = NULL, $colName = 'owner_id')
     {
         if ( $tableName ) $colName = $tableName . '.owner_id';
-        $query->where($colName, Auth::user()->owner_id);
+        $query->where($colName, Auth::user()->user()->owner_id);
     }
 
 }

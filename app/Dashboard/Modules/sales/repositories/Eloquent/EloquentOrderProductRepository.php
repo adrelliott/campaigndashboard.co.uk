@@ -29,7 +29,7 @@ class EloquentOrderProductRepository extends EloquentRepository implements Order
     //     $data = array();
     //     $input = Input::get('_order_product');
     //     $standard = array(
-    //         'owner_id' => Auth::user()->owner_id,
+    //         'owner_id' => Auth::user()->user()->owner_id,
     //         'contact_id' => Input::get('contact_id'),
     //         'order_id' => $order_id
     //     );

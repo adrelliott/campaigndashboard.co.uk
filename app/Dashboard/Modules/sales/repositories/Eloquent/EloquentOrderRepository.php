@@ -38,7 +38,7 @@ class EloquentOrderRepository extends EloquentRepository implements OrderReposit
 
                      //Convert price to pennies
                     $orderItems[$product]['price'] = (int)Input::get('_order_product.price.' . $k) * 100; 
-                    $orderItems[$product]['owner_id'] = Auth::user()->owner_id;  
+                    $orderItems[$product]['owner_id'] = Auth::user()->user()->owner_id;  
                 }
             }
         }

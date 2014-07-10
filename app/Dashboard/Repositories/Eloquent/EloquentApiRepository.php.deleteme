@@ -66,7 +66,7 @@ abstract class EloquentApiRepository {
                     {
                         $q->where($col, $val);
                     }
-                    $q->where('owner_id', Auth::user()->owner_id);
+                    $q->where('owner_id', Auth::user()->user()->owner_id);
                 })
 
             // // Set up offset & limit
@@ -74,7 +74,7 @@ abstract class EloquentApiRepository {
             // ->take($this->params['limit'])
             
             // Set up default constraint
-            // ->where('owner_id', Auth::user()->owner_id)
+            // ->where('owner_id', Auth::user()->user()->owner_id)
 
             ->select($this->params['cols']);
 
@@ -168,7 +168,7 @@ abstract class EloquentApiRepository {
     {
         // 1. Create new object and fill it with $_POST ($fillable is set)
         $response = new $this->model(Input::all());
-        $response->owner_id = Auth::user()->owner_id;      
+        $response->owner_id = Auth::user()->user()->owner_id;      
 
         // 2. Now save it and set a success flag
         if ( $response->save() ) $response->responseCode = 200;
@@ -184,7 +184,7 @@ abstract class EloquentApiRepository {
         $response = $this->model->findOrFail($id);
         $response->fill(Input::all());
         // $response->owner_id = Session::get('owner_id');   
-        $response->owner_id = Auth::user()->owner_id;
+        $response->owner_id = Auth::user()->user()->owner_id;
 
         // 2. Save the amended model and set a success flag
         if ( $response->save() ) $response->responseCode = 200;

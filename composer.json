@@ -14,7 +14,7 @@
         "way/generators": "1.1",
          "loic-sharma/profiler": "dev-master",
 
-
+        "ollieread/multiauth": "dev-master",
 
         "ircmaxell/password-compat": "1.0.*",
         "way/form": "dev-master",

@@ -27,7 +27,7 @@
             
         @show
 
-            <input type="hidden" class="" name="user_id" value="{{ Auth::user()->id }}">
+            <input type="hidden" class="" name="user_id" value="{{ Auth::user()->user()->id }}">
 
             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <button type="submit" class="btn btn-lg btn-success pull-right"><i class="fa fa-check"></i> Save</button>

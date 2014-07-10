@@ -35,7 +35,7 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-    if (Auth::guest())
+    if (Auth::user()->guest())
     {
         if (Request::ajax())
             return '<h3>Session Expired!</h3><p>Please refresh the page to log in again</p>';
@@ -48,7 +48,7 @@ Route::filter('auth', function()
 
 Route::filter('auth.basic', function()
 {
-	return Auth::basic();
+	return Auth::user()->basic();
 });
 
 /*
@@ -64,7 +64,7 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/app');
+	if (Auth::user()->check()) return Redirect::to('/app');
 });
 
 /*

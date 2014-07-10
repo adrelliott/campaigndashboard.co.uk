@@ -251,7 +251,7 @@ class FormBuilder extends BaseFormBuilder {
             return $list;
 
         # Check to see if there is a dropdown with this index. if not, set $list to empty array
-        $list = Config::get('client_config/' . Auth::user()->owner_id . '.dropdowns.' . $list, array());
+        $list = Config::get('client_config/' . Auth::user()->user()->owner_id . '.dropdowns.' . $list, array());
 
         return $list;
     }

@@ -13,7 +13,7 @@ use View, Auth;
 
 
 /* Set up the global vars for the app */
-if ( Auth::check() ) 
+if ( Auth::user()->check() ) 
     View::composer('*', 'Dashboard\Composers\AppComposer');
 
 View::composer('partials.vars.test', function($view)

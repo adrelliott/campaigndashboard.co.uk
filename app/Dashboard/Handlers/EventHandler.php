@@ -39,8 +39,8 @@ class EventHandler {
         $method = camel_case(str_replace('.', '_', str_replace($this->prefix, '', $this->event)));
 
         // Now check and see a tenant-specific method is defined...
-        if ( method_exists($this, $method . Auth::user()->owner_id) ) 
-            return $this->{$method . Auth::user()->owner_id}();
+        if ( method_exists($this, $method . Auth::user()->user()->owner_id) ) 
+            return $this->{$method . Auth::user()->user()->owner_id}();
         
         // ...if not, then have we got a general method defined?
         elseif ( method_exists($this, $method) ) 

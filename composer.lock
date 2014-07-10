@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "60b2c4b037f8c4c1366fb593d82a878d",
+    "hash": "80e4ed6eee2a8ec66747958687d4c909",
     "packages": [
         {
             "name": "anahkiasen/former",
@@ -95,7 +95,7 @@
             ],
             "authors": [
                 {
-                    "name": "Maxime Fabre",
+                    "name": "Anahkiasen",
                     "email": "ehtnam6@gmail.com"
                 }
             ],
@@ -549,12 +549,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravelbook/ardent.git",
-                "reference": "9c12501eadeeec41afd9c6cb52306f4b818f0b37"
+                "reference": "8af3cf8cd3ea514c68439fdae0271af71ef1449e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravelbook/ardent/zipball/9c12501eadeeec41afd9c6cb52306f4b818f0b37",
-                "reference": "9c12501eadeeec41afd9c6cb52306f4b818f0b37",
+                "url": "https://api.github.com/repos/laravelbook/ardent/zipball/8af3cf8cd3ea514c68439fdae0271af71ef1449e",
+                "reference": "8af3cf8cd3ea514c68439fdae0271af71ef1449e",
                 "shasum": ""
             },
             "require": {
@@ -600,7 +600,7 @@
                 "sql",
                 "validation"
             ],
-            "time": "2014-07-09 04:06:07"
+            "time": "2014-07-10 04:06:41"
         },
         {
             "name": "loic-sharma/profiler",
@@ -945,6 +945,52 @@
                 "php"
             ],
             "time": "2013-08-25 17:11:40"
+        },
+        {
+            "name": "ollieread/multiauth",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ollieread/multiauth.git",
+                "reference": "4e84263a1f2440a1a17b314707f23cf428719fce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ollieread/multiauth/zipball/4e84263a1f2440a1a17b314707f23cf428719fce",
+                "reference": "4e84263a1f2440a1a17b314707f23cf428719fce",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/auth": "~4.1",
+                "illuminate/console": "~4.1",
+                "illuminate/database": "~4.1",
+                "illuminate/filesystem": "~4.1",
+                "illuminate/support": "~4.1",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Ollieread\\Multiauth": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ollie Read",
+                    "email": "labs@ollieread.com"
+                }
+            ],
+            "description": "Multiple auth driver for Laravel",
+            "keywords": [
+                "auth",
+                "laravel",
+                "multi"
+            ],
+            "time": "2014-07-05 11:04:10"
         },
         {
             "name": "patchwork/utf8",
@@ -2192,6 +2238,7 @@
         "magniloquent/magniloquent": 20,
         "creolab/laravel-modules": 20,
         "loic-sharma/profiler": 20,
+        "ollieread/multiauth": 20,
         "way/form": 20,
         "anahkiasen/former": 20,
         "laravelbook/ardent": 20
