@@ -2,6 +2,7 @@
 
 use BaseController, Auth, Input;
 use \Dashboard\Admin\User;
+use \CrudController;
 
 class AccountController extends CrudController
 {

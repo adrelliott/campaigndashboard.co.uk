@@ -3,7 +3,7 @@
 return array(
 
     'multi' => array(
-        'client_login' => array(
+        'clientLogin' => array(
             'driver' => 'eloquent',
             'model' => '\Dashboard\Me\ClientLogin'
         ),
