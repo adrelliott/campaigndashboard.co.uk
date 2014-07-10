@@ -3,9 +3,9 @@
 return array(
 
     'multi' => array(
-        'clientLogin' => array(
+        'contactLogin' => array(
             'driver' => 'eloquent',
-            'model' => '\Dashboard\Me\ClientLogin'
+            'model' => '\Dashboard\Me\ContactLogin'
         ),
         'user' => array(
             'driver' => 'eloquent',

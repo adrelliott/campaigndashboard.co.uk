@@ -1,0 +1,11 @@
+body {
+  background: #E5E9EF;
+}
+
+#clientLogin h1 {
+  margin-top: 100px;
+}
+
+#clientLogin form label.checkbox {
+  margin-left: 10px;
+}

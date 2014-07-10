@@ -29,7 +29,7 @@
         <div class="container">
                 
             <!-- Content -->
-            <div class="row">
+            <div class="row" id="clientLogin">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     @section('content')
                         <h2>Add your content in the views/{route}/{method}.blade.php file</h2>

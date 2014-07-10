@@ -7,23 +7,34 @@
 @section('content')
 <div class="row">
     <div class="col-md-6">
-            <h4 class="text-center">Sign in to continue...</h4>
+        <h1>Welcome to TODO - Owner Name Here</h1>
+        <p>Hello, and welcome to the TODO client login area, where you can access your account information and keep us up-to-date. Please login below with the email and password generated for you by one of our team.</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
         <div class="account-wall">
-            <div class="col-lg-10 col-lg-offset-1">
+            <div>
                 @include('partials.common._message')
             </div>
-            {{ HTML::image('assets/img/bootstrap/empty_photo.png', 'Log in here', array('class' => 'profile-img')) }}
-            {{ Form::open(array('route' => 'app.sessions.store', 'class' => 'form-signin')) }}
+            
+            {{ Form::open(array( 'route' => 'contact_login', 'class' => 'form-signin' )) }}
 
-                <input type="email" name="email" class="form-control" placeholder="Enter your email address" required autofocus>
-                <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    Sign in</button>
-                <label class="checkbox pull-left">
-                    <input type="checkbox" name="remember" value="1">
-                    Remember me
-                </label>
-                <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+                <p>
+                    <input type="email" name="email" class="form-control" placeholder="Enter your email address" required autofocus>
+                    <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+                </p>
+
+                <p>
+                    <button class="btn btn-primary pull-left" type="submit">Sign in</button>
+                    <label class="checkbox pull-left">
+                        <input type="checkbox" name="remember" value="1">
+                        Remember me
+                    </label>
+                </p>
+
+                <!-- <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span> -->
 
             {{ Form::close() }}
 
