@@ -174,7 +174,7 @@ class CrudController extends BaseController {
         // Construct event name and pass through a reference to $this
         $event = join('.', $this->classAttributes);
         $this->model->eventResponse = Event::fire( $event, $this->model );
-
+        
         # HOOK: Do we have any postEvent methods to perform?
         if ( isset( $this->postEvent[$this->classAttributes[3]]) ) 
             $this->{$this->postEvent[$this->classAttributes[3]]}();
@@ -192,7 +192,7 @@ class CrudController extends BaseController {
         {
             # If we have tried to save() and it was successful, redirect to edit page
             if ( isset($this->model->success) && $this->model->success === TRUE )
-                $retval = Redirect::route('app.' . $this->classAttributes[2] . '.' . $viewFile, array($this->model->id))->with('success', 'That\'s saved!');
+                $retval = Redirect::to($this->editRoute($viewFile))->with('success', 'That\'s saved!');
 
             # elseif we have tried to save() and it was NOT successful, go back and show errors
             elseif ( isset($this->model->success) && $this->model->success === FALSE )
@@ -211,7 +211,8 @@ class CrudController extends BaseController {
         return $retval;
     }
 
-
-
-
+    public function editRoute($viewFile = 'edit')
+    {
+        return URL::route('app.' . $this->classAttributes[2] . '.' . $viewFile, array( $this->model->id ));
+    }
 }

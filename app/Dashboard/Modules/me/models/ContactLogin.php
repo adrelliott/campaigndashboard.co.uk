@@ -3,11 +3,16 @@
 use \BaseModel;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
+use \Dashboard\Crm\Contact;
 
 class ContactLogin extends BaseModel implements UserInterface
 {
     protected $hidden = array('password', 'owner_id', 'authenticate_salt');
     protected $fillable = array('email', 'password', 'password_confirmation');
+
+    protected static $relationships = array(
+        'contact' => array( 'belongsTo', "\Dashboard\Crm\Contact" )
+    );
 
     public static $rules = array(
         'create' => array(

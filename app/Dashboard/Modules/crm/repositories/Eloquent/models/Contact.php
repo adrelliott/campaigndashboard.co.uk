@@ -2,6 +2,7 @@
 
 use BaseModel;
 use McCool\LaravelAutoPresenter\PresenterInterface;
+use \Dashboard\Observers\ContactObserver;
 
 class Contact extends BaseModel implements PresenterInterface {
     
@@ -11,6 +12,9 @@ class Contact extends BaseModel implements PresenterInterface {
     // Wrap in a presenter (ShawnMcCool), or delete this line if no presenter required
     public $presenter = 'Dashboard\Crm\ContactPresenter';
 
+    protected static $relationships = array(
+        'login' => array( 'hasOne', "\Dashboard\Me\ContactLogin" )
+    );
     
     // Validation rules
     public static $rules = array(

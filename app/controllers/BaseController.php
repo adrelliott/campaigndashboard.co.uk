@@ -68,9 +68,10 @@ class BaseController extends Controller {
             $ownerId = FALSE;
 
         # Check to see if we have a custom view for this client/tenant
+        $filePath = $this->classAttributes[1] . '::defaults.' . $this->classAttributes[2] . '.' . $this->classAttributes[3];
+
         if ($ownerId)
         {
-            $filePath =  $this->classAttributes[1] . '::defaults.' . $this->classAttributes[2] . '.' . $this->classAttributes[3];
             $customFilePath = str_replace('defaults', $ownerId, $filePath);
 
             # If file exists in tenants dir, load that, otherwise load default

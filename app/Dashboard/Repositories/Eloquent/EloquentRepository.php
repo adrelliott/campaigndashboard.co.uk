@@ -98,7 +98,11 @@ class EloquentRepository implements RepositoryInterface {
         return $this->r;
     }
 
-
+    public function find($id)
+    {
+        $this->r = $this->model->findOrFail($id);
+        return $this->r;
+    }
 
     /**
      * Gets all records related to the record with id
@@ -165,13 +169,13 @@ class EloquentRepository implements RepositoryInterface {
     public function updateRecord($id = FALSE)
     {
         // 1. Find the model & fill with $_POST (protected with $fillable)
-        $this->q = $this->model->findOrFail( $id );
+        $this->q = $this->find($id);
         $this->q->fill( Input::all() );
 
         // 2. Save the new model and set a success flag
         $this->q->success = $this->q->save();
         $this->q->errors = $this->q->errors()->toArray();
-
+        
         return $this->q;
     }
 
