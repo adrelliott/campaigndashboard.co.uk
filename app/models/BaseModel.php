@@ -82,7 +82,11 @@ class BaseModel extends Magniloquent {
     public function scopeOnlyOwners($query, $tableName = NULL, $colName = 'owner_id')
     {
         if ( $tableName ) $colName = $tableName . '.owner_id';
-        $query->where($colName, Auth::user()->user()->owner_id);
+
+        if (Route::current()->getAction()['prefix'] == 'me')
+            $query->where($colName, Auth::contactLogin()->user()->owner_id);
+        else
+            $query->where($colName, Auth::user()->user()->owner_id);
     }
 
 }

@@ -16,6 +16,6 @@ Route::group(array(
 
         Route::get('/{id}', array( 'as' => 'me', 'uses' => 'ProfileController@show', 'before' => 'auth.clientLogin' ));
         Route::patch('/{id}', array( 'as' => 'me', 'uses' => 'ProfileController@update', 'before' => 'auth.clientLogin' ));
-        Route::patch('/{id}/contact', array( 'as' => 'me.contact', 'uses' => 'ProfileController@update', 'before' => 'auth.clientLogin' ));
+        Route::patch('/{id}/contact', array( 'as' => 'me.contact', 'uses' => 'ContactController@update', 'before' => 'auth.clientLogin' ));
     }
 );

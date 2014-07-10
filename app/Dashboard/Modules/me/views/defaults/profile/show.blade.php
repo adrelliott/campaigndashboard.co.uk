@@ -8,9 +8,9 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
         {{ Former::open_vertical()
-            ->route('me.contact')
+            ->route('me.contact', $model->hash)
             ->method('PATCH')
-            ->populate($model) }}
+            ->populate($contact->resource) }}
                     
                     <fieldset>
                         {{ Former::input('first_name') }}
@@ -47,10 +47,16 @@
                     <fieldset>
                         <legend>Social Media</legend>
 
-                        {{ Former::input('twitter_id') }}
+                        {{ Former::input('twitter_id')->label('Twitter Username') }}
                     </fieldset>
 
                     {{ Former::large_primary_submit('Save') }}
+
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
 
         {{ Former::close() }}
     </div>
@@ -59,7 +65,7 @@
         <h2>Update Password</h2>
 
         {{ Former::open()
-            ->route('me')
+            ->route('me', $model->hash)
             ->method('PATCH')
             ->populate($model) }}
                     
