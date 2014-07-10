@@ -9,16 +9,4 @@ class ProfileController extends CrudController
     {
         parent::__construct($repo);
     }
-
-    /**
-     * I'm anonymising the contact ID and using a special hash in the URL for
-     * public-facing URLs
-     */
-    public function show($hash)
-    {
-        $this->model = $this->repo->find($hash);
-
-        $this->fireEvent();
-        return $this->handleResponse();
-    }
 }
