@@ -25,6 +25,9 @@ class BaseController extends Controller {
         // Defaults for before and after
         $this->beforeFilter('@before');
         $this->afterFilter('@after');
+
+        // Set up Former
+        Former::framework('TwitterBootstrap3');
     }
 
     // Shells

@@ -7,9 +7,6 @@ $('form.ajax-form').submit(function(event) {
 
     //Serialise the data to allow for radio/checkboxes
     data = $(this).serialize();
-    // console.log('data:', data);
-    // console.log('url:', url);
-    // console.log('type:', type);
 
     $.ajax({
         url: url,
@@ -39,10 +36,10 @@ $('form.ajax-form').submit(function(event) {
             $.each(data.errors, function(index,error) {
                 
                 // add the error class to the wrap div to show the red error style
-                $('#'+index).addClass('has-error'); 
+                $('#'+index).parent(".form-group").addClass('has-error'); 
 
                 // add the actual error message under the input
-                $('#'+index).append('<div class="help-block ajax-error"><i class="fa fa-exclamation-triangle"></i> ' + error + '</div>'); 
+                $('#'+index).parent(".form-group").append('<div class="help-block ajax-error"><i class="fa fa-exclamation-triangle"></i> ' + error + '</div>'); 
 
                 // Add error to the message too
                 $('ul.error-messages').append('<li class="ajax-error"><i class="fa fa-exclamation-triangle"></i> ' + error + '</li>');
