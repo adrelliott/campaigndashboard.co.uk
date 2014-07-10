@@ -31,6 +31,16 @@ Route::get('/c', function() {
 
 });
 
+App::error(function(\Illuminate\Database\Eloquent\ModelNotFoundException $e)
+{
+    return Response::view('errors.404', array(), 404);
+});
+
+App::missing(function($e)
+{
+    return Response::view('errors.404', array(), 404);
+});
+
 // App::error(function(PDOException $exception)
 // {
 //     Log::error("Database error: ".$exception->getMessage());
