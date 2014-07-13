@@ -1,18 +1,55 @@
-<?php namespace Dashboard\Crm;
+<?php namespace Dashboard\Crm\Mailchimp;
 
 use Dashboard\Crm\ListInterface;
+use Mailchimp;
 
 
 class BroadcastList implements ListInterface {
 
-    public function subscribeTo($listId, Contact $contact)
+    /**
+     * Object to hold our MailChimp object
+     * @var obj
+     */
+    protected $mailchimp;
+
+    /**
+     * An array of lists for this tenant
+     * @var array
+     */
+    // protected $lists;
+
+
+    public function __construct(Mailchimp $mailchimp)
     {
-        // subscribe to
+        $this->mailchimp = $mailchimp;
     }
 
-    public function unsubscribeFrom($listId, Contact $contact)
+    public function subscribeTo($contactModel, $listName = 'default')
+    {
+        
+        $retval = $this->mailchimp->lists->subscribe(
+                $this->getListId($listName),    //List Id
+                array('email' => $contactModel->email),   //Email address
+                null,   //Merge Vars
+                'html', //Email type (HTML or Plain text)
+                false,  //Double opt in?
+                true   //Update existing contact if found?
+            );
+        dump($retval);
+        #
+         
+    }
+
+    public function unsubscribeFrom($listId, $contact)
     {
         // unsubscribe from
+    }
+
+    public function getListId($listName)
+    {
+        // get lists from config
+        // Config::get();
+        return 'b5d5f34e57';
     }
 
 }

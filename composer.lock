@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "60b2c4b037f8c4c1366fb593d82a878d",
+    "hash": "7bccf79c496e71ce00f9dee9050768a4",
     "packages": [
         {
             "name": "anahkiasen/former",
@@ -549,12 +549,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravelbook/ardent.git",
-                "reference": "9c12501eadeeec41afd9c6cb52306f4b818f0b37"
+                "reference": "8af3cf8cd3ea514c68439fdae0271af71ef1449e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravelbook/ardent/zipball/9c12501eadeeec41afd9c6cb52306f4b818f0b37",
-                "reference": "9c12501eadeeec41afd9c6cb52306f4b818f0b37",
+                "url": "https://api.github.com/repos/laravelbook/ardent/zipball/8af3cf8cd3ea514c68439fdae0271af71ef1449e",
+                "reference": "8af3cf8cd3ea514c68439fdae0271af71ef1449e",
                 "shasum": ""
             },
             "require": {
@@ -600,7 +600,7 @@
                 "sql",
                 "validation"
             ],
-            "time": "2014-07-09 04:06:07"
+            "time": "2014-07-10 04:06:41"
         },
         {
             "name": "loic-sharma/profiler",
@@ -692,6 +692,52 @@
                 "laravel"
             ],
             "time": "2014-06-27 20:23:39"
+        },
+        {
+            "name": "mailchimp/mailchimp",
+            "version": "2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://bitbucket.org/mailchimp/mailchimp-api-php.git",
+                "reference": "a884ee03dd282deddfc471257b01fd09e5cd06dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/mailchimp/mailchimp-api-php/get/a884ee03dd282deddfc471257b01fd09e5cd06dc.zip",
+                "reference": "a884ee03dd282deddfc471257b01fd09e5cd06dc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "apigen/apigen": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mailchimp": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "MailChimp Devs",
+                    "email": "api@mailchimp.com",
+                    "homepage": "http://mailchimp.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "API client library for the MailChimp bulk email as a service platform",
+            "homepage": "https://bitbucket.org/mailchimp/mailchimp-api-php",
+            "keywords": [
+                "api",
+                "email"
+            ],
+            "time": "2014-06-09 21:40:35"
         },
         {
             "name": "mccool/laravel-auto-presenter",
