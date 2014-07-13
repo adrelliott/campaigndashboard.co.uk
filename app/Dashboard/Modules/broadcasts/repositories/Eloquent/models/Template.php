@@ -3,10 +3,10 @@
 use BaseModel;
 use McCool\LaravelAutoPresenter\PresenterInterface;
 
-class Broadcast extends BaseModel  implements PresenterInterface {
+class Template extends BaseModel  implements PresenterInterface {
     
     // Wrap in a presenter (ShawnMcCool)
-    public $presenter = 'Dashboard\Broadcasts\BroadcastPresenter';
+    public $presenter = 'Dashboard\Broadcasts\TemplatePresenter';
 
      // Validation rules
     public static $rules = array(

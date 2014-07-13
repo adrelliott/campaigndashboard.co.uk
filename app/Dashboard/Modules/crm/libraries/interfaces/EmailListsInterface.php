@@ -1,6 +1,6 @@
 <?php namespace Dashboard\Crm;
 
-interface ListInterface {
+interface EmailListsInterface {
 
     /**
      * Subscribes a contact to a list

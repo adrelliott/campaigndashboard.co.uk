@@ -264,8 +264,8 @@ return array(
 
         'broadcasts_index' => array(  //The table displayed on contacts/index
             'options' => array(
-                'setUrl' => '/api/broadcasts?datatable=true&cols=id,broadcast_name,sent_at',
-                'addColumn' => array('Id', 'Broadcast name', 'Date Sent'),
+                'setUrl' => '/api/broadcasts?datatable=true&cols=id,broadcast_title,sent_at',
+                'addColumn' => array('Id', 'Broadcast name'),
                 'setOptions' => array(
                     //'sPaginationType' => 'bootstrap',
                     // 'iDisplayLength' => 10,

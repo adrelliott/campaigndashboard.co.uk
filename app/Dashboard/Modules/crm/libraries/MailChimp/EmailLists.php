@@ -1,10 +1,10 @@
 <?php namespace Dashboard\Crm\Mailchimp;
 
-use Dashboard\Crm\ListInterface;
+use Dashboard\Crm\EmailListsInterface;
 use Mailchimp;
 
 
-class BroadcastList implements ListInterface {
+class EmailLists implements EmailListsInterface {
 
     /**
      * Object to hold our MailChimp object
@@ -13,10 +13,10 @@ class BroadcastList implements ListInterface {
     protected $mailchimp;
 
     /**
-     * An array of lists for this tenant
-     * @var array
+     * This list Id to subscribe this to
+     * @var string
      */
-    // protected $lists;
+    protected $listId;
 
 
     public function __construct(Mailchimp $mailchimp)
@@ -26,6 +26,8 @@ class BroadcastList implements ListInterface {
 
     public function subscribeTo($contactModel, $listName = 'default')
     {
+        $retval = FALSE;
+
         
         $retval = $this->mailchimp->lists->subscribe(
                 $this->getListId($listName),    //List Id
@@ -35,9 +37,19 @@ class BroadcastList implements ListInterface {
                 false,  //Double opt in?
                 true   //Update existing contact if found?
             );
+
         dump($retval);
         #
          
+    }
+
+    public function verifyData($contactModel, $list)
+    {
+        # Is there a valid email?
+        
+        # Is the contact one of the tenant's contacts?
+        
+        # Is the list name one of the tenant's lists?
     }
 
     public function unsubscribeFrom($listId, $contact)
@@ -48,6 +60,8 @@ class BroadcastList implements ListInterface {
     public function getListId($listName)
     {
         // get lists from config
+        // 
+        // if it exists, return it, else return false
         // Config::get();
         return 'b5d5f34e57';
     }

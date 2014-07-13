@@ -2,7 +2,7 @@
 
 use CrudController;
 use Dashboard\Repositories\ContactRepositoryInterface as ModelInterface;
-use Dashboard\Crm\Mailchimp\BroadcastList;
+use Dashboard\Crm\Mailchimp\EmailLists;
 
 class ContactsController extends CrudController {
 
@@ -11,19 +11,19 @@ class ContactsController extends CrudController {
      * (We use this to subscribe and unsubscribe to our list - usually MailChimp)
      * @var obj
      */
-    protected $broadcastList;
+    protected $emailLists;
 
-    public function __construct(ModelInterface $repo, BroadcastList $broadcastList)
+    public function __construct(ModelInterface $repo, EmailLists $emailLists)
     {
         parent::__construct($repo);
 
-        $this->broadcastList = $broadcastList;
+        $this->emailLists = $emailLists;
     }
 
     public function addToList($id, $list = 'default')
     {
         $this->model = $this->repo->find($id);
-        return $this->broadcastList->subscribeTo($this->model, $list);
+        return $this->emailLists->subscribeTo($this->model, $list);
         #Get the contact model
         #Now, get the id of the list
         #Use Listinterface to subscribe

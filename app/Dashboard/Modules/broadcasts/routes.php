@@ -9,8 +9,14 @@ Route::group(array(
     ), 
     function()
     {
+        Route::get('broadcasts/templates/list', array('uses' => 'TemplatesController@listTemplates'));
+        Route::get('templates/sync', array('uses' => 'TemplatesController@syncTemplates'));
+
+        // Broadcasts route
         Route::resource('broadcasts', 'BroadcastsController');
-        // Route::resource('actions', 'ActionsController');
-        // Route::resource('notes', 'NotesController');
+        
+        // Templates route
+        Route::resource('templates', 'TemplatesController');
+        
     }
 );
