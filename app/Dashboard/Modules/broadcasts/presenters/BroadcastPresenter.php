@@ -1,7 +1,6 @@
 <?php namespace Dashboard\Broadcasts;
 
-// use McCool\LaravelAutoPresenter\BasePresenter;
-use Dashboard\Presenters\Presenter;
+use McCool\LaravelAutoPresenter\BasePresenter as Presenter;
 use Dashboard\Broadcasts\Broadcast as Model;
 use Carbon;
 

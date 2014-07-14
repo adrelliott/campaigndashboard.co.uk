@@ -144,6 +144,16 @@ class EloquentRepository implements RepositoryInterface {
     |
     */
     // things like insertall
+    
+    public function deleteAllTenantsRecords()
+    {
+        return $this->q->delete();
+    }
+
+    // public function insert($params)
+    // {
+    //     return $this->q->insert($params);
+    // }
 
      /*
     |--------------------------------------------------------------------------

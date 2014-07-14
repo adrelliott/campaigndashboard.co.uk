@@ -1,20 +1,14 @@
 <?php namespace Dashboard\Crm;
 
-// use McCool\LaravelAutoPresenter\BasePresenter;
-use Dashboard\Presenters\Presenter;
-
+use McCool\LaravelAutoPresenter\BasePresenter as Presenter;
 use Dashboard\Crm\Note as Model;
-use Dashboard\Crm\Action as Action;
-use Dashboard\Crm\Contact as Contact;
-use Dashboard\Crm\Tag as Tag;
-use Dashboard\Admin\User as User;
 use Carbon;
 
 class NotePresenter extends Presenter {
 
-     public function __construct(Model $object)
+    public function __construct(Model $model)
     {
-        $this->resource = $object;
+        $this->resource = $model;
     }
 
     
@@ -22,8 +16,6 @@ class NotePresenter extends Presenter {
     {
         return $this->resource->created_at->toDayDateTimeString();
     }
-
-    
 
     
 }

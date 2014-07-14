@@ -6,8 +6,6 @@ use \Dashboard\Observers\ContactObserver;
 
 class Contact extends BaseModel implements PresenterInterface {
     
-    // Do not allow updating of these fields
-    protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at', 'owner_id'];
 
     // Wrap in a presenter (ShawnMcCool), or delete this line if no presenter required
     public $presenter = 'Dashboard\Crm\ContactPresenter';
@@ -60,13 +58,17 @@ class Contact extends BaseModel implements PresenterInterface {
         return $this->belongsToMany('Dashboard\Tags\Tag')->onlyOwners();
     }
 
+    
     /**
      * Defines relationship of roles
      * @return obj 
      */
     public function roles()
     {
-        return $this->hasMany('Dashboard\Crm\ContactRole')->onlyOwners();
+        return $this->belongsToMany('Dashboard\Crm\Role')
+                    ->withPivot('role_variant', 'role_start_date', 'role_end_date')
+                    ->withTimestamps()
+                    ->onlyOwners('contact_role');
     }
 
     /**

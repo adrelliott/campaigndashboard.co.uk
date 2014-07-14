@@ -23,5 +23,11 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('Order_productTableSeeder');
         $this->command->info('order_product table seeded!');
+
+		$this->call('Saved_searchesTableSeeder');
+        $this->command->info('savedsearches table seeded!');
+		
+        $this->call('Roles_TableSeeder');
+        $this->command->info('roles table seeded!');
 	}
 }

@@ -1,14 +1,14 @@
 <?php
 
-use Dashboard\Sales\Order;
+// use Dashboard\Sales\Order;
 
 class OrdersTableSeeder extends Seeder {
 
 	public function run()
 	{
 		// Uncomment the below to wipe the table clean before populating
-		DB::table('orders')->truncate();
-        Order::create(
+		// DB::table('orders')->truncate();
+        DB::table('orders')->insert(
             array(
                 'contact_id' => 1,
                 'order_title' => "Order 1",
@@ -19,7 +19,7 @@ class OrdersTableSeeder extends Seeder {
                 'order_total' => 10.11
             )
         );
-        Order::create(
+        DB::table('orders')->insert(
             array(
                 'contact_id' => 1,
                 'order_title' => "Order 2",
@@ -30,7 +30,7 @@ class OrdersTableSeeder extends Seeder {
                 'order_total' => 10.11
             )
         );
-        Order::create(
+        DB::table('orders')->insert(
             array(
                 'contact_id' => 2,
                 'order_title' => "Order 3",

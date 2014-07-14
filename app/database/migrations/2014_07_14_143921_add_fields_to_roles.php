@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddRoletitleToRoles extends Migration {
+class AddFieldsToRoles extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,8 +12,8 @@ class AddRoletitleToRoles extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('contact_role', function(Blueprint $table) {
-			$table->string('role_title')->nullable()->after('role_note');
+		Schema::table('roles', function(Blueprint $table) {
+			$table->integer('owner_id')->unsigned()->index();
 		});
 	}
 
@@ -24,8 +24,8 @@ class AddRoletitleToRoles extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('contact_role', function(Blueprint $table) {
-			$table->dropColumn('role_title');
+		Schema::table('roles', function(Blueprint $table) {
+			
 		});
 	}
 

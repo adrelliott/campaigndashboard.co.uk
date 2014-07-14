@@ -10,12 +10,20 @@ Route::group(array(
     ), 
     function()
     {
+
+        // Testing MailChimp Api
+        Route::get('contacts/addToList/{id}',
+            array('uses' => 'ContactsController@addToList'));
+
+
         Route::resource('contacts', 'ContactsController');
         Route::resource('actions', 'ActionsController');
         Route::resource('notes', 'NotesController');
         Route::resource('roles', 'RolesController');
 
         Route::post('contacts/storeRole', array('as' => 'app.contacts.storeRole', 'uses' => 'ContactsController@storeRole'));
+
+        
 
     }
 );

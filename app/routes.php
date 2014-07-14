@@ -31,6 +31,7 @@ Route::get('/c', function() {
 
 });
 
+
 App::error(function(\Illuminate\Database\Eloquent\ModelNotFoundException $e)
 {
     return Response::view('errors.404', array(), 404);
@@ -43,17 +44,12 @@ App::missing(function($e)
 
 // App::error(function(PDOException $exception)
 // {
-//     Log::error("Database error: ".$exception->getMessage());
+//     Log::error("Error connecting to database: ".$exception->getMessage());
 
-//     if (App::environment() == 'production')
-//     {
-//         return "Database error - @todo Show more useful page";
-//     }
-//     else
-//     {
-//         throw $exception;
-//     }
+//     return "Error connecting to database";
 // });
+
+
 
 Route::get('/e', function(){
     var_dump(App::environment());

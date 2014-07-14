@@ -1,15 +1,15 @@
 <?php
 
-use Dashboard\Crm\Contact;
+// use Dashboard\Crm\Contact;
 
 class ContactTableSeeder extends Seeder {
 
 	public function run()
 	{
-		DB::table('contacts')->delete();
+		// DB::table('contacts')->truncate();
 
 		// test
-		Contact::create(
+		DB::table('contacts')->insert(
             array(
 				'first_name' => "firstname",
 				'last_name' => "lastanem",
@@ -23,7 +23,7 @@ class ContactTableSeeder extends Seeder {
                 'owner_id' => 10222
 			)
         );
-        Contact::create(
+        DB::table('contacts')->insert(
             array(
                 'first_name' => "chris",
                 'last_name' => "jenkins",
@@ -37,7 +37,7 @@ class ContactTableSeeder extends Seeder {
                 'owner_id' => 10222
             )
         );
-        Contact::create(
+        DB::table('contacts')->insert(
             array(
                 'first_name' => "al",
                 'last_name' => "elliott",
@@ -51,7 +51,7 @@ class ContactTableSeeder extends Seeder {
                 'owner_id' => 10222
             )
         );
-        Contact::create(
+        DB::table('contacts')->insert(
             array(
                 'first_name' => "Leanne",
                 'last_name' => "lastElliottanem",
@@ -65,7 +65,7 @@ class ContactTableSeeder extends Seeder {
                 'owner_id' => 10222
             )
         );
-        Contact::create(
+        DB::table('contacts')->insert(
             array(
                 'first_name' => "Charlie",
                 'last_name' => "Dawg",
@@ -79,7 +79,7 @@ class ContactTableSeeder extends Seeder {
                 'owner_id' => 10222
             )
         );
-        Contact::create(
+        DB::table('contacts')->insert(
             array(
                 'first_name' => "firstname",
                 'last_name' => "lastanem",
@@ -93,7 +93,7 @@ class ContactTableSeeder extends Seeder {
                 'owner_id' => 10000
             )
         );
-        Contact::create(
+        DB::table('contacts')->insert(
             array(
                 'first_name' => "chris",
                 'last_name' => "jenkins",
@@ -107,7 +107,7 @@ class ContactTableSeeder extends Seeder {
                 'owner_id' => 10000
             )
         );
-        Contact::create(
+        DB::table('contacts')->insert(
             array(
                 'first_name' => "al",
                 'last_name' => "elliott",
@@ -121,7 +121,7 @@ class ContactTableSeeder extends Seeder {
                 'owner_id' => 10000
             )
         );
-        Contact::create(
+        DB::table('contacts')->insert(
             array(
                 'first_name' => "Leanne",
                 'last_name' => "lastElliottanem",
@@ -135,7 +135,7 @@ class ContactTableSeeder extends Seeder {
                 'owner_id' => 10000
             )
         );
-        Contact::create(
+        DB::table('contacts')->insert(
             array(
                 'first_name' => "Charlie",
                 'last_name' => "Dawg",
@@ -149,7 +149,7 @@ class ContactTableSeeder extends Seeder {
                 'owner_id' => 10000
             )
         );
-        Contact::create(
+        DB::table('contacts')->insert(
             array(
                 'first_name' => "firstname",
                 'last_name' => "lastanem",
@@ -163,7 +163,7 @@ class ContactTableSeeder extends Seeder {
                 'owner_id' => 10233
             )
         );
-        Contact::create(
+        DB::table('contacts')->insert(
             array(
                 'first_name' => "chris",
                 'last_name' => "jenkins",
@@ -177,7 +177,7 @@ class ContactTableSeeder extends Seeder {
                 'owner_id' => 10233
             )
         );
-        Contact::create(
+        DB::table('contacts')->insert(
             array(
                 'first_name' => "al",
                 'last_name' => "elliott",
@@ -191,7 +191,7 @@ class ContactTableSeeder extends Seeder {
                 'owner_id' => 10233
             )
         );
-        Contact::create(
+        DB::table('contacts')->insert(
             array(
                 'first_name' => "Leanne",
                 'last_name' => "lastElliottanem",
@@ -205,7 +205,7 @@ class ContactTableSeeder extends Seeder {
                 'owner_id' => 10233
             )
         );
-        Contact::create(
+        DB::table('contacts')->insert(
             array(
                 'first_name' => "Charlie",
                 'last_name' => "Dawg",
