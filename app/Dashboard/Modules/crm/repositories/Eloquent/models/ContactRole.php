@@ -1,24 +1,14 @@
 <?php namespace Dashboard\Crm;
 
 use BaseModel;
+use McCool\LaravelAutoPresenter\PresenterInterface;
 
-class ContactRole extends BaseModel {
+class ContactRole extends BaseModel implements PresenterInterface {
 
-    // Determine the table as it has different name to this Model class
-    protected $table = 'contact_role';
-    
    
     // Wrap in a presenter (ShawnMcCool)
-    public $presenter = 'Dashboard\Crm\RolePresenter';
+    public $presenter = 'Dashboard\Crm\ContactRolePresenter';
     
-    /**
-     * Defines the relationship of Roles->contacts
-     * @return obj 
-     */
-    public function roles()
-    {
-        return $this->belongsTo('Dashboard\Crm\Contact');
-    }
     
    
 }

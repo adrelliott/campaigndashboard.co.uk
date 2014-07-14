@@ -1,15 +1,15 @@
 <?php
 
-Use Dashboard\Sales\OrderProduct;
+// Use Dashboard\Sales\OrderProduct;
 
 class Order_productTableSeeder extends Seeder {
 
 	public function run()
 	{
 		// Uncomment the below to wipe the table clean before populating
-		DB::table('order_product')->truncate();
+		// DB::table('order_product')->truncate();
 
-        OrderProduct::create(
+        DB::table('order_product')->insert(
             array(
                 'order_id' => 1,
                 'product_id' => 4,
@@ -22,7 +22,7 @@ class Order_productTableSeeder extends Seeder {
         );
 
     
-        OrderProduct::create(
+        DB::table('order_product')->insert(
             array(
                 'order_id' => 2,
                 'product_id' => 4,
@@ -35,7 +35,7 @@ class Order_productTableSeeder extends Seeder {
         );
 
     
-		OrderProduct::create(
+		DB::table('order_product')->insert(
             array(
                 'order_id' => 1,
                 'product_id' => 5,

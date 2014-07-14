@@ -228,15 +228,15 @@ return array(
 
         'roles_table' => array(  //The table displayed on contacts/edit --> roles tab
             'options' => array(
-                'setUrl' => '/api/contacts/%id%/notes?datatable=true&cols=id,note_title,owner_id',
-                'addColumn' => array('Id', 'Note Title', 'Owner Id'),
+                'setUrl' => '/api/contacts/%id%/roles?datatable=true&cols=id,role_name&orderby=created_at&orderdirection=desc',
+                'addColumn' => array('Id', 'Role'),
                 'setOptions' => array(
                     //'sPaginationType' => 'bootstrap',
                     // 'iDisplayLength' => 10,
                     // 'bLengthChange' => false,
                 ),
                 'setCustomValues' => array(
-                    'linkurl' => '/app/contacts',
+                    'linkurl' => '/app/roles',
                     'showid' => true,
                     'idisplaylength' => 5,
                 ),

@@ -109,16 +109,12 @@
 
 @section('purchases')
     <h3 class="text-primary"><i class="fa fa-gbp"></i> Purchases</h3>
-    
-    @section('purchases-table')
+   
 
         <div class="table-responsive clearfix">
             {{-- getTable('purchases_table', $config, array('id' => $model->id)) --}}
         </div>
-    
-
-
-    @show
+  
     
     <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $model->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Order</a>
 @stop
@@ -126,17 +122,15 @@
 @section('roles')
     <h3 class="text-primary"><i class="fa fa-group"></i> Roles</h3>
 
-    @section('roles-table')
-
         <div class="table-responsive clearfix">
-            {{-- getTable('roles_table', $config, array('id' => $model->id)) --}}
+            {{ getTable('roles_table', $config, array('id' => $model->id)) }}
         </div>
 
-
-
-    @show
-    
-    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.roles.create', array('contact_id' => $model->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Role</a>
+        <div class="pull-right margin_top_15" style="margin-top:10px">
+            <a class="btn btn-primary open-modal " href="#" modal-source="{{URL::route('app.roles.create', array('contact_id' => $model->id)) }}" data-view="show_modal" >
+                <i class="fa fa-plus"></i> Create New Role
+            </a>
+        </div>
 @stop
 
 @section('tags')

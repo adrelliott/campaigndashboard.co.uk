@@ -7,7 +7,7 @@ class TagTableSeeder extends Seeder {
 	public function run()
 	{
 		// Uncomment the below to wipe the table clean before populating
-		DB::table('tags')->delete();
+		// DB::table('tags')->truncate();
         Eloquent::unguard();
 
         // IMPORTANT !!!!!!!!!!!!!!!!!!!!!!! Don;t forget to comment out the vTag 2idation rules to seed!
