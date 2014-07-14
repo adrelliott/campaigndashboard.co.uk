@@ -38,6 +38,12 @@
 
             {{ Form::close() }}
 
+            <br clear="both" />
+            <br clear="both" />
+            <br clear="both" />
+
+            <!-- <p><a href="{{ URL::route('me.reset') }}">Forgot your password?</a></p> -->
+
         </div>
     </div>
 </div>

@@ -118,6 +118,7 @@ return array(
         'McCool\LaravelAutoPresenter\LaravelAutoPresenterServiceProvider',
 
         'Ollieread\Multiauth\MultiauthServiceProvider',
+        'Ollieread\Multiauth\Reminders\ReminderServiceProvider',
         ),
 
 	/*
