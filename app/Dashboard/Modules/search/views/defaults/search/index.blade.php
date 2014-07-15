@@ -53,7 +53,7 @@
                 <p>
                     <button type="submit" class="btn btn-large btn-primary">Search</button>
                 </p>
-                <p>or <a href="#">save this search for later</a>.</p>
+                <p>or <button type="submit" name="save_for_later" class="btn btn-link">save this search for later</button>.</p>
             </div>
         </div>
 
