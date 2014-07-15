@@ -49,6 +49,11 @@
 
             <div class="col-md-3">
                 <h4>Search Options</h4>
+
+                <p>
+                    <button type="submit" class="btn btn-large btn-primary">Search</button>
+                </p>
+                <p>or <a href="#">save this search for later</a>.</p>
             </div>
         </div>
 
