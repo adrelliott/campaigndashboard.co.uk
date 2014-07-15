@@ -6,7 +6,7 @@
     {{ Former::open()
     ->role('Form')
     ->id('note')
-    ->populate($record->resource);
+    ->populate($model->resource)
 
     }}
 
@@ -26,6 +26,6 @@
 
     {{ Former::close() }}
     <div class="form-group ">
-        <p class="help-block"><strong>Just so you know...</strong> you cannot edit a note after you have made it</p>
+        <p class="help-block"><strong>Why can't I edit this?</strong> You cannot edit notes after they've been created (this is so we have an audit trail)</p>
     </div>
 @stop

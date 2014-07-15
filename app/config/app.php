@@ -108,6 +108,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Dashboard\ServiceProviders\RepositoryServiceProvider',
         'Dashboard\ServiceProviders\HtmlServiceProvider',
+        'Dashboard\ServiceProviders\EmailBroadcastServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
         'Former\FormerServiceProvider',
         'Way\Form\FormServiceProvider',

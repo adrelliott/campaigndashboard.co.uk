@@ -122,7 +122,7 @@
     */
    
     // Seasons
-    $config['seasons'] = array(
+    $config['dropdowns']['seasons'] = array(
         '2013/14' => '2013/14',
         '2012/13' => '2012/13',
         '2011/12' => '2011/12',
@@ -136,7 +136,7 @@
 
     
     // Roles
-    $config['roles'] = array(
+    $config['dropdowns']['roles'] = array(
         'Volunteer (Office)' => 'Volunteer (Office)',
         'Volunteer (Matchday)' => 'Volunteer (Matchday)',
         'Paid Office Staff' => 'Paid Office Staff',
@@ -149,7 +149,7 @@
         'Women\'s Team Player' => 'Women\'s Team Player',
         );
 
-    $config['productList'] = array(
+    $config['dropdowns']['productList'] = array(
         '' => 'Choose a product...',
         1 => 'Adult Membership',
         2 => 'Junior Membership',
@@ -208,26 +208,26 @@
 
     
     
-     $config['savedSearches'] = array(
+     $config['dropdowns']['savedSearches'] = array(
         '1' => 'All opted-in contacts',
         '2' => 'All Season Ticket holders',
         '3' => 'All Adult Members',
         '4' => 'All Members',
         );
 
-    $config['emailFrom'] = array(
+    $config['dropdowns']['emailFrom'] = array(
         'Paul Howarth|paul@fc-utd.co.uk' => 'Paul Howarth',
         'Lindsey Howard|lindsey@fc-utd.co.uk' => 'Lindsey Howard',
         'Michael Holdsworth|michael@fc-utd.co.uk' => 'Michael Holdsworth',
         );
 
-    $config['testEmailto'] = array(
+    $config['dropdowns']['testEmailto'] = array(
         'paul@fc-utd.co.uk',
         'lindsey@fc-utd.co.uk',
         'Michael@fc-utd.co.uk'
         );
 
-    $config['emailTemplate'] = array(
+    $config['dropdowns']['emailTemplate'] = array(
         '1' => 'FC Red',
         '2' => 'FC Black',
         '3' => 'FC Pink',

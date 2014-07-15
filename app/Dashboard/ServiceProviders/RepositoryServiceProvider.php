@@ -26,6 +26,12 @@ class RepositoryServiceProvider extends ServiceProvider {
             'Dashboard\Repositories\EloquentBroadcastRepository'
         );
 
+          // Bind the Template Interfaces
+        $this->app->bind(
+            'Dashboard\Repositories\TemplateRepositoryInterface',
+            'Dashboard\Repositories\EloquentTemplateRepository'
+        );
+
 
 
          // Bind the Crm Interfaces

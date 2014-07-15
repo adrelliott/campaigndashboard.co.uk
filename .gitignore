@@ -2,6 +2,7 @@
 /vendor
 composer.phar
 .env.local.php
+.env.development.php
 .env.php
 .env_name.php
 .DS_Store

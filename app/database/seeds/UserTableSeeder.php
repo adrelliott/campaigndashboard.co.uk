@@ -7,7 +7,7 @@ class UserTableSeeder extends Seeder {
 	public function run()
 	{
 		// Uncomment the below to wipe the table clean before populating
-		DB::table('users')->delete();
+		// DB::table('users')->truncate();
         Eloquent::unguard();
 
         // IMPORTANT !!!!!!!!!!!!!!!!!!!!!!! Don;t forget to comment out the validation rules to seed!
