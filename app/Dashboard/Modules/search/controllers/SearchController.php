@@ -7,7 +7,7 @@ class SearchController extends BaseController
 {
     public function index()
     {
-        $columns = [ 'full_name' => 'full_name', 'email' => 'email', 'phone' => 'phone', 'tags' => 'tags' ];
+        $columns = [ 'full_name' => 'full_name', 'email' => 'email', 'phone' => 'phone', 'tag_name' => 'tags' ];
         $predicates = [ 'cont' => 'contains', 'start' => 'starts with', 'end' => 'ends with' ];
         
         return $this->renderView()
