@@ -1,6 +1,6 @@
 <?php namespace Dashboard\Search;
 
-use BaseController, View;
+use BaseController, View, Input;
 use Dashboard\Crm\ContactWithTags;
 
 class SearchController extends BaseController
@@ -17,11 +17,12 @@ class SearchController extends BaseController
 
     public function search()
     {
-        $search = ContactWithTags::search([
-            'full_name_cont' => 'Jamie',
-            'tag_name_start' => 'tag'
-        ]);
+        $search = ContactWithTags::search(Input::except([ '_token', 'combination' ]))
+            ->results();
 
-        dd($search->results());
+        dd($search);
+
+        return $this->renderView()
+            ->withResults($search);
     }
 }
