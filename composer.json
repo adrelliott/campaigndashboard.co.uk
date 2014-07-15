@@ -32,7 +32,8 @@
             "app/tests/TestCase.php"
         ],
         "psr-0": {
-            "Dashboard": "app/"
+            "Dashboard": "app/",
+            "Frisk": "Frisk"
         }
     },
     "scripts": {

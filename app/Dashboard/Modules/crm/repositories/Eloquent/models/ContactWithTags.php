@@ -1,8 +1,13 @@
 <?php namespace Dashboard\Crm;
 
-use Dashboard\Search\Searchable;
+use Frisk;
 
-class ContactWithTags extends Contact
+class ContactWithTags extends Contact implements Frisk\Searchable
 {
-    use Searchable;
+    use Frisk\Model;
+
+    public function searchableColumns()
+    {
+        return '*';
+    }
 }
