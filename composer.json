@@ -14,13 +14,8 @@
         "way/generators": "1.1",
          "loic-sharma/profiler": "dev-master",
 
-<<<<<<< HEAD
         "ollieread/multiauth": "dev-master",
-=======
          "mailchimp/mailchimp": "2.0.*",
-
-
->>>>>>> build_broadcast
 
         "ircmaxell/password-compat": "1.0.*",
         "way/form": "dev-master",
