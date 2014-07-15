@@ -13,21 +13,42 @@
     
     <?= Form::open(array( 'action' => 'app.search.process', 'id' => 'searchForm' )) ?>
 
-        <div class="col-md-9">
-            <p>I'd like to search for <?= Form::select('combination', [ 'all', 'any' ]) ?> of the following conditions:</p>
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                    <li class="active"><a href="#simple" data-toggle="tab">Basic Search</a></li>
+                    <li><a href="#advanced" data-toggle="tab">Advanced Search</a></li>
+                </ul>
+            </div>
+        </div>
 
-            <hr>
+        <div class="row">
+            <div class="col-md-9 tab-content">
+                <div class="tab-pane active" id="simple">
+                    @ownerInclude('search::search._simple')
+                </div>
 
-            <div id="searchConditions">
-                <p class="searchCondition">
-                    <?= Form::select('', $columns, '', array( 'class' => 'columnSelect' )) ?>
-                    <?= Form::select('', $predicates, '', array( 'class' => 'predicateSelect' )) ?>
-                    <?= Form::text('', '', array( 'placeholder' => 'value', 'class' => 'searchValue' )) ?>
+                <div class="tab-pane" id="advanced">
+                    <p>I'd like to search for <?= Form::select('combination', [ 'all', 'any' ]) ?> of the following conditions:</p>
 
-                    <span class="addRemove">
-                        <a href="#" class="add"><i class="fa fa-plus"></i></a>
-                    </span>
-                </p>
+                    <hr>
+
+                    <div id="searchConditions">
+                        <p class="searchCondition">
+                            <?= Form::select('', $columns, '', array( 'class' => 'columnSelect' )) ?>
+                            <?= Form::select('', $predicates, '', array( 'class' => 'predicateSelect' )) ?>
+                            <?= Form::text('', '', array( 'placeholder' => 'value', 'class' => 'searchValue' )) ?>
+
+                            <span class="addRemove">
+                                <a href="#" class="add"><i class="fa fa-plus"></i></a>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <h4>Search Options</h4>
             </div>
         </div>
 
