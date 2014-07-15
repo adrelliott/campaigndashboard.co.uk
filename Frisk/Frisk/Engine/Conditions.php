@@ -27,6 +27,20 @@ class Conditions implements \ArrayAccess
         }, $this->conditions)) . ')';
     }
 
+    public function toArray()
+    {
+        $return = array();
+        $conds = array_map(function($cond)
+        {
+            return $cond->toArray();
+        }, $this->conditions);
+
+        foreach ($conds as $c)
+            $return = array_merge($return, $c);
+
+        return $return;
+    }
+
     public function offsetGet($k) { return $this->conditions[$k]; }
     public function offsetSet($k, $v)
     {

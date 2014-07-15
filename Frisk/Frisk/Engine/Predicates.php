@@ -29,7 +29,7 @@ class Predicates
     public static function factory($shortName)
     {
         if ( !static::exists($shortName) )
-            throw new UnknownPredicateException;
+            throw new UnknownPredicateException("Unknown predicate: $shortName");
 
         return new static::$registeredPredicates[$shortName];
     }

@@ -19,23 +19,9 @@ class SearchController extends BaseController
     {
         $search = ContactWithTags::search([
             'full_name_cont' => 'Jamie',
-            'tag_name_cont' => 'tag'
+            'tag_name_start' => 'tag'
         ]);
 
         dd($search->results());
-
-        // I think the best way to handle searching across multiple tables is just
-        // to define a new view with the appropriate JOINs already – that way, we
-        // can just operate on it as if it were its own table.
-        //
-        // Here's the syntax I'm using right now. I'll move it into a separate
-        // migration or something when I've got the DB structure finalised.
-
-        // CREATE OR REPLACE VIEW contact_with_tags AS
-    
-        //     SELECT contacts.*, tags.tag_title AS tag_name
-        //     FROM contacts
-        //     LEFT JOIN contact_tag ON contact_tag.contact_id = contacts.id
-        //     LEFT JOIN tags ON tags.id = contact_tag.tag_id;
     }
 }

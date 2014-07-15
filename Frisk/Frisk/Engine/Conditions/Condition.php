@@ -23,6 +23,11 @@ class Condition
         return $this->predicate->toSql($this->columnName, $this->value);
     }
 
+    public function toArray()
+    {
+        return $this->predicate->toArray($this->columnName, $this->value);
+    }
+
     protected function parseName($name)
     {
         $result = array_map('strrev', explode('_', strrev($name), 2));
