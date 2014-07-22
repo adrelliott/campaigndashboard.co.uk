@@ -9,7 +9,6 @@ class CrudController extends BaseController {
      */     
     protected $repo;
 
-
      /**
      * Model object
      * @var obj
@@ -40,7 +39,7 @@ class CrudController extends BaseController {
     public function __construct($repo = NULL)
     {
         parent::__construct();
-        $this->model = $this->repo = $repo;
+        $this->repo = $repo;
     }
 
     
@@ -171,6 +170,8 @@ class CrudController extends BaseController {
      */
     protected function fireEvent()
     {
+        if (!$this->model) return;
+
         // Construct event name and pass through a reference to $this
         $event = join('.', $this->classAttributes);
         $this->model->eventResponse = Event::fire( $event, $this->model );
