@@ -1,6 +1,6 @@
 <?php namespace Dashboard\Search;
 
-use BaseController, View, Input;
+use BaseController, View, Input, Request;
 use Dashboard\Crm\SearchableContact;
 
 class SearchController extends BaseController
@@ -18,7 +18,9 @@ class SearchController extends BaseController
     public function search()
     {
         $search = SearchableContact::search(Input::except([ '_token', 'combination' ]))
-            ->results();
+            ->search(Input::only([ 'combination' ]))
+            ->results()
+            ->toArray();
 
         return $this->renderView()
             ->withResults($search);

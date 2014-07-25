@@ -15,6 +15,6 @@
 
 @section('table')
     <div class="table-responsive clearfix">
-        {{ getTable('contacts_index', $config) }}
+        {{ getTable( 'contacts_search', $config, FALSE, FALSE, $results ) }}
     </div>
 @stop

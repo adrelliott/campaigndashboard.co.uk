@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="tab-pane" id="advanced">
-                    <p>I'd like to search for <?= Form::select('combination', [ 'all', 'any' ]) ?> of the following conditions:</p>
+                    <p>I'd like to search for <?= Form::select('combination', [ 'and' => 'all', 'or' => 'any' ]) ?> of the following conditions:</p>
 
                     <hr>
 
