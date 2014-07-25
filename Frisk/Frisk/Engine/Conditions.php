@@ -14,13 +14,15 @@ class Conditions implements \ArrayAccess
         {
             $instance[] = new Conditions\Condition($name, $value);
         }
-        
+
         return $instance;
     }
 
-    public function toSql( Searchable $model )
+    public function toSql( Searchable $model, array $options )
     {
-        return '(' . implode(') AND (', array_map(function($cond) use ($model)
+        $combination = strtolower($options['combination']) == 'or' ? 'OR' : 'AND';
+
+        return '(' . implode(') ' . $combination . ' (', array_map(function($cond) use ($model)
         {
             if ($model->searchableColumns() == '*' || in_array($cond->getColumnName(), $model->searchableColumns()))
                 return $cond->toSql();

@@ -16,22 +16,25 @@ class Search
         $this->modelName = $model;
     }
 
-    public function results()
+    public function results($get = TRUE)
     {
         if (!$this->results)
-            $this->search();
+            $this->search(array( 'get' => $get ));
 
         return $this->results;
     }
 
-    public function search()
+    public function search(array $options)
     {
         $instance = new $this->modelName;
-        $where = $this->conditions->toSql( $instance );
-        
+        $where = $this->conditions->toSql( $instance, $options );
+
         $this->results = $instance->whereRaw($where)
-            ->groupBy('id')
-            ->get();
+            ->groupBy('id');
+
+        if ( isset($options['get']) && $options['get'] ) $this->results = $this->results->get();
+
+        return $this;
     }
 
     /**

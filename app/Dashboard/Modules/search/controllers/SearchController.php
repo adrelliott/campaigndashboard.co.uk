@@ -19,7 +19,9 @@ class SearchController extends BaseController
     {
         $search = SearchableContact::search(Input::except([ '_token', 'combination' ]))
             ->search(Input::only([ 'combination' ]))
-            ->results()
+            ->results( FALSE )
+            ->select('id', 'first_name', 'last_name')
+            ->get()
             ->toArray();
 
         return $this->renderView()
