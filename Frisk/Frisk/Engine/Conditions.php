@@ -14,7 +14,7 @@ class Conditions implements \ArrayAccess
         {
             $instance[] = new Conditions\Condition($name, $value);
         }
-
+        
         return $instance;
     }
 

@@ -28,7 +28,7 @@ class Search
     {
         $instance = new $this->modelName;
         $where = $this->conditions->toSql( $instance );
-
+        
         $this->results = $instance->whereRaw($where)
             ->groupBy('id')
             ->get();

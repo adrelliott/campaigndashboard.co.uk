@@ -6,6 +6,7 @@ use Frisk\Exceptions\UnknownPredicateException, Frisk\Exceptions\NewPredicateExc
 class Predicates
 {
     protected static $registeredPredicates = array(
+        'notcont' => 'Frisk\Engine\Predicates\NotContains',
         'cont' => 'Frisk\Engine\Predicates\Contains',
         'start' => 'Frisk\Engine\Predicates\StartsWith',
         'end' => 'Frisk\Engine\Predicates\EndsWith', );

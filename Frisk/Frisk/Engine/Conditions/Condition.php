@@ -33,7 +33,7 @@ class Condition
         $result = array_map('strrev', explode('_', strrev($name), 2));
         $predicate = $result[0];
         $column = $result[1];
-
+        
         return array( $column, Predicates::factory($predicate) );
     }
 
