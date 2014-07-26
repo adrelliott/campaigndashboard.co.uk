@@ -1,5 +1,5 @@
 <li class="productCondition">
-    <?= Form::hidden('not_products[]', '', array( 'class' => 'searchValue' )) ?>
+    <?= Form::hidden('q[not_products][]', '', array( 'class' => 'searchValue' )) ?>
     <?= Form::select('', $products, '', array( 'class' => 'triggerInputDropdown productDropdown form-control' )) ?>
 
     <span class="productVariant"></span>

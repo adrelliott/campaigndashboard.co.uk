@@ -56,6 +56,18 @@ class FakerSeeder extends Seeder {
                     $order->owner_id = '10000';
                     $order->contact_id = $contact->id;
                     $order->order_date = $generator->dateTimeBetween('-2 years', 'now');
+                    
+                    // Grab the order date for the variant – possibly nudging it forward a year
+                    $varDate = $order->order_date;
+                    if (round(rand(0,2)) % 2 !== 0)
+                        $varDate->add(new DateInterval('P1Y'));
+
+                    // If the month is within the first half of the year, use last year's date through
+                    // to this year (to simulate seasons)
+                    $varTime = $varDate->getTimestamp();
+                    $variant = (int)date('n', $varTime) < 7
+                        ? date('Y', with(new DateTime('@'.$varTime))->sub(new DateInterval('P1Y'))->getTimestamp()) . '/' . date('y', $varTime)
+                        : date('Y', $varTime) . '/' . date('y', with(new DateTime('@'.$varTime))->add(new DateInterval('P1Y'))->getTimestamp());
 
                     $contact->orders()->save($order);
 
@@ -64,7 +76,8 @@ class FakerSeeder extends Seeder {
                     {
                         $order->products()->save($tempAdult, [
                             'quantity' => (round(rand(0, 5)) == 5) ? 2 : 1,
-                            'owner_id' => '10000' ]);
+                            'owner_id' => '10000',
+                            'variant' => $variant ]);
                     }
 
                     // 1/3 will be concessions season ticket holders
@@ -72,7 +85,8 @@ class FakerSeeder extends Seeder {
                     {
                         $order->products()->save($tempConc, [
                             'quantity' => (round(rand(0, 6)) % 3 == 0) ? 2 : 1,
-                            'owner_id' => '10000' ]);
+                            'owner_id' => '10000',
+                            'variant' => $variant ]);
                     }
                 }
             }

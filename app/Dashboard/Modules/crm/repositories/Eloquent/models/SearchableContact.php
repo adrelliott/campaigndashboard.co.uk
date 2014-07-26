@@ -1,32 +1,95 @@
 <?php namespace Dashboard\Crm;
 
-use Frisk;
+use DB;
 
-// I think the best way to handle searching across multiple tables is just
-// to define a new view with the appropriate JOINs already – that way, we
-// can just operate on it as if it were its own table. So, this model (SearchableContact)
-// exists to allow us to search on a contact and ultimately have an instance of
-// Contact to work with, while searching the view.
-//
-// Here's the syntax I'm using right now. I'll move it into a separate
-// migration or something when I've got the DB structure finalised.
-// 
-// CREATE OR REPLACE VIEW `searchable_contacts` AS
-//     SELECT `contacts`.*, `tags`.`tag_title` AS `tag_name`, CONCAT(`tags`.`tag_title`, ' ', `tag_variants`.`variant_name`, ':', `tag_variants`.`variant_value`) AS `tag_with_variants`, concat(`contacts`.`first_name`,' ',`contacts`.`last_name`) AS `full_name`
-    
-//     FROM `contacts`
-    
-//     -- Tags
-//     LEFT JOIN `contact_tag` ON `contact_tag`.`contact_id` = `contacts`.`id`
-//     LEFT JOIN `tags` on `tags`.`id` = `contact_tag`.`tag_id`
-//     LEFT JOIN `tag_variants` on `tag_variants`.`tag_id` = `tags`.`id`
-//
-class SearchableContact extends Contact implements Frisk\Searchable
+class SearchableContact extends Contact
 {
-    use Frisk\Model;
+    protected $table = 'contacts';
+    protected $_productsJoined = FALSE;
 
-    public function searchableColumns()
+    public static function search($conditions)
     {
-        return '*';
+        $instance = new static;
+
+        $query = $instance->searchProducts($conditions['products']);
+        $query = $query->searchProducts($conditions['not_products'], TRUE);
+
+        $conditions = array_only($conditions, $instance->searchableValues());
+        
+        foreach ($conditions as $key => $val)
+        {
+            if ( $val )
+            {
+                if (method_exists($instance, 'scopeSearch' . studly_case($key)))
+                    $query = call_user_func_array([ $query, 'search' . studly_case($key) ], [ $val ]);
+                else
+                    $query = $query->where($key, 'like', "%$val%");
+            }
+        }
+
+        return $query
+            ->groupBy('contacts.id')
+            ->take(20)
+            ->get();
+    }
+
+    public function scopeSearchName($query, $value)
+    {
+        $query->searchConcatenated($value, [ 'first_name', 'last_name', 'nickname' ]);
+    }
+
+    public function scopeSearchEmail($query, $value)
+    {
+        $query->searchConcatenated($value, [ 'email', 'email2' ]);
+    }
+
+    public function scopeSearchNumber($query, $value)
+    {
+        $query->searchConcatenated($value, [ 'mobile_phone', 'home_phone', 'work_phone', 'overseas_phone' ]);
+    }
+
+    public function scopeSearchAddress($query, $value)
+    {
+        $query->searchConcatenated($value, [ 'address1', 'address2', 'address3', 'city', 'county', 'country', 'postcode' ]);
+    }
+
+    public function scopeSearchConcatenated($query, $value, $fields)
+    {
+        $query->whereRaw('CONCAT(contacts.' . implode(', " ", contacts.', $fields) . ') LIKE "%?%"', array( $value ));
+    }
+
+    public function scopeSearchProducts($query, $products, $not = FALSE)
+    {
+        $where = [];
+
+        if (!$this->_productsJoined)
+        {
+            $query->select('contacts.*')
+                ->join('orders', 'contacts.id', '=', 'orders.id')
+                ->join('order_product', 'orders.id', '=', 'order_product.order_id');
+
+            $this->_productsJoined = TRUE;
+        }
+
+        foreach ($products as $searchVal)
+        {
+            if ($searchVal)
+            {
+                list($productId, $variant) = explode('::', $searchVal, 2);
+
+                $query->where(function($q) use ($productId, $variant, $not)
+                {
+                    $q->where('product_id', ($not ? '!=' : '='), $productId);
+                    
+                    if ($variant)
+                        $q->where('variant', ($not ? '!=' : '='), $variant);
+                });
+            }
+        }
+    }
+
+    public function searchableValues()
+    {
+        return array( 'name', 'email', 'phone', 'address', 'company' );
     }
 }

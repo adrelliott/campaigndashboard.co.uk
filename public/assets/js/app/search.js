@@ -11,7 +11,7 @@ $(function()
             $variantDropdown = $condition.find('.variantDropdown'),
             $searchValue = $condition.find('.searchValue');
 
-        $searchValue.attr('name', $productDropdown.val() + '::' + ($variantDropdown.val() ? $variantDropdown.val() : ''));
+        $searchValue.val($productDropdown.val() + '::' + ($variantDropdown.val() ? $variantDropdown.val() : ''));
     }
 
     $(document).on('click', '#searchForm .addRemove .add', function(e)

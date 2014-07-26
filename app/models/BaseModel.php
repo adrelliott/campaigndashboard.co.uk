@@ -56,25 +56,6 @@ class BaseModel extends Magniloquent {
 
     }
 
-    public static function listsVariant($productId)
-    {
-        $query = DB::table('order_product')
-            ->select('variant')
-            ->distinct()
-            ->where('product_id', $productId)
-            ->whereNotNull('variant');
-
-        with(new static)->scopeOnlyOwners($query);
-
-        $results = $query->get();
-        $list = [];
-
-        foreach ($results as $row)
-            $list[$row->variant] = $row->variant;
-
-        return $list;
-    }
-
     /**
      * Ensures that the record being saved is attributed to the right tenant  
      * 

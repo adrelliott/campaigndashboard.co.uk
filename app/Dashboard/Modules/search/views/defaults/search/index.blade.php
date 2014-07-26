@@ -11,7 +11,7 @@
 
 @section('content')
     
-    <?= Former::open_horizontal(URL::route('app.search.process'), 'get', array( 'id' => 'searchForm' )) ?>
+    <?= Former::open_horizontal(URL::route('app.search.process'), 'post', array( 'id' => 'searchForm' )) ?>
 
         <?/*<div class="row">
             <div class="col-md-12">
@@ -54,12 +54,17 @@
                 </div>
 
             <div class="col-md-3">
-                <h4>Search Options</h4>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Search Options</h3>
+                    </div>
 
-                <p>
-                    <button type="submit" class="btn btn-large btn-primary">Search</button>
-                </p>
-                <p>or <button type="submit" name="save_for_later" class="btn btn-link">save this search for later</button>.</p>
+                    <div class="panel-body" style="text-align:center">
+                        <p>
+                            <button type="submit" class="btn btn-lg btn-primary">Search</button>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
 
