@@ -34,8 +34,13 @@ class SearchController extends BaseController
 
     public function variants($productId)
     {
-        $variants = [ '' => '' ] + OrderProduct::listsVariant($productId);
+        $variants = OrderProduct::listsVariant($productId);
         
-        return Response::json($variants);
+        if (Request::wantsJson() && $variants)
+            return Response::json([ '' => '' ] + $variants);
+        elseif ($variants)
+            return View::make('search::defaults.search._variants', [ 'variants' => [ '' => '' ] + $variants ]);
+        else
+            return '';
     }
 }

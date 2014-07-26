@@ -13,21 +13,19 @@
     <div class="col-md-6">
         <h5>Has Purchased:</h5>
 
-        <ul class="productConditions">
-            <li>
-                <?= Form::hidden('', '', array( 'class' => 'searchInput' )) ?>
-                <?= Form::select('', $products, '', array( 'class' => 'triggerInputDropdown productDropdown' )) ?>
-
-                <span class="productVariant"></span>
-
-                <span class="addRemove">
-                    <a href="#" class="add"><i class="fa fa-plus"></i></a>
-                </span>
-            </li>
+        <ul class="productConditions" data-template="#productConditionHtml" data-variant-url="{{ URL::route('app.search.product_variants', '-ID-') }}">
+            @include('search::defaults.search._product')
         </ul>
     </div>
 
     <div class="col-md-6">
         <h5>Hasn't Purchased:</h5>
+
+        <ul class="productConditions" data-template="#notProductConditionHtml" data-variant-url="{{ URL::route('app.search.product_variants', '-ID-') }}">
+            @include('search::defaults.search._not_product')
+        </ul>
     </div>
 </div>
+
+<script type="text/html" id="productConditionHtml">@include('search::defaults.search._product')</script>
+<script type="text/html" id="notProductConditionHtml">@include('search::defaults.search._not_product')</script>

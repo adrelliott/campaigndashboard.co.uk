@@ -4,34 +4,46 @@
 
 $(function()
 {
-    function updateName ( condition )
+    function updateValue ( condition )
     {
         var $condition = $(condition),
-            $columnSelect = $condition.find('.columnSelect'),
-            $predicateSelect = $condition.find('.predicateSelect'),
+            $productDropdown = $condition.find('.productDropdown'),
+            $variantDropdown = $condition.find('.variantDropdown'),
             $searchValue = $condition.find('.searchValue');
 
-        $searchValue.attr('name', $columnSelect.val() + '_' + $predicateSelect.val());
+        $searchValue.attr('name', $productDropdown.val() + '::' + ($variantDropdown.val() ? $variantDropdown.val() : ''));
     }
 
     $(document).on('click', '#searchForm .addRemove .add', function(e)
     {
         e.preventDefault();
 
-        var conditionHtml = $('#searchConditionTemplate').html(),
-            $wrapper = $(this).parents('#searchForm').find('#searchConditions');
+        var $wrapper = $(this).parents('.productConditions'),
+            conditionHtml = $($wrapper.attr('data-template')).html();
 
         $wrapper.append(conditionHtml);
-        updateName($wrapper.children(':last'));
     });
 
     $(document).on('click', '#searchForm .addRemove .remove', function(e)
     {
         e.preventDefault();
 
-        $(this).parents('.searchCondition').remove();
+        $(this).parents('.productCondition').remove();
     });
 
-    $(document).on('change', '#searchForm .searchCondition select', function(){ updateName($(this).parents('.searchCondition')) });
-    updateName($('#searchConditions').children(':first'));
+    $('#searchForm .productConditions:first(.productCondition) .addRemove .remove').remove();
+    $(document).on('change', '#searchForm .triggerInputDropdown', function(){ updateValue($(this).parents('.productCondition')) });
+
+    /**
+     * When the user changes the product dropdown, load its variants
+     */
+    $(document).on('change', '#searchForm .productDropdown', function(e)
+    {
+        e.preventDefault();
+
+        var id = $(this).val(),
+            url = $(this).parents('.productConditions').attr('data-variant-url').replace('-ID-', id);
+
+        $(this).parents('.productCondition').find('.productVariant').load(url);
+    });
 });
