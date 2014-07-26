@@ -16,6 +16,7 @@ class CreateTagVariants extends Migration {
 		{
 			$table->increments('id');
 
+			$table->integer('contact_id')->index();
 			$table->integer('tag_id')->index();
 			$table->string('variant_name');
 			$table->string('variant_value');

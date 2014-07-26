@@ -10,13 +10,10 @@ class ContactTag extends BaseModel {
     // Wrap in a presenter (ShawnMcCool)
     // public $presenter = 'Dashboard\Tags\TagPresenter';
    
-    /**
-     * Defines the relaitonship of tags->contacts
-     */
-    // public function contacts()
-    // {
-    //     return $this->belongsToMany('Dashboard\Crm\Contact');
-    // }
+    public function variants()
+    {
+        return $this->hasMany('Dashboard\Tags\TagVariant');
+    }
 
     public function getFor($dataTable = TRUE)
     {

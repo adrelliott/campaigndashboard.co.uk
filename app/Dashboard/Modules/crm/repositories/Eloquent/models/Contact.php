@@ -13,7 +13,8 @@ class Contact extends BaseModel implements PresenterInterface {
     public $presenter = 'Dashboard\Crm\ContactPresenter';
 
     protected static $relationships = array(
-        'login' => array( 'hasOne', "\Dashboard\Me\ContactLogin" )
+        'login' => array( 'hasOne', "\Dashboard\Me\ContactLogin" ),
+        'tag_variants' => array( 'hasMany', "\Dashboard\Tags\TagVariant" ),
     );
     
     // Validation rules
@@ -58,6 +59,11 @@ class Contact extends BaseModel implements PresenterInterface {
     public function tags()
     {
         return $this->belongsToMany('Dashboard\Tags\Tag')->onlyOwners();
+    }
+
+    public function tagging()
+    {
+        return $this->hasManyThrough('Dashboard\Tags\ContactTag')->onlyOwners();
     }
 
     /**

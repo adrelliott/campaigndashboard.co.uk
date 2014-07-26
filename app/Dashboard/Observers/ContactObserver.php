@@ -1,6 +1,8 @@
 <?php namespace Dashboard\Observers;
 
 use \Dashboard\Crm\Contact;
+use \Dashboard\Me\ContactLogin;
+use \Dashboard\Mailers\ContactLoginMailer;
 
 /**
  * The ContactObserver handles the code surrounding the creation of a new
@@ -29,8 +31,8 @@ class ContactObserver
         $login->save();
 
         // Send the user an email with their new password
-        $mailer = new ContactLoginMailer;
-        $mailer->newUser($contact, $contact->login, $password);
+        // $mailer = new ContactLoginMailer;
+        // $mailer->newUser($contact, $contact->login, $password);
     }
 
     public function updated(Contact $contact)
