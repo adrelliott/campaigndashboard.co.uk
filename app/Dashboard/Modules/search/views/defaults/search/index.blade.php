@@ -11,22 +11,27 @@
 
 @section('content')
     
-    <?= Form::open(array( 'action' => 'app.search.process', 'id' => 'searchForm' )) ?>
+    <?= Former::open_horizontal(URL::route('app.search.process'), 'get', array( 'id' => 'searchForm' )) ?>
 
-        <div class="row">
+        <?/*<div class="row">
             <div class="col-md-12">
                 <ul class="nav nav-tabs" data-tabs="tabs">
                     <li class="active"><a href="#simple" data-toggle="tab">Basic Search</a></li>
                     <li><a href="#advanced" data-toggle="tab">Advanced Search</a></li>
                 </ul>
             </div>
-        </div>
+        </div>*/ ?>
 
         <div class="row">
-            <div class="col-md-9 tab-content">
-                <div class="tab-pane active" id="simple">
+            <div class="col-md-9">
+
+                <?/*
+                <div class="tab-pane active" id="simple">*/ ?>
+
                     @ownerInclude('search::search._simple')
-                </div>
+                
+
+                <?/*</div>
 
                 <div class="tab-pane" id="advanced">
                     <p>I'd like to search for <?= Form::select('combination', [ 'and' => 'all', 'or' => 'any' ]) ?> of the following conditions:</p>
@@ -43,9 +48,10 @@
                                 <a href="#" class="add"><i class="fa fa-plus"></i></a>
                             </span>
                         </p>
-                    </div>
+                    </div>*/?>
+
+
                 </div>
-            </div>
 
             <div class="col-md-3">
                 <h4>Search Options</h4>
@@ -59,7 +65,7 @@
 
     <?= Form::close() ?>
 
-    <script type="text/html" id="searchConditionTemplate">
+    <?/*<script type="text/html" id="searchConditionTemplate">
         <p class="searchCondition">
             <?= Form::select('combination', [ 'and', 'or' ]) ?>
             <?= Form::select('', $columns, '', array( 'class' => 'columnSelect' )) ?>
@@ -71,7 +77,7 @@
                 <a href="#" class="remove"><i class="fa fa-minus"></i></a>
             </span>
         </p>
-    </script>
+    </script>*/ ?>
 
 @stop
 

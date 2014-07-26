@@ -1,1 +1,1 @@
-<p>Put custom 'simple' search code into client folders in <strong>Modules/search/views/client_id/search/_simple.blade.php</strong></p>
+<p>Put custom search form code into client folders in <strong>Modules/search/views/client_id/search/_simple.blade.php</strong></p>

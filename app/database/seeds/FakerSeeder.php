@@ -63,14 +63,16 @@ class FakerSeeder extends Seeder {
                     if (round(rand(0,2)) % 2 == 0)
                     {
                         $order->products()->save($tempAdult, [
-                            'quantity' => (round(rand(0, 5)) == 5) ? 2 : 1 ]);
+                            'quantity' => (round(rand(0, 5)) == 5) ? 2 : 1,
+                            'owner_id' => '10000' ]);
                     }
 
                     // 1/3 will be concessions season ticket holders
                     if (round(rand(0,9)) % 3 == 0)
                     {
                         $order->products()->save($tempConc, [
-                            'quantity' => (round(rand(0, 6)) % 3 == 0) ? 2 : 1 ]);
+                            'quantity' => (round(rand(0, 6)) % 3 == 0) ? 2 : 1,
+                            'owner_id' => '10000' ]);
                     }
                 }
             }
