@@ -2,20 +2,15 @@
 
 use BaseModel;
 
-class Tag extends BaseModel {
+/**
+ * Tag variants provide a sort-of metadata layer for the tagging engine. This way,
+ * we can add custom information alongside each 
+ */
+class TagVariant extends BaseModel {
     
-    // Do not allow updating of these fields
-    protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at', 'owner_id'];
-
-    // Wrap in a presenter (ShawnMcCool)
-    public $presenter = 'Dashboard\Tags\TagPresenter';
-   
-    /**
-     * Defines the relaitonship of tags->contacts
-     */
-    public function contacts()
-    {
-        return $this->belongsToMany('Dashboard\Crm\Contact');
-    }
+    protected $guarded = [ 'id' ];
+    protected static $relationships = array(
+        'tag' => array( 'belongsTo', "\Dashboard\Tags\Tag" )
+    );
 
 }
