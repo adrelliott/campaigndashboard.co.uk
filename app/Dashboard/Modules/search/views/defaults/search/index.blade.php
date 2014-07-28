@@ -13,7 +13,7 @@
     
     <?= Former::open_horizontal(URL::route('app.search.process'), 'post', array( 'id' => 'searchForm' )) ?>
 
-        <?/*<div class="row">
+        <?php /*<div class="row">
             <div class="col-md-12">
                 <ul class="nav nav-tabs" data-tabs="tabs">
                     <li class="active"><a href="#simple" data-toggle="tab">Basic Search</a></li>
@@ -25,13 +25,13 @@
         <div class="row">
             <div class="col-md-9">
 
-                <?/*
+                <?php /*
                 <div class="tab-pane active" id="simple">*/ ?>
 
                     @ownerInclude('search::search._simple')
                 
 
-                <?/*</div>
+                <?php /*</div>
 
                 <div class="tab-pane" id="advanced">
                     <p>I'd like to search for <?= Form::select('combination', [ 'and' => 'all', 'or' => 'any' ]) ?> of the following conditions:</p>
@@ -70,7 +70,7 @@
 
     <?= Form::close() ?>
 
-    <?/*<script type="text/html" id="searchConditionTemplate">
+    <?php /*<script type="text/html" id="searchConditionTemplate">
         <p class="searchCondition">
             <?= Form::select('combination', [ 'and', 'or' ]) ?>
             <?= Form::select('', $columns, '', array( 'class' => 'columnSelect' )) ?>
