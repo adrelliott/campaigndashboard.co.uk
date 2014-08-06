@@ -28,6 +28,13 @@ class Contact extends BaseModel implements PresenterInterface {
         'update' => array()
     );
 
+    public static function boot()
+    {
+        parent::boot();
+
+        Contact::observe(new ContactObserver);
+    }
+
     /**
      * Override here with the cols to return when doing an all() query
      * Set in base model as '*'. 
