@@ -5,7 +5,7 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 use \Dashboard\Crm\Contact;
 
-class ContactLogin extends BaseModel implements UserInterface
+class ContactLogin extends BaseModel implements UserInterface, RemindableInterface
 {
     protected $hidden = array('password', 'owner_id', 'authenticate_salt');
     protected $fillable = array('email', 'password', 'password_confirmation');
@@ -45,6 +45,11 @@ class ContactLogin extends BaseModel implements UserInterface
     public function getAuthPassword()
     {
         return $this->password;
+    }
+
+    public function getReminderEmail()
+    {
+        return $this->email;
     }
 
     public function getRememberToken() { return $this->remember_token; }

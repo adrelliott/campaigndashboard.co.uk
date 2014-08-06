@@ -30,7 +30,7 @@ return array(
 
 	'reminder' => array(
 
-		'email' => 'emails.auth.reminder',
+		'email' => 'auth::emails.reminder',
 
 		'table' => 'password_reminders',
 

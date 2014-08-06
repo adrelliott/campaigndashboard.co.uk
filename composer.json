@@ -20,7 +20,9 @@
         "anahkiasen/former": "dev-master",
         "laravelbook/ardent": "dev-master",
         
-        "fzaninotto/faker": "dev-master"
+        "fzaninotto/faker": "dev-master",
+
+        "guzzlehttp/guzzle": "~4.0"
     },
     "autoload": {
         "classmap": [
