@@ -6,6 +6,7 @@ class SearchableContact extends Contact
 {
     protected $table = 'contacts';
     protected $_productsJoined = FALSE;
+    protected $_tagsJoined = FALSE;
 
     public static function search($conditions)
     {
@@ -13,6 +14,8 @@ class SearchableContact extends Contact
 
         $query = $instance->searchProducts($conditions['products']);
         $query = $query->searchProducts($conditions['not_products'], TRUE);
+        $query = $instance->searchTags($conditions['tags']);
+        $query = $query->searchTags($conditions['not_tags'], TRUE);
 
         $conditions = array_only($conditions, $instance->searchableValues());
         
@@ -60,31 +63,62 @@ class SearchableContact extends Contact
 
     public function scopeSearchProducts($query, $products, $not = FALSE)
     {
-        $where = [];
-
-        if (!$this->_productsJoined)
+        if ( ! (count($products) == 1 && empty($products[0])) )
         {
-            $query->select('contacts.*')
-                ->join('orders', 'contacts.id', '=', 'orders.id')
-                ->join('order_product', 'orders.id', '=', 'order_product.order_id');
+            $where = [];
 
-            $this->_productsJoined = TRUE;
-        }
-
-        foreach ($products as $searchVal)
-        {
-            if ($searchVal)
+            if (!$this->_productsJoined)
             {
-                list($productId, $variant) = explode('::', $searchVal, 2);
+                $query->select('contacts.*')
+                    ->join('orders', 'contacts.id', '=', 'orders.contact_id')
+                    ->join('order_product', 'orders.id', '=', 'order_product.order_id');
 
-                $query->where(function($q) use ($productId, $variant, $not)
-                {
-                    $q->where('product_id', ($not ? '!=' : '='), $productId);
-                    
-                    if ($variant)
-                        $q->where('variant', ($not ? '!=' : '='), $variant);
-                });
+                $this->_productsJoined = TRUE;
             }
+
+            foreach ($products as $searchVal)
+            {
+                if ($searchVal)
+                {
+                    list($productId, $variant) = explode('::', $searchVal, 2);
+
+                    $query->where(function($q) use ($productId, $variant, $not)
+                    {
+                        $q->where('product_id', ($not ? '!=' : '='), $productId);
+                        
+                        if ($variant)
+                            $q->where('variant', ($not ? '!=' : '='), $variant);
+                    });
+                }
+            }
+        }
+    }
+
+    public function scopeSearchTags($query, $tags, $not = FALSE)
+    {
+        if ($tags)
+        {
+            $where = [];
+            $tags = explode(',', $tags);
+
+            if (!$this->_tagsJoined)
+            {
+                $query->select('contacts.*')
+                    ->join('contact_tag', 'contacts.id', '=', 'contact_tag.contact_id');
+
+                $this->_tagsJoined = TRUE;
+            }
+
+            if (!$not)
+                $query->whereIn('contact_tag.tag_id', $tags);
+            else
+                $query->whereNotIn('contacts.id', function($q) use ($tags)
+                {
+                    $q->select('contacts.id')
+                      ->from('contacts')
+                      ->join('contact_tag', 'contacts.id', '=', 'contact_tag.contact_id')
+                      ->whereIn('tag_id', $tags);
+                });
         }
     }
 

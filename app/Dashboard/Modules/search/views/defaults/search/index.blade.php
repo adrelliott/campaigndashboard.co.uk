@@ -88,4 +88,16 @@
 
 @section('end_of_page')
     <script type="text/javascript" src="<?= URL::to('/') ?>/assets/js/app/search.js"></script>
+    <!-- <script src="//code.jquery.com/ui/1.11.0/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script> -->
+    <script src="/assets/js/bootstrap/typeahead.bundle.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/assets/js/bootstrap/bootstrap-tagsinput.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap/bootstrap-tagsinput.css">
+
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            taggingInput(<?= json_encode($tags) ?>);
+        });
+    </script>
 @stop

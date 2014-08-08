@@ -1,22 +1,22 @@
 <?php namespace Dashboard\Search;
 
-use BaseController, View, Input, Request, Response;
+use BaseController, View, Input, Request, Response, DB;
 use Dashboard\Crm\SearchableContact;
 use Dashboard\Sales\Product;
 use Dashboard\Sales\OrderProduct;
+use Dashboard\Tags\Tag;
 
 class SearchController extends BaseController
 {
     public function index()
     {
-        // $columns = [ 'full_name' => 'Full name', 'email' => 'Email', 'phone' => 'Phone Number', 'tag_name' => 'Tags', 'tag_with_variants' => 'Tag Variants', 'product_id' => 'Product IDs' ];
-        // $predicates = [ 'cont' => 'contains', 'notcont' => 'doesn\'t contain', 'start' => 'starts with', 'end' => 'ends with' ];
-
         $products = [ '' => '' ] + Product::onlyOwners()
             ->lists('product_title', 'id');
+        $tags = Tag::forJson();
         
         return $this->renderView()
-            ->withProducts($products);
+            ->withProducts($products)
+            ->withTags($tags);
     }
 
     public function search()
