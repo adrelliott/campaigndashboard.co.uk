@@ -24,12 +24,10 @@
 {{ HTML::script('assets/js/app/modal.js') }}
 
 <h4>Owner id: {{ $owner_id }}</h4>
-<h4>Current User</h4>
+<?php /* <h4>Current User</h4>
 {{ dump($current_user) }}
 
 @if(isset($record))
     <h4>Current record</h4>
     {{ dump($record) }}
-@endif
-
-
+@endif */ ?>

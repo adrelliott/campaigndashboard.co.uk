@@ -21,8 +21,7 @@ class SearchController extends BaseController
 
     public function search()
     {
-        $search = SearchableContact::search(Input::get('q'))
-            ->toArray();
+        $search = SearchableContact::search(Input::get('q'));
 
         return $this->renderView()
             ->withResults($search);

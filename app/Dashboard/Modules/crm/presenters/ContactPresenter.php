@@ -30,7 +30,8 @@ class ContactPresenter extends Presenter {
         return $this->resource->created_at->diffForHumans();
     }
 
-    
-
-    
+    public function landline()
+    {
+        return ($this->resource->work_phone ? $this->resource->work_phone . ' (W)' : $this->resource->home_phone . ' (H)');
+    }
 }
