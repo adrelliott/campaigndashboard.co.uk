@@ -42,9 +42,10 @@
 @stop
 
 @section('end_of_page')
-    {{ HTML::script('assets/js/datatables/jquery.dataTables-1.10.2.min.js') }}
-    {{ HTML::script('assets/js/app/tables.js') }}
-    
-    {{ HTML::style('//cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.css') }}
-    {{ HTML::script('//cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.js') }}
+    <script type="text/javascript">
+        function dataTableConfig()
+        {
+            return {};
+        }
+    </script>
 @stop

@@ -14,9 +14,17 @@
 
 
 <!-- Call all datatables JS -->
-{{ HTML::script('assets/js/datatables/jquery.dataTables.min.js') }}
-{{ HTML::script('assets/js/datatables/dataTables.bootstrapPagination.js') }}
-{{ HTML::script('assets/js/datatables/dataTables.custom.js') }}
+<?php if(!isset($newDatatables)): ?>
+    {{ HTML::script('assets/js/datatables/jquery.dataTables.min.js') }}
+    {{ HTML::script('assets/js/datatables/dataTables.bootstrapPagination.js') }}
+    {{ HTML::script('assets/js/datatables/dataTables.custom.js') }}
+<?php else: ?>
+    {{ HTML::script('assets/js/datatables/jquery.dataTables-1.10.2.min.js') }}
+    {{ HTML::script('assets/js/app/tables.js') }}
+    
+    {{ HTML::style('//cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.css') }}
+    {{ HTML::script('//cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.js') }}
+<?php endif; ?>
 
 <!-- Call Other JS -->
 {{ HTML::script('assets/js/app/app.js') }}

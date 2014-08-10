@@ -23,6 +23,8 @@ class SearchController extends BaseController
     {
         $search = SearchableContact::search(Input::get('q'));
 
+        View::share('newDatatables', TRUE);
+
         return $this->renderView()
             ->withResults($search);
     }
