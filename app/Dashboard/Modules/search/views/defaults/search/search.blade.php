@@ -23,20 +23,7 @@
                 </tr>
             </thead>
 
-            <tbody>
-                
-                <?php foreach($results as $row): ?>
-                    <tr>
-                        <td><?= $row->id ?></td>
-                        <td><?= $row->first_name ?></td>
-                        <td><?= $row->last_name ?></td>
-                        <td><?= $row->email ?></td>
-                        <td><?= $row->landline() ?></td>
-                        <td><?= $row->mobile_phone ?></td>
-                    </tr>
-                <?php endforeach; ?>
-                
-            </tbody>
+            <tbody></tbody>
         </table>
     </div>
 @stop
@@ -45,7 +32,22 @@
     <script type="text/javascript">
         function dataTableConfig()
         {
-            return {};
+            return {
+                columns: [
+                    { name: 'id', data: 'id' },
+                    { name: 'first_name', data: 'first_name' },
+                    { name: 'last_name', data: 'last_name', defaultContent: '' },
+                    { name: 'email', data: 'email', defaultContent: '' },
+                    { name: 'landline', data: 'landline', defaultContent: '', orderable: false },
+                    { name: 'mobile', data: 'mobile', defaultContent: '', orderable: false }
+                ],
+                serverSide: true,
+                ajax: {
+                    method: 'post',
+                    data: { q: <?= json_encode($query) ?> },
+                    url: '<?= URL::route("app.search.process") ?>'
+                }
+            };
         }
     </script>
 @stop

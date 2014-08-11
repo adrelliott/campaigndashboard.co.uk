@@ -8,7 +8,7 @@ class SearchableContact extends Contact
     protected $_productsJoined = FALSE;
     protected $_tagsJoined = FALSE;
 
-    public static function search($conditions)
+    public static function search($conditions, $options)
     {
         $instance = new static;
 
@@ -32,7 +32,8 @@ class SearchableContact extends Contact
 
         return $query
             ->groupBy('contacts.id')
-            ->take(20)
+            ->take($options['limit'])->skip($options['skip'])
+            ->orderBy($options['order'], $options['dir'])
             ->get();
     }
 

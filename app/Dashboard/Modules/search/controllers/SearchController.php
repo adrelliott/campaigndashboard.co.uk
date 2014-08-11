@@ -21,12 +21,25 @@ class SearchController extends BaseController
 
     public function search()
     {
-        $search = SearchableContact::search(Input::get('q'));
-
         View::share('newDatatables', TRUE);
 
-        return $this->renderView()
-            ->withResults($search);
+        $q = Input::get('q');
+
+        if (Request::wantsJson())
+        {
+            $search = SearchableContact::search($q, $this->fetchOptionsFromDatatables());
+            $total = SearchableContact::onlyOwners()->count();
+
+            return $this->render('search/_row_json')
+                ->withTotal($total)
+                ->withDraw(Input::get('draw'))
+                ->withResults($search);
+        }
+        else
+        {
+            return $this->renderView()
+                ->withQuery($q);
+        }
     }
 
     public function variants($productId)

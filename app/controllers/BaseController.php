@@ -58,6 +58,28 @@ class BaseController extends Controller {
      */
     protected function renderView(BaseModel $model = NULL)
     {
+        $ownerId = $this->fetchOwnerId();
+        $path = $this->classAttributes[2] . '.' . $this->classAttributes[3];
+
+        return $this->render($path)->withModel($model);
+    }
+
+    protected function render($path)
+    {
+        $ownerId = $this->fetchOwnerId();
+        $filePath = $this->classAttributes[1] . '::defaults.' . $path;
+
+        if ($ownerId)
+        {
+            $customFilePath = str_replace('defaults', $ownerId, $filePath);
+            if ( View::exists( $customFilePath ) ) $filePath = $customFilePath;
+        }
+
+        return View::make( $filePath );
+    }
+
+    protected function fetchOwnerId()
+    {
         // Are we a logged in user? If we're not, check on the model
         // for an owner ID. There might be one there.
         if (Auth::user()->user())
@@ -67,18 +89,25 @@ class BaseController extends Controller {
         else
             $ownerId = FALSE;
 
-        # Check to see if we have a custom view for this client/tenant
-        $filePath = $this->classAttributes[1] . '::defaults.' . $this->classAttributes[2] . '.' . $this->classAttributes[3];
+        return $ownerId;
+    }
 
-        if ($ownerId)
-        {
-            $customFilePath = str_replace('defaults', $ownerId, $filePath);
+    /**
+     * Pull the search options (ordering, sorting, pagination et cetera) from a
+     * datatables request and return the array.
+     */
+    protected function fetchOptionsFromDatatables()
+    {
+        $q = Input::get('q');
+        $inputColumns = Input::get('columns');
+        $columns = array_map(function($c){ return $c['name']; }, $inputColumns);
+        $order = Input::get('order');
 
-            # If file exists in tenants dir, load that, otherwise load default
-            if ( View::exists( $customFilePath ) ) $filePath = $customFilePath;
-        }
-
-        // Load the view
-        return View::make( $filePath )->withModel( $model );
+        return array(
+            'order' => $columns[$order[0]['column']],
+            'dir' => $order[0]['dir'],
+            'limit' => Input::get('length'),
+            'skip' => Input::get('start'),
+        );
     }
 }
