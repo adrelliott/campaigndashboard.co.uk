@@ -7,7 +7,7 @@
         <div id="collapseContact" class="panel-collapse collapse in">
             <div class="panel-body">
                 <?= Former::text('q[name]', 'Name') ?>
-                <?= Former::text('q[name]', 'Company') ?>
+                <?= Former::text('q[company]', 'Company') ?>
                 <?= Former::text('q[email]', 'Email') ?>
                 <?= Former::text('q[phone]', 'Phone') ?>
                 <?= Former::text('q[address]', 'Address') ?>

@@ -12,10 +12,11 @@ class SearchableContact extends Contact
     {
         $instance = new static;
 
-        $query = $instance->searchProducts($conditions['products']);
-        $query = $query->searchProducts($conditions['not_products'], TRUE);
-        $query = $instance->searchTags($conditions['tags']);
-        $query = $query->searchTags($conditions['not_tags'], TRUE);
+        $query = $instance->onlyOwners($instance->getTable());
+        $query->searchProducts($conditions['products']);
+        $query->searchProducts($conditions['not_products'], TRUE);
+        $query->searchTags($conditions['tags']);
+        $query->searchTags($conditions['not_tags'], TRUE);
 
         $conditions = array_only($conditions, $instance->searchableValues());
         
@@ -24,17 +25,21 @@ class SearchableContact extends Contact
             if ( $val )
             {
                 if (method_exists($instance, 'scopeSearch' . studly_case($key)))
-                    $query = call_user_func_array([ $query, 'search' . studly_case($key) ], [ $val ]);
+                    call_user_func_array([ $query, 'search' . studly_case($key) ], [ $val ]);
                 else
-                    $query = $query->where($key, 'like', "%$val%");
+                    $query->where($key, 'like', "%$val%");
             }
         }
 
-        return $query
-            ->groupBy('contacts.id')
+        $search = clone $query;
+
+        $results = $search
             ->take($options['limit'])->skip($options['skip'])
             ->orderBy($options['order'], $options['dir'])
+            ->groupBy('contacts.id')
             ->get();
+
+        return array( $results, $query->count() );
     }
 
     public function scopeSearchName($query, $value)
@@ -59,7 +64,7 @@ class SearchableContact extends Contact
 
     public function scopeSearchConcatenated($query, $value, $fields)
     {
-        $query->whereRaw('CONCAT(contacts.' . implode(', " ", contacts.', $fields) . ') LIKE "%?%"', array( $value ));
+        $query->where(DB::raw('CONCAT_WS(contacts.' . implode(', " ", contacts.', $fields) . ')'), 'like', "%$value%");
     }
 
     public function scopeSearchProducts($query, $products, $not = FALSE)

@@ -27,8 +27,7 @@ class SearchController extends BaseController
 
         if (Request::wantsJson())
         {
-            $search = SearchableContact::search($q, $this->fetchOptionsFromDatatables());
-            $total = SearchableContact::onlyOwners()->count();
+            list( $search, $total ) = SearchableContact::search($q, $this->fetchOptionsFromDatatables());
 
             return $this->render('search/_row_json')
                 ->withTotal($total)
