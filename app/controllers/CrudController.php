@@ -185,6 +185,10 @@ class CrudController extends BaseController {
 
     protected function handleResponse($viewFile = 'edit')
     {
+        // Handle datatables requests
+        if (Request::wantsJson() && Input::has('draw'))
+            return $this->handleDatatable();
+
         # Is it a json request?
         if ( $this->asJson ) $retval = $this->model;
 

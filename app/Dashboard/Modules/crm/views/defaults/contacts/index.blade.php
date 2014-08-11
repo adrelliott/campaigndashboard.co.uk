@@ -13,16 +13,48 @@
     <li><a href="{{ route('app.contacts.create') }}"><p><em>Create new {{ $config['contacts']['label'] }}</em></p></a></li>
 @stop
 
-
-@section('table')
+@section('content')
     <div class="table-responsive clearfix">
-        {{ getTable('contacts_index', $config) }}
+        <table class="table table-striped table-bordered dataTable">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Landline</th>
+                    <th>Mobile</th>
+                </tr>
+            </thead>
+
+            <tbody></tbody>
+        </table>
     </div>
-@stop
 
-
-@section('below-table')
     <div class="row">
         <a href="/app/contacts/create" class="btn btn-primary btn-lg pull-right"><i class="fa fa-plus"></i> Create New {{ $config['contacts']['label'] }}</a>
     </div>
+@stop
+
+@section('end_of_page')
+    <script type="text/javascript">
+        function dataTableConfig()
+        {
+            return {
+                columns: [
+                    { name: 'id', data: 'id' },
+                    { name: 'first_name', data: 'first_name' },
+                    { name: 'last_name', data: 'last_name', defaultContent: '' },
+                    { name: 'email', data: 'email', defaultContent: '' },
+                    { name: 'landline', data: 'landline', defaultContent: '', orderable: false },
+                    { name: 'mobile', data: 'mobile', defaultContent: '', orderable: false }
+                ],
+                serverSide: true,
+                ajax: {
+                    // method: 'post',
+                    url: '<?= URL::route("app.contacts.index") ?>'
+                }
+            };
+        }
+    </script>
 @stop

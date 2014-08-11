@@ -92,6 +92,24 @@ class BaseController extends Controller {
         return $ownerId;
     }
 
+    public function handleDatatable()
+    {
+        $options = $this->fetchOptionsFromDatatables();
+        $query = $this->repo
+            ->take($options['limit'])
+            ->skip($options['skip'])
+            ->orderBy($options['order'], $options['dir']);
+        $count = clone $query;
+
+        $results = $query->get();
+        $total = $count->count();
+
+        return $this->render($this->classAttributes[2] . '._row_json')
+            ->withTotal($total)
+            ->withDraw((int)Input::get('draw'))
+            ->withResults($results);
+    }
+
     /**
      * Pull the search options (ordering, sorting, pagination et cetera) from a
      * datatables request and return the array.
