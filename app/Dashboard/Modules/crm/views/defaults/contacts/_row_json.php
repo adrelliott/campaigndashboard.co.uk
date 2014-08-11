@@ -11,6 +11,10 @@ foreach($results as $row)
 {
     $array['data'][] = array(
         
+        // Datatables per-row configuration
+        'DT_RowData' => array( 'url' => URL::route('app.contacts.edit', $row->id), 'modal' => true ),
+        'DT_RowClass' => 'linked',
+
         // Row data
         'id' => $row->id,
         'first_name' => $row->first_name,
@@ -18,9 +22,6 @@ foreach($results as $row)
         'email' => $row->email,
         'landline' => $row->landline(),
         'mobile_phone' => $row->mobile_phone,
-
-        // Datatables per-row configuration
-        'DT_RowData' => array( 'url' => '' ),
 
     );
 }

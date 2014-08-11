@@ -24,6 +24,10 @@ padding: 19px;
     padding: 20px 0;
 }
 
+.dataTable .linked:hover {
+    cursor: pointer;
+}
+
 .border-none {
     border:none;
 }

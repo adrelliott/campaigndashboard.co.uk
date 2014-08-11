@@ -15,7 +15,7 @@
 
 @section('content')
     <div class="table-responsive clearfix">
-        <table class="table table-striped table-bordered dataTable">
+        <table class="table table-striped table-bordered table-hover dataTable">
             <thead>
                 <tr>
                     <th></th>
