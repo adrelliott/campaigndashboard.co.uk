@@ -47,8 +47,15 @@ class SearchableContact extends Contact
         $self = $this;
         $conditions = array_keys(array_only(array_flip($columns), $self->searchableValues()));
 
-        if ((isset($conditions['first_name']) && $conditions['first_name']) || (isset($conditions['last_name']) && $conditions['last_name']))
-            $conditions['name'] = $conditions['first_name'] . ' ' . $conditions['last_name'];
+        // If we include both the first name and the last name, remove the two
+        // names individually and run the search on the name scope
+        if (in_array('first_name', $conditions) && in_array('last_name', $conditions))
+        {
+            unset($conditions[array_search('first_name', $conditions)]);
+            unset($conditions[array_search('last_name', $conditions)]);
+
+            $conditions[] = 'name';
+        }
         
         $query->where(function( $q ) use ( $term, $conditions, $self )
         {
@@ -85,7 +92,7 @@ class SearchableContact extends Contact
     public function scopeSearchConcatenated($query, $value, $fields, $or = FALSE)
     {
         $method = $or ? 'orWhere' : 'where';
-        $query->$method(DB::raw('CONCAT_WS(contacts.' . implode(', " ", contacts.', $fields) . ')'), 'like', "%$value%");
+        $query->$method(DB::raw('CONCAT_WS(" ", contacts.' . implode(', contacts.', $fields) . ')'), 'like', "%$value%");
     }
 
     public function scopeSearchProducts($query, $products, $not = FALSE)
