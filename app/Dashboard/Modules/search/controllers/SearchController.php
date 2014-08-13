@@ -5,6 +5,7 @@ use Dashboard\Crm\SearchableContact;
 use Dashboard\Sales\Product;
 use Dashboard\Sales\OrderProduct;
 use Dashboard\Tags\Tag;
+use Dashboard\Services\DatatableService;
 
 class SearchController extends BaseController
 {
@@ -27,7 +28,8 @@ class SearchController extends BaseController
 
         if (Request::wantsJson())
         {
-            list( $search, $total ) = SearchableContact::search($q, $this->fetchOptionsFromDatatables());
+            $service = new DatatableService(Input::getFacadeApplication()['request'], $this->repo);
+            list( $search, $total ) = SearchableContact::search($q, $service->fetchOptions());
 
             return $this->render('search/_row_json')
                 ->withTotal($total)

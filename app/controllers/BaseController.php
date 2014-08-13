@@ -6,6 +6,8 @@
  * We use a CrudController to deal with all CRUD functions that extends this class
  */
 
+use Dashboard\Services\DatatableService;
+
 class BaseController extends Controller {
 
     /**
@@ -78,6 +80,17 @@ class BaseController extends Controller {
         return View::make( $filePath );
     }
 
+    public function handleDatatable()
+    {
+        list( $results, $total ) = 
+            with( new DatatableService(Input::getFacadeApplication()['request'], $this->repo) )->run();
+
+        return $this->render($this->classAttributes[2] . '._row_json')
+            ->withTotal($total)
+            ->withDraw((int)Input::get('draw'))
+            ->withResults($results);
+    }
+
     protected function fetchOwnerId()
     {
         // Are we a logged in user? If we're not, check on the model
@@ -90,48 +103,5 @@ class BaseController extends Controller {
             $ownerId = FALSE;
 
         return $ownerId;
-    }
-
-    public function handleDatatable()
-    {
-        $options = $this->fetchOptionsFromDatatables();
-        $query = $this->repo
-            ->take($options['limit'])
-            ->skip($options['skip'])
-            ->orderBy($options['order'], $options['dir']);
-
-        if ($options['search'])
-            $query->searchColumns($options['search'], $options['columns']);
-
-        $count = clone $query;
-
-        $results = $query->get();
-        $total = $count->count();
-
-        return $this->render($this->classAttributes[2] . '._row_json')
-            ->withTotal($total)
-            ->withDraw((int)Input::get('draw'))
-            ->withResults($results);
-    }
-
-    /**
-     * Pull the search options (ordering, sorting, pagination et cetera) from a
-     * datatables request and return the array.
-     */
-    protected function fetchOptionsFromDatatables()
-    {
-        $q = Input::get('q');
-        $inputColumns = Input::get('columns');
-        $columns = array_map(function($c){ return $c['name']; }, $inputColumns);
-        $order = Input::get('order');
-
-        return array(
-            'order' => $columns[$order[0]['column']],
-            'dir' => $order[0]['dir'],
-            'limit' => Input::get('length'),
-            'skip' => Input::get('start'),
-            'columns' => $columns,
-            'search' => Input::get('search.value')
-        );
     }
 }
