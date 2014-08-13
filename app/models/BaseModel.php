@@ -5,7 +5,7 @@
  */
 use Magniloquent\Magniloquent\Magniloquent;
 
-class BaseModel extends Magniloquent {
+abstract class BaseModel extends Magniloquent {
 
      //When we call User::destroy(1); it actually only soft deletes the record
     protected $softDelete = true;

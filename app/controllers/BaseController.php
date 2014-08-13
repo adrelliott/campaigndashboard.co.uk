@@ -99,6 +99,10 @@ class BaseController extends Controller {
             ->take($options['limit'])
             ->skip($options['skip'])
             ->orderBy($options['order'], $options['dir']);
+
+        if ($options['search'])
+            $query->searchColumns($options['search'], $options['columns']);
+
         $count = clone $query;
 
         $results = $query->get();
@@ -126,6 +130,8 @@ class BaseController extends Controller {
             'dir' => $order[0]['dir'],
             'limit' => Input::get('length'),
             'skip' => Input::get('start'),
+            'columns' => $columns,
+            'search' => Input::get('search.value')
         );
     }
 }

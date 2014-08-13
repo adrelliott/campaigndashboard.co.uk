@@ -41,13 +41,14 @@
         function dataTableConfig()
         {
             return {
+                searching: true,
                 columns: [
                     { name: 'id', data: 'id' },
                     { name: 'first_name', data: 'first_name' },
                     { name: 'last_name', data: 'last_name', defaultContent: '' },
                     { name: 'email', data: 'email', defaultContent: '' },
-                    { name: 'landline', data: 'landline', defaultContent: '', orderable: false },
-                    { name: 'mobile', data: 'mobile', defaultContent: '', orderable: false }
+                    { name: 'phone', data: 'landline', defaultContent: '', orderable: false },
+                    { name: 'mobile_phone', data: 'mobile', defaultContent: '', orderable: false }
                 ],
                 serverSide: true,
                 ajax: {

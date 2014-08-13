@@ -1,7 +1,7 @@
 <?php namespace Dashboard\Crm;
 
 use CrudController, View, Request, Input;
-use Dashboard\Repositories\ContactRepositoryInterface as ModelInterface;
+use Dashboard\Repositories\SearchableContactRepositoryInterface as ModelInterface;
 
 class ContactsController extends CrudController {
 
