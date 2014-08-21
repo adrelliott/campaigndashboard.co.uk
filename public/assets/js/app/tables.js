@@ -27,24 +27,24 @@ $(function()
         var url = $(this).data().url,
             $tr = $(this);
 
-        if ($tr.data('modal'))
-        {
-            $('#modal').modal('show');
+        // if ($tr.data('modal'))
+        // {
+        //     $('#modal').modal('show');
 
-            $('.modal-body').html('')
-                .addClass('loader')
-                .load(url)
-                .removeClass('loader');
-        }
+        //     $('.modal-body').html('')
+        //         .addClass('loader')
+        //         .load(url)
+        //         .removeClass('loader');
+        // }
 
-        else
+        // else
             window.location.href = url;
     });
 
     // When we hide a modal we want to refresh the table, as the user very well
     // may have updated a row (and we want to reflect that in the table)
-    $('#modal').on('hidden.bs.modal', function()
-    {
-        dataTable.draw();
-    });
+    // $('#modal').on('hidden.bs.modal', function()
+    // {
+    //     dataTable.draw();
+    // });
 });

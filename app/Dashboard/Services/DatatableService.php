@@ -34,7 +34,7 @@ class DatatableService
      * Pull the search options (ordering, sorting, pagination et cetera) from a
      * datatables request and return the array.
      */
-    protected function fetchOptions()
+    public function fetchOptions()
     {
         $q = $this->input->input('q');
         $inputColumns = $this->input->input('columns');

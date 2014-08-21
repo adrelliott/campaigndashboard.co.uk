@@ -6,9 +6,17 @@ use Dashboard\Sales\Product;
 use Dashboard\Sales\OrderProduct;
 use Dashboard\Tags\Tag;
 use Dashboard\Services\DatatableService;
+use Dashboard\Repositories\EloquentSearchableContactRepository;
 
 class SearchController extends BaseController
 {
+    public function __construct(EloquentSearchableContactRepository $repo)
+    {
+        parent::__construct();
+        
+        $this->repo = $repo;
+    }
+
     public function index()
     {
         $products = [ '' => '' ] + Product::onlyOwners()
