@@ -1,9 +1,9 @@
 <?php namespace Dashboard\Tags;
 
-use BaseController;
+use CrudController;
 use Dashboard\Repositories\TagRepositoryInterface as ModelInterface;
 
-class TagsController extends BaseController {
+class TagsController extends CrudController {
 
 
     /**

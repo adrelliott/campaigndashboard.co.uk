@@ -43,11 +43,24 @@
 
 @section('contacts')
     <h1>
-        <i class="fa fa-user"></i> Your {{ $config['contacts']['label'] }}s 
+        <i class="fa fa-user"></i> Your {{-- $config['contacts']['label'] --}}s
     </h1>
-            
+
     <div class="table-responsive clearfix">
-        {{ getTable('homepage_contacts', $config) }}
+        <table class="table table-striped table-bordered table-hover dataTable">
+            <thead>
+            <tr>
+                <th></th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Landline</th>
+                <th>Mobile</th>
+            </tr>
+            </thead>
+
+            <tbody></tbody>
+        </table>
     </div>
 
     <div class="row">
@@ -57,15 +70,30 @@
 @stop
 
 @section('orders')
-    <h1>
-        <i class="fa fa-user"></i> Your {{ $config['orders']['label'] }}s 
-    </h1>
-            
-    <div class="table-responsive clearfix">
-        {{ getTable('homepage_contacts', $config) }}
-    </div>
 
-    <div class="row">
-        <a href="/app/orders/create" class="btn btn-primary btn-lg pull-right"><i class="fa fa-plus"></i> Create New {{ $config['orders']['label'] }}</a>
-    </div> 
+@stop
+
+
+@section('end_of_page')
+<script type="text/javascript">
+    function dataTableConfig()
+    {
+        return {
+            searching: true,
+            columns: [
+                { name: 'id', data: 'id' },
+                { name: 'first_name', data: 'first_name' },
+                { name: 'last_name', data: 'last_name', defaultContent: '' },
+                { name: 'email', data: 'email', defaultContent: '' },
+                { name: 'phone', data: 'landline', defaultContent: '', orderable: false },
+                { name: 'mobile_phone', data: 'mobile', defaultContent: '', orderable: false }
+            ],
+            serverSide: true,
+            ajax: {
+                // method: 'post',
+                url: '<?= URL::route("app.contacts.index") ?>'
+            }
+        };
+    }
+</script>
 @stop

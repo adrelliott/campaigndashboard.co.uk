@@ -29,6 +29,7 @@ class BaseController extends Controller {
 
         // Set up Former
         Former::framework('TwitterBootstrap3');
+        // See also config/packages/anahkiasen/
     }
 
     // Shells
@@ -60,7 +61,7 @@ class BaseController extends Controller {
      */
     protected function renderView(BaseModel $model = NULL)
     {
-        $ownerId = $this->fetchOwnerId();
+//        $ownerId = $this->fetchOwnerId(); DO WE NEED THIS HERE.............................?
         $path = $this->classAttributes[2] . '.' . $this->classAttributes[3];
 
         return $this->render($path)->withModel($model);

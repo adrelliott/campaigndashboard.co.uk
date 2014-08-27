@@ -50,6 +50,9 @@ class CrudController extends BaseController {
      */
     public function index()
     {
+        # Create empty $this->model for view
+//        $this->model = $this->repo();
+
         # Fire event & render view
         $this->fireEvent();
         return $this->handleResponse();
@@ -62,6 +65,9 @@ class CrudController extends BaseController {
      */
     public function create()
     {
+        # There's no DB interaction, so just pass the model
+        $this->model = $this->repo->model;
+
        # Fire event & render view
         $this->fireEvent();
         return $this->handleResponse();
@@ -177,7 +183,9 @@ class CrudController extends BaseController {
         $this->model->eventResponse = Event::fire( $event, $this->model );
         
         # HOOK: Do we have any postEvent methods to perform?
-        if ( isset( $this->postEvent[$this->classAttributes[3]]) ) 
+        // Hint: define the post event in the controller subclass. To run getProducts() upon create...
+        // ...define this: $this->postEvent['create'] = 'getProducts';
+        if ( isset( $this->postEvent[$this->classAttributes[3]]) )
             $this->{$this->postEvent[$this->classAttributes[3]]}();
     }
 

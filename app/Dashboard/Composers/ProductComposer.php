@@ -11,7 +11,7 @@ class ProductComposer extends Composer {
     public function compose($view)
     {
         //Set up the current user
-        $view->with('productList', array(1, 3, 4, 6));      
+        $view->with('productList', 'product list goes here');
     }
 
 }

@@ -29,7 +29,7 @@
     }}
 
         <div class="col-lg-4 col-md-4 col-sm-4  col-xs-12">
-            {{ Former::select('title')->class('form-control input-lg')->options($config['dropdowns']['titles']) }}
+            {{ Former::select('title')->class('input-lg')->options($config['dropdowns']['titles']) }}
         </div>
 
         <div class="col-lg-8 col-md-8 col-sm-8  col-xs-12">
@@ -60,17 +60,18 @@
             <button type="submit" class="btn btn-lg btn-success pull-right"><i class="fa fa-check"></i> Create this {{ $config['contacts']['label'] }}</button>
         </div>   
 
-    {{ Former::close() }}
+    {{-- We close the form in the last section --}}
         
 @stop
 
 
 @section('inDepth')
     <h3 class="text-primary"><i class="fa fa-folder-open"></i> In-Depth</h3>
-    
-        @foreach ($config['forms']['contacts']['edit_indepth'] as $field => $attr)
-            {{ Form::inputBS($field, $attr) }}
-        @endforeach
+
+    {{-- The form has been started in the first section & closed in the last section --}}
+
+        {{ Former::text('address1')->class('form-control input')->placeholder('E.g. 164,
+Givusa Street')->label('Address Line 1') }}
     
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <button type="submit" class="btn btn-success pull-right"><i class="fa fa-check"></i> Save Changes</button>
@@ -80,11 +81,10 @@
 
 @section('optIn')
     <h3 class="text-primary"><i class="fa fa-lock"></i> Opt Ins</h3>
-    
-        @foreach ($config['forms']['contacts']['edit_optin'] as $field => $attr)
-            {{ Form::inputBS($field, $attr) }}
-        @endforeach
-    
+
+    {{-- The form has been started in the first section --}}
+
+        //Optin goes here
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <button type="submit" class="btn btn-success pull-right"><i class="fa fa-check"></i> Save Changes</button>
         </div>
@@ -93,66 +93,136 @@
 @stop
 
 @section('notes')
-        <h3 class="text-primary"><i class="fa fa-book"></i> Notes1</h3>
-        
-        <div class="table-responsive clearfix">
-            {{ getTable('notes_table', $config, array('id' => $model->id)) }}
-        </div>
+    <h3 class="text-primary"><i class="fa fa-book"></i> Notes</h3>
 
-        <div class="pull-right margin_top_15" style="margin-top:10px">
-            <a class="btn btn-primary open-modal " href="#" modal-source="{{URL::route('app.notes.create', array('contact_id' => $model->id)) }}" data-view="show_modal" >
-                <i class="fa fa-plus"></i> Create New Note
-            </a>
-        </div>
+    <div class="table-responsive clearfix">
+        <table class="table table-striped table-bordered table-hover dataTable___xxxx">
+            <thead>
+                <tr>
+                    <th>Note</th>
+                    <th>Timestamp</th>
+                </tr>
+            </thead>
 
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div class="pull-right margin_top_15" style="margin-top:10px">
+        <a class="btn btn-primary open-modal " href="#" modal-source="{{URL::route('app.notes.create', array('contact_id' => $model->id)) }}" data-view="show_modal" >
+            <i class="fa fa-plus"></i> Create New Note
+        </a>
+    </div>
+    <pre style="clear:both">When the form in the note modal window is submitted, this table refreshes</pre>
 @stop
 
 @section('purchases')
     <h3 class="text-primary"><i class="fa fa-gbp"></i> Purchases</h3>
-    
-    @section('purchases-table')
 
-        <div class="table-responsive clearfix">
-            {{-- getTable('purchases_table', $config, array('id' => $model->id)) --}}
-        </div>
-    
+    <div class="table-responsive clearfix">
+        <table class="table table-striped table-bordered table-hover dataTable___xxxx">
+            <thead>
+                <tr>
+                    <th>Order Id</th>
+                    <th>Product</th>
+                    <th>Qty</th>
+                    <th>£ Total</th>
+                </tr>
+            </thead>
 
+            <tbody></tbody>
+        </table>
+    </div>
 
-    @show
-    
-    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $model->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Order</a>
+    <div class="pull-right margin_top_15" style="margin-top:10px">
+        <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $model->id)) }}" data-view="show_modal" >
+            <i class="fa fa-plus"></i> Create New Order
+        </a>
+    </div>
+    <pre style="clear:both">//This table is a join query that retrieves the order items for this contact,
+        ->with('order_id). When the form in the modal is submitted, then this table refreshes</pre>
 @stop
 
 @section('roles')
     <h3 class="text-primary"><i class="fa fa-group"></i> Roles</h3>
 
-    @section('roles-table')
+    <div class="table-responsive clearfix">
+        <table class="table table-striped table-bordered table-hover dataTable___xxxx">
+            <thead>
+                <tr>
+                    <th>Role Name</th>
+                    <th>Start date</th>
+                    <th>End Date</th>
+                </tr>
+            </thead>
 
-        <div class="table-responsive clearfix">
-            {{-- getTable('roles_table', $config, array('id' => $model->id)) --}}
-        </div>
+            <tbody></tbody>
+        </table>
+    </div>
 
-
-
-    @show
-    
-    <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.roles.create', array('contact_id' => $model->id)) }}" data-view="show_modal" ><i class="fa fa-plus"></i> Create New Role</a>
+    <div class="pull-right margin_top_15" style="margin-top:10px">
+        <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.roles.create', array('contact_id' => $model->id)) }}" data-view="show_modal" >
+            <i class="fa fa-plus"></i> Create New Role
+        </a>
+    </div>
+    <pre style="clear:both">When the form in the modal window submits, this table refreshes</pre>
 @stop
 
 @section('tags')
     <h3 class="text-primary"><i class="fa fa-tags"></i> Tags</h3>
 
-    @section('tags-table')
+    <div class="table-responsive clearfix">
+        <table class="table table-striped table-bordered table-hover dataTable___XXXXXXXX">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Tag Name</th>
+                    <th>Date Applied</th>
+                </tr>
+            </thead>
 
+            <tbody></tbody>
+        </table>
+    </div>
 
-        
-    @show
+    <div class="pull-right margin_top_15" style="margin-top:10px">
+        <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.tags.create',
+        array('contact_id' => $model->id)) }}" data-view="show_modal" >
+            <i class="fa fa-plus"></i> Add New Tag
+        </a>
+    </div>
+    <pre style="clear:both">When the form in the modal window submits, this table refreshes</pre>
 
 @stop
 
 @section('modal')
     @include('partials.common._modal', array('modalTitle' => $model->fullName))
-{{ dump($model)}}
+{{-- dump($model) --}}
 @stop
 
+
+@section('end_of_page')
+    <script type="text/javascript">
+        // Need to do this for each datatable
+        function dataTableConfig()
+        {
+            return {
+                searching: true,
+                columns: [
+                    { name: 'id', data: 'id' },
+                    { name: 'first_name', data: 'first_name' },
+                    { name: 'last_name', data: 'last_name', defaultContent: '' },
+                    { name: 'email', data: 'email', defaultContent: '' },
+                    { name: 'phone', data: 'landline', defaultContent: '', orderable: false },
+                    { name: 'mobile_phone', data: 'mobile', defaultContent: '', orderable: false }
+                ],
+                serverSide: true,
+                ajax: {
+                    // method: 'post',
+                    url: '<?= URL::route("app.contacts.index") ?>'
+                }
+            };
+        }
+    </script>
+@stop
 
