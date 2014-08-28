@@ -58,9 +58,6 @@
             };
         };
 
-        if (typeof window.dataTableConfig != "object")
-            window.dataTableConfig = {}
-
         window.dataTableConfig['dataTableConfig'] = config;
     </script>
 @stop
