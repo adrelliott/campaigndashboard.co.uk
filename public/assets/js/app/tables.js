@@ -9,14 +9,19 @@ $(function()
         processing: true
     });
 
-    // Let a view specify a dataTableConfig() function, which, when returning
-    // and object, allows us to configure the table on a per-tenant basis.
-    if (typeof window.dataTableConfig == "function")
-        dataTable = $('.dataTable').DataTable(window.dataTableConfig());
+    // Loop through each .dataTable. We'll expect a data-config parameter, which
+    // will reference a function, allowing multiple datatables on the same page.
+    $('.dataTable').each(function()
+    {
+        // Let a view specify a window.dataTableConfig['someFunction']() function, which, when returning
+        // and object, allows us to configure the table on a per-tenant basis.
+        if (typeof window.dataTableConfig == "object" && typeof window.dataTableConfig[$(this).attr('data-config')] == "function")
+            dataTable = $(this).DataTable(window.dataTableConfig[$(this).attr('data-config')]());
 
-    // Alternatively, just boot up a datatable instance using the defaults.
-    else
-        dataTable = $('.dataTable').DataTable({});
+        // Alternatively, just boot up a datatable instance using the defaults.
+        else
+            dataTable = $(this).DataTable({});
+    });
 
     // When the user clicks on a row with the class .linked, go to the URL
     // specified in the row's data.url property, or load it up in a modal.

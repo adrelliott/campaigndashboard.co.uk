@@ -11,7 +11,7 @@
 
 @section('content')
     <div class="table-responsive clearfix">
-        <table class="table table-bordered table-striped dataTable display">
+        <table class="table table-bordered table-striped dataTable display" data-config="dataTableConfig">
             <thead>
                 <tr>
                     <th></th>
@@ -30,7 +30,7 @@
 
 @section('end_of_page')
     <script type="text/javascript">
-        function dataTableConfig()
+        config = function()
         {
             return {
                 columns: [
@@ -48,6 +48,11 @@
                     url: '<?= URL::route("app.search.process") ?>'
                 }
             };
-        }
+        };
+
+        if (typeof window.dataTableConfig != "object")
+            window.dataTableConfig = {}
+
+        window.dataTableConfig['dataTableConfig'] = config;
     </script>
 @stop

@@ -15,7 +15,7 @@
 
 @section('content')
     <div class="table-responsive clearfix">
-        <table class="table table-striped table-bordered table-hover dataTable">
+        <table class="table table-striped table-bordered table-hover dataTable" data-config="dataTableConfig">
             <thead>
                 <tr>
                     <th></th>
@@ -38,7 +38,7 @@
 
 @section('end_of_page')
     <script type="text/javascript">
-        function dataTableConfig()
+        config = function()
         {
             return {
                 searching: true,
@@ -56,6 +56,11 @@
                     url: '<?= URL::route("app.contacts.index") ?>'
                 }
             };
-        }
+        };
+
+        if (typeof window.dataTableConfig != "object")
+            window.dataTableConfig = {}
+
+        window.dataTableConfig['dataTableConfig'] = config;
     </script>
 @stop
