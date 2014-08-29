@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'debug' => FALSE,
+	'debug' => (getenv('APP_ENV') == 'local'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return array(
 	|
 	*/
 
-	'key' => 'wpqdbE2Veq65RC5DF0jI5QGHsQiEiUBRklFB3YR8y3lf8byw3fbskbf3wyri',
+	'key' => 'ICrmp4ta98YWW7pm0hiPsPImvDLRfFz2',
 
 	/*
 	|--------------------------------------------------------------------------
