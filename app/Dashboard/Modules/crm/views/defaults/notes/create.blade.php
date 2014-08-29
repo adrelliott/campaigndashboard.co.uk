@@ -28,7 +28,8 @@
         <input type="hidden" class="" name="contact_id" value="{{ Input::get('contact_id') }}">
 
         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <button type="submit" class="btn btn-lg btn-success pull-right"><i class="fa fa-check"></i> Save</button>
+            <button type="submit" class="btn btn-lg btn-success pull-right"><i class="fa fa-check"></i> Save
+                this Note <small>(and close this window)</small></button>
         </div>   
 
     {{ Former::close() }}

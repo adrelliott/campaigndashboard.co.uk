@@ -1,6 +1,7 @@
 @extends('layouts.modal')
 
 @section('modal-body')
+
     <h1>Create an order</h1>
     <div class="row">  
         {{ Former::open()
@@ -23,10 +24,10 @@
                     {{ Former::date('order_date')->class('form-control input-sm')->label('Order Date')->value(date('Y-m-d', time()))->label('Order Date') }}
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    {{ Former::select('order_source')->class('form-control input-sm')->options($config['orderSource'])->label('Order Source') }}
+                    {{ Former::select('order_source')->class('form-control input-sm')->options
+                    ($config['dropdowns']['orderSource'])->label('Order Source') }}
                 </div>
             </div>
-
         @show
 
         
@@ -43,10 +44,12 @@
                     </tr>
                     <tr >
                         <td>
-                            {{ Former::select('_order_product[product_id][]')->class('form-control input')->options($record->productList()) }}
+                            {{ Former::select('_order_product[product_id][]')->class('form-control input')->options
+                            ($model->products->productList) }}
                         </td>
                         <td>
-                            {{ Former::select('_order_product[variant][]')->class('form-control input')->options($config['seasons'])}}
+                            {{ Former::select('_order_product[variant][]')->class('form-control input')->options
+                            ($config['dropdowns']['seasons'])}}
                         </td>
                         <td>
                             {{ Former::text('_order_product[quantity][]')->class('form-control input')->value(0) }}
@@ -73,7 +76,8 @@
                     {{ Former::text('_order_total')->class('form-control input-sm')->label('Total') }}
                 </div>
                 <div class="1col-lg-offset-8 col-lg-12 1col-md-offset-8 col-md-12 1col-sm-offset-6 col-sm-12 1col-xs-offset-2 col-xs-12">
-                    {{ Former::select('payment_method')->class('form-control input-sm')->options($config['paymentMethod'])->label('Payment Method') }}
+                    {{ Former::select('payment_method')->class('form-control input-sm')->options
+                    ($config['dropdowns']['paymentMethod'])->label('Payment Method') }}
                 </div>
             </div>
 

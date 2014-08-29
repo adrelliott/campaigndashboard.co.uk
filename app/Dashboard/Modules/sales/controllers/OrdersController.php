@@ -1,37 +1,66 @@
 <?php namespace Dashboard\Sales;
 
-use BaseController;
+use CrudController;
 use Dashboard\Repositories\OrderRepositoryInterface as ModelInterface;
 use Dashboard\Repositories\ProductRepositoryInterface as ProductInterface;
+use Dashboard\Repositories\OrderProductRepositoryInterface as OrderProductInterface;
 
-class OrdersController extends BaseController {
+class OrdersController extends CrudController {
 
-    protected $productRepo;
 
-    /**
-     * When show() or edit() are called, use this to eager load other joined records
-     * @var as a CSV: relationship1, relationship 2
-     */
-    protected $with ='products';
 
-    /**
-     * define methods to be run before we send view the hooks
-     * @var array
-     */
-    protected $postEvent = array(
-        'create' => 'setUpOrderform',
-        'show' => 'setUpOrderform',
-        'edit' => 'setUpOrderform',
-        'update' => 'syncOrderItems',
-        'store' => 'syncOrderItems',
-    );
-    
-
-    public function __construct(ModelInterface $repo, ProductInterface $products)
+    public function __construct(ModelInterface $repo, ProductInterface $products, OrderProductInterface $orderProducts)
     {
-        $this->productRepo = $products;
         parent::__construct($repo);
+        $this->productRepo = $products;
+        $this->orderProductRepo = $orderProducts;
+
+        // What local methods do we want to fire after each event?
+        $this->postEvent = [
+            'create' => 'createOrderform',
+            'store' => 'saveOrderProducts',
+            'edit' => 'loadOrderForm',
+
+        ];
     }
+
+    public function createOrderform()
+    {
+        $this->getProducts();
+    }
+
+    public function saveOrderProducts()
+    {
+        $this->syncOrderItems();
+    }
+
+    public function loadOrderForm()
+    {
+        $this->getProducts();
+        $this->getOrderProducts();
+    }
+
+
+
+
+
+    public function getProducts()
+    {
+        $this->model->products =  $this->productRepo->getProducts();
+    }
+
+    public function getOrderProducts()
+    {
+        $this->model->orderProducts =  $this->orderProductRepo->getOrderProducts($this->model->id);
+    }
+
+    public function syncOrderItems()
+    {
+        // dd('syncOrderItems called');
+        $this->repo->syncOrderItems($this->model);
+    }
+
+
 
 
 //     public function store()
@@ -60,24 +89,8 @@ class OrdersController extends BaseController {
     /**
      * Updates order items on an order)
      */
-    public function syncOrderItems()
-    {
-        // dd('syncOrderItems called');
-        $this->repo->syncOrderItems($this->record);
-    }
+
    
-    /**
-     * Sets up the order form ready for the order to be created
-     * @param boolean $id [description]
-     */
-    public function setUpOrderform( $id = FALSE )
-    {
-        # Set up product list
-        $this->record->productList = $this->productRepo->dropdown('product_title');
-
-        # Perhpas we should also get the prices of the products? 
-    }
-
 
 
 

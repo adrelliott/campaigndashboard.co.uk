@@ -121,10 +121,14 @@ return array(
     | The settings for the view files
     |
     */
+    'dashboardindex' => array(
+        'tables' => ['Contacts', 'Orders'],
+    ),
+
    //The tabs for views/contacts/show.blade.php
     'contactsshow' => array(
         'col1tabs' => ['Overview', 'In Depth', 'Opt In', 'Notes'],
-        'col2tabs' => ['purchases', 'tags'],
+        'col2tabs' => ['Purchases', 'Tags'],
     ),
 
     //The tabs for views/contacts/show.blade.php
@@ -132,7 +136,6 @@ return array(
         'col1tabs' => ['Details', 'Permissions'],
         //'col2tabs' => ['Purchases', 'Roles'],
     ),
-
 
     /*
     |--------------------------------------------------------------------------
@@ -471,9 +474,6 @@ return array(
         // End NOTES
     ),
 
-
-
-
     /*
     |--------------------------------------------------------------------------
     | Dropdowns
@@ -561,6 +561,18 @@ return array(
             'Standing Order' => 'Standing Order',
             'PayPal' => 'PayPal'
         ),
+
+        'seasons' => [
+            '2013/14' => '2013/14',
+            '2012/13' => '2012/13',
+            '2011/12' => '2011/12',
+            '2010/11' => '2010/11',
+            '2009/10' => '2009/10',
+            '2008/09' => '2008/09',
+            '2007/08' => '2007/08',
+            '2006/07' => '2006/07',
+            '2005/06' => '2005/06',
+        ],
 
         
         

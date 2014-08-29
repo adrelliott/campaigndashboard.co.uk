@@ -38,3 +38,17 @@ if ( ! function_exists('ownerInclude'))
     }
 
 }
+
+if ( ! function_exists('cleverLayout') )
+{
+
+    function cleverLayout(Illuminate\View\Factory $environment, array $vars, $name)
+    {
+        if (Request::isXmlHttpRequest())
+            return '';
+        else
+            return $environment->make($name, $vars)
+                ->render();
+    }
+
+}

@@ -12,10 +12,13 @@ use View, Auth;
  */
 
 
-/* Set up the global vars for the app */
-if ( Auth::user()->check() ) 
-    View::composer('*', 'Dashboard\Composers\AppComposer');
+// Set up the global vars for the app */
+    if ( Auth::user()->check() )
+    {
+        View::composer('*', 'Dashboard\Composers\AppComposer');
+    }
 
+/* Testing */
 View::composer('partials.vars.test', function($view)
 {
     $view->with('test1', 'hello');

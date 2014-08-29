@@ -1,4 +1,4 @@
-<?php namespace Dashboard\Dashboard;
+<?php namespace Dashboard\Homepage;
 
 use Route;
 

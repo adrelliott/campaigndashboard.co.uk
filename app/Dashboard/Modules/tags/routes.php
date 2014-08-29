@@ -2,7 +2,7 @@
 
 use Route, App;
 
-// Contacts
+// Tags
 Route::group(array(
     'prefix' => 'app', 
     'namespace' => 'Dashboard\Tags', 
@@ -10,11 +10,6 @@ Route::group(array(
     ), 
     function()
     {
-        // Route::resource('roles', 'RolesController');
-        // Route::resource('contacts', 'ContactsController');
-        // 
-        // 
-        //  DONT FORGET TO CHANGE 'enabled:false' IN module.json!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
+         Route::resource('tags', 'TagsController');
     }
 );

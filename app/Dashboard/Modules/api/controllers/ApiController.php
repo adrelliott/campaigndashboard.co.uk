@@ -1,8 +1,7 @@
 <?php namespace Dashboard\Api;
 
-use CrudController;
 
-class ApiController extends CrudController {
+class ApiController extends Controller {
 
     public function __construct($repo = NULL)
     {
@@ -16,8 +15,40 @@ class ApiController extends CrudController {
         return parent::index();
     }
 
+    public function show($id)
+    {
+       return 'Returning record ' . $id;
+    }
 
-      public function test($id = NULL)
+    public function create()
+    {
+        return 'Creating a new record'
+    }
+
+    public function update()
+    {
+        $this->model = $this->repo->all();
+        return parent::index();
+    }
+    public function destroy()
+    {
+        $this->model = $this->repo->all();
+        return parent::index();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function test($id = NULL)
     {
         $this->record = $this->getRelated(1, 'orderProducts', 'orderProducts.product')->toArray();
         dump(\DB::getQueryLog());

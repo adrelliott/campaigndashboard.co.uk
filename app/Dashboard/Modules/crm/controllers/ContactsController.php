@@ -1,8 +1,8 @@
 <?php namespace Dashboard\Crm;
 
-use CrudController;
-use Dashboard\Repositories\ContactRepositoryInterface as ModelInterface;
+use CrudController, View, Request, Input;
 use Dashboard\Crm\Mailchimp\EmailLists;
+use Dashboard\Repositories\SearchableContactRepositoryInterface as ModelInterface;
 
 class ContactsController extends CrudController {
 
@@ -18,6 +18,7 @@ class ContactsController extends CrudController {
         parent::__construct($repo);
 
         $this->emailLists = $emailLists;
+        View::share('newDatatables', TRUE);
     }
 
     public function addToList($id, $list = 'default')
@@ -27,7 +28,6 @@ class ContactsController extends CrudController {
         #Get the contact model
         #Now, get the id of the list
         #Use Listinterface to subscribe
-        
     }
 
 }

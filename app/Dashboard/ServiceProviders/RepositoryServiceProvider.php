@@ -40,6 +40,10 @@ class RepositoryServiceProvider extends ServiceProvider {
             'Dashboard\Repositories\EloquentContactRepository'
         );
         $this->app->bind(
+            'Dashboard\Repositories\SearchableContactRepositoryInterface',
+            'Dashboard\Repositories\EloquentSearchableContactRepository'
+        );
+        $this->app->bind(
             'Dashboard\Repositories\ContactRoleRepositoryInterface',
             'Dashboard\Repositories\EloquentContactRoleRepository'
         );

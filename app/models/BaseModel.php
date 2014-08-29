@@ -6,7 +6,7 @@
 use Magniloquent\Magniloquent\Magniloquent;
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
-class BaseModel extends Magniloquent {
+abstract class BaseModel extends Magniloquent {
 
     use SoftDeletingTrait;
 

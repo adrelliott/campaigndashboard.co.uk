@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'debug' => (getenv('APP_ENV') == 'local'),
+	'debug' => false,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -109,6 +109,7 @@ return array(
         'Dashboard\ServiceProviders\RepositoryServiceProvider',
         'Dashboard\ServiceProviders\HtmlServiceProvider',
         'Dashboard\ServiceProviders\EmailBroadcastServiceProvider',
+        'Dashboard\ServiceProviders\ViewServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
         'Former\FormerServiceProvider',
         'Way\Form\FormServiceProvider',

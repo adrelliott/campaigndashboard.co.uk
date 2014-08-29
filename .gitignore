@@ -3,6 +3,7 @@
 composer.phar
 .env.local.php
 .env.development.php
+.env.jamie.php
 .env.php
 .env_name.php
 .DS_Store

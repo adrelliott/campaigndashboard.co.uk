@@ -11,6 +11,11 @@ class ApiContactsController extends ApiController {
         parent::__construct($repo);
     }
 
+    public function update($id)
+    {
+        return 'yes';
+    }
+
     
 
     public function getOrderProducts($id)
