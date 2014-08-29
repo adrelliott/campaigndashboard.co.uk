@@ -15,6 +15,8 @@ Route::group(array(
         
         Route::get('reset', array( 'as' => 'me.reset', 'uses' => 'ResetsController@create' ));
         Route::post('reset', array( 'as' => 'me.reset', 'uses' => 'ResetsController@store' ));
+        Route::get('reset/form/{token}', array( 'as' => 'me.reset.form', 'uses' => 'ResetsController@edit' ));
+        Route::post('reset/form/{token}', array( 'as' => 'me.reset.form', 'uses' => 'ResetsController@update' ));
 
         Route::patch('/{id}/contact', array( 'as' => 'me.contact', 'uses' => 'ContactController@update', 'before' => 'auth.contactLogin' ));
         Route::get('/{id}', array( 'as' => 'me', 'uses' => 'ProfileController@show', 'before' => 'auth.contactLogin' ));

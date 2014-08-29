@@ -5,13 +5,19 @@ use McCool\LaravelAutoPresenter\PresenterInterface;
 use \Dashboard\Observers\ContactObserver;
 
 class Contact extends BaseModel implements PresenterInterface {
-    
+    const GENDER_MALE = 1;
+    const GENDER_FEMALE = 2;
+    const GENDER_OTHER = 3;
+
+    // Do not allow updating of these fields
+    protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at', 'owner_id'];
 
     // Wrap in a presenter (ShawnMcCool), or delete this line if no presenter required
     public $presenter = 'Dashboard\Crm\ContactPresenter';
 
     protected static $relationships = array(
-        'login' => array( 'hasOne', "\Dashboard\Me\ContactLogin" )
+        'login' => array( 'hasOne', "\Dashboard\Me\ContactLogin" ),
+        'tag_variants' => array( 'hasMany', "\Dashboard\Tags\TagVariant" ),
     );
     
     // Validation rules
@@ -24,6 +30,13 @@ class Contact extends BaseModel implements PresenterInterface {
         'create' => array(),
         'update' => array()
     );
+
+    public static function boot()
+    {
+        parent::boot();
+
+        Contact::observe(new ContactObserver);
+    }
 
     /**
      * Override here with the cols to return when doing an all() query
@@ -58,7 +71,11 @@ class Contact extends BaseModel implements PresenterInterface {
         return $this->belongsToMany('Dashboard\Tags\Tag')->onlyOwners();
     }
 
-    
+    public function tagging()
+    {
+        return $this->hasManyThrough('Dashboard\Tags\ContactTag')->onlyOwners();
+    }
+
     /**
      * Defines relationship of roles
      * @return obj 

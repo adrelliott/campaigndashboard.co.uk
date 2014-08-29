@@ -21,7 +21,7 @@ class SessionsController extends BaseController
     {
         $credentials = Input::only('email', 'password');
         $remember = (bool)Input::get('remember');
-
+        
         if ( Auth::contactLogin()->attempt($credentials, $remember) )
             return Redirect::intended(URL::route('me', array( 'id' => Auth::contactLogin()->get()->hash )));
 

@@ -295,6 +295,9 @@ class EloquentRepository implements RepositoryInterface {
         if ( Input::has('datatable') )
         {
             $this->datatableName = $name;
+
+            $this->q->limit(100);
+
             return $this->makeDatatable($queryType);
         }
         else return FALSE;

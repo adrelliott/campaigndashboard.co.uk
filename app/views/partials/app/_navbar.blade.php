@@ -53,7 +53,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="">
-                    <a href="#"><i class="fa fa-search "></i> Search</a>
+                    <a href="{{ URL::route('app.search') }}"><i class="fa fa-search "></i> Search</a>
                 </li>                
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">

@@ -20,9 +20,7 @@
             bLengthChange: false,
             aLengthMenu: [[5, 10, 25, 50], [5, 10, 25, 50]],
             aoColumnDefs: [],
-            bProcessing: true,
-            bServerSide: true,
-            sAjaxSource: ""
+            bProcessing: true
 
         };
 
@@ -88,9 +86,7 @@ console.log('o options', o);
 
 // console.log('o=', o);
 
-        var oTable = t.dataTable( $.extend( true, o, {
-            "bProcessing": true,
-        } ) );
+        var oTable = t.dataTable( o );
         //console.log(oTable);
         return oTable;
     };

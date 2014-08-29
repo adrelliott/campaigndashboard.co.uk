@@ -2,7 +2,7 @@
 
 namespace Dashboard\Sales;
 
-use Input, BaseModel;
+use Input, BaseModel, DB;
 
 class OrderProduct extends BaseModel {
 
@@ -22,7 +22,25 @@ class OrderProduct extends BaseModel {
     //     'contact_id' => 'required',
     // ); 
 
-    
+    public static function listsVariant($productId)
+    {
+        $query = DB::table('order_product')
+            ->select('variant')
+            ->distinct()
+            ->where('product_id', $productId)
+            ->whereNotNull('variant')
+            ->orderBy('variant');
+
+        with(new static)->scopeOnlyOwners($query);
+
+        $results = $query->get();
+        $list = [];
+
+        foreach ($results as $row)
+            $list[$row->variant] = $row->variant;
+
+        return $list;
+    }
 
     public function orders()
     {

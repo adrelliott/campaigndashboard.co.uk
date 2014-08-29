@@ -10,17 +10,21 @@
         "magniloquent/magniloquent": "dev-master",
         "creolab/laravel-modules": "dev-master",
 
-
         "way/generators": "1.1",
-         "loic-sharma/profiler": "dev-master",
+        "loic-sharma/profiler": "dev-master",
 
         "ollieread/multiauth": "dev-master",
-         "mailchimp/mailchimp": "2.0.*",
+
+        "mailchimp/mailchimp": "dev-master as 2.0.5",
 
         "ircmaxell/password-compat": "1.0.*",
         "way/form": "dev-master",
         "anahkiasen/former": "dev-master",
-        "laravelbook/ardent": "dev-master"
+        "laravelbook/ardent": "dev-master",
+        
+        "fzaninotto/faker": "dev-master",
+
+        "guzzlehttp/guzzle": "~4.0"
     },
     "autoload": {
         "classmap": [
@@ -33,7 +37,8 @@
             "app/tests/TestCase.php"
         ],
         "psr-0": {
-            "Dashboard": "app/"
+            "Dashboard": "app/",
+            "Frisk": "Frisk"
         }
     },
     "scripts": {

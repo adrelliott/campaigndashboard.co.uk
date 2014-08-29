@@ -1,9 +1,5 @@
 @extends('me::layouts.client')
 
-@section('page-title')
-<h1><i class="fa fa-lock"></i> None shall pass!</h1>
-@stop 
-
 @section('content')
 <div class="row">
     <div class="col-md-6">
@@ -42,7 +38,7 @@
             <br clear="both" />
             <br clear="both" />
 
-            <!-- <p><a href="{{ URL::route('me.reset') }}">Forgot your password?</a></p> -->
+            <p><a href="{{ URL::route('me.reset') }}">Forgot your password?</a></p>
 
         </div>
     </div>

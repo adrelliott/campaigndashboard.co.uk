@@ -66,6 +66,10 @@
         <!-- / Modal -->
 
         @include('partials.app.scripts._footer-' . $environment)
+
+        @section('end_of_page')
+            <!-- -->
+        @show
         
     </body>
 </html>

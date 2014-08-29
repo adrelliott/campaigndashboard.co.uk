@@ -13,9 +13,11 @@ class Product extends BaseModel {
     // public $autoHydrateEntityFromInput = true;    // hydrates on new entries' validation
     
     // Validation rules
-    public static $rules = array(
-        'product_name' => 'required',
-    ); 
+    // public static $rules = array(
+    //     'save' => array(
+    //         'product_name' => 'required',
+    //     )
+    // ); 
 
       /**
      * Connect the Orders table with the Products table via pivot order_product

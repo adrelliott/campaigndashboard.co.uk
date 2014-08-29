@@ -202,3 +202,24 @@ h4.radio-label {padding-right:20px;}
 /* Wysiwyg */
 .note-editable {background-color: #fff;}
 
+
+/* Search */
+
+#searchForm {
+    
+}
+
+#searchForm .productConditions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#searchForm .productConditions select {
+    display: inline;
+    width: inherit;
+}
+
+#searchForm .productConditions .addRemove {
+    margin-left: 5px;
+}

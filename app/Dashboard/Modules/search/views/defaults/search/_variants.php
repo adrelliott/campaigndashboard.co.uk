@@ -1,0 +1,1 @@
+<?= Form::select('', $variants, '', array( 'class' => 'triggerInputDropdown variantDropdown form-control' )) ?>

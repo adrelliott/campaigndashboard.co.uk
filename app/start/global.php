@@ -134,3 +134,4 @@ require app_path().'/bladeExtensions.php';
 require app_path().'/Dashboard/Helpers/debugHelpers.php';
 require app_path().'/Dashboard/Helpers/arrayHelpers.php';
 require app_path().'/Dashboard/Helpers/tableHelpers.php';
+require app_path().'/Dashboard/Helpers/viewHelpers.php';

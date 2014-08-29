@@ -186,6 +186,23 @@ return array(
             'tableTemplate' => 'partials.app._indexTable',
         ),
 
+        'contacts_search' => array(  //The table displayed on contacts/index
+            'options' => array(
+                'addColumn' => array('ID', 'First Name', 'Last Name'),
+                'setOptions' => array(
+                    //'sPaginationType' => 'bootstrap',
+                    // 'iDisplayLength' => 10,
+                    // 'bLengthChange' => false,
+//                    'order' => '[[0, "desc" ]]',
+                ),
+                'setCustomValues' => array(
+                    'showid' => true,
+                    'idisplaylength' => 5,
+                ),
+            ),
+            'tableTemplate' => 'partials.app._indexTable',
+        ),
+
         'notes_table' => array(  //The table displayed on contacts/edit --> notes tab
             'options' => array(
                 'setUrl' => '/api/contacts/%id%/notes?datatable=true&cols=id,note_title,created_at&orderby=created_at&orderdirection=desc',
