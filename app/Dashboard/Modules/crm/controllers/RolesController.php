@@ -35,7 +35,8 @@ class RolesController extends CrudController {
         return $this->render($this->classAttributes[2] . '._row_json')
             ->withTotal($total)
             ->withDraw((int)Input::get('draw'))
-            ->withResults($results);
+            ->withResults($results)
+            ->withContact($contact);
     }
 
     public function create()

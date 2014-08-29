@@ -144,29 +144,7 @@ Givusa Street')->label('Address Line 1') }}
 @stop
 
 @section('roles')
-    <div class="withDataTable">
-        <h3 class="text-primary"><i class="fa fa-group"></i> Roles</h3>
-
-        <div class="table-responsive clearfix">
-            <table class="table table-striped table-bordered table-hover dataTable" data-config="rolesTable">
-                <thead>
-                    <tr>
-                        <th>Role Name</th>
-                        <th>Start date</th>
-                        <th>End Date</th>
-                    </tr>
-                </thead>
-
-                <tbody></tbody>
-            </table>
-        </div>
-
-        <div class="pull-right margin_top_15" style="margin-top:10px">
-            <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.contacts.roles.create', array('contact_id' => $model->id)) }}" data-view="show_modal" >
-                <i class="fa fa-plus"></i> Create New Role
-            </a>
-        </div>
-    </div>
+    @ownerInclude('crm::contacts.tabs.roles')
 @stop
 
 @section('tags')
@@ -200,25 +178,3 @@ Givusa Street')->label('Address Line 1') }}
     @include('partials.common._modal', array('modalTitle' => $model->fullName))
 {{-- dump($model) --}}
 @stop
-
-
-@section('end_of_page')
-    <script type="text/javascript">
-        window.dataTableConfig['rolesTable'] = function()
-        {
-            return {
-                paging: false,
-                columns: [
-                    { name: 'role', data: 'role' },
-                    { name: 'start', data: 'start', defaultContent: '' },
-                    { name: 'end', data: 'end', defaultContent: '' }
-                ],
-                serverSide: true,
-                ajax: {
-                    url: '<?= URL::route("app.contacts.roles.index", $model->id) ?>'
-                }
-            };
-        };
-    </script>
-@stop
-
