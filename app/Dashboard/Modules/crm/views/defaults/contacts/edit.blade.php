@@ -166,7 +166,6 @@ Givusa Street')->label('Address Line 1') }}
                 <i class="fa fa-plus"></i> Create New Role
             </a>
         </div>
-        <pre style="clear:both">When the form in the modal window submits, this table refreshes</pre>
     </div>
 @stop
 

@@ -38,8 +38,4 @@
         </div>   
 
     {{ Former::close() }}
-
-    <div class="form-group ">
-        <p class="help-block"><strong>Just so you know...</strong> your name & the time/date will be auto-stamped on this note.</p>
-    </div>
 @stop
