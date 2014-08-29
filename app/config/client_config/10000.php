@@ -510,20 +510,20 @@ return array(
             'Dr' => 'Dr',
         ),
 
-        // Roles
-//        'roles' => array(
-//            '' => '',
-//            'Volunteer (Office)' => 'Volunteer (Office)',
-//            'Volunteer (Matchday)' => 'Volunteer (Matchday)',
-//            'Paid Office Staff' => 'Paid Office Staff',
-//            'Community Staff' => 'Community Staff',
-//            'Board Member' => 'Board Member',
-//            'External Supplier' => 'External Supplier',
-//            'Coaching/Backroom Staff' => 'Coaching/Backroom Staff',
-//            '1st Team Player' => '1st Team Player',
-//            'Youth Team Player' => 'Youth Team Player',
-//            'Women\'s Team Player' => 'Women\'s Team Player'
-//        ),
+       //  // Roles
+       // 'roles' => array(
+       //     '' => '',
+       //     'Volunteer (Office)' => 'Volunteer (Office)',
+       //     'Volunteer (Matchday)' => 'Volunteer (Matchday)',
+       //     'Paid Office Staff' => 'Paid Office Staff',
+       //     'Community Staff' => 'Community Staff',
+       //     'Board Member' => 'Board Member',
+       //     'External Supplier' => 'External Supplier',
+       //     'Coaching/Backroom Staff' => 'Coaching/Backroom Staff',
+       //     '1st Team Player' => '1st Team Player',
+       //     'Youth Team Player' => 'Youth Team Player',
+       //     'Women\'s Team Player' => 'Women\'s Team Player'
+       // ),
 
 
 

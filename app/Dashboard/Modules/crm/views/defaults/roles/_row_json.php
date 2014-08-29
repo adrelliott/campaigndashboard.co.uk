@@ -13,8 +13,8 @@ foreach($results as $row)
         
         // Row data
         'role' => $row->role,
-        'start' => $row->pivot->start,
-        'end' => $row->pivot->end,
+        'start' => substr($row->pivot->start, 0, 10),
+        'end' => substr($row->pivot->end, 0, 10),
         
     );
 }

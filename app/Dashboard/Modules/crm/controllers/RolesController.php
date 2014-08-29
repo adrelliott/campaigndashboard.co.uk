@@ -15,10 +15,11 @@ class RolesController extends CrudController {
     public function index()
     {
         $contactId = func_get_arg(0);
+        $contact = $this->repo->find($contactId);
+
         $this->fireEvent();
         
         $options = with( new DatatableService(Input::getFacadeApplication()['request'], $this->repo) )->fetchOptions();
-        $contact = $this->repo->find($contactId);
 
         $query = $contact->roles()
             ->orderBy($options['order'], $options['dir']);
@@ -35,5 +36,27 @@ class RolesController extends CrudController {
             ->withTotal($total)
             ->withDraw((int)Input::get('draw'))
             ->withResults($results);
+    }
+
+    public function create()
+    {
+        $contactId = func_get_arg(0);
+        $contact = $this->repo->find($contactId);
+        $roles = Role::onlyOwners()->lists('role');
+
+        return $this->renderView()
+            ->withContact($contact)
+            ->withRoles($roles);
+    }
+
+    public function store()
+    {
+        $contactId = func_get_arg(0);
+        $roleId = Input::get('role_id');
+
+        $contact = $this->repo->find($contactId);
+        $role = Role::find($roleId);
+
+        $contact->roles()->attach($role, Input::only( 'season', 'notes', 'start', 'end' ));
     }
 }

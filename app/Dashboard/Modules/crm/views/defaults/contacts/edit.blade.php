@@ -144,28 +144,30 @@ Givusa Street')->label('Address Line 1') }}
 @stop
 
 @section('roles')
-    <h3 class="text-primary"><i class="fa fa-group"></i> Roles</h3>
+    <div class="withDataTable">
+        <h3 class="text-primary"><i class="fa fa-group"></i> Roles</h3>
 
-    <div class="table-responsive clearfix">
-        <table class="table table-striped table-bordered table-hover dataTable" data-config="rolesTable">
-            <thead>
-                <tr>
-                    <th>Role Name</th>
-                    <th>Start date</th>
-                    <th>End Date</th>
-                </tr>
-            </thead>
+        <div class="table-responsive clearfix">
+            <table class="table table-striped table-bordered table-hover dataTable" data-config="rolesTable">
+                <thead>
+                    <tr>
+                        <th>Role Name</th>
+                        <th>Start date</th>
+                        <th>End Date</th>
+                    </tr>
+                </thead>
 
-            <tbody></tbody>
-        </table>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div class="pull-right margin_top_15" style="margin-top:10px">
+            <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.contacts.roles.create', array('contact_id' => $model->id)) }}" data-view="show_modal" >
+                <i class="fa fa-plus"></i> Create New Role
+            </a>
+        </div>
+        <pre style="clear:both">When the form in the modal window submits, this table refreshes</pre>
     </div>
-
-    <div class="pull-right margin_top_15" style="margin-top:10px">
-        <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.contacts.roles.create', array('contact_id' => $model->id)) }}" data-view="show_modal" >
-            <i class="fa fa-plus"></i> Create New Role
-        </a>
-    </div>
-    <pre style="clear:both">When the form in the modal window submits, this table refreshes</pre>
 @stop
 
 @section('tags')
