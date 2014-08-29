@@ -2,6 +2,7 @@
 
 use CrudController, View, Request, Input;
 use Dashboard\Crm\Mailchimp\EmailLists;
+use Dashboard\Tags\Tag;
 use Dashboard\Repositories\SearchableContactRepositoryInterface as ModelInterface;
 
 class ContactsController extends CrudController {
@@ -19,6 +20,19 @@ class ContactsController extends CrudController {
 
         $this->emailLists = $emailLists;
         View::share('newDatatables', TRUE);
+    }
+
+    public function edit($id)
+    {
+        $view = parent::edit($id);
+
+        $allTags = Tag::forJson();
+        $tags = $this->model->tags;
+
+        return $view->with(array(
+            'allTags' => $allTags,
+            'tags' => $tags,
+        ));
     }
 
     public function addToList($id, $list = 'default')

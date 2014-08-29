@@ -2,27 +2,6 @@
  * search.js – handles UI interactions on the search form page
  */
 
-window.taggingInput = function ( availableTags )
-{
-    var tags = new Bloodhound({
-        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('label'),
-        queryTokenizer: Bloodhound.tokenizers.whitespace,
-        local: availableTags
-    });
-    tags.initialize();
-
-    $('.taggingInput').tagsinput({
-      itemValue: 'value',
-      itemText: 'label',
-
-      typeaheadjs: {
-        name: 'tags',
-        displayKey: 'label',
-        source: tags.ttAdapter()
-      }
-    });
-}
-
 $(function()
 {
     function updateValue ( condition )

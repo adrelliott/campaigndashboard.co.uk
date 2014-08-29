@@ -70,7 +70,7 @@
         @include('partials.app.scripts._footer-' . $environment)
 
         @section('end_of_page')
-            <!-- -->
+            <!-- end of page -->
         @show
         
     </body>

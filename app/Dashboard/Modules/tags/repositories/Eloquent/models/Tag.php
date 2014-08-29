@@ -11,11 +11,15 @@ class Tag extends BaseModel {
     protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at', 'owner_id'];
     public $presenter = 'Dashboard\Tags\TagPresenter';
 
-    public static function forJson()
+    public static function forJson(callable $callback = null)
     {
         $tags = DB::table('tags')
             ->select(DB::raw('tag_title AS label, id AS value'));
         with(new static)->scopeOnlyOwners($tags);
+
+        if ($callback)
+            $callback($tags);
+
         $tags = $tags->get();
 
         return $tags;

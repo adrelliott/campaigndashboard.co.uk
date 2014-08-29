@@ -1,13 +1,31 @@
 // var editor;  
 (function($) {
 
-    console.log('here we go');
-    
+    window.taggingInput = function ( availableTags )
+    {
+        var tags = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('label'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            local: availableTags
+        });
+        tags.initialize();
+
+        var input = $('.taggingInput');
+        input.tagsinput({
+          itemValue: 'value',
+          itemText: 'label',
+
+          typeaheadjs: {
+            name: 'tags',
+            displayKey: 'label',
+            source: tags.ttAdapter()
+          }
+        });
+
+        return input;
+    }    
     /* Save forms using ajax */
     //see form.js
-
-
-
 
     /* Run Modal 'Do you really want to do this?' check */
     $(document).on( 'click', '.confirmation-check', function(e) {
@@ -91,13 +109,6 @@
 
     /* Fade a message out after 5 seconds */
     $(".fade-out").delay(1000).fadeOut('slow')
-
- 
-
-
-
-console.log('all done');
-
-$('.wysihtml5').summernote({focus: true, height: 300});
+    $('.wysihtml5').summernote({focus: true, height: 300});
 
 })(jQuery);

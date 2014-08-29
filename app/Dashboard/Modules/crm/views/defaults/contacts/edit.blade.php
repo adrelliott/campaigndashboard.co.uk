@@ -148,30 +148,7 @@ Givusa Street')->label('Address Line 1') }}
 @stop
 
 @section('tags')
-    <h3 class="text-primary"><i class="fa fa-tags"></i> Tags</h3>
-
-    <div class="table-responsive clearfix">
-        <table class="table table-striped table-bordered table-hover dataTable___XXXXXXXX">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Tag Name</th>
-                    <th>Date Applied</th>
-                </tr>
-            </thead>
-
-            <tbody></tbody>
-        </table>
-    </div>
-
-    <div class="pull-right margin_top_15" style="margin-top:10px">
-        <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.tags.create',
-        array('contact_id' => $model->id)) }}" data-view="show_modal" >
-            <i class="fa fa-plus"></i> Add New Tag
-        </a>
-    </div>
-    <pre style="clear:both">When the form in the modal window submits, this table refreshes</pre>
-
+    @ownerInclude('crm::contacts.tabs.tags')
 @stop
 
 @section('modal')

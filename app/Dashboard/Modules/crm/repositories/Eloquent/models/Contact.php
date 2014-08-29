@@ -68,7 +68,7 @@ class Contact extends BaseModel implements PresenterInterface {
      */
     public function tags()
     {
-        return $this->belongsToMany('Dashboard\Tags\Tag')->onlyOwners();
+        return $this->belongsToMany('Dashboard\Tags\Tag', 'contact_tag', 'contact_id')->onlyOwners('contact_tag');
     }
 
     public function tagging()

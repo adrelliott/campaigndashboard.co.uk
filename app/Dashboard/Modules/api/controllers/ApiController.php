@@ -22,7 +22,7 @@ class ApiController extends Controller {
 
     public function create()
     {
-        return 'Creating a new record'
+        return 'Creating a new record';
     }
 
     public function update()
