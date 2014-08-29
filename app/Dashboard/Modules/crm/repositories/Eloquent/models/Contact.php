@@ -83,9 +83,8 @@ class Contact extends BaseModel implements PresenterInterface {
     public function roles()
     {
         return $this->belongsToMany('Dashboard\Crm\Role')
-                    ->withPivot('role_variant', 'role_start_date', 'role_end_date')
-                    ->withTimestamps()
-                    ->onlyOwners('contact_role');
+                    ->withPivot('notes', 'season', 'start', 'end')
+                    ->withTimestamps();
     }
 
     /**

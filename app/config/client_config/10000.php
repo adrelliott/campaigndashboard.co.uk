@@ -128,7 +128,7 @@ return array(
    //The tabs for views/contacts/show.blade.php
     'contactsshow' => array(
         'col1tabs' => ['Overview', 'In Depth', 'Opt In', 'Notes'],
-        'col2tabs' => ['Purchases', 'Tags'],
+        'col2tabs' => ['Purchases', 'Tags', 'Roles'],
     ),
 
     //The tabs for views/contacts/show.blade.php

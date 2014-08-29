@@ -147,7 +147,7 @@ Givusa Street')->label('Address Line 1') }}
     <h3 class="text-primary"><i class="fa fa-group"></i> Roles</h3>
 
     <div class="table-responsive clearfix">
-        <table class="table table-striped table-bordered table-hover dataTable___xxxx">
+        <table class="table table-striped table-bordered table-hover dataTable" data-config="rolesTable">
             <thead>
                 <tr>
                     <th>Role Name</th>
@@ -161,7 +161,7 @@ Givusa Street')->label('Address Line 1') }}
     </div>
 
     <div class="pull-right margin_top_15" style="margin-top:10px">
-        <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.roles.create', array('contact_id' => $model->id)) }}" data-view="show_modal" >
+        <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.contacts.roles.create', array('contact_id' => $model->id)) }}" data-view="show_modal" >
             <i class="fa fa-plus"></i> Create New Role
         </a>
     </div>
@@ -203,26 +203,21 @@ Givusa Street')->label('Address Line 1') }}
 
 @section('end_of_page')
     <script type="text/javascript">
-        // Need to do this for each datatable
-        function dataTableConfig()
+        window.dataTableConfig['rolesTable'] = function()
         {
             return {
-                searching: true,
+                paging: false,
                 columns: [
-                    { name: 'id', data: 'id' },
-                    { name: 'first_name', data: 'first_name' },
-                    { name: 'last_name', data: 'last_name', defaultContent: '' },
-                    { name: 'email', data: 'email', defaultContent: '' },
-                    { name: 'phone', data: 'landline', defaultContent: '', orderable: false },
-                    { name: 'mobile_phone', data: 'mobile', defaultContent: '', orderable: false }
+                    { name: 'role', data: 'role' },
+                    { name: 'start', data: 'start', defaultContent: '' },
+                    { name: 'end', data: 'end', defaultContent: '' }
                 ],
                 serverSide: true,
                 ajax: {
-                    // method: 'post',
-                    url: '<?= URL::route("app.contacts.index") ?>'
+                    url: '<?= URL::route("app.contacts.roles.index", $model->id) ?>'
                 }
             };
-        }
+        };
     </script>
 @stop
 
