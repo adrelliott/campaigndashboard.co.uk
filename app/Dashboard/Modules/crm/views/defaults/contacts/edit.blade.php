@@ -155,3 +155,17 @@ Givusa Street')->label('Address Line 1') }}
     @include('partials.common._modal', array('modalTitle' => $model->fullName))
 {{-- dump($model) --}}
 @stop
+
+@section('end_of_page')
+<script type="text/javascript">
+$(function()
+{
+    var prices = <?= json_encode($productPrices) ?>;
+
+    $(document).on('change', '#modal select[name^="_order_product[product_id]"]', function()
+    {
+        $(this).parents('tr').find('input[id^="_order_product[price]"]').val(prices[$(this).val()]);
+    });
+});
+</script>
+@append

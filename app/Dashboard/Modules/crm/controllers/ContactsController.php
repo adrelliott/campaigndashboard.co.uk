@@ -3,6 +3,7 @@
 use CrudController, View, Request, Input;
 use Dashboard\Crm\Mailchimp\EmailLists;
 use Dashboard\Tags\Tag;
+use Dashboard\Sales\Product;
 use Dashboard\Repositories\SearchableContactRepositoryInterface as ModelInterface;
 
 class ContactsController extends CrudController {
@@ -28,10 +29,13 @@ class ContactsController extends CrudController {
 
         $allTags = Tag::forJson();
         $tags = $this->model->tags;
+        $productPrices = Product::onlyOwners()
+            ->lists('product_price', 'id');
 
         return $view->with(array(
             'allTags' => $allTags,
             'tags' => $tags,
+            'productPrices' => $productPrices
         ));
     }
 
