@@ -9,14 +9,17 @@ $array = array(
 
 foreach($results as $row)
 {
+    $editUrl = URL::route('app.contacts.roles.edit', [ 'contacts' => $contact->id, 'roles' => $row->id ]);
+    $deleteUrl = URL::route('app.contacts.roles.destroy', [ 'contacts' => $contact->id, 'roles' => $row->id ]);
+
     $array['data'][] = array(
         
         // Row data
         'role' => $row->role,
         'start' => substr($row->pivot->start, 0, 10),
         'end' => substr($row->pivot->end, 0, 10),
-        // 'edit' => HTML::link(URL::route('app.contacts.roles.edit', $row->contact_id, $row->role_id), 'Edit'),
-        'delete' => '<a href="' . URL::route('app.contacts.roles.destroy', [ 'contacts' => $contact->id, 'roles' => $row->id ]) . '" data-method="delete"><i class="fa fa-times"></a>',
+        'edit' => '<a href="' . $editUrl . '" class="open-modal" modal-source="' . $editUrl . '"><i class="fa fa-pencil"></a>',
+        'delete' => '<a href="' . $deleteUrl . '" data-method="delete"><i class="fa fa-times"></a>',
         
     );
 }

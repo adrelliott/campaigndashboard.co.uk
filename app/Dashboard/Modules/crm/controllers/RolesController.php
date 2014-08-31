@@ -43,7 +43,7 @@ class RolesController extends CrudController {
     {
         $contactId = func_get_arg(0);
         $contact = $this->repo->find($contactId);
-        $roles = Role::onlyOwners()->lists('role');
+        $roles = Role::onlyOwners()->lists('role', 'id');
 
         return $this->renderView()
             ->withContact($contact)
@@ -59,6 +59,39 @@ class RolesController extends CrudController {
         $role = Role::find($roleId);
 
         $contact->roles()->attach($role, Input::only( 'season', 'notes', 'start', 'end' ));
+
+        return Response::json([ 'success' => TRUE ]);
+    }
+
+    public function edit($contactId)
+    {
+        $roleId = func_get_arg(1);
+        $contact = $this->repo->find($contactId);
+        $role = $contact->roles()->wherePivot('role_id', $roleId)->firstOrFail();
+        $roles = Role::onlyOwners()->lists('role', 'id');
+
+        return $this->renderView()
+            ->withContact($contact)
+            ->withRoles($roles)
+            ->withRole($role)
+            ->withEdit(TRUE);
+    }
+
+    public function update($contactId)
+    {
+        $roleId = Input::get('old_role_id');
+        $contact = $this->repo->find($contactId);
+
+        // If the old role ID doesn't match the new one, we need to detach
+        if ( $roleId != Input::get('role_id') )
+        {
+            $role = Role::find(Input::get('role_id'));
+
+            $contact->roles()->detach($roleId);
+            $contact->roles()->attach($role, Input::only( 'season', 'notes', 'start', 'end' ));
+        }
+        else
+            $contact->roles()->updateExistingPivot($roleId, Input::only( 'season', 'notes', 'start', 'end' ));
 
         return Response::json([ 'success' => TRUE ]);
     }

@@ -50,12 +50,17 @@ $(function()
     // may have updated a row (and we want to reflect that in the table)
     $('#modal').on('hidden.bs.modal', function()
     {
-        $(this).data('attachedTable').draw();
+        $this = $(this);
+
+        setTimeout(function()
+        {
+            $this.data('attachedTable').draw();
+        }, 500);
     });
 
     // If we're within a <div> that contains a datatable and we click on a show modal link,
     // we should store that table instance on the modal so we know what to refresh on close.
-    $('.withDataTable a[data-view="show_modal"]').click(function()
+    $(document).on('click', '.withDataTable a[data-view="show_modal"], .withDataTable a.open-modal', function()
     {
         $('#modal').data('attachedTable', $(this).parents('.withDataTable').find('.dataTable').DataTable());
     });
