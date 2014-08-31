@@ -8,8 +8,8 @@
                     <th>Role Name</th>
                     <th>Start date</th>
                     <th>End Date</th>
-                    <!-- <th></th>
-                    <th></th> -->
+                    <!-- <th></th> -->
+                    <th></th>
                 </tr>
             </thead>
 
@@ -35,7 +35,7 @@
                     { name: 'start', data: 'start', defaultContent: '' },
                     { name: 'end', data: 'end', defaultContent: '' },
                     // { name: 'edit', data: 'edit', defaultContent: '' },
-                    // { name: 'delete', data: 'delete', defaultContent: '' },
+                    { name: 'delete', data: 'delete', defaultContent: '', sortable: false },
                 ],
                 serverSide: true,
                 ajax: {

@@ -52,8 +52,28 @@
         return false;
     });
 
+    /**
+     * When the user clicks on an anchor with data-method set, we need to post it as a form
+     */
+    $(document).on( 'click', 'a[data-method]', function(e)
+    {
+        e.preventDefault();
 
+        var $form = $('<form>', {
+            'method': 'POST',
+            'action': $(this).attr('href')
+        });
 
+        var $hiddenInput = $('<input>', {
+            'name': '_method',
+            'type': 'hidden',
+            'value': $(this).data('method')
+        });
+
+        $form.append($hiddenInput)
+            .appendTo('body')
+            .submit();
+    });
 
     /* Add rows to a table (used for searches, order forms etc) */
     $(document).on( 'click', '.add_row', function(e) {

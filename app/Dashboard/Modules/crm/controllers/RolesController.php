@@ -1,6 +1,6 @@
 <?php namespace Dashboard\Crm;
 
-use CrudController, Input;
+use CrudController, Input, Request, Response, Redirect;
 use Dashboard\Repositories\ContactRepositoryInterface as ModelInterface;
 use Dashboard\Services\DatatableService;
 
@@ -59,5 +59,21 @@ class RolesController extends CrudController {
         $role = Role::find($roleId);
 
         $contact->roles()->attach($role, Input::only( 'season', 'notes', 'start', 'end' ));
+
+        return Response::json([ 'success' => TRUE ]);
+    }
+
+    public function destroy($contactId)
+    {
+        $roleId = func_get_arg(1);
+        $contact = $this->repo->find($contactId);
+
+        $contact->roles()->detach($roleId);
+
+        if ( Request::wantsJson() )
+            return Response::json([ 'success' => TRUE ]);
+        else
+            return Redirect::route( 'app.contacts.edit', $contactId )
+                ->withSuccess("Successfully removed role"); 
     }
 }
