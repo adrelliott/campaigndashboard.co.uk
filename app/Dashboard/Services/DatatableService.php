@@ -15,18 +15,18 @@ class DatatableService
     {
         $options = $this->fetchOptions();
         $query = $this->repo
-            ->take($options['limit'])
-            ->skip($options['skip'])
             ->orderBy($options['order'], $options['dir']);
 
         if ($options['search'])
             $query->searchColumns($options['search'], $options['columns']);
 
         $count = clone $query;
-
-        $results = $query->get();
         $total = $count->count();
 
+        $results = $query->take($options['limit'])
+            ->skip($options['skip'])
+            ->get();
+        
         return array( $results, $total );
     }
 
