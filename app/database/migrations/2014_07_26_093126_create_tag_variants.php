@@ -23,4 +23,14 @@ class CreateTagVariants extends Migration {
 		});
 	}
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('tag_variants');
+    }
+
 }

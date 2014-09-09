@@ -22,7 +22,7 @@ return array(
     ),
 
     'orders' => array(
-        'label' => 'orders',
+        'label' => 'order',
     ),
 
     'logos' => array(

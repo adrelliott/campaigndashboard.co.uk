@@ -41,7 +41,11 @@ $('form.modal-ajax-form').on('submit', function(e) {
     }, 1800);
 
     // refresh the tables
+
+    /****************** Should I add the timeout here? *******/
+
     $('table.'+tableId+'_table').dataTable().fnDraw();
+
 
     return false;
 });

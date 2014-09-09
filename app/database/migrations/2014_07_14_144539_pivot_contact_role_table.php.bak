@@ -17,12 +17,30 @@ class PivotContactRoleTable extends Migration {
 			$table->integer('contact_id')->unsigned()->index();
 			$table->integer('role_id')->unsigned()->index();
             $table->integer('owner_id')->unsigned()->index();
-            
+
+
+            $table->text('notes');
+            $table->string('season');
+
+            $table->datetime('start');
+            $table->datetime('end');
+
+
             $table->timestamps();
             $table->softDeletes();
             
 			$table->foreign('contact_id')->references('id')->on('contacts')->onDelete('cascade');
 			$table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+
+
+
+
+//            $table->integer('contact_id')->index();
+//            $table->integer('role_id')->index();
+
+
+//            $table->timestamps();
+
 		});
 	}
 

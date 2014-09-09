@@ -12,14 +12,14 @@ class CreateRoles extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('roles', function(Blueprint $table)
-		{
-			$table->increments('id');
-			$table->integer('owner_id')->index();
-			$table->string('role')->index();
-			
-			$table->timestamps();
-		});
+//		Schema::create('roles', function(Blueprint $table)
+//		{
+//			$table->increments('id');
+//			$table->integer('owner_id')->index();
+//			$table->string('role')->index();
+//
+//			$table->timestamps();
+//		});
 
 		Schema::create('contact_role', function(Blueprint $table)
 		{
@@ -43,7 +43,7 @@ class CreateRoles extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('roles');
+//		Schema::drop('roles');
 		Schema::drop('contact_role');
 	}
 

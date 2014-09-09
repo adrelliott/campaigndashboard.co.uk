@@ -43,11 +43,11 @@
 
 @section('contacts')
     <h1>
-        <i class="fa fa-user"></i> Your {{-- $config['contacts']['label'] --}}s
+        <i class="fa fa-user"></i> Your {{ $config['contacts']['label'] }}s
     </h1>
 
     <div class="table-responsive clearfix">
-        <table class="table table-striped table-bordered table-hover dataTable">
+        <table class="table table-striped table-bordered table-hover dataTable" data-config="dtContactsConfig">
             <thead>
             <tr>
                 <th></th>
@@ -70,13 +70,32 @@
 @stop
 
 @section('orders')
+    <h1>
+        <i class="fa fa-user"></i> Your {{ $config['orders']['label'] }}s
+    </h1>
 
+    <div class="table-responsive clearfix">
+        <table class="table table-striped table-bordered table-hover dataTable" data-config="dtOrdersConfig">
+            <thead>
+            <tr>
+                <th></th>
+                <th>First Name</th>
+            </tr>
+            </thead>
+
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div class="row">
+        <a href="/app/contacts/create" class="btn btn-primary btn-lg pull-right"><i class="fa fa-plus"></i> Create New {{ $config['orders']['label'] }}</a>
+    </div>
 @stop
 
 
 @section('end_of_page')
 <script type="text/javascript">
-    function dataTableConfig()
+    contactsConfig = function()
     {
         return {
             searching: true,
@@ -94,6 +113,24 @@
                 url: '<?= URL::route("app.contacts.index") ?>'
             }
         };
-    }
+    };
+     ordersConfig = function()
+        {
+            return {
+                searching: true,
+                columns: [
+                    { name: 'id', data: 'id' },
+                    { name: 'first_name', data: 'first_name' }
+                ],
+                serverSide: true,
+                ajax: {
+                    // method: 'post',
+                    url: '<?= URL::route("app.contacts.index") ?>'
+                }
+            };
+        };
+
+    window.dataTableConfig['dtContactsConfig'] = contactsConfig;
+    window.dataTableConfig['dtOrdersConfig'] = ordersConfig;
 </script>
 @stop

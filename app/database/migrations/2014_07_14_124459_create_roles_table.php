@@ -14,12 +14,18 @@ class CreateRolesTable extends Migration {
     {
         Schema::create('roles', function(Blueprint $table) {
             $table->increments('id');
-            $table->string('role_name');
-            // $table->date('role_start');
-            // $table->date('role_end');
-            $table->text('role_description');
+            $table->integer('owner_id')->index();
+            $table->string('role')->index();
+
             $table->timestamps();
             $table->softDeletes();
+//            $table->increments('id');
+//            $table->string('role_name');
+//            // $table->date('role_start');
+//            // $table->date('role_end');
+//            $table->text('role_description');
+//            $table->timestamps();
+//            $table->softDeletes();
         });
     }
 

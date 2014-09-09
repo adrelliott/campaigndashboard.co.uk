@@ -55,7 +55,7 @@ $(function()
         setTimeout(function()
         {
             $this.data('attachedTable').draw();
-        }, 500);
+        }, 1000);
     });
 
     // If we're within a <div> that contains a datatable and we click on a show modal link,
