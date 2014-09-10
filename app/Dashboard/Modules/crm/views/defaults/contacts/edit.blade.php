@@ -153,54 +153,11 @@
 @stop
 
 @section('notes')
-    <h3 class="text-primary"><i class="fa fa-book"></i> Notes</h3>
-
-    <div class="table-responsive clearfix">
-        <table class="table table-striped table-bordered table-hover dataTable___xxxx">
-            <thead>
-                <tr>
-                    <th>Note</th>
-                    <th>Timestamp</th>
-                </tr>
-            </thead>
-
-            <tbody></tbody>
-        </table>
-    </div>
-
-    <div class="pull-right margin_top_15" style="margin-top:10px">
-        <a class="btn btn-primary open-modal " href="#" modal-source="{{URL::route('app.notes.create', array('contact_id' => $model->id)) }}" data-view="show_modal" >
-            <i class="fa fa-plus"></i> Create New Note
-        </a>
-    </div>
-    <pre style="clear:both">When the form in the note modal window is submitted, this table refreshes</pre>
+    @ ownerInclude('crm::contacts.tabs.notes')
 @stop
 
 @section('purchases')
-    <h3 class="text-primary"><i class="fa fa-gbp"></i> Purchases</h3>
-
-    <div class="table-responsive clearfix">
-        <table class="table table-striped table-bordered table-hover dataTable___xxxx">
-            <thead>
-                <tr>
-                    <th>Order Id</th>
-                    <th>Product</th>
-                    <th>Qty</th>
-                    <th>£ Total</th>
-                </tr>
-            </thead>
-
-            <tbody></tbody>
-        </table>
-    </div>
-
-    <div class="pull-right margin_top_15" style="margin-top:10px">
-        <a class="btn btn-primary pull-right open-modal" href="#" modal-source="{{ URL::route('app.orders.create', array('contact_id' => $model->id)) }}" data-view="show_modal" >
-            <i class="fa fa-plus"></i> Create New Order
-        </a>
-    </div>
-    <pre style="clear:both">//This table is a join query that retrieves the order items for this contact,
-        ->with('order_id). When the form in the modal is submitted, then this table refreshes</pre>
+    @ownerInclude('crm::contacts.tabs.purchases')
 @stop
 
 @section('roles')

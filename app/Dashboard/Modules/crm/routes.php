@@ -19,7 +19,7 @@ Route::group(array(
         Route::resource('contacts', 'ContactsController');
         Route::resource('contacts.roles', 'RolesController');
         Route::resource('actions', 'ActionsController');
-        Route::resource('notes', 'NotesController');
+        Route::resource('contacts.notes', 'NotesController');
 
         Route::post('contacts/storeRole', array('as' => 'app.contacts.storeRole', 'uses' => 'ContactsController@storeRole'));
     }

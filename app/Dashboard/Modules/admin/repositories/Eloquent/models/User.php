@@ -1,6 +1,4 @@
-<?php
-
-namespace Dashboard\Admin;
+<?php namespace Dashboard\Admin;
 
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
