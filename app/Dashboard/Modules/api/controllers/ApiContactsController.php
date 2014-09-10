@@ -13,6 +13,13 @@ class ApiContactsController extends ApiController {
      */
     protected $contactTransformer;
 
+    // This shuld be in the trasnformer or the validation class
+    public $allowable =  ['first_name', 'last_name', 'nickname', 'email', 'email2', 'mobile_phone', 'home_phone',
+    'work_phone',
+        'overseas_phone', 'address1', 'company', 'address2', 'address3', 'city', 'postcode', 'county', 'country',
+        'legacy_id', 'record_type', 'gender', 'date_of_birth', 'twitter_id', 'optin_email', 'optin_sms', 'optin_post'];
+
+
     function __construct(contactTransformer $contactTransformer)
     {
         $this->contactTransformer = $contactTransformer;
@@ -51,7 +58,6 @@ class ApiContactsController extends ApiController {
 	 */
 	public function store()
 	{
-        var_dump(Input::all());
 		// Do validation
         if ( ! Input::get('last_name'))
         {
@@ -100,13 +106,10 @@ class ApiContactsController extends ApiController {
 	public function update($id)
 	{
         $contact = Contact::find($id);
-        var_dump(Input::all());
-        foreach (Input::all() as $k => $v)
-        {
-            $contact->$k = $v;
-        }
-        $contact->save();
-        return $contact;
+        $contact->fill( Input::only($this->allowable) );
+
+        if ( ! $contact->save()) return $this->respondInternalError();
+
         return $this->respondUpdated();
 	}
 

@@ -37,8 +37,8 @@ class ContactObserver
 
     public function updated(Contact $contact)
     {
-        $contact->login->update(array(
-            'email' => $contact->email
-        ));
+//        $contact->login->update(array(
+//            'email' => $contact->email
+//        ));
     }
 }

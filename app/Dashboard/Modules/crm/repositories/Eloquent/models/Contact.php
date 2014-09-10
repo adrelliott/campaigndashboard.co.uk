@@ -5,12 +5,18 @@ use McCool\LaravelAutoPresenter\PresenterInterface;
 use \Dashboard\Observers\ContactObserver;
 
 class Contact extends BaseModel implements PresenterInterface {
+
     const GENDER_MALE = 1;
     const GENDER_FEMALE = 2;
     const GENDER_OTHER = 3;
 
     // Do not allow updating of these fields
     protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at', 'owner_id'];
+
+    protected $allowable = ['first_name', 'last_name', 'email', 'email2', 'mobile_phone', 'home_phone', 'work_phone',
+        'overseas_phone', 'address1', 'company', 'address2', 'address3', 'city', 'postcode', 'county', 'country',
+        'legacy_id', 'record_type', 'gender', 'date_of_birth', 'twitter_id', 'optin_email', 'optin_sms', 'optin_post'];
+
 
     // Wrap in a presenter (ShawnMcCool), or delete this line if no presenter required
     public $presenter = 'Dashboard\Crm\ContactPresenter';

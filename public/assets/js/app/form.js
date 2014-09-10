@@ -7,6 +7,7 @@ $('form.ajax-form').submit(function(event) {
 
     //Serialise the data to allow for radio/checkboxes
     data = $(this).serialize();
+    console.log(data);
 
     $.ajax({
         url: url,
@@ -24,22 +25,23 @@ $('form.ajax-form').submit(function(event) {
         $('.has-error').removeClass('has-error');
 
         // log data to the console so we can see
-        console.log(data); 
+        console.log(data);
 
         // Handle validation messages
-        if ( ! data.success) {
+        if ( data.status !== "success") {
+
 
             $('.form-errors').removeClass('hide');
             $('.ajax-error').remove();
 
             // Loop though each error and assign
             $.each(data.errors, function(index,error) {
-                
+
                 // add the error class to the wrap div to show the red error style
-                $('#'+index).parent(".form-group").addClass('has-error'); 
+                $('#'+index).parent(".form-group").addClass('has-error');
 
                 // add the actual error message under the input
-                $('#'+index).parent(".form-group").append('<div class="help-block ajax-error"><i class="fa fa-exclamation-triangle"></i> ' + error + '</div>'); 
+                $('#'+index).parent(".form-group").append('<div class="help-block ajax-error"><i class="fa fa-exclamation-triangle"></i> ' + error + '</div>');
 
                 // Add error to the message too
                 $('ul.error-messages').append('<li class="ajax-error"><i class="fa fa-exclamation-triangle"></i> ' + error + '</li>');
@@ -48,7 +50,7 @@ $('form.ajax-form').submit(function(event) {
 
         }
 
-        else if ( data.success) {
+        else if ( data.status === "success") {
 
             // Remove the default class of 'hide' from the success div and add to any others
             $('.form-success').removeClass('hide');
