@@ -21,6 +21,10 @@ return array(
         'label' => 'lead',
     ),
 
+    'broadcasts' => array(
+        'label' => 'broadcast',
+    ),
+
     'orders' => array(
         'label' => 'order',
     ),
@@ -71,34 +75,10 @@ return array(
                     'label' => 'Broadcasts',
                     'min_admin_level' => 3,
                 ),
-                'dropdown2' => array(
-                    'route' => 'app/broadcasts',
-                    'icon' => 'bullhorn',
-                    'label' => 'restricted',
-                    'min_admin_level' => 0,
-                ),
+
             ),
         ),
-        'admin' => array(
-            'route' => '',
-            'icon' => 'bolt',
-            'label' => 'Admin',
-            'min_admin_level' => 1,
-            'dropdowns' => array(
-                'dropdown1' => array(
-                    'route' => 'app/users',
-                    'icon' => 'bullhorn',
-                    'label' => 'Users',
-                    'min_admin_level' => 3,
-                ),
-                'dropdown2' => array(
-                    'route' => 'app/broadcasts',
-                    'icon' => 'bullhorn',
-                    'label' => 'restricted',
-                    'min_admin_level' => 0,
-                ),
-            ),
-        ),
+        
     ),
 
 
