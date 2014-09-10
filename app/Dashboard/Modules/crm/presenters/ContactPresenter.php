@@ -25,6 +25,11 @@ class ContactPresenter extends Presenter {
         return 'You only know this contact by their surname (' . $this->resource->last_name . ')';
     }
 
+    public function membershipNumber(){
+        if (isset($this->resource->legacy_id))
+            return ' (' . $this->resource->legacy_id . ')';
+    }
+
     public function created_at()
     {
         return $this->resource->created_at->diffForHumans();

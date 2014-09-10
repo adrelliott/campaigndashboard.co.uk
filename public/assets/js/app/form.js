@@ -57,8 +57,16 @@ $('form.ajax-form').submit(function(event) {
             $('.form-errors').addClass('hide');
             $('.form-failed').addClass('hide');
 
+            $('.well').addClass('colorWellGreen');
+            setTimeout(function()
+            {
+                $('.well').removeClass('colorWellGreen');
+            }, 1500);
             // Now display the success message for 1 second then fade out
             $('.form-success').show(0).delay(1000).fadeOut('slow');
+
+
+
         }
 
         else {

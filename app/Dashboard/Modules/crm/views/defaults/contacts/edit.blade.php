@@ -2,7 +2,7 @@
 
 @section('page-title')
     <h1>
-        <i class="fa fa-user"></i> {{ $model->fullName }}
+        <i class="fa fa-user"></i> {{ $model->fullName . $model->membershipNumber }}
     </h1>
     <p class="lead">
         You met each other <em>roughly</em> {{ $model->created_at }}.
@@ -33,11 +33,13 @@
         </div>
 
         <div class="col-lg-8 col-md-8 col-sm-8  col-xs-12">
-            {{ Former::text('first_name')->class('form-control input-lg')->placeholder('E.g. Lionel')->id('copy-source') }}
+            {{ Former::text('first_name')->class('form-control input-lg')->placeholder('E.g. Lionel')->id
+            ('copy-source') }}
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
-            {{ Former::text('last_name')->class('form-control input-lg')->placeholder('E.g. Blair') }}
+            {{ Former::text('last_name')->class('form-control input-lg')->placeholder('E.g. Blair')->label('Last Name')
+            }}
         </div>
 
        <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
@@ -45,15 +47,20 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6  col-xs-12">
-            {{ Former::tel('mobile_phone')->class('form-control input-lg')->placeholder('E.g. 07703545343') }}
+            {{ Former::tel('mobile_phone')->class('form-control input-lg')->placeholder('E.g. 07703545343')->label
+            ('Mobile')
+            }}
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6  col-xs-12">
-            {{ Former::tel('home_phone')->class('form-control input-lg')->placeholder('E.g. 01614536464') }}
+            {{ Former::tel('home_phone')->class('form-control input-lg')->placeholder('E.g. 01614536464')->label
+            ('Landline') }}
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
-            {{ Former::email('email')->class('form-control input-lg')->placeholder('E.g. lionel@GiveUsAClue.com') }}
+            {{ Former::email('email')->class('form-control input-lg')->placeholder('E.g. lionel@GiveUsAClue.com')
+            ->label('email')
+            }}
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -71,12 +78,57 @@
 
     {{-- The form has been started in the first section & closed in the last section --}}
 
-        {{ Former::text('address1')->class('form-control input')->placeholder('E.g. 164,
-Givusa Street')->label('Address Line 1') }}
-    
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
+        {{ Former::text('company')->class('form-control input')->placeholder('E.g. Blair\'s Eclairs')->label
+        ('Organisation Name') }}
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
+        {{ Former::text('address1')->class('form-control input')->placeholder('E.g. 164, Givusa Street')->label('Address Line 1') }}
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
+        {{ Former::text('address2')->class('form-control input')->placeholder('E.g. Clueville')->label('Address Line 2') }}
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
+        {{ Former::text('address3')->class('form-control input')->placeholder('E.g. Horton Vasey')->label('Address Line 3') }}
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6  col-xs-12">
+        {{ Former::text('city')->class('form-control input')->placeholder('E.g. Showtown')->label('City') }}
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6  col-xs-12">
+        {{ Former::text('postcode')->class('form-control input')->placeholder('E.g. L10 4EL')->label('Postcode') }}
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6  col-xs-12">
+        {{ Former::text('county')->class('form-control input')->placeholder('E.g. Hollwood')->label('County') }}
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6  col-xs-12">
+        {{ Former::text('country')->class('form-control input')->placeholder('E.g. UK')->label('Country') }}
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12">
+        {{ Former::text('email2')->class('form-control input')->placeholder('E.g. liblair@hotmail.com')->label
+        ('Secondary Email, Gender & DOB') }}
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6  col-xs-12">
+        {{ Former::select('gender')->class('form-control input')->options($config['dropdowns']['genders']) }}
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6  col-xs-12">
+        {{ Former::date('date_of_birth')->class('form-control input')}}
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <button type="submit" class="btn btn-success pull-right"><i class="fa fa-check"></i> Save Changes</button>
-        </div>
+    </div>
 
 @stop
 
@@ -85,7 +137,14 @@ Givusa Street')->label('Address Line 1') }}
 
     {{-- The form has been started in the first section --}}
 
-        //Optin goes here
+        <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12 form-inline">
+            <h4 class="radio-label hidden-md hidden-lg">Receive Emails? </h4>
+            {{ Former::radios('optin_email')
+            ->radios(array(
+            ' <i class="fa fa-thumbs-o-up "></i> Yes  ' => array('name' => 'optin_email', 'value' => '1'),
+            ' <i class="fa fa-thumbs-o-down "></i> No  ' => array('name' => 'optin_email', 'value' => '0')
+            ))->label('<h4 class="radio-label visible-md visible-lg">Receive Emails?</h4>') }}
+        </div>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <button type="submit" class="btn btn-success pull-right"><i class="fa fa-check"></i> Save Changes</button>
         </div>

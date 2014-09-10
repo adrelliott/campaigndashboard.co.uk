@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cec5ecd0-69c2-4968-9e14-e0a448ec7618" name="Default" comment="">
-<<<<<<< HEAD
-=======
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.env.development.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/config/development/app.php" afterPath="$PROJECT_DIR$/app/config/local/app.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/config/development/database.php" afterPath="$PROJECT_DIR$/app/config/local/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bootstrap/start.php" afterPath="$PROJECT_DIR$/bootstrap/start.php" />
->>>>>>> build_api
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/client_config/10000.php.bak.recent" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/client_config/10000.php" afterPath="$PROJECT_DIR$/app/config/client_config/10000.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/crm/presenters/ContactPresenter.php" afterPath="$PROJECT_DIR$/app/Dashboard/Modules/crm/presenters/ContactPresenter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php" afterPath="$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/app/form.js" afterPath="$PROJECT_DIR$/public/assets/js/app/form.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/css/main.css" afterPath="$PROJECT_DIR$/public/assets/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="campaigndashboard.co.uk.iws" />
@@ -33,84 +31,69 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ApiContactsController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/api/controllers/ApiContactsController.php">
+      <file leaf-file-name="edit.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="15" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="2700">
+            <state line="143" column="23" selection-start="5570" selection-end="5570" vertical-scroll-proportion="0.6077348" vertical-offset="2580" max-vertical-offset="4940">
+              <folding>
+                <element signature="n#style#0;n#div#24;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#pre#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#26;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#pre#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContactPresenter.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/presenters/ContactPresenter.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="22" selection-start="931" selection-end="931" vertical-scroll-proportion="0.0" vertical-offset="176" max-vertical-offset="900">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="edit.blade.php.bak" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/views/_todelete/10233/contacts/edit.blade.php.bak">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state line="9" column="9" selection-start="139" selection-end="139" vertical-scroll-proportion="0.25751072" vertical-offset="0" max-vertical-offset="699">
-=======
-            <state line="13" column="19" selection-start="190" selection-end="190" vertical-scroll-proportion="-10.4" vertical-offset="0" max-vertical-offset="420">
->>>>>>> build_api
+            <state line="158" column="14" selection-start="6214" selection-end="6779" vertical-scroll-proportion="0.0" vertical-offset="2620" max-vertical-offset="5360">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-      <file leaf-file-name="composer.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/composer.json">
+      <file leaf-file-name="form.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/js/app/form.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
-=======
-      <file leaf-file-name="start.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bootstrap/start.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="42" selection-start="951" selection-end="951" vertical-scroll-proportion="0.38674033" vertical-offset="100" max-vertical-offset="1540">
+            <state line="63" column="17" selection-start="2041" selection-end="2041" vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="1840">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="database.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/local/database.php">
+      <file leaf-file-name="tables.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/js/app/tables.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="52" selection-start="259" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="500">
->>>>>>> build_api
+            <state line="54" column="8" selection-start="2041" selection-end="2138" vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="1440">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactObserver.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Dashboard/Observers/ContactObserver.php">
+      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/assets/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="13" selection-start="1211" selection-end="1296" vertical-scroll-proportion="0.0" vertical-offset="820" max-vertical-offset="980">
+            <state line="55" column="1" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0" vertical-offset="622" max-vertical-offset="5680">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Contact.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/repositories/Eloquent/models/Contact.php">
+      <file leaf-file-name="10000.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/config/client_config/10000.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="24" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="2240">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EloquentRepository.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Dashboard/Repositories/Eloquent/EloquentRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="181" column="8" selection-start="4891" selection-end="4959" vertical-scroll-proportion="0.0" vertical-offset="3620" max-vertical-offset="6900">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ApiController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/api/controllers/ApiController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="34" selection-start="1584" selection-end="1584" vertical-scroll-proportion="0.0" vertical-offset="1500" max-vertical-offset="3440">
+            <state line="179" column="10" selection-start="4821" selection-end="4821" vertical-scroll-proportion="0.0" vertical-offset="3000" max-vertical-offset="5920">
               <folding />
             </state>
           </provider>
@@ -129,8 +112,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/assets/js/datatables/datatables.custom.js" />
-        <option value="$PROJECT_DIR$/bootstrap/autoload.php" />
         <option value="$PROJECT_DIR$/app/config/staging/app.php" />
         <option value="$PROJECT_DIR$/app/config/staging/database.php" />
         <option value="$PROJECT_DIR$/.env_name.php" />
@@ -167,19 +148,21 @@
         <option value="$PROJECT_DIR$/public/assets/js/app/modalForm.js" />
         <option value="$PROJECT_DIR$/public/assets/js/app/tables.js" />
         <option value="$PROJECT_DIR$/app/Dashboard/Modules/homepage/views/defaults/homepage/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/config/client_config/10000.php" />
         <option value="$PROJECT_DIR$/app/Dashboard/Modules/api/routes.php" />
         <option value="$PROJECT_DIR$/app/Dashboard/Transformers/contactTransformer.php" />
         <option value="$PROJECT_DIR$/app/Dashboard/Transformers/Transformer.php" />
-        <option value="$PROJECT_DIR$/app/Dashboard/Modules/api/controllers/ApiController.php" />
-        <option value="$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php" />
-        <option value="$PROJECT_DIR$/public/assets/js/app/form.js" />
-        <option value="$PROJECT_DIR$/app/storage/logs/laravel.log" />
         <option value="$PROJECT_DIR$/app/Dashboard/Modules/crm/repositories/Eloquent/models/Contact.php" />
         <option value="$PROJECT_DIR$/app/Dashboard/Observers/ContactObserver.php" />
-        <option value="$PROJECT_DIR$/app/Dashboard/Modules/api/controllers/ApiContactsController.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/bootstrap/start.php" />
+        <option value="$PROJECT_DIR$/app/storage/logs/laravel.log" />
+        <option value="$PROJECT_DIR$/app/Dashboard/Modules/api/controllers/ApiContactsController.php" />
+        <option value="$PROJECT_DIR$/app/Dashboard/Modules/api/controllers/ApiController.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/public/assets/js/app/form.js" />
+        <option value="$PROJECT_DIR$/app/config/client_config/10000.php" />
+        <option value="$PROJECT_DIR$/public/assets/css/main.css" />
+        <option value="$PROJECT_DIR$/app/Dashboard/Modules/crm/presenters/ContactPresenter.php" />
+        <option value="$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php" />
       </list>
     </option>
   </component>
@@ -309,6 +292,102 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -571,38 +650,8 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="campaigndashboard.co.uk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="campaigndashboard.co.uk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="crm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="repositories" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="interfaces" />
+              <option name="myItemId" value="_todelete" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -632,37 +681,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="repositories" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Eloquent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="campaigndashboard.co.uk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="campaigndashboard.co.uk" />
+              <option name="myItemId" value="_todelete" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="10233" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Dashboard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
+              <option name="myItemId" value="contacts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -688,16 +719,22 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
+              <option name="myItemId" value="crm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="10222" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contacts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-<<<<<<< HEAD
-=======
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="campaigndashboard.co.uk" />
@@ -734,11 +771,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="local" />
+              <option name="myItemId" value="client_config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
->>>>>>> build_api
         </subPane>
       </pane>
     </panes>
@@ -771,9 +807,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/config/client_config" />
       <recent name="$PROJECT_DIR$/app/database/seeds" />
       <recent name="$PROJECT_DIR$/app/Dashboard/Modules/homepage/views/defaults/homepage" />
-      <recent name="$PROJECT_DIR$/app/config/client_config" />
       <recent name="$PROJECT_DIR$/app/Dashboard/Modules/homepage/views" />
       <recent name="$PROJECT_DIR$/app/Dashboard/Modules/homepage/views/10233" />
     </key>
@@ -856,15 +892,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="774" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32968536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32968536" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32845744" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22265625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -873,6 +908,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32845744" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -917,31 +953,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="46" selection-start="133" selection-end="175" vertical-scroll-proportion="0.0" vertical-offset="140" max-vertical-offset="1780" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_02_11_171027_create_users_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1000" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env.local.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="724" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_02_19_171027_create_notes_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1160" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_03_04_142758_add_orderdate_to_orders.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="760" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_03_12_215641_pivot_order_product_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1060" />
@@ -953,11 +964,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_05_24_120052_pivot_contact_group_table.php.bak">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1000" />
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_09_150014_add_remember_token_to_users.php">
@@ -992,19 +1003,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_14_144539_pivot_contact_role_table.php.bak">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="1300">
-          <folding />
-        </state>
+        <state line="19" column="0" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="1300" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_14_143921_add_fields_to_roles.php.bak">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="740" />
+      </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="740">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_26_093126_create_tag_variants.php">
@@ -1014,9 +1021,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_07_14_152233_add_season_to_contact_order_table.php.bak">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.07734807" vertical-offset="56" max-vertical-offset="800">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.07734807" vertical-offset="56" max-vertical-offset="800" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bootstrap/autoload.php">
@@ -1024,22 +1029,14 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1620" />
       </provider>
     </entry>
-<<<<<<< HEAD
-=======
     <entry file="file://$PROJECT_DIR$/vendor/composer/autoload_classmap.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="63" selection-start="3681" selection-end="3681" vertical-scroll-proportion="0.22503516" vertical-offset="640" max-vertical-offset="46940" />
       </provider>
     </entry>
->>>>>>> build_api
     <entry file="file://$PROJECT_DIR$/public/assets/js/app/modal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.71270716" vertical-offset="516" max-vertical-offset="1240" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/app/tables.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="0" selection-start="1798" selection-end="1798" vertical-scroll-proportion="0.29676512" vertical-offset="729" max-vertical-offset="1440" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/js/datatables/datatables.custom.js">
@@ -1049,9 +1046,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/seeds/Roles_TableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="5" selection-start="282" selection-end="282" vertical-scroll-proportion="0.35911602" vertical-offset="0" max-vertical-offset="724">
-          <folding />
-        </state>
+        <state line="13" column="5" selection-start="282" selection-end="282" vertical-scroll-proportion="0.35911602" vertical-offset="0" max-vertical-offset="724" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/database/migrations/2014_08_27_124742_create_roles.php">
@@ -1079,34 +1074,21 @@
         <state line="34" column="42" selection-start="1046" selection-end="1046" vertical-scroll-proportion="0.15611814" vertical-offset="569" max-vertical-offset="1360" />
       </provider>
     </entry>
-<<<<<<< HEAD
-=======
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="521" column="27" selection-start="11075" selection-end="11075" vertical-scroll-proportion="0.0" vertical-offset="10603" max-vertical-offset="59920" />
-      </provider>
-    </entry>
->>>>>>> build_api
-    <entry file="file://$PROJECT_DIR$/app/controllers/BaseController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="39" selection-start="254" selection-end="264" vertical-scroll-proportion="-0.110497236" vertical-offset="200" max-vertical-offset="2180">
+        <state line="521" column="27" selection-start="11075" selection-end="11075" vertical-scroll-proportion="0.0" vertical-offset="10603" max-vertical-offset="59920">
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-=======
+    <entry file="file://$PROJECT_DIR$/app/controllers/BaseController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="39" selection-start="254" selection-end="264" vertical-scroll-proportion="-0.110497236" vertical-offset="200" max-vertical-offset="2180" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/Response.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="44" column="26" selection-start="1293" selection-end="1309" vertical-scroll-proportion="-0.19690576" vertical-offset="880" max-vertical-offset="25420" />
-      </provider>
-    </entry>
->>>>>>> build_api
-    <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="17" selection-start="2388" selection-end="2388" vertical-scroll-proportion="0.0" vertical-offset="580" max-vertical-offset="3540">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/js/app/modalForm.js">
@@ -1114,27 +1096,11 @@
         <state line="40" column="13" selection-start="1140" selection-end="1229" vertical-scroll-proportion="0.0" vertical-offset="436" max-vertical-offset="1160" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/app/form.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="22" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1680">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/api/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="341" selection-end="341" vertical-scroll-proportion="0.5524862" vertical-offset="0" max-vertical-offset="724">
-          <folding />
-        </state>
+        <state line="20" column="0" selection-start="341" selection-end="341" vertical-scroll-proportion="0.5524862" vertical-offset="0" max-vertical-offset="724" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/client_config/10000.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="30" selection-start="3504" selection-end="3504" vertical-scroll-proportion="0.0" vertical-offset="860" max-vertical-offset="12440" />
-      </provider>
-    </entry>
-<<<<<<< HEAD
-=======
     <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/Input.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="15" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="700" />
@@ -1145,34 +1111,24 @@
         <state line="24" column="39" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0" vertical-offset="380" max-vertical-offset="11380" />
       </provider>
     </entry>
->>>>>>> build_api
-    <entry file="file://$PROJECT_DIR$/app/storage/logs/laravel.log">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="724" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/repositories/Eloquent/EloquentContactRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1220">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1220" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/repositories/interfaces/ContactRepositoryInterface.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="724">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="724" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Dashboard/Repositories/RepositoryInterface.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.2928177" vertical-offset="936" max-vertical-offset="1660">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.2928177" vertical-offset="936" max-vertical-offset="1660" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/local/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="52" selection-start="259" selection-end="279" vertical-scroll-proportion="0.24861878" vertical-offset="0" max-vertical-offset="724" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/repositories/Eloquent/models/Contact.php">
@@ -1184,61 +1140,122 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Dashboard/Repositories/Eloquent/EloquentRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="181" column="8" selection-start="4891" selection-end="4959" vertical-scroll-proportion="0.0" vertical-offset="560" max-vertical-offset="6800">
-          <folding />
-        </state>
+        <state line="181" column="8" selection-start="4891" selection-end="4959" vertical-scroll-proportion="0.0" vertical-offset="560" max-vertical-offset="6800" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Dashboard/Observers/ContactObserver.php">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="13" selection-start="1211" selection-end="1296" vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="940">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/api/controllers/ApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="34" selection-start="1584" selection-end="1584" vertical-scroll-proportion="0.0" vertical-offset="1400" max-vertical-offset="3440">
+        <state line="6" column="8" selection-start="105" selection-end="105" vertical-scroll-proportion="0.16574585" vertical-offset="0" max-vertical-offset="724">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/api/controllers/ApiContactsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="15" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2700">
+        <state line="108" column="31" selection-start="2541" selection-end="2541" vertical-scroll-proportion="0.4275668" vertical-offset="1856" max-vertical-offset="2700">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
+    <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/api/controllers/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state line="9" column="9" selection-start="139" selection-end="139" vertical-scroll-proportion="0.25751072" vertical-offset="0" max-vertical-offset="699">
-=======
-        <state line="13" column="19" selection-start="190" selection-end="190" vertical-scroll-proportion="-10.4" vertical-offset="0" max-vertical-offset="420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/local/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="52" selection-start="259" selection-end="279" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="500">
+        <state line="165" column="20" selection-start="3693" selection-end="3693" vertical-scroll-proportion="0.1160221" vertical-offset="3216" max-vertical-offset="3940">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bootstrap/start.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="42" selection-start="951" selection-end="951" vertical-scroll-proportion="0.38674033" vertical-offset="100" max-vertical-offset="1540">
->>>>>>> build_api
+        <state line="28" column="42" selection-start="951" selection-end="951" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1540">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Dashboard/Observers/ContactObserver.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="13" selection-start="1296" selection-end="1296" vertical-scroll-proportion="0.7790055" vertical-offset="216" max-vertical-offset="940">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/storage/logs/laravel.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="2836" selection-end="2836" vertical-scroll-proportion="0.35672516" vertical-offset="176" max-vertical-offset="860">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/client_config/10000.php.bak.recent">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12540">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/app/tables.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="8" selection-start="2041" selection-end="2138" vertical-scroll-proportion="0.0" vertical-offset="680" max-vertical-offset="1440">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/app/form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="17" selection-start="2041" selection-end="2041" vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="1840">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/client_config/10000.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="179" column="10" selection-start="4821" selection-end="4821" vertical-scroll-proportion="0.0" vertical-offset="3000" max-vertical-offset="5920">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="1" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0" vertical-offset="622" max-vertical-offset="5680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/views/10222/contacts/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="475" selection-end="475" vertical-scroll-proportion="0.49723756" vertical-offset="0" max-vertical-offset="724">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/presenters/ContactPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="22" selection-start="931" selection-end="931" vertical-scroll-proportion="0.0" vertical-offset="176" max-vertical-offset="900">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/views/_todelete/10233/contacts/edit.blade.php.bak">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="158" column="14" selection-start="6214" selection-end="6779" vertical-scroll-proportion="0.0" vertical-offset="2620" max-vertical-offset="5360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="143" column="23" selection-start="5570" selection-end="5570" vertical-scroll-proportion="0.6077348" vertical-offset="2580" max-vertical-offset="4940">
+          <folding>
+            <element signature="n#style#0;n#div#24;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#pre#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#26;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#pre#1;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
