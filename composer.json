@@ -15,8 +15,6 @@
 
         "ollieread/multiauth": "dev-master",
 
-        "mailchimp/mailchimp": "dev-master as 2.0.5",
-
         "ircmaxell/password-compat": "1.0.*",
         "way/form": "dev-master",
         "anahkiasen/former": "dev-master",

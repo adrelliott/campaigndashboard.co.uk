@@ -1,7 +1,7 @@
 <?php namespace Dashboard\Crm;
 
 use CrudController, View, Request, Input;
-use Dashboard\Crm\Mailchimp\EmailLists;
+//use Dashboard\Crm\Mailchimp\EmailLists;
 use Dashboard\Tags\Tag;
 use Dashboard\Sales\Product;
 use Dashboard\Repositories\SearchableContactRepositoryInterface as ModelInterface;
@@ -15,11 +15,11 @@ class ContactsController extends CrudController {
      */
     protected $emailLists;
 
-    public function __construct(ModelInterface $repo, EmailLists $emailLists)
+    public function __construct(ModelInterface $repo)
     {
         parent::__construct($repo);
 
-        $this->emailLists = $emailLists;
+//        $this->emailLists = $emailLists;
         View::share('newDatatables', TRUE);
     }
 
