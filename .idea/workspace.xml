@@ -2,18 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cec5ecd0-69c2-4968-9e14-e0a448ec7618" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Dashboard/Transformers/Transformer.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Dashboard/Transformers/contactTransformer.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/api/controllers/ApiBroadcastsController.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/api/controllers/ApiRolesController.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/api/controllers/ApiContactsController.php" afterPath="$PROJECT_DIR$/app/Dashboard/Modules/api/controllers/ApiContactsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/api/controllers/ApiController.php" afterPath="$PROJECT_DIR$/app/Dashboard/Modules/api/controllers/ApiController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/crm/repositories/Eloquent/models/Contact.php" afterPath="$PROJECT_DIR$/app/Dashboard/Modules/crm/repositories/Eloquent/models/Contact.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Dashboard/Observers/ContactObserver.php" afterPath="$PROJECT_DIR$/app/Dashboard/Observers/ContactObserver.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php" afterPath="$PROJECT_DIR$/app/Dashboard/Modules/crm/views/defaults/contacts/edit.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/js/app/form.js" afterPath="$PROJECT_DIR$/public/assets/js/app/form.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Dashboard/Modules/api/routes.php" afterPath="$PROJECT_DIR$/app/Dashboard/Modules/api/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="campaigndashboard.co.uk.iws" />
@@ -51,7 +39,16 @@
       <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="19" selection-start="190" selection-end="190" vertical-scroll-proportion="0.37195995" vertical-offset="0" max-vertical-offset="699">
+            <state line="9" column="9" selection-start="139" selection-end="139" vertical-scroll-proportion="0.25751072" vertical-offset="0" max-vertical-offset="699">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="composer.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/composer.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
               <folding />
             </state>
           </provider>
@@ -797,7 +794,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32968536" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1133,9 +1130,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1320">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="19" selection-start="190" selection-end="190" vertical-scroll-proportion="0.37195995" vertical-offset="0" max-vertical-offset="699">
+        <state line="9" column="9" selection-start="139" selection-end="139" vertical-scroll-proportion="0.25751072" vertical-offset="0" max-vertical-offset="699">
           <folding />
         </state>
       </provider>
