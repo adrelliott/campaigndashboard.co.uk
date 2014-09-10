@@ -1,60 +1,167 @@
 <?php namespace Dashboard\Api;
 
 
-class ApiController extends Controller {
+use BaseController;
+use Illuminate\Support\Facades\Response;
+use Symfony\Component\HttpFoundation\Response as HTTPResponse;
 
-    public function __construct($repo = NULL)
+class ApiController extends \Controller {
+
+    /**
+     * The HTTP response code (using the Symfony\Component\HttpFoundation\Response class)
+     * @var int
+     */
+    protected $statusCode = HTTPResponse::HTTP_OK;
+
+    protected $entityType = 'Record';
+
+
+    function __construct()
     {
-        parent::__construct($repo);
-        $this->asJson = TRUE;
+        // is this right?
+        $this->beforeFilter('auth');
     }
 
-    public function index()
+    /**
+     * Gets the HTTP code
+     * @return mixed
+     */
+    public function getStatusCode()
     {
-        $this->model = $this->repo->all();
-        return parent::index();
+        return $this->statusCode;
     }
 
-    public function show($id)
+    /**
+     * Sets the status code
+     * @param mixed $statusCode
+     * @return $this
+     */
+    public function setStatusCode($statusCode)
     {
-       return 'Returning record ' . $id;
+        $this->statusCode = $statusCode;
+
+        return $this;
     }
 
-    public function create()
+    /**
+     * Gets the type of record, e.g. 'Contact'
+     * @return string
+     */
+    public function getEntityType()
     {
-        return 'Creating a new record';
+        return $this->entityType;
     }
 
-    public function update()
+    /**
+     * Sets the type of record, e.g. 'Contact'
+     * @param string $entityType
+     */
+    public function setEntityType($entityType)
     {
-        $this->model = $this->repo->all();
-        return parent::index();
-    }
-    public function destroy()
-    {
-        $this->model = $this->repo->all();
-        return parent::index();
+        $this->entityType = $entityType;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-    public function test($id = NULL)
+    /**
+     * Returns a response in an APIy kinda way
+     * @param $data
+     * @param array $headers
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function respond($data, $headers = [])
     {
-        $this->record = $this->getRelated(1, 'orderProducts', 'orderProducts.product')->toArray();
-        dump(\DB::getQueryLog());
-        return dump($this->record);
-        
+        return Response::json($data, $this->getStatusCode(), $headers);
     }
+
+    /**
+     * Responds with HTTP code 201
+     * @param bool $message
+     * @return mixed
+     */
+    public function respondCreated($message = FALSE)
+    {
+        if ( ! $message) $message = $this->getEntityType() . ' created';
+
+        return $this->setStatusCode(HTTPResponse::HTTP_CREATED)->respond([
+            'status' => 'success',
+            'message' => $message
+        ]);
+    }
+
+    /**
+     * Responds with HTTP code 202
+     * @param bool $message
+     * @return mixed
+     */
+    public function respondUpdated($message = FALSE)
+    {
+        if ( ! $message) $message = $this->getEntityType() . ' Updated';
+
+        return $this->setStatusCode(HTTPResponse::HTTP_ACCEPTED)->respond([
+            'status' => 'success',
+            'message' => $message
+        ]);
+    }
+
+    /**
+     * Returns a 404 error
+     * @param bool|string $message
+     * @return mixed
+     */
+    public function respondNotFound($message = FALSE)
+    {
+        if ( ! $message) $message = $this->getEntityType() . ' Not Found!';
+
+        return $this->setStatusCode(HTTPResponse::HTTP_NOT_FOUND)->respondWithError($message);
+    }
+
+    /**
+     * Returns a readable response, with a key of 'error'
+     * @param $message
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function respondWithError($message)
+    {
+        return $this->respond([
+            'error' => [
+                'message' => $message,
+                'status_code' => $this->getStatusCode()
+            ]
+        ]);
+    }
+
+
+
+    /**
+     * Failed validation
+     * @param string $message
+     * @return mixed
+     */
+    public function respondValidationFailed($message = 'Failed Validation!')
+    {
+        return $this->setStatusCode(HTTPResponse::HTTP_UNPROCESSABLE_ENTITY)->respondWithError($message);
+    }
+
+    /**
+     * Responds with an internal error (good for when an exception is thrown)
+     * @param string $message
+     * @return mixed
+     */
+    public function respondInternalError($message = 'Internal Error!')
+    {
+        return $this->setStatusCode(HTTPResponse::HTTP_INTERNAL_SERVER_ERROR)->respondWithError($message);
+    }
+
+    /**
+     * Responds explaining the request wasn't written correctly
+     * @param string $message
+     * @return mixed
+     */
+    public function respondUserError($message = 'Request not formed well')
+    {
+        return $this->setStatusCode(HTTPResponse::HTTP_BAD_REQUEST)->respondWithError($message);
+    }
+
+
 
 
 }

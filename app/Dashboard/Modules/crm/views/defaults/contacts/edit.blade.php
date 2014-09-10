@@ -20,9 +20,9 @@
     {{ Former::open()
             ->role('Form')
             ->class('ajax-form')
-            ->method('PATCH')
+            ->method('PUT')
             ->ajaxUrl('/api/contacts/' . $model->id)
-            ->ajaxMethod('PATCH')
+            ->ajaxMethod('PUT')
             ->rules(array('name' => 'required|max:20|alpha'))
             ->action('app/contacts/' . $model->id)
             ->populate($model->resource)
@@ -57,7 +57,8 @@
         </div>
 
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <button type="submit" class="btn btn-lg btn-success pull-right"><i class="fa fa-check"></i> Create this {{ $config['contacts']['label'] }}</button>
+            <button type="submit" class="btn btn-lg btn-success pull-right"><i class="fa fa-check"></i> Save
+                Changes</button>
         </div>   
 
     {{-- We close the form in the last section --}}
