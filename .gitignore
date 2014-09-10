@@ -10,5 +10,6 @@ composer.phar
 Thumbs.db
 install.sh
 Vagrantfile
-.idea
+.idea/*
+.idea/workspace.xml
 .vagrant
