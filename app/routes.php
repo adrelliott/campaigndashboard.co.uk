@@ -66,7 +66,7 @@ Route::get('/e', function(){
             }
         }
         if (strlen($environment) == 0) {
-            $environment = 'development';
+            $environment = 'local';
         }
 
         return $environment;
