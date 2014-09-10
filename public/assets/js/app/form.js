@@ -28,14 +28,14 @@ $('form.ajax-form').submit(function(event) {
         console.log(data);
 
         // Handle validation messages
-        if ( data.status !== "success") {
+        if ( ! data.success) {
 
 
             $('.form-errors').removeClass('hide');
             $('.ajax-error').remove();
 
             // Loop though each error and assign
-            $.each(data.errors, function(index,error) {
+            $.each(data.error.errors, function(index,error) {
 
                 // add the error class to the wrap div to show the red error style
                 $('#'+index).parent(".form-group").addClass('has-error');
@@ -50,7 +50,7 @@ $('form.ajax-form').submit(function(event) {
 
         }
 
-        else if ( data.status === "success") {
+        else if (data.success) {
 
             // Remove the default class of 'hide' from the success div and add to any others
             $('.form-success').removeClass('hide');

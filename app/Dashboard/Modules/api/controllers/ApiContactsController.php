@@ -14,9 +14,8 @@ class ApiContactsController extends ApiController {
     protected $contactTransformer;
 
     // This shuld be in the trasnformer or the validation class
-    public $allowable =  ['first_name', 'last_name', 'nickname', 'email', 'email2', 'mobile_phone', 'home_phone',
-    'work_phone',
-        'overseas_phone', 'address1', 'company', 'address2', 'address3', 'city', 'postcode', 'county', 'country',
+    public $allowable =  ['title', 'first_name', 'last_name', 'nickname', 'email', 'email2', 'mobile_phone',
+        'home_phone', 'work_phone', 'overseas_phone', 'address1', 'company', 'address2', 'address3', 'city', 'postcode', 'county', 'country',
         'legacy_id', 'record_type', 'gender', 'date_of_birth', 'twitter_id', 'optin_email', 'optin_sms', 'optin_post'];
 
 
@@ -105,10 +104,11 @@ class ApiContactsController extends ApiController {
 	 */
 	public function update($id)
 	{
+        $input = Input::only($this->allowable);
         $contact = Contact::find($id);
-        $contact->fill( Input::only($this->allowable) );
+        $contact->fill($input);
 
-        if ( ! $contact->save()) return $this->respondInternalError();
+        if ( ! $contact->save()) return $this->respondValidationFailed($contact->errors());
 
         return $this->respondUpdated();
 	}

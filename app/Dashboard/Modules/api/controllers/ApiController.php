@@ -16,6 +16,13 @@ class ApiController extends \Controller {
     protected $entityType = 'Record';
 
 
+    /**
+     * Holds the valiadation errors
+     * @var
+     */
+    protected $errors = [];
+
+
     function __construct()
     {
         // is this right?
@@ -62,6 +69,21 @@ class ApiController extends \Controller {
     }
 
     /**
+     * @return mixed
+     */
+    public function getErrors()
+    {
+        return $this->errors;
+    }
+
+    /**
+     * @param mixed $errors
+     */
+    public function setErrors($errors)
+    {
+        $this->errors = $errors;
+    }
+    /**
      * Returns a response in an APIy kinda way
      * @param $data
      * @param array $headers
@@ -82,7 +104,7 @@ class ApiController extends \Controller {
         if ( ! $message) $message = $this->getEntityType() . ' created';
 
         return $this->setStatusCode(HTTPResponse::HTTP_CREATED)->respond([
-            'status' => 'success',
+            'success' => true,
             'message' => $message
         ]);
     }
@@ -97,7 +119,7 @@ class ApiController extends \Controller {
         if ( ! $message) $message = $this->getEntityType() . ' Updated';
 
         return $this->setStatusCode(HTTPResponse::HTTP_ACCEPTED)->respond([
-            'status' => 'success',
+            'success' => true,
             'message' => $message
         ]);
     }
@@ -122,8 +144,10 @@ class ApiController extends \Controller {
     public function respondWithError($message)
     {
         return $this->respond([
+            'success' => false,
             'error' => [
                 'message' => $message,
+                'errors' => $this->errors,
                 'status_code' => $this->getStatusCode()
             ]
         ]);
@@ -136,9 +160,10 @@ class ApiController extends \Controller {
      * @param string $message
      * @return mixed
      */
-    public function respondValidationFailed($message = 'Failed Validation!')
+    public function respondValidationFailed($errors, $message = 'Failed Validation!')
     {
-        return $this->setStatusCode(HTTPResponse::HTTP_UNPROCESSABLE_ENTITY)->respondWithError($message);
+        $this->errors = $errors;
+        return $this->respondWithError($message);
     }
 
     /**
